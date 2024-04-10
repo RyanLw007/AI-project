@@ -1,0 +1,55 @@
+{
+    "greeting": {
+        "patterns": [
+            "ello",
+            "hi",
+            "hello",
+            "hey",
+            "holla"
+        ],
+        "responses": [
+            "Thanks for checking in.",
+            "Thank you for being there!"
+        ]
+    },
+    "goodbye": {
+        "patterns": [
+            "bye",
+            "goodbye"
+        ],
+        "responses": [
+            "Have a nice time, bye.",
+            "Thank you for using this service. Goodbye"
+        ]
+    },
+    "thanks": {
+        "patterns": [
+            "thanks",
+            "thank"
+        ],
+        "responses": [
+            "Happy to help!",
+            "Any time!",
+            "You're welcome",
+            "My pleasure"
+        ]
+    },
+    "train": {
+        "patterns": [
+            "train",
+            "trains"
+        ],
+        "responses": [
+            "I can help you with that. would you like to book a trip or check the schedule?"
+        ]
+    },
+    "book": {
+        "patterns": [
+            "book",
+            "booking"
+        ],
+        "responses": [
+            "I can help you with that. firstly where would you like to go?"
+        ]
+    }
+}
