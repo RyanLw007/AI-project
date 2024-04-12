@@ -13,9 +13,10 @@ sentences_path = "data/sentences.txt"
 
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'a week']
 
-chosen_city = None
+chosen_dest = []
 chosen_date = None
-chosen_time = None
+chosen_time = []
+chosen_time_str = None
 
 # Opening JSON file and return JSON object as a dictionary
 
@@ -43,6 +44,25 @@ def date_conversion(weekday):
             return datetime.today() + timedelta(days=(index - todayindex))
         else :
             return datetime.today() + timedelta(days=7 - today.weekday() + index)
+
+def time_conversion(time):
+
+    if "afternoon" in str(time).lower():
+        return datetime.strptime("12:00", "%H:%M").strftime("%H:%M")
+    if "midnight" in str(time).lower():
+        return datetime.strptime("00:00", "%H:%M").strftime("%H:%M")
+    if "noon" in str(time).lower():
+        return datetime.strptime("15:00", "%H:%M").strftime("%H:%M")
+    if "morning" in str(time).lower():
+        return datetime.strptime("09:00", "%H:%M").strftime("%H:%M")
+    if "evening" in str(time).lower():
+        return datetime.strptime("18:00", "%H:%M").strftime("%H:%M")
+    if "am" in str(time).lower() or "pm" in str(time).lower():
+        return datetime.strptime(time, "%I%p").strftime("%H:%M")
+    if str(time).isdigit():
+        return datetime.strptime(time, "%H%M").strftime("%H:%M")
+    if ":" in str(time):
+        return datetime.strptime(time, "%H:%M").strftime("%H:%M")
 
 def check_intention_by_keyword(sentence):
     for word in sentence.split():
@@ -103,9 +123,10 @@ def get_best_match_university(user_input):
 
 def ner_response(user_input):
     doc = nlp(user_input)
-    global chosen_city
+    global chosen_dest
     global chosen_date
     global chosen_time
+    global chosen_time_str
 
     for token in doc:
         if token.pos_ == "VERB":
@@ -124,48 +145,37 @@ def ner_response(user_input):
                 if any(doc.ents):
                     for ent in doc.ents:
                         if ent.label_ == "GPE":
-                            print("BOT: " + "You are going to " + ent.text + ".")
-                            chosen_city = ent.text
+                            chosen_dest.append(ent.text)
+                        if ent.label_ == "ORG":
+                            chosen_dest.append(ent.text)
                         if ent.label_ == "DATE":
-                            if ent.text.lower() in weekdays:
-                                chosen_date = date_conversion(ent.text.lower())
-                                print("BOT: " + "I understand that you want travel on " + chosen_date.strftime("%Y-%m-%d") + ".")
-                            else:
-                                print("BOT: " + "I understand that you want travel on " + ent.text + ".")
-                    if chosen_city == None:
+                            doc = nlp(ent.text)
+                            for check in doc:
+                                if check.pos_ != "DET":
+                                    if ent.text.lower() in weekdays:
+                                        chosen_date = date_conversion(ent.text.lower())
+                                        print("BOT: " + "I understand that you want travel on " + chosen_date.strftime("%Y-%m-%d") + ".")
+                                    else:
+                                        print("BOT: " + "I understand that you want travel on " + ent.text + ".")
+                        if ent.label_ == "TIME":
+                            chosen_time.append(ent.text)
+                    if chosen_time != []:
+                        chosen_time_str = " ".join(chosen_time)
+                        chosen_time_str = time_conversion(chosen_time_str)
+                        print("BOT: " + "You want to travel at " + chosen_time_str + ".")
+                    if chosen_dest != []:
+                        print("BOT: " + "You want to go to " + "".join(chosen_dest) + ".")
+                    if chosen_dest != None and chosen_date != None and chosen_time != []:
+                        print("BOT: " + "I understand that you want to go to " + "".join(chosen_dest) + " on " + chosen_date.strftime("%Y-%m-%d") + " at " + chosen_time_str + ".")
+                    if chosen_dest == None:
                         print("BOT: " + "I am sorry I don't understand where you want to go.")
                     if chosen_date == None:
+                        print("BOT: " + "I am sorry I don't understand when you want to go.")
+                    if chosen_time == []:
                         print("BOT: " + "I am sorry I don't understand when you want to go.")
                     if final_chatbot:
                         print("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
                     return True
-
-    for ent in doc.ents:
-        # use entity type for countries, cities, states.
-        if ent.label_ == "GPE":
-            # Do not change these lines
-            print("BOT: Weather is very " + random.choice(["windy ", "cold ", "warm "]) + "in " + ent.text + " today.")
-            if final_chatbot:
-                print(
-                    "BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
-            return True
-
-    for ent in doc.ents:
-        # use entity type for companies, agencies, institutions, etc.
-        if ent.label_ == "ORG":
-            # Do not change these lines
-            matched_university = get_best_match_university(ent.text)
-            if matched_university != None:
-                university = universities[matched_university]
-                print(
-                    f"BOT: You asked for {university['Name']} which is located in the {university['City']} and its rank is {university['Rank']} in the UK.")
-                if final_chatbot:
-                    print(
-                        f"BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
-            else:
-                print("BOT: I don't have any information about it.")
-
-            return True
 
     return False
 
@@ -262,10 +272,18 @@ while(flag==True):
     user_input = input()
     intention = check_intention_by_keyword(user_input)
     if intention == 'goodbye':
+        if chosen_dest != None and chosen_date != None and chosen_time != []:
+            print("location: " + "".join(chosen_dest) + " Date: " + str(chosen_date.strftime("%Y-%m-%d")) + " Time: " + chosen_time_str)
+        if chosen_dest == None:
+            print("BOT: No city chosen")
+        if chosen_date == None:
+            print("BOT: No date chosen")
+        if chosen_time == []:
+            print("BOT: No time chosen")
         flag=False
     elif intention == None:
         if not ner_response(user_input):
-            if not date_time_response(user_input):
+            #if not date_time_response(user_input):
                 if not expert_response(user_input):
                     if not ner_response(user_input):
                         print("BOT: Sorry I don't understand that. Please rephrase your statement.")
