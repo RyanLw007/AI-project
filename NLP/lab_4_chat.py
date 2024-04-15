@@ -7,15 +7,18 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from difflib import get_close_matches, SequenceMatcher
 from experta import *
+import warnings
+warnings.filterwarnings('ignore')
+
+
 
 intentions_path = "data/intentions.json"
 sentences_path = "data/sentences.txt"
 
-weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'a week']
+weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
 
-chosen_dest = []
-chosen_date = None
-chosen_time = []
+chosen_dest_str = None
+chosen_date_str = None
 chosen_time_str = None
 
 # Opening JSON file and return JSON object as a dictionary
@@ -25,34 +28,71 @@ with open(intentions_path) as f:
 
 final_chatbot = False
 
-def date_conversion(weekday):
+def clean_date(date):
+    date = nlp(date)
+    out = ""
+    for token in date:
+        if token.pos_ == "DET":
+            continue
+        else:
+            out += token.text + " "
+    return out.rstrip()
 
-    if weekday == "today":
-        return datetime.today()
-    if weekday == "tomorrow":
-        return datetime.today() + timedelta(days=1)
-    if weekday == "a week":
-        return datetime.today() + timedelta(days=7)
 
-    index = weekdays.index(weekday)
-    today = datetime.today()
-    todayindex = today.weekday()
-    if todayindex == index:
-        return datetime.today() + timedelta(days=7)
-    else :
-        if today.weekday() < index:
-            return datetime.today() + timedelta(days=(index - todayindex))
-        else :
-            return datetime.today() + timedelta(days=7 - today.weekday() + index)
+def date_conversion(date):
+    if date.lower() in weekdays:
 
+        date = date.lower()
+
+        todayindex = datetime.today().weekday()
+
+        if date == "today":
+            return datetime.today().strftime("%Y-%m-%d")
+        if date == "tomorrow":
+            date_out = datetime.today() + timedelta(days=1)
+            return date_out.strftime("%Y-%m-%d")
+        if date == "a week":
+            date_out = datetime.today() + timedelta(days=7)
+            return date_out.strftime("%Y-%m-%d")
+
+        index = weekdays.index(date)
+        today = datetime.today()
+        if todayindex == index:
+            date_out = datetime.today() + timedelta(days=7)
+            return date_out.strftime("%Y-%m-%d")
+        else:
+            if today.weekday() < index:
+                date_out = datetime.today() + timedelta(days=(index - todayindex))
+                return date_out.strftime("%Y-%m-%d")
+            else:
+                date_out = datetime.today() + timedelta(days=7 - today.weekday() + index)
+                return date_out.strftime("%Y-%m-%d")
+    else:
+        words = date.split()
+        if "st" in words[0]:
+            words[0] = words[0].replace("st", "")
+        if "nd" in words[0]:
+            words[0] = words[0].replace("nd", "")
+        if "rd" in words[0]:
+            words[0] = words[0].replace("rd", "")
+        if "th" in words[0]:
+            words[0] = words[0].replace("th", "")
+
+        month = words[0] + " " + words[1] + " " + str(datetime.today().year)
+        date = datetime.strptime(month, "%d %B %Y").strftime("%Y-%m-%d")
+
+        if date < datetime.today().strftime("%Y-%m-%d"):
+            return datetime.strptime(month, "%d %B %Y").replace(year=datetime.today().year + 1).strftime("%Y-%m-%d")
+        else:
+            return date
 def time_conversion(time):
 
     if "afternoon" in str(time).lower():
-        return datetime.strptime("12:00", "%H:%M").strftime("%H:%M")
+        return datetime.strptime("15:00", "%H:%M").strftime("%H:%M")
     if "midnight" in str(time).lower():
         return datetime.strptime("00:00", "%H:%M").strftime("%H:%M")
     if "noon" in str(time).lower():
-        return datetime.strptime("15:00", "%H:%M").strftime("%H:%M")
+        return datetime.strptime("12:00", "%H:%M").strftime("%H:%M")
     if "morning" in str(time).lower():
         return datetime.strptime("09:00", "%H:%M").strftime("%H:%M")
     if "evening" in str(time).lower():
@@ -64,6 +104,25 @@ def time_conversion(time):
     if ":" in str(time):
         return datetime.strptime(time, "%H:%M").strftime("%H:%M")
 
+def missing_info_response():
+    global chosen_dest_str
+    global chosen_date_str
+    global chosen_time_str
+
+    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None:
+        print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + ".")
+        if final_chatbot:
+            print("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
+
+    if chosen_dest_str == None:
+        print("BOT: Please Choose a Destination.")
+
+    if chosen_date_str == None:
+        print("BOT: Please Choose a Date.")
+
+    if chosen_time_str == None:
+        print("BOT: Please Choose a Time.")
+
 def check_intention_by_keyword(sentence):
     for word in sentence.split():
         for type_of_intention in intentions:
@@ -72,7 +131,7 @@ def check_intention_by_keyword(sentence):
 
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:
-                    print("BOT: We can talk about the time, date, and train tickets.\n(Hint: What time is it?)")
+                    print("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
                 return type_of_intention
     return None
 
@@ -123,9 +182,11 @@ def get_best_match_university(user_input):
 
 def ner_response(user_input):
     doc = nlp(user_input)
-    global chosen_dest
-    global chosen_date
-    global chosen_time
+    chosen_dest = []
+    chosen_date = []
+    chosen_time = []
+    global chosen_dest_str
+    global chosen_date_str
     global chosen_time_str
 
     for token in doc:
@@ -149,36 +210,78 @@ def ner_response(user_input):
                         if ent.label_ == "ORG":
                             chosen_dest.append(ent.text)
                         if ent.label_ == "DATE":
-                            doc = nlp(ent.text)
-                            for check in doc:
-                                if check.pos_ != "DET":
-                                    if ent.text.lower() in weekdays:
-                                        chosen_date = date_conversion(ent.text.lower())
-                                        print("BOT: " + "I understand that you want travel on " + chosen_date.strftime("%Y-%m-%d") + ".")
-                                    else:
-                                        print("BOT: " + "I understand that you want travel on " + ent.text + ".")
+                            chosen_date.append(ent.text)
                         if ent.label_ == "TIME":
                             chosen_time.append(ent.text)
-                    if chosen_time != []:
-                        chosen_time_str = " ".join(chosen_time)
-                        chosen_time_str = time_conversion(chosen_time_str)
-                        print("BOT: " + "You want to travel at " + chosen_time_str + ".")
-                    if chosen_dest != []:
-                        print("BOT: " + "You want to go to " + "".join(chosen_dest) + ".")
-                    if chosen_dest != None and chosen_date != None and chosen_time != []:
-                        print("BOT: " + "I understand that you want to go to " + "".join(chosen_dest) + " on " + chosen_date.strftime("%Y-%m-%d") + " at " + chosen_time_str + ".")
-                    if chosen_dest == None:
-                        print("BOT: " + "I am sorry I don't understand where you want to go.")
-                    if chosen_date == None:
-                        print("BOT: " + "I am sorry I don't understand when you want to go.")
-                    if chosen_time == []:
-                        print("BOT: " + "I am sorry I don't understand when you want to go.")
-                    if final_chatbot:
-                        print("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
-                    return True
 
+
+
+                    if chosen_time != []:
+                        chosen_time_beforecon = " ".join(chosen_time)
+                        chosen_time_str = time_conversion(chosen_time_beforecon)
+                        print("BOT: " + "You want to travel at " + chosen_time_str + ".")
+
+                    if chosen_dest != []:
+                        chosen_dest_str = " ".join(chosen_dest)
+                        print("BOT: " + "You want to go to " + chosen_dest_str + ".")
+
+                    if chosen_date != []:
+                        chosen_date_before = " ".join(chosen_date)
+                        cleaned_date = clean_date(chosen_date_before)
+                        print(cleaned_date)
+                        chosen_date_date = date_conversion(cleaned_date)
+                        chosen_date_str = "".join(chosen_date_date)
+                        print("BOT: " + "You want to travel on " + chosen_date_str + ".")
+
+                    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None:
+                        print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + ".")
+                        if final_chatbot:
+                            print("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
+                        return True
+
+                    missing_info_response()
+                    return True
+        for ent in doc.ents:
+            if ent.label_ == "DATE":
+                date = ent.text
+                date = clean_date(date)
+                date = date_conversion(date)
+                chosen_date_str = date
+                print("BOT: You want to travel on " + date + ".")
+                missing_info_response()
+                return True
+            if ent.label_ == "TIME":
+                time = ent.text
+                time = time_conversion(time)
+                chosen_time_str = time
+                print("BOT: You want to travel at " + time + ".")
+                missing_info_response()
+                return True
     return False
 
+
+time_sentences = ''
+date_sentences = ''
+with open(sentences_path) as file:
+    for line in file:
+        parts = line.split(' | ')
+        if parts[0] == 'time':
+            time_sentences = time_sentences + ' ' + parts[1].strip()
+        elif parts[0] == 'date':
+            date_sentences = date_sentences + ' ' + parts[1].strip()
+
+labels = []
+sentences = []
+
+doc = nlp(time_sentences)
+for sentence in doc.sents:
+    labels.append("time")
+    sentences.append(sentence.text.lower().strip())
+
+doc = nlp(date_sentences)
+for sentence in doc.sents:
+    labels.append("date")
+    sentences.append(sentence.text.lower().strip())
 
 def date_time_response(user_input):
     cleaned_user_input = lemmatize_and_clean(user_input)
@@ -190,11 +293,7 @@ def date_time_response(user_input):
         similarity = doc_1.similarity(doc_2)
         similarities[idx] = similarity
 
-    try:
-        max_similarity_idx = max(similarities, key=similarities.get)
-    except ValueError:
-        return False
-
+    max_similarity_idx = max(similarities, key=similarities.get)
 
     # Minimum acceptable similarity between user's input and our Chatbot data
     # This number can be changed
@@ -272,18 +371,22 @@ while(flag==True):
     user_input = input()
     intention = check_intention_by_keyword(user_input)
     if intention == 'goodbye':
-        if chosen_dest != None and chosen_date != None and chosen_time != []:
-            print("location: " + "".join(chosen_dest) + " Date: " + str(chosen_date.strftime("%Y-%m-%d")) + " Time: " + chosen_time_str)
-        if chosen_dest == None:
-            print("BOT: No city chosen")
-        if chosen_date == None:
-            print("BOT: No date chosen")
-        if chosen_time == []:
-            print("BOT: No time chosen")
+
+        if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None:
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + ".")
+
+        if chosen_dest_str == None:
+            print("BOT: You have not chosen a destination.")
+
+        if chosen_date_str == None:
+            print("BOT: You have not chosen a date.")
+
+        if chosen_time_str == None:
+            print("BOT: You have not chosen a time.")
         flag=False
     elif intention == None:
         if not ner_response(user_input):
-            #if not date_time_response(user_input):
+            if not date_time_response(user_input):
                 if not expert_response(user_input):
                     if not ner_response(user_input):
                         print("BOT: Sorry I don't understand that. Please rephrase your statement.")
