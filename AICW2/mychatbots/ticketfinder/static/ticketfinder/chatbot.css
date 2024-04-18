@@ -1,0 +1,100 @@
+/* Center the chat container on the page */
+#chat-container {
+    width: 80vw; /* 80% of the viewport width */
+    max-width: 600px; /* Maximum width to maintain usability */
+    height: 70vh; /* 70% of the viewport height */
+    min-height: 500px; /* Minimum height to ensure visibility of chat elements */
+    border: 1px solid #dee2e6; /* Bootstrap grey border */
+    border-radius: 0.5rem; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: auto; /* Centering */
+    background-color: white; /* Background color */
+    box-shadow: 0 4px 6px rgba(0,0,0,.1); /* Soft shadow for depth */
+    overflow: hidden; /* Hide the overflow to maintain border-radius */
+}
+
+/* Style for the chat messages area */
+#chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 0.5rem 0.5rem 0 0; /* Rounded corners at the top */
+}
+
+/* Styling individual messages */
+#chat-box div {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #e9ecef; /* Slightly darker grey */
+    border: 1px solid #dee2e6; /* Bootstrap grey border */
+    max-width: 80%; /* Making sure the chat bubbles don't span the full width */
+    display: inline-block; /* Allows for the width to be set, and margins to be applied */
+}
+#chat-box div.bot {
+    background-color: #e9ecef; /* Lighter background for contrast */
+    text-align: left;
+    float: left; /* Aligns bot messages to the left */
+    clear: both; /* Ensures the message divs do not overlap each other */
+    margin-right: auto; /* Ensures alignment to the left */
+    border-color: #ced4da; /* Border color similar to Bootstrap's default */
+}
+
+/* Differentiating user's messages */
+#chat-box div.user {
+    background-color: #0d6efd; /* Bootstrap blue */
+    color: white;
+    text-align: right;
+    float: right; /* Aligns user messages to the right */
+    clear: both; /* Prevents overlapping floats */
+}
+
+#input-group {
+    display: flex; /* Use flexbox for the input group */
+    padding: 0 1rem; /* Same padding as the chat-box for alignment */
+    margin-bottom: 1rem; /* Space below the input group */
+}
+/* Styling the input field and send button */
+#user-input, #send {
+    width: auto;
+    margin-top: 0.5rem;
+}
+
+#user-input {
+    flex-grow: 1; /* Allows the input to grow and fill the space */
+    margin-right: 0.5rem; /* Keep a small margin on the right */
+}
+
+/* Bootstrap button styling for send */
+#send {
+    background-color: #0d6efd; /* Bootstrap blue */
+    color: white;
+    border: none;
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 0.5rem 1rem;
+    white-space: nowrap; /* Prevent the text inside the button from wrapping */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+}
+
+#send:hover {
+    background-color: #0b5ed7; /* Slightly darker on hover */
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6; /* Light greyish background for a soft look */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Aligns chat-container vertically */
+    justify-content: center; /* Aligns chat-container horizontally */
+}
+#chat-box::after {
+    content: "";
+    clear: both;
+    display: table;
+}
