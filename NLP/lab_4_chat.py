@@ -2,6 +2,7 @@ import json
 import random
 import spacy.cli
 import requests
+import csv
 from datetime import datetime, timedelta
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -17,9 +18,18 @@ sentences_path = "data/sentences.txt"
 
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
 
+chosen_origin_str = "Norwich"
 chosen_dest_str = None
 chosen_date_str = None
 chosen_time_str = None
+ticket_type = None
+
+origin_code = "NRW"
+dest_code = None
+
+multiple_loc = False
+
+chosen_intention = None
 
 # Opening JSON file and return JSON object as a dictionary
 
@@ -37,7 +47,6 @@ def clean_date(date):
         else:
             out += token.text + " "
     return out.rstrip()
-
 
 def date_conversion(date):
     if date.lower() in weekdays:
@@ -108,11 +117,29 @@ def missing_info_response():
     global chosen_dest_str
     global chosen_date_str
     global chosen_time_str
+    global ticket_type
 
-    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None:
-        print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + ".")
+    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None and ticket_type != None:
+
+        if ticket_type == "one way":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + " with a one way ticket.")
+
+        if ticket_type == "round":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + " with a round ticket.")
+
+        if ticket_type == "open ticket":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " with an open ticket.")
+
+        if ticket_type == "open return":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " with an open return ticket.")
+
+    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None and ticket_type == None:
+        print("BOT: You want to travel from " + chosen_origin_str + " to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + ".")
         if final_chatbot:
             print("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
+
+    if chosen_dest_str == "Norwich":
+        print("BOT: No Origin given. Defaulting to Norwich. (if you would like to change this please say 'from' and then the location)")
 
     if chosen_dest_str == None:
         print("BOT: Please Choose a Destination.")
@@ -123,15 +150,25 @@ def missing_info_response():
     if chosen_time_str == None:
         print("BOT: Please Choose a Time.")
 
+
 def check_intention_by_keyword(sentence):
+    global chosen_intention
     for word in sentence.split():
         for type_of_intention in intentions:
             if word.lower() in intentions[type_of_intention]["patterns"]:
-                print("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
 
+                print("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:
                     print("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
+                return type_of_intention
+    return chosen_intention
+
+def check_intention_by_keyword_nr(sentence):
+    global chosen_intention
+    for word in sentence.split():
+        for type_of_intention in intentions:
+            if word.lower() in intentions[type_of_intention]["patterns"]:
                 return type_of_intention
     return None
 
@@ -180,14 +217,27 @@ def get_best_match_university(user_input):
         return None
 
 
+
+
 def ner_response(user_input):
+
+    check_ticket(user_input, 0)
+
     doc = nlp(user_input)
+    chosen_origin = []
     chosen_dest = []
     chosen_date = []
     chosen_time = []
+    global chosen_origin_str
     global chosen_dest_str
     global chosen_date_str
     global chosen_time_str
+    global multiple_loc
+    multiple_loc = False
+
+    for key in doc:
+        if key.text.lower() == "from":
+            multiple_loc = True
 
     for token in doc:
         if token.pos_ == "VERB":
@@ -202,17 +252,57 @@ def ner_response(user_input):
                 choose = True
             if token.text.lower() == "choose":
                 choose = True
+            if token.text.lower() == "get":
+                choose = True
+            if token.text.lower() == "goes":
+                choose = True
             if choose:
                 if any(doc.ents):
                     for ent in doc.ents:
-                        if ent.label_ == "GPE":
-                            chosen_dest.append(ent.text)
-                        if ent.label_ == "ORG":
-                            chosen_dest.append(ent.text)
-                        if ent.label_ == "DATE":
-                            chosen_date.append(ent.text)
-                        if ent.label_ == "TIME":
-                            chosen_time.append(ent.text)
+                        if multiple_loc:
+                            ent_index = ent.start
+                            if doc[ent_index - 1].text.lower() == "from":
+                                if ent.label_ == "GPE":
+                                    chosen_origin.append(ent.text)
+                                if ent.label_ == "ORG":
+                                    chosen_origin.append(ent.text)
+                                if ent.label_ == "LOC":
+                                    chosen_origin.append(ent.text)
+                                if ent.label_ == "NORP":
+                                    chosen_origin.append(ent.text)
+                                if ent.label_ == "PERSON":
+                                    chosen_origin.append(ent.text)
+                            if doc[ent_index - 1].text.lower() == "to":
+                                if ent.label_ == "GPE":
+                                    chosen_dest.append(ent.text)
+                                if ent.label_ == "ORG":
+                                    chosen_dest.append(ent.text)
+                                if ent.label_ == "LOC":
+                                    chosen_dest.append(ent.text)
+                                if ent.label_ == "NORP":
+                                    chosen_dest.append(ent.text)
+                                if ent.label_ == "PERSON":
+                                    chosen_dest.append(ent.text)
+
+                            if ent.label_ == "DATE":
+                                chosen_date.append(ent.text)
+                            if ent.label_ == "TIME":
+                                chosen_time.append(ent.text)
+                        else:
+                            if ent.label_ == "GPE":
+                                chosen_dest.append(ent.text)
+                            if ent.label_ == "ORG":
+                                chosen_dest.append(ent.text)
+                            if ent.label_ == "LOC":
+                                chosen_dest.append(ent.text)
+                            if ent.label_ == "NORP":
+                                chosen_dest.append(ent.text)
+                            if ent.label_ == "PERSON":
+                                chosen_dest.append(ent.text)
+                            if ent.label_ == "DATE":
+                                chosen_date.append(ent.text)
+                            if ent.label_ == "TIME":
+                                chosen_time.append(ent.text)
 
 
 
@@ -221,6 +311,10 @@ def ner_response(user_input):
                         chosen_time_str = time_conversion(chosen_time_beforecon)
                         print("BOT: " + "You want to travel at " + chosen_time_str + ".")
 
+                    if chosen_origin != []:
+                        chosen_origin_str = " ".join(chosen_origin)
+                        print("BOT: " + "You want to travel from " + chosen_origin_str + ".")
+
                     if chosen_dest != []:
                         chosen_dest_str = " ".join(chosen_dest)
                         print("BOT: " + "You want to go to " + chosen_dest_str + ".")
@@ -228,33 +322,55 @@ def ner_response(user_input):
                     if chosen_date != []:
                         chosen_date_before = " ".join(chosen_date)
                         cleaned_date = clean_date(chosen_date_before)
-                        print(cleaned_date)
                         chosen_date_date = date_conversion(cleaned_date)
                         chosen_date_str = "".join(chosen_date_date)
                         print("BOT: " + "You want to travel on " + chosen_date_str + ".")
 
-                    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None:
-                        print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + ".")
-                        if final_chatbot:
-                            print("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
-                        return True
+                    if chosen_origin == []:
+                        print("BOT: As no origin was given, I am assuming you want to travel from Norwich. (If you would like to change this please say 'from' and then the location)")
 
+
+                    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None and ticket_type != None:
+                        print("BOT: You want to travel from " + chosen_origin_str + " to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + " with ticket type " + ticket_type + ".")
+                        if final_chatbot:
+                            print("BOT: If you don't have any other questions you can type bye.)")
+                        return True
                     missing_info_response()
                     return True
-        for ent in doc.ents:
-            if ent.label_ == "DATE":
-                date = ent.text
-                date = clean_date(date)
-                date = date_conversion(date)
-                chosen_date_str = date
-                print("BOT: You want to travel on " + date + ".")
+    for ent in doc.ents:
+        if ent.label_ == "DATE":
+            date = ent.text
+            date = clean_date(date)
+            date = date_conversion(date)
+            chosen_date_str = date
+            print("BOT: You want to travel on " + date + ".")
+            missing_info_response()
+            return True
+        if ent.label_ == "TIME":
+            time = ent.text
+            time = time_conversion(time)
+            chosen_time_str = time
+            print("BOT: You want to travel at " + time + ".")
+            missing_info_response()
+            return True
+        if ent.label_ == "GPE" or ent.label_ == "ORG" or ent.label_ == "LOC" or ent.label_ == "NORP" or ent.label_ == "PERSON":
+            ent_index = ent.start
+            if doc[ent_index - 1].text.lower() == "from":
+                chosen_origin.append(ent.text)
+                chosen_origin_str = " ".join(chosen_origin)
+                print("BOT: You want to travel from " + chosen_origin_str + ".")
                 missing_info_response()
                 return True
-            if ent.label_ == "TIME":
-                time = ent.text
-                time = time_conversion(time)
-                chosen_time_str = time
-                print("BOT: You want to travel at " + time + ".")
+            if doc[ent_index - 1].text.lower() == "to":
+                chosen_dest.append(ent.text)
+                chosen_dest_str = " ".join(chosen_dest)
+                print("BOT: You want to travel to " + chosen_dest_str + ".")
+                missing_info_response()
+                return True
+            else:
+                chosen_dest.append(ent.text)
+                chosen_dest_str = " ".join(chosen_dest)
+                print("I am assuming you want to travel to " + chosen_dest_str + ".")
                 missing_info_response()
                 return True
     return False
@@ -344,19 +460,23 @@ class TrainBot(KnowledgeEngine):
 # engine.declare(Book(ticket=choice(['one way', 'round', 'open ticket', 'open return'])))
 # engine.run()
 
-def check_ticket(user_input):
+def check_ticket(user_input , loc):
+    global ticket_type
     user_input = user_input.lower()
     ticket_list = ['one way', 'round', 'open ticket', 'open return']
 
     for ticket in ticket_list:
         if ticket in user_input:
-            return ticket_list[ticket_list.index(ticket)]
+            ticket_type = ticket_list[ticket_list.index(ticket)]
+            if loc == 1:
+                return ticket_list[ticket_list.index(ticket)]
 
-    return None
+    if loc == 1:
+        return None
 def expert_response(user_input):
     engine = TrainBot()
     engine.reset()
-    ticket = check_ticket(user_input)
+    ticket = check_ticket(user_input , 1)
     if ticket != None:
         engine.declare(Book(ticket=ticket))
         engine.run()
@@ -364,30 +484,87 @@ def expert_response(user_input):
 
     return False
 
+def goodbye_response():
+
+    if ticket_type == None:
+        print("BOT: You have not chosen a ticket type.")
+
+
+    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None and ticket_type != None:
+
+        if ticket_type == "one way":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + " with a one way ticket.")
+
+        if ticket_type == "round":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + " with a round ticket.")
+
+        if ticket_type == "open ticket":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " with an open ticket.")
+
+        if ticket_type == "open return":
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " with an open return ticket.")
+
+    if chosen_dest_str == None:
+        print("BOT: You have not chosen a destination.")
+
+    if chosen_date_str == None:
+        print("BOT: You have not chosen a date.")
+
+    if chosen_time_str == None:
+        print("BOT: You have not chosen a time.")
+
+
+
+
+
+
 final_chatbot = True
+
 flag=True
+
 print("BOT: Hi there! How can I help you?.\n (If you want to exit, just type bye!)")
+
+
 while(flag==True):
+
+
     user_input = input()
-    intention = check_intention_by_keyword(user_input)
-    if intention == 'goodbye':
+    with open('data/past_inputs.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([user_input])
 
-        if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None:
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + ".")
 
-        if chosen_dest_str == None:
-            print("BOT: You have not chosen a destination.")
+    chosen_intention = check_intention_by_keyword(user_input)
 
-        if chosen_date_str == None:
-            print("BOT: You have not chosen a date.")
 
-        if chosen_time_str == None:
-            print("BOT: You have not chosen a time.")
+    if chosen_intention == 'goodbye':
+
+        goodbye_response()
         flag=False
-    elif intention == None:
+        #change intention for different responses (prediction etc)
+
+        # if one way ticket I only need destination, date and time
+        # if round ticket I need destination, date and time arriving and date and time leaving
+        # if open ticket I need destination and date no extra info is needed
+        # if open return ticket I need destination and date arriving and date leaving no extra info is needed
+
+    if chosen_intention == 'book':
+        if not ner_response(user_input):
+            if not date_time_response(user_input):
+                if not expert_response(user_input):
+                    if not ner_response(user_input):
+                        if check_intention_by_keyword_nr(user_input) != "book":
+                            print("BOT: Sorry I don't understand that. Please rephrase your statement.")
+    if chosen_intention == None:
         if not ner_response(user_input):
             if not date_time_response(user_input):
                 if not expert_response(user_input):
                     if not ner_response(user_input):
                         print("BOT: Sorry I don't understand that. Please rephrase your statement.")
+
+    if chosen_intention != 'goodbye' and chosen_intention != 'book' and chosen_intention != None:
+        if not date_time_response(user_input):
+            if not expert_response(user_input):
+                if not ner_response(user_input):
+                    print("BOT: Sorry I don't understand that. Please rephrase your statement.")
 

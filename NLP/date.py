@@ -1,5 +1,6 @@
 from datetime import *
 import spacy.cli
+import csv
 
 nlp = spacy.load('en_core_web_sm')
 
@@ -112,3 +113,20 @@ doc = nlp("the 5th December 2024")
 
 print(clean_date(doc))
 
+with open('data/past_inputs.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["Past User Inputs"])
+
+user_input = input()
+
+reader = csv.reader(open('data/stations.csv', 'r'))
+
+indatabase = False
+for row in reader:
+    if user_input.upper() in row:
+        indatabase = True
+        break
+if indatabase:
+    print("Station found")
+if not indatabase:
+    print("Station not found")

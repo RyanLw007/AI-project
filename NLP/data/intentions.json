@@ -34,15 +34,6 @@
             "My pleasure"
         ]
     },
-    "train": {
-        "patterns": [
-            "train",
-            "trains"
-        ],
-        "responses": [
-            "I can help you with that. would you like to book a trip or check the schedule?"
-        ]
-    },
     "book": {
         "patterns": [
             "book",
@@ -50,6 +41,18 @@
         ],
         "responses": [
             "I can help you with that. firstly where would you like to go?"
+        ]
+    },
+    "cancel": {
+        "patterns": [
+            "cancel",
+            "cancelation",
+            "don't",
+            "dont",
+            "not"
+        ],
+        "responses": [
+            "I can help you with that. If you want to book a different train please give me the new destination."
         ]
     }
 }
