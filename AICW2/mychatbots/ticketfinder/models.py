@@ -34,3 +34,7 @@ class UserQuery(models.Model):
 
     def __str__(self):
         return f"Query made at {self.timestamp}"
+
+"""A Database (DB) should be designed to save some data, such as the details of previous
+conversations, train station names and their official abbreviations, historical train running data
+for training prediction models etc"""
