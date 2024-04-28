@@ -25,3 +25,15 @@ def get_response(request):
 
     # Return the JsonResponse object that includes the chatbot's response
     return JsonResponse(response)
+
+def get_input(request):
+    user_input = request.GET.get('message', '')
+
+    if user_input:
+        UserQuery.objects.create(query_text=user_input)
+
+    return user_input
+
+def send(text):
+    response = {'response': f'Echo: {text}'}
+    return JsonResponse(response)
