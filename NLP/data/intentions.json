@@ -40,19 +40,7 @@
             "booking"
         ],
         "responses": [
-            "I can help you with that. firstly where would you like to go?"
-        ]
-    },
-    "cancel": {
-        "patterns": [
-            "cancel",
-            "cancelation",
-            "don't",
-            "dont",
-            "not"
-        ],
-        "responses": [
-            "I can help you with that. If you want to book a different train please give me the new destination."
+            "I can help you with that. firstly what type of ticket do you want to book?"
         ]
     }
 }

@@ -20,7 +20,7 @@ weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 
 
 chosen_origin_str = "Norwich"
 chosen_dest_str = None
-chosen_date_str = None
+arrive_date_str = None
 chosen_time_str = None
 ticket_type = None
 
@@ -115,7 +115,7 @@ def time_conversion(time):
 
 def missing_info_response():
     global chosen_dest_str
-    global chosen_date_str
+    global arrive_date_str
     global chosen_time_str
     global ticket_type
 
@@ -230,7 +230,7 @@ def ner_response(user_input):
     chosen_time = []
     global chosen_origin_str
     global chosen_dest_str
-    global chosen_date_str
+    global arrive_date_str
     global chosen_time_str
     global multiple_loc
     multiple_loc = False
@@ -490,24 +490,24 @@ def goodbye_response():
         print("BOT: You have not chosen a ticket type.")
 
 
-    if chosen_date_str != None and chosen_dest_str != None and chosen_time_str != None and ticket_type != None:
+    if arrive_date_str != None and chosen_dest_str != None and chosen_time_str != None and ticket_type != None:
 
         if ticket_type == "one way":
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + " with a one way ticket.")
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + chosen_time_str + " with a one way ticket.")
 
         if ticket_type == "round":
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " at " + chosen_time_str + " with a round ticket.")
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + chosen_time_str + " with a round ticket.")
 
         if ticket_type == "open ticket":
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " with an open ticket.")
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
 
         if ticket_type == "open return":
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + chosen_date_str + " with an open return ticket.")
+            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open return ticket.")
 
     if chosen_dest_str == None:
         print("BOT: You have not chosen a destination.")
 
-    if chosen_date_str == None:
+    if arrive_date_str == None:
         print("BOT: You have not chosen a date.")
 
     if chosen_time_str == None:
@@ -562,7 +562,15 @@ while(flag==True):
                     if not ner_response(user_input):
                         print("BOT: Sorry I don't understand that. Please rephrase your statement.")
 
-    if chosen_intention != 'goodbye' and chosen_intention != 'book' and chosen_intention != None:
+    if chosen_intention == 'greeting':
+        chosen_intention = None
+        if not ner_response(user_input):
+            if not date_time_response(user_input):
+                if not expert_response(user_input):
+                    if not ner_response(user_input):
+                        continue
+
+    if chosen_intention != 'goodbye' and chosen_intention != 'book' and chosen_intention != None and chosen_intention != 'greeting':
         if not date_time_response(user_input):
             if not expert_response(user_input):
                 if not ner_response(user_input):
