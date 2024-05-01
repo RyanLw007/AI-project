@@ -13,10 +13,10 @@ class TrainTicket(models.Model):
 class TrainStation(models.Model):
     name = models.CharField(max_length=100, unique=True)
     abbreviation = models.CharField(max_length=10, unique=True)
-    location = models.CharField(max_length=200)  # Optional
+    location = models.CharField(max_length=200, blank=True, null=True)  # Optional
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.abbreviation})"
 
 class TrainFare(models.Model):
     origin = models.ForeignKey(TrainStation, related_name='fare_origin', on_delete=models.CASCADE)
@@ -35,6 +35,26 @@ class UserQuery(models.Model):
     def __str__(self):
         return f"Query made at {self.timestamp}"
 
-"""A Database (DB) should be designed to save some data, such as the details of previous
-conversations, train station names and their official abbreviations, historical train running data
-for training prediction models etc"""
+class TrainJourney(models.Model):
+    rid = models.CharField(max_length=10, verbose_name="Train RTTI Identifier")
+    tpl = models.CharField(max_length=15, verbose_name="Location TIPOC")
+    pta = models.TimeField(null=True, blank=True, verbose_name="Planned Time of Arrival")
+    ptd = models.TimeField(null=True, blank=True, verbose_name="Planned Time of Departure")
+    wta = models.TimeField(null=True, blank=True, verbose_name="Working Time of Arrival")
+    wtp = models.TimeField(null=True, blank=True, verbose_name="Working Time of Passing")
+    wtd = models.TimeField(null=True, blank=True, verbose_name="Working Time of Departure")
+    arr_et = models.TimeField(null=True, blank=True, verbose_name="Estimated Arrival Time")
+    dep_et = models.TimeField(null=True, blank=True, verbose_name="Estimated Departure Time")
+    arr_at = models.TimeField(null=True, blank=True, verbose_name="Actual Time of Arrival")
+    dep_at = models.TimeField(null=True, blank=True, verbose_name="Actual Time of Departure")
+    arr_wet = models.TimeField(null=True, blank=True, verbose_name="Working Estimated Arrival Time")
+    dep_wet = models.TimeField(null=True, blank=True, verbose_name="Working Estimated Departure Time")
+    pass_et = models.TimeField(null=True, blank=True, verbose_name="Estimated Passing Time")
+    pass_wet = models.TimeField(null=True, blank=True, verbose_name="Working Estimated Passing Time")
+    arr_removed = models.BooleanField(default=False, verbose_name="Arrival Time Replaced")
+    pass_removed = models.BooleanField(default=False, verbose_name="Passing Time Replaced")
+    cr_code = models.CharField(max_length=10, null=True, blank=True, verbose_name="Cancellation Reason Code")
+    lr_code = models.CharField(max_length=10, null=True, blank=True, verbose_name="Late Running Reason Code")
+
+    def __str__(self):
+        return f"{self.rid} - {self.tpl} on {self.pta} to {self.ptd}"
