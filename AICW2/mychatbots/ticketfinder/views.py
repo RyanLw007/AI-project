@@ -11,7 +11,6 @@ def get_response(request):
     # Get the user's input from the GET parameters
     user_input = request.GET.get('message', '')
 
-    # Save the user's input as a UserQuery instance
     if user_input:  # Make sure the input is not empty
         UserQuery.objects.create(query_text=user_input)
         
