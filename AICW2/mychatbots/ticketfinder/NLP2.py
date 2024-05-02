@@ -6,6 +6,9 @@ import csv
 from datetime import datetime, timedelta
 from datetime import datetime
 from difflib import get_close_matches, SequenceMatcher
+
+from . import views
+
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -16,8 +19,8 @@ sentences = []
 
 url = "https://www.4icu.org/gb/a-z/"
 
-intentions_path = "../AICW2/mychatbots/ticketfinder/data/intentions.json"
-sentences_path = "../AICW2/mychatbots/ticketfinder/data/sentences.txt"
+intentions_path = "AICW2/mychatbots/ticketfinder/data/intentions.json"
+sentences_path = "AICW2/mychatbots/ticketfinder/data/sentences.txt"
 
 # this has not been put into a seperate file as implementation would be more complex
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
@@ -160,76 +163,76 @@ def missing_info_response():
     if ticket_type is None:
 
         if arrive_date_str is not None and chosen_dest_str is not None:
-            print("BOT: You want to travel from " + chosen_origin_str + " to " + chosen_dest_str + " on " + arrive_date_str + ".")
+            views.send("BOT: You want to travel from " + chosen_origin_str + " to " + chosen_dest_str + " on " + arrive_date_str + ".")
             if final_chatbot:
-                print("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
+                views.send("BOT: Could you please tell me what kind of ticket you are looking for? (You can just ask for one way, round and open return tickets.)")
 
         if chosen_origin_str == "Norwich":
-            print("BOT: No Origin given. Defaulting to Norwich. (if you would like to change this please say 'from' and then the location)")
+            views.send("BOT: No Origin given. Defaulting to Norwich. (if you would like to change this please say 'from' and then the location)")
 
         if chosen_dest_str is None:
-            print("BOT: Please Choose a Destination.")
+            views.send("BOT: Please Choose a Destination.")
 
         if arrive_date_str is None:
-            print("BOT: Please Choose a Date.")
+            views.send("BOT: Please Choose a Date.")
 
     if leave_arrive is None:
-        print("BOT: Please Choose if you want to depart or arrive at the time given.")
-        print("BOT: Just type 'leave' or 'arrive'.")
+        views.send("BOT: Please Choose if you want to depart or arrive at the time given.")
+        views.send("BOT: Just type 'leave' or 'arrive'.")
 
     if ticket_type == "one way" and leave_arrive is not None:
         if arrive_date_str is not None and chosen_dest_str is not None and arrive_time_str is not None:
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a one way ticket.")
+            views.send("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a one way ticket.")
             if final_chatbot:
-                print("BOT: If you don't have any other questions you can type bye.")
+                views.send("BOT: If you don't have any other questions you can type bye.")
         if chosen_dest_str is None:
-            print("BOT: Please Choose a Destination.")
+            views.send("BOT: Please Choose a Destination.")
         if arrive_date_str is None:
-            print("BOT: Please Choose a Date.")
+            views.send("BOT: Please Choose a Date.")
         if arrive_time_str is None:
-            print("BOT: Please Choose a Time.")
+            views.send("BOT: Please Choose a Time.")
 
     if ticket_type == "open ticket" and leave_arrive is not None:
         if arrive_date_str is not None and chosen_dest_str is not None:
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
+            views.send("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
             if final_chatbot:
-                print("BOT: If you don't have any other questions you can type bye.")
+                views.send("BOT: If you don't have any other questions you can type bye.")
         if chosen_dest_str is None:
-            print("BOT: Please Choose a Destination.")
+            views.send("BOT: Please Choose a Destination.")
         if arrive_date_str is None:
-            print("BOT: Please Choose a Date.")
+            views.send("BOT: Please Choose a Date.")
 
     if ticket_type == "round" and leave_arrive is not None:
         if chosen_dest_str is not None and arrive_date_str is not None and arrive_time_str is not None and leave_date_str is not None and leave_time_str is not None:
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a round ticket.")
-            print("BOT: You want to return on " + leave_date_str + " at " + leave_time_str + ".")
+            views.send("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a round ticket.")
+            views.send("BOT: You want to return on " + leave_date_str + " at " + leave_time_str + ".")
             if final_chatbot:
-                print("BOT: If you don't have any other questions you can type bye.")
+                views.send("BOT: If you don't have any other questions you can type bye.")
         if chosen_dest_str is None:
-            print("BOT: Please Choose a Destination.")
+            views.send("BOT: Please Choose a Destination.")
         if arrive_date_str is None:
-            print("BOT: Please Choose a Date. To leave your origin on")
+            views.send("BOT: Please Choose a Date. To leave your origin on")
         if arrive_time_str is None:
-            print("BOT: Please Choose a Time. To leave your origin on")
+            views.send("BOT: Please Choose a Time. To leave your origin on")
         if leave_date_str is None:
-            print("BOT: Please Choose a Date to return.")
+            views.send("BOT: Please Choose a Date to return.")
         if leave_time_str is None:
-            print("BOT: Please Choose a Time to return.")
+            views.send("BOT: Please Choose a Time to return.")
 
     if ticket_type == "open return" and leave_arrive is not None:
 
         if chosen_dest_str is not None and arrive_date_str is not None and leave_date_str is not None:
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open return ticket.")
-            print("BOT: You want to return on " + leave_date_str + ".")
+            views.send("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open return ticket.")
+            views.send("BOT: You want to return on " + leave_date_str + ".")
             if final_chatbot:
-                print("BOT: If you don't have any other questions you can type bye.")
+                views.send("BOT: If you don't have any other questions you can type bye.")
 
         if chosen_dest_str is None:
-            print("BOT: Please Choose a Destination.")
+            views.send("BOT: Please Choose a Destination.")
         if arrive_date_str is None:
-            print("BOT: Please Choose a Date. To leave your origin on")
+            views.send("BOT: Please Choose a Date. To leave your origin on")
         if leave_date_str is None:
-            print("BOT: Please Choose a Date to return.")
+            views.send("BOT: Please Choose a Date to return.")
 
 def selection(chosen_time, chosen_origin, chosen_dest, chosen_date, ticket_type):
     global chosen_origin_str
@@ -240,25 +243,25 @@ def selection(chosen_time, chosen_origin, chosen_dest, chosen_date, ticket_type)
     if chosen_time:
         chosen_time_beforecon = " ".join(chosen_time)
         arrive_time_str = time_conversion(chosen_time_beforecon)
-        print("BOT: " + "You want to travel at " + arrive_time_str + ".")
+        views.send("BOT: " + "You want to travel at " + arrive_time_str + ".")
 
     if chosen_origin:
         chosen_origin_str = " ".join(chosen_origin)
-        print("BOT: " + "You want to travel from " + chosen_origin_str + ".")
+        views.send("BOT: " + "You want to travel from " + chosen_origin_str + ".")
 
     if chosen_dest:
         chosen_dest_str = " ".join(chosen_dest)
-        print("BOT: " + "You want to go to " + chosen_dest_str + ".")
+        views.send("BOT: " + "You want to go to " + chosen_dest_str + ".")
 
     if chosen_date:
         chosen_date_before = " ".join(chosen_date)
         cleaned_date = clean_date(chosen_date_before)
         chosen_date_date = date_conversion(cleaned_date)
         arrive_date_str = "".join(chosen_date_date)
-        print("BOT: " + "You want to travel on " + arrive_date_str + ".")
+        views.send("BOT: " + "You want to travel on " + arrive_date_str + ".")
 
     if ticket_type is not None:
-        print("BOT: " + "You want to travel with a " + ticket_type + " ticket.")
+        views.send("BOT: " + "You want to travel with a " + ticket_type + " ticket.")
 
 def check_intention_by_keyword(sentence):
     global chosen_intention
@@ -266,12 +269,12 @@ def check_intention_by_keyword(sentence):
         for type_of_intention in intentions:
             if word.lower() in intentions[type_of_intention]["patterns"]:
 
-                print("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
+                views.send("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
                 if type_of_intention == 'book':
-                    print("BOT: note, if you would like to start over, just type 'reset' and I will start selection again.")
+                    views.send("BOT: note, if you would like to start over, just type 'reset' and I will start selection again.")
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:
-                    print("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
+                    views.send("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
                 return type_of_intention
     return chosen_intention
 
@@ -335,12 +338,12 @@ def ner_response(user_input):
     # this checks the user input for the specific words 'leave' and 'arrive' to determine if the user wants to leave or arrive at the time given
     if user_input == "leave":
         leave_arrive = "leave"
-        print("BOT: You have chosen to leave at the time you given.")
+        views.send("BOT: You have chosen to leave at the time you given.")
         missing_info_response()
         return True
     if user_input == "arrive":
         leave_arrive = "arrive"
-        print("BOT: You have chosen to arrive at your destination.")
+        views.send("BOT: You have chosen to arrive at your destination.")
         missing_info_response()
         return True
 
@@ -364,11 +367,11 @@ def ner_response(user_input):
 
                 if chosen_origin != []:
                     chosen_origin_str = " ".join(chosen_origin)
-                    print("BOT: " + "You want to travel from " + chosen_origin_str + ".")
+                    views.send("BOT: " + "You want to travel from " + chosen_origin_str + ".")
 
                 if chosen_dest != []:
                     chosen_dest_str = " ".join(chosen_dest)
-                    print("BOT: " + "You want to go to " + chosen_dest_str + ".")
+                    views.send("BOT: " + "You want to go to " + chosen_dest_str + ".")
 
 
                 go_date = []
@@ -415,19 +418,19 @@ def ner_response(user_input):
                 if go_time != []:
                     ar_time_beforecon = " ".join(go_time)
                     arrive_time_str = time_conversion(ar_time_beforecon)
-                    print("BOT: " + "You want to travel at " + arrive_time_str + ".")
+                    views.send("BOT: " + "You want to travel at " + arrive_time_str + ".")
 
                 if go_date != []:
                     chosen_date_before = " ".join(go_date)
                     cleaned_date = clean_date(chosen_date_before)
                     chosen_date_date = date_conversion(cleaned_date)
                     arrive_date_str = "".join(chosen_date_date)
-                    print("BOT: " + "You want to travel on " + arrive_date_str + ".")
+                    views.send("BOT: " + "You want to travel on " + arrive_date_str + ".")
 
                 if back_time != []:
                     back_time_beforecon = " ".join(back_time)
                     leave_time_str = time_conversion(back_time_beforecon)
-                    print("BOT: " + "You want to return at " + leave_time_str + ".")
+                    views.send("BOT: " + "You want to return at " + leave_time_str + ".")
 
                 if back_date != []:
                     if len(back_date[0]) < 4:
@@ -442,14 +445,14 @@ def ner_response(user_input):
 
                             leave_date_str = "".join(leave_date_date)
 
-                            print("BOT: " + "You want to return on " + leave_date_str + ".")
+                            views.send("BOT: " + "You want to return on " + leave_date_str + ".")
 
                     else:
                         back_date_before = " ".join(back_date)
                         cleaned_date = clean_date(back_date_before)
                         back_date_date = date_conversion(cleaned_date)
                         leave_date_str = "".join(back_date_date)
-                        print("BOT: " + "You want to return on " + leave_date_str + ".")
+                        views.send("BOT: " + "You want to return on " + leave_date_str + ".")
 
                 missing_info_response()
                 return True
@@ -498,14 +501,14 @@ def ner_response(user_input):
                 date = clean_date(date)
                 date = date_conversion(date)
                 arrive_date_str = date
-                print("BOT: You want to travel on " + date + ".")
+                views.send("BOT: You want to travel on " + date + ".")
                 missing_info_response()
                 return True
             if ent.label_ == "TIME":
                 time = ent.text
                 time = time_conversion(time)
                 arrive_time_str = time
-                print("BOT: You want to travel at " + time + ".")
+                views.send("BOT: You want to travel at " + time + ".")
                 missing_info_response()
                 return True
             if ent.label_ in loc_types:
@@ -513,19 +516,19 @@ def ner_response(user_input):
                 if doc[ent_index - 1].text.lower() == "from":
                     chosen_origin.append(ent.text)
                     chosen_origin_str = " ".join(chosen_origin)
-                    print("BOT: You want to travel from " + chosen_origin_str + ".")
+                    views.send("BOT: You want to travel from " + chosen_origin_str + ".")
                     missing_info_response()
                     return True
                 if doc[ent_index - 1].text.lower() == "to":
                     chosen_dest.append(ent.text)
                     chosen_dest_str = " ".join(chosen_dest)
-                    print("BOT: You want to travel to " + chosen_dest_str + ".")
+                    views.send("BOT: You want to travel to " + chosen_dest_str + ".")
                     missing_info_response()
                     return True
                 else:
                     chosen_dest.append(ent.text)
                     chosen_dest_str = " ".join(chosen_dest)
-                    print("I am assuming you want to travel to " + chosen_dest_str + ".")
+                    views.send("I am assuming you want to travel to " + chosen_dest_str + ".")
                     missing_info_response()
                     return True
     return False
@@ -572,13 +575,13 @@ def date_time_response(user_input):
     # Do not change these lines
     if similarities[max_similarity_idx] > min_similarity:
         if labels[max_similarity_idx] == 'time':
-            print("BOT: " + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
+            views.send("BOT: " + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
             if final_chatbot:
-                print("BOT: You can also ask me what the date is today. (Hint: What is the date today?)")
+                views.send("BOT: You can also ask me what the date is today. (Hint: What is the date today?)")
         elif labels[max_similarity_idx] == 'date':
-            print("BOT: " + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
+            views.send("BOT: " + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
             if final_chatbot:
-                print(
+                views.send(
                     "BOT: Now can you tell me where you want to go? (Hints: you can type in a city's name, or an organisation. I am going to London or I want to visit the University of East Anglia.)")
         return True
 
@@ -588,62 +591,62 @@ def date_time_response(user_input):
 def ticket_type_response(ticket):
 
     if ticket == "one way":
-        print("BOT: You have selected a one way ticket.")
+        views.send("BOT: You have selected a one way ticket.")
         if chosen_dest_str != None and arrive_date_str != None and arrive_time_str != None:
-            print(
+            views.send(
                 "BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a one way ticket.")
             if final_chatbot:
-                print("BOT: If you don't have any other questions you can type bye.")
+                views.send("BOT: If you don't have any other questions you can type bye.")
         if arrive_time_str == None:
-            print("BOT: You have not chosen a time. please choose a time.")
+            views.send("BOT: You have not chosen a time. please choose a time.")
         if chosen_dest_str == None:
-            print("BOT: You have not chosen a destination. please choose a destination.")
+            views.send("BOT: You have not chosen a destination. please choose a destination.")
         if arrive_date_str == None:
-            print("BOT: You have not chosen a date. please choose a date.")
+            views.send("BOT: You have not chosen a date. please choose a date.")
 
         if ticket == "round":
-            print("BOT: You have selected a round ticket.")
+            views.send("BOT: You have selected a round ticket.")
             if chosen_dest_str != None and arrive_date_str != None and arrive_time_str != None and leave_date_str != None and leave_time_str != None:
-                print(
+                views.send(
                     "BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a round ticket.")
-                print("BOT: You want to return on " + leave_date_str + " at " + leave_time_str + ".")
+                views.send("BOT: You want to return on " + leave_date_str + " at " + leave_time_str + ".")
                 if final_chatbot:
-                    print("BOT: If you don't have any other questions you can type bye.")
+                    views.send("BOT: If you don't have any other questions you can type bye.")
             if chosen_dest_str == None:
-                print("BOT: You have not chosen a destination. please choose a destination.")
+                views.send("BOT: You have not chosen a destination. please choose a destination.")
             if arrive_date_str == None:
-                print("BOT: You have not chosen a date to arrive. please choose a date.")
+                views.send("BOT: You have not chosen a date to arrive. please choose a date.")
             if arrive_time_str == None:
-                print("BOT: You have not chosen a time to arrive. please choose a time.")
+                views.send("BOT: You have not chosen a time to arrive. please choose a time.")
             if leave_date_str == None:
-                print("BOT: You have not chosen a date to leave. please choose a date.")
+                views.send("BOT: You have not chosen a date to leave. please choose a date.")
             if leave_time_str == None:
-                print("BOT: You have not chosen a time to leave. please choose a time.")
+                views.send("BOT: You have not chosen a time to leave. please choose a time.")
 
         if ticket=="open ticket":
-            print("BOT: You have selected a " + ticket + " ticket.")
+            views.send("BOT: You have selected a " + ticket + " ticket.")
             if chosen_dest_str != None and arrive_date_str != None:
-                print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
+                views.send("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
                 if final_chatbot:
-                    print("BOT: If you don't have any other questions you can type bye.")
+                    views.send("BOT: If you don't have any other questions you can type bye.")
             if chosen_dest_str == None:
-                print("BOT: You have not chosen a destination. please choose a destination.")
+                views.send("BOT: You have not chosen a destination. please choose a destination.")
             if arrive_date_str == None:
-                print("BOT: You have not chosen a date to arrive. please choose a date.")
+                views.send("BOT: You have not chosen a date to arrive. please choose a date.")
 
         if ticket=="open return":
-            print("BOT: You have selected a " + ticket + " ticket.")
+            views.send("BOT: You have selected a " + ticket + " ticket.")
             if chosen_dest_str != None and arrive_date_str != None and leave_date_str != None:
-                print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open return ticket.")
-                print("BOT: You want to return on " + leave_date_str + ".")
+                views.send("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open return ticket.")
+                views.send("BOT: You want to return on " + leave_date_str + ".")
                 if final_chatbot:
-                    print("BOT: If you don't have any other questions you can type bye.")
+                    views.send("BOT: If you don't have any other questions you can type bye.")
             if chosen_dest_str == None:
-                print("BOT: You have not chosen a destination. please choose a destination.")
+                views.send("BOT: You have not chosen a destination. please choose a destination.")
             if arrive_date_str == None:
-                print("BOT: You have not chosen a date to arrive. please choose a date.")
+                views.send("BOT: You have not chosen a date to arrive. please choose a date.")
             if leave_date_str == None:
-                print("BOT: You have not chosen a date to leave. please choose a date.")
+                views.send("BOT: You have not chosen a date to leave. please choose a date.")
 def check_ticket(user_input, loc):
     global ticket_type
     user_input = user_input.lower()
@@ -668,44 +671,44 @@ def expert_response(user_input):
 
 def goodbye_response():
     if ticket_type == None:
-        print("BOT: You have not chosen a ticket type.")
+        views.send("BOT: You have not chosen a ticket type.")
 
     if arrive_date_str != None and chosen_dest_str != None and arrive_time_str != None and ticket_type != None:
 
         if ticket_type == "one way":
-            print(
+            views.send(
                 "BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a one way ticket.")
 
         if ticket_type == "round":
-            print(
+            views.send(
                 "BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a round ticket.")
 
         if ticket_type == "open ticket":
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
+            views.send("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
 
         if ticket_type == "open return":
-            print(
+            views.send(
                 "BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open return ticket.")
 
     if chosen_dest_str == None:
-        print("BOT: You have not chosen a destination.")
+        views.send("BOT: You have not chosen a destination.")
 
     if arrive_date_str == None:
-        print("BOT: You have not chosen a date.")
+        views.send("BOT: You have not chosen a date.")
 
     if arrive_time_str == None:
-        print("BOT: You have not chosen a time.")
+        views.send("BOT: You have not chosen a time.")
 
 final_chatbot = True
 
 flag = True
 
-print("BOT: Hi there! How can I help you?.\n (If you want to exit, just type bye!)")
+views.send("BOT: Hi there! How can I help you?.\n (If you want to exit, just type bye!)")
 
 while (flag == True):
 
-    user_input = input()
-    with open('../AICW2/mychatbots/ticketfinder/data/past_inputs.csv', 'a', newline='') as file:
+    user_input = views.get_input()
+    with open('data/past_inputs.csv', 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([user_input])
 
@@ -719,7 +722,7 @@ while (flag == True):
         ticket_type = None
         leave_arrive = None
         chosen_intention = None
-        print("BOT: I have reset the selection. start by telling me your ticket type.")
+        views.send("BOT: I have reset the selection. start by telling me your ticket type.")
         continue
 
     chosen_intention = check_intention_by_keyword(user_input)
@@ -740,13 +743,13 @@ while (flag == True):
                 if not expert_response(user_input):
                     if not ner_response(user_input):
                         if check_intention_by_keyword_nr(user_input) != "book":
-                            print("BOT: Sorry I don't understand that. Please rephrase your statement.")
+                            views.send("BOT: Sorry I don't understand that. Please rephrase your statement.")
     if chosen_intention == None:
         if not ner_response(user_input):
             if not date_time_response(user_input):
                 if not expert_response(user_input):
                     if not ner_response(user_input):
-                        print("BOT: Sorry I don't understand that. Please rephrase your statement.")
+                        views.send("BOT: Sorry I don't understand that. Please rephrase your statement.")
 
     if chosen_intention == 'greeting':
         chosen_intention = None
@@ -760,5 +763,5 @@ while (flag == True):
         if not date_time_response(user_input):
             if not expert_response(user_input):
                 if not ner_response(user_input):
-                    print("BOT: Sorry I don't understand that. Please rephrase your statement.")
+                    views.send("BOT: Sorry I don't understand that. Please rephrase your statement.")
 
