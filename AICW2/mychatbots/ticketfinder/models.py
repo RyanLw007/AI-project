@@ -36,7 +36,7 @@ class UserQuery(models.Model):
         return f"Query made at {self.timestamp}"
 
 class TrainJourney(models.Model):
-    rid = models.CharField(max_length=10, verbose_name="Train RTTI Identifier")
+    rid = models.CharField(max_length=20, verbose_name="Train RTTI Identifier")
     tpl = models.CharField(max_length=15, verbose_name="Location TIPOC")
     pta = models.TimeField(null=True, blank=True, verbose_name="Planned Time of Arrival")
     ptd = models.TimeField(null=True, blank=True, verbose_name="Planned Time of Departure")
