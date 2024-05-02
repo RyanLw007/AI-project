@@ -16,7 +16,7 @@ sentences = []
 
 url = "https://www.4icu.org/gb/a-z/"
 
-intentions_path = "../AICW2/mychatbots/ticketfinder/data/intentions.json"
+intentions_path = "../AICW2/mychatbots/ticketfinder/intentions.json"
 sentences_path = "../AICW2/mychatbots/ticketfinder/data/sentences.txt"
 
 # this has not been put into a seperate file as implementation would be more complex

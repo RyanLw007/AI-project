@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 
 
 
-intentions_path = "../AICW2/mychatbots/ticketfinder/data/intentions.json"
+intentions_path = "../AICW2/mychatbots/ticketfinder/intentions.json"
 sentences_path = "../AICW2/mychatbots/ticketfinder/data/sentences.txt"
 
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
