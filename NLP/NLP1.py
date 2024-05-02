@@ -5,9 +5,7 @@ import requests
 import csv
 from datetime import datetime, timedelta
 from datetime import datetime
-from bs4 import BeautifulSoup
 from difflib import get_close_matches, SequenceMatcher
-from experta import *
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -21,6 +19,7 @@ url = "https://www.4icu.org/gb/a-z/"
 intentions_path = "data/intentions.json"
 sentences_path = "data/sentences.txt"
 
+# this has not been put into a seperate file as implementation would be more complex
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
 verbs = ['going', 'visit', 'travel', 'go', 'choose', 'get', 'goes']
 loc_types = ['GPE', 'ORG', 'LOC', 'NORP', 'PERSON']
@@ -586,17 +585,13 @@ def date_time_response(user_input):
     return False
 
 
-class Book(Fact):
-    """Info about the booking ticket."""
-    pass
+def ticket_type_response(ticket):
 
-
-class TrainBot(KnowledgeEngine):
-    @Rule(Book(ticket='one way'))
-    def one_way(self):
+    if ticket == "one way":
         print("BOT: You have selected a one way ticket.")
         if chosen_dest_str != None and arrive_date_str != None and arrive_time_str != None:
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a one way ticket.")
+            print(
+                "BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a one way ticket.")
             if final_chatbot:
                 print("BOT: If you don't have any other questions you can type bye.")
         if arrive_time_str == None:
@@ -606,29 +601,27 @@ class TrainBot(KnowledgeEngine):
         if arrive_date_str == None:
             print("BOT: You have not chosen a date. please choose a date.")
 
-    @Rule(Book(ticket='round'))
-    def round_way(self):
-        print("BOT: You have selected a round ticket.")
-        if chosen_dest_str != None and arrive_date_str != None and arrive_time_str != None and leave_date_str != None and leave_time_str != None:
-            print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a round ticket.")
-            print("BOT: You want to return on " + leave_date_str + " at " + leave_time_str + ".")
-            if final_chatbot:
-                print("BOT: If you don't have any other questions you can type bye.")
-        if chosen_dest_str == None:
-            print("BOT: You have not chosen a destination. please choose a destination.")
-        if arrive_date_str == None:
-            print("BOT: You have not chosen a date to arrive. please choose a date.")
-        if arrive_time_str == None:
-            print("BOT: You have not chosen a time to arrive. please choose a time.")
-        if leave_date_str == None:
-            print("BOT: You have not chosen a date to leave. please choose a date.")
-        if leave_time_str == None:
-            print("BOT: You have not chosen a time to leave. please choose a time.")
+        if ticket == "round":
+            print("BOT: You have selected a round ticket.")
+            if chosen_dest_str != None and arrive_date_str != None and arrive_time_str != None and leave_date_str != None and leave_time_str != None:
+                print(
+                    "BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " at " + arrive_time_str + " with a round ticket.")
+                print("BOT: You want to return on " + leave_date_str + " at " + leave_time_str + ".")
+                if final_chatbot:
+                    print("BOT: If you don't have any other questions you can type bye.")
+            if chosen_dest_str == None:
+                print("BOT: You have not chosen a destination. please choose a destination.")
+            if arrive_date_str == None:
+                print("BOT: You have not chosen a date to arrive. please choose a date.")
+            if arrive_time_str == None:
+                print("BOT: You have not chosen a time to arrive. please choose a time.")
+            if leave_date_str == None:
+                print("BOT: You have not chosen a date to leave. please choose a date.")
+            if leave_time_str == None:
+                print("BOT: You have not chosen a time to leave. please choose a time.")
 
-    @Rule(AS.ticket << Book(ticket=L('open ticket') | L('open return')))
-    def open_ticket(self, ticket):
-        print("BOT: You have selected a " + ticket["ticket"] + ".")
         if ticket=="open ticket":
+            print("BOT: You have selected a " + ticket + " ticket.")
             if chosen_dest_str != None and arrive_date_str != None:
                 print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open ticket.")
                 if final_chatbot:
@@ -639,6 +632,7 @@ class TrainBot(KnowledgeEngine):
                 print("BOT: You have not chosen a date to arrive. please choose a date.")
 
         if ticket=="open return":
+            print("BOT: You have selected a " + ticket + " ticket.")
             if chosen_dest_str != None and arrive_date_str != None and leave_date_str != None:
                 print("BOT: You want to travel to " + chosen_dest_str + " on " + arrive_date_str + " with an open return ticket.")
                 print("BOT: You want to return on " + leave_date_str + ".")
@@ -665,14 +659,10 @@ def check_ticket(user_input, loc):
         return None
 
 def expert_response(user_input):
-    engine = TrainBot()
-    engine.reset()
     ticket = check_ticket(user_input, 1)
     if ticket != None:
-        engine.declare(Book(ticket=ticket))
-        engine.run()
+        ticket_type_response(ticket)
         return True
-
     return False
 
 
