@@ -19,8 +19,8 @@ sentences = []
 
 url = "https://www.4icu.org/gb/a-z/"
 
-intentions_path = r'C:\Users\Setha\Documents\GitHub 2\AI-project\AICW2\mychatbots\ticketfinder\data\intentions.json'
-sentences_path = r'C:\Users\Setha\Documents\GitHub 2\AI-project\AICW2\mychatbots\ticketfinder\data\sentences.txt'
+intentions_path = r'C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\intentions.json'
+sentences_path = r'C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\sentences.txt'
 
 # this has not been put into a seperate file as implementation would be more complex
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
