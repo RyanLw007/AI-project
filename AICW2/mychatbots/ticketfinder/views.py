@@ -52,7 +52,5 @@ def train_view(request):
         })
 
     except Exception as e:
-        # Log the error
         logger.error(f'An error occurred: {str(e)}')
-        # If you want to handle errors without an error page, consider rendering the same or a different page with error info
         return render(request, 'ticketfinder/results.html', {'error': str(e)})

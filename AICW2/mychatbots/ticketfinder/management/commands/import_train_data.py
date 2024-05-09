@@ -39,7 +39,7 @@ class Command(BaseCommand):
                         dep_at=self.parse_time(row.get('dep_at')),
                         pass_et=self.parse_time(row.get('pass_et')),
                         pass_wet=self.parse_time(row.get('pass_wet')),
-                        pass_at=self.parse_time(row.get('pass_at')),  # Corrected to parse 'pass_at'
+                        pass_at=self.parse_time(row.get('pass_at')),  
                         arr_removed=row.get('arr_atRemoved', 'false').lower() == 'true',
                         pass_removed=row.get('pass_atRemoved', 'false').lower() == 'true',
                         cr_code=row.get('cr_code'),
@@ -59,7 +59,7 @@ class Command(BaseCommand):
                 try:
                     return datetime.strptime(time_str, '%H:%M:%S').time()
                 except ValueError:
-                    # Additional error handling or logging can go here
+                    
                     return None
         else:
             return None
