@@ -3,6 +3,15 @@ from django.http import JsonResponse, HttpResponse
 from .models import UserQuery, TrainJourney
 from .predictions_functionised import load_and_clean_data, calculate_features, train_and_evaluate
 import logging
+from .jsonpurifier import purify_json
+
+def clear_json(request):
+    if request.method == 'POST':
+        file_path = 'path/to/your/file.json'  # change this to the location of the json
+        purify_json(file_path)
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'failed'}, status=400)
 
 
 
@@ -10,17 +19,15 @@ def chat_interface(request):
     return render(request, 'ticketfinder/chat_interface.html')
 
 def get_response(request):
-     # Get the user's input from the GET parameters
+     
      user_input = request.GET.get('message', '')
 
-     # Save the user's input as a UserQuery instance
-     if user_input:  # Make sure the input is not empty
+     if user_input:  
          UserQuery.objects.create(query_text=user_input)
 
 
      response = {'response': f'Echo: {user_input}'}
 
-     # Return the JsonResponse object that includes the chatbot's response
      return JsonResponse(response)
 
 # def get_input(request):
