@@ -29,11 +29,11 @@ def load_and_clean_data():
     data = pd.DataFrame(list(get_train_data()))
     print("Data fetched and initial types:\n", data.dtypes)  
 
-    time_columns = ['wtp', 'wtd', 'pass_at', 'pta', 'ptd', 'arr_at', 'dep_at']  # Define all your datetime columns
+    time_columns = ['wtp', 'wtd', 'pass_at', 'pta', 'ptd', 'arr_at', 'dep_at']  
     for col in time_columns:
-        data[col] = pd.to_datetime(data[col], errors='coerce', format='%H:%M:%S')  # Adjust format as per actual data
+        data[col] = pd.to_datetime(data[col], errors='coerce', format='%H:%M:%S')  
 
-    columns_to_drop = ['arr_et', 'arr_wet', 'dep_et', 'dep_wet', 'pass_wet']  # Example columns to drop
+    columns_to_drop = ['arr_et', 'arr_wet', 'dep_et', 'dep_wet', 'pass_wet']  
     data.drop(columns=columns_to_drop, inplace=True)
 
     for col in ['cr_code', 'lr_code']:
@@ -122,7 +122,7 @@ def train_and_evaluate(data):
 
     return model, mse, mae, rmse
 
-def visualize_data(data):
+def visualise_data(data):
     """
     Visualise the distribution and average delays of arrival and departure times in the dataset. This function
     creates histograms to display the frequency distribution of arrival and departure delays, followed by bar charts
