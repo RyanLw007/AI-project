@@ -39,6 +39,7 @@ class Command(BaseCommand):
                         dep_at=self.parse_time(row.get('dep_at')),
                         pass_et=self.parse_time(row.get('pass_et')),
                         pass_wet=self.parse_time(row.get('pass_wet')),
+                        pass_at=self.parse_time(row.get('pass_at')),  # Corrected to parse 'pass_at'
                         arr_removed=row.get('arr_atRemoved', 'false').lower() == 'true',
                         pass_removed=row.get('pass_atRemoved', 'false').lower() == 'true',
                         cr_code=row.get('cr_code'),
@@ -53,10 +54,12 @@ class Command(BaseCommand):
         if time_str and time_str.strip():
             time_str = time_str.strip()
             try:
-                # First, try parsing with hours and minutes
                 return datetime.strptime(time_str, '%H:%M').time()
             except ValueError:
-                # If that fails, try parsing with hours, minutes, and seconds
-                return datetime.strptime(time_str, '%H:%M:%S').time()
+                try:
+                    return datetime.strptime(time_str, '%H:%M:%S').time()
+                except ValueError:
+                    # Additional error handling or logging can go here
+                    return None
         else:
             return None

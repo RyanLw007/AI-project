@@ -51,6 +51,7 @@ class TrainJourney(models.Model):
     dep_wet = models.TimeField(null=True, blank=True, verbose_name="Working Estimated Departure Time")
     pass_et = models.TimeField(null=True, blank=True, verbose_name="Estimated Passing Time")
     pass_wet = models.TimeField(null=True, blank=True, verbose_name="Working Estimated Passing Time")
+    pass_at = models.TimeField(null=True, blank=True, verbose_name="Actual Passing Time")
     arr_removed = models.BooleanField(default=False, verbose_name="Arrival Time Replaced")
     pass_removed = models.BooleanField(default=False, verbose_name="Passing Time Replaced")
     cr_code = models.CharField(max_length=10, null=True, blank=True, verbose_name="Cancellation Reason Code")
