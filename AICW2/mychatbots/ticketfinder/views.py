@@ -7,7 +7,7 @@ from .jsonpurifier import purify_json
 
 def clear_json(request):
     if request.method == 'POST':
-        file_path = 'path/to/your/file.json'  # change this to the location of the json
+        file_path = 'data/data.json'  # change this to the location of the json
         purify_json(file_path)
         return JsonResponse({'status': 'success'})
     else:
