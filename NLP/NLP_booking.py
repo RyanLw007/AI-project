@@ -104,17 +104,25 @@ def selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
 
     if chosen_origin:
         data['chosen_origin_str'] = " ".join(chosen_origin)
-        data['chosen_origin_str'], data['origin_code'] = station_selector(data['chosen_origin_str'])
+        station_selector(data['chosen_origin_str'])
         with open('data/data.json', 'w') as file:
             json.dump(data, file, indent=4)
         printout.append("BOT: " + "You want to travel from " + data['chosen_origin_str'] + ".")
 
-    if chosen_dest:
+    if chosen_dest and data['flag_loc'] < 3:
+        data['flag_loc'] = 3
         data['chosen_dest_str'] = " ".join(chosen_dest)
-        data['chosen_dest_str'], data['dest_code'] = station_selector(data['chosen_dest_str'])
         with open('data/data.json', 'w') as file:
             json.dump(data, file, indent=4)
-        printout.append("BOT: " + "You want to go to " + data['chosen_dest_str'] + ".")
+        station_selector(data['chosen_dest_str'])
+        return True
+
+    if data['station_selector'] and data['flag_loc'] == 3:
+        data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
+        data['flag_loc'] = 0
+        with open('data/data.json', 'w') as file:
+            json.dump(data, file, indent=4)
+        printout.append("BOT: " + "You want to travel to " + data['chosen_dest_str'] + ".")
 
     if chosen_date:
         chosen_date_before = " ".join(chosen_date)
@@ -153,25 +161,40 @@ def find_similar_stations(target):
     return results
 
 def station_selector(target_station):
+    data['station_selector'] = True
+    with open('data/data.json', 'w') as file:
+        json.dump(data, file, indent=4)
+
     global printout
     global df
-    # Replace 'your_spreadsheet.xlsx' with the path to your spreadsheet
+
     similar_stations = find_similar_stations(target_station)
     printout.append("BOT: Here are the top 5 matching stations, please select the one you want to use:")
 
     for station in similar_stations:
         printout.append(f"{station['index']} Station: {station['matched station']}, Similarity Score: {station['similarity score']}")
+        data[f"station{station['index']}"] = similar_stations[station['index'] - 1]['original index']
 
-    print_out()
-    printout.clear()
+    with open('data/data.json', 'w') as file:
+        json.dump(data, file, indent=4)
+    printout.append("BOT: Enter the index of the station you want to select:")
 
-    selected_station = int(input("Enter the index of the station you want to select: "))
 
-    station_df_index = similar_stations[selected_station-1]['original index']
+def selected_station(selected_station):
+    data['station_selector'] = False
+    with open('data/data.json', 'w') as file:
+        json.dump(data, file, indent=4)
+    station_df_index = data[f'station{selected_station}']
     station_name = df.iloc[station_df_index]['name']
     station_tiploc = df.iloc[station_df_index]['tiploc']
 
+    for i in range (1, 6):
+        data[f'station{i}'] = None
+    with open('data/data.json', 'w') as file:
+        json.dump(data, file, indent=4)
+
     return station_name, station_tiploc
+
 
 def ner_response(user_input):
 
@@ -234,16 +257,33 @@ def ner_response(user_input):
                         if ent.label_ in loc_types:
                             chosen_dest.append(ent.text)
 
-                if chosen_origin != []:
+                if chosen_origin != [] and data['flag_loc'] < 1:
+                    data['flag_loc'] = 1
                     data['chosen_origin_str'] = " ".join(chosen_origin)
-                    data['chosen_origin_str'], data['origin_code'] = station_selector(data['chosen_origin_str'])
                     with open('data/data.json', 'w') as file:
                         json.dump(data, file, indent=4)
-                    printout.append("BOT: " + "You want to travel from " + data['chosen_origin_str'] + ".")
+                    station_selector(data['chosen_origin_str'])
+                    return printout.insert(0, True)
 
-                if chosen_dest != []:
+                if data['station_selector'] and data['flag_loc'] == 1:
+                    data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
+                    data['flag_loc'] = 0
+                    with open('data/data.json', 'w') as file:
+                        json.dump(data, file, indent=4)
+                    printout.append("BOT: You want to go to " + data['chosen_dest_str'] + ".")
+
+
+                if chosen_dest != [] and data['flag_loc'] < 2:
+                    data['flag_loc'] = 2
                     data['chosen_dest_str'] = " ".join(chosen_dest)
-                    data['chosen_dest_str'], data['dest_code'] = station_selector(data['chosen_dest_str'])
+                    with open('data/data.json', 'w') as file:
+                        json.dump(data, file, indent=4)
+                    station_selector(data['chosen_dest_str'])
+                    return printout.insert(0, True)
+
+                if data['station_selector'] and data['flag_loc'] == 2:
+                    data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
+                    data['flag_loc'] = 0
                     with open('data/data.json', 'w') as file:
                         json.dump(data, file, indent=4)
                     printout.append("BOT: " + "You want to go to " + data['chosen_dest_str'] + ".")
@@ -379,10 +419,12 @@ def ner_response(user_input):
                             if "May" not in chosen_date:
                                 chosen_date.append("May")
 
-                        selection(chosen_time, chosen_origin, chosen_dest, chosen_date )
-                        missing_info_response()
-                        printout.insert(0, True)
-                        return
+                        if selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
+                            return printout.insert(0, True)
+                        else:
+                            missing_info_response()
+                            printout.insert(0, True)
+                            return
                         
         for ent in doc.ents:
             if ent.label_ == "DATE":
@@ -412,36 +454,63 @@ def ner_response(user_input):
                 ent_index = ent.start
                 if doc[ent_index - 1].text.lower() == "from":
                     chosen_origin.append(ent.text)
-                    data['chosen_origin_str'] = " ".join(chosen_origin)
-                    data['chosen_origin_str'], data['origin_code'] = station_selector(data['chosen_origin_str'])
-                    with open('data/data.json', 'w') as file:
-                        json.dump(data, file, indent=4)
-                    printout.append("BOT: You want to travel from " + data['chosen_origin_str'] + ".")
-                    missing_info_response()
-                    printout.insert(0, True)
-                    return
+
+                    if chosen_origin != [] and data['flag_loc'] < 4:
+                        data['flag_loc'] = 4
+                        data['chosen_origin_str'] = " ".join(chosen_origin)
+                        with open('data/data.json', 'w') as file:
+                            json.dump(data, file, indent=4)
+                        station_selector(data['chosen_origin_str'])
+                        return printout.insert(0, True)
+
+                    if data['station_selector'] and data['flag_loc'] == 4:
+                        data['chosen_origin_str'], data['origin_code'] = selected_station(data['selected'])
+                        data['flag_loc'] = 0
+                        with open('data/data.json', 'w') as file:
+                            json.dump(data, file, indent=4)
+                        printout.append("BOT: " + "You want to travel from " + data['chosen_origin_str'] + ".")
+                        missing_info_response()
+                        printout.insert(0, True)
+                        return
                     
                 if doc[ent_index - 1].text.lower() == "to":
                     chosen_dest.append(ent.text)
-                    data['chosen_dest_str'] = " ".join(chosen_dest)
-                    data['chosen_dest_str'], data['dest_code'] = station_selector(data['chosen_dest_str'])
-                    with open('data/data.json', 'w') as file:
-                        json.dump(data, file, indent=4)
-                    printout.append("BOT: You want to travel to " + data['chosen_dest_str'] + ".")
-                    missing_info_response()
-                    printout.insert(0, True)
-                    return
-                    
+                    if chosen_dest != [] and data['flag_loc'] < 5:
+                        data['flag_loc'] = 5
+                        data['chosen_dest_str'] = " ".join(chosen_dest)
+                        with open('data/data.json', 'w') as file:
+                            json.dump(data, file, indent=4)
+                        station_selector(data['chosen_dest_str'])
+                        return printout.insert(0, True)
+
+                    if data['station_selector'] and data['flag_loc'] == 5:
+                        data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
+                        data['flag_loc'] = 0
+                        with open('data/data.json', 'w') as file:
+                            json.dump(data, file, indent=4)
+                        printout.append("BOT: " + "You want to travel to " + data['chosen_dest_str'] + ".")
+                        missing_info_response()
+                        printout.insert(0, True)
+                        return
                 else:
                     chosen_dest.append(ent.text)
-                    data['chosen_dest_str'] = " ".join(chosen_dest)
-                    data['chosen_dest_str'], data['dest_code'] = station_selector(data['chosen_dest_str'])
-                    with open('data/data.json', 'w') as file:
-                        json.dump(data, file, indent=4)
-                    printout.append("I am assuming you want to travel to " + data['chosen_dest_str'] + ".")
-                    missing_info_response()
-                    printout.insert(0, True)
-                    return
+                    if chosen_dest != [] and data['flag_loc'] < 6:
+                        data['flag_loc'] = 6
+                        data['chosen_dest_str'] = " ".join(chosen_dest)
+                        with open('data/data.json', 'w') as file:
+                            json.dump(data, file, indent=4)
+                        station_selector(data['chosen_dest_str'])
+                        return printout.insert(0, True)
+
+                    if data['station_selector'] and data['flag_loc'] == 6:
+                        data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
+                        data['flag_loc'] = 0
+                        with open('data/data.json', 'w') as file:
+                            json.dump(data, file, indent=4)
+                        printout.append("BOT: " + "You want to travel to " + data['chosen_dest_str'] + ".")
+                        missing_info_response()
+                        printout.insert(0, True)
+                        return
                     
     printout.insert(0, False)
     return
@@ -464,49 +533,49 @@ def ticket_response(ticket):
         if data['arrive_date_str'] == None:
             printout.append("BOT: You have not chosen a date. please choose a date.")
 
-        if ticket == "round":
-            printout.append("BOT: You have selected a round ticket.")
-            if data['chosen_dest_str'] != None and data['arrive_date_str'] != None and data['arrive_time_str'] != None and data['leave_date_str'] != None and data['leave_time_str'] != None:
-                printout.append(
-                    "BOT: You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a round ticket.")
-                printout.append("BOT: You want to return on " + data['leave_date_str'] + " at " + data['leave_time_str'] + ".")
-                if final_chatbot:
-                    printout.append("BOT: If you don't have any other questions you can type bye.")
-            if data['chosen_dest_str'] == None:
-                printout.append("BOT: You have not chosen a destination. please choose a destination.")
-            if data['arrive_date_str'] == None:
-                printout.append("BOT: You have not chosen a date to arrive. please choose a date.")
-            if data['arrive_time_str'] == None:
-                printout.append("BOT: You have not chosen a time to arrive. please choose a time.")
-            if data['leave_date_str'] == None:
-                printout.append("BOT: You have not chosen a date to leave. please choose a date.")
-            if data['leave_time_str'] == None:
-                printout.append("BOT: You have not chosen a time to leave. please choose a time.")
+    if ticket == "round":
+        printout.append("BOT: You have selected a round ticket.")
+        if data['chosen_dest_str'] != None and data['arrive_date_str'] != None and data['arrive_time_str'] != None and data['leave_date_str'] != None and data['leave_time_str'] != None:
+            printout.append(
+                "BOT: You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a round ticket.")
+            printout.append("BOT: You want to return on " + data['leave_date_str'] + " at " + data['leave_time_str'] + ".")
+            if final_chatbot:
+                printout.append("BOT: If you don't have any other questions you can type bye.")
+        if data['chosen_dest_str'] == None:
+            printout.append("BOT: You have not chosen a destination. please choose a destination.")
+        if data['arrive_date_str'] == None:
+            printout.append("BOT: You have not chosen a date to arrive. please choose a date.")
+        if data['arrive_time_str'] == None:
+            printout.append("BOT: You have not chosen a time to arrive. please choose a time.")
+        if data['leave_date_str'] == None:
+            printout.append("BOT: You have not chosen a date to leave. please choose a date.")
+        if data['leave_time_str'] == None:
+            printout.append("BOT: You have not chosen a time to leave. please choose a time.")
 
-        if ticket=="open ticket":
-            printout.append("BOT: You have selected a " + ticket + " ticket.")
-            if data['chosen_dest_str'] != None and data['arrive_date_str'] != None:
-                printout.append("BOT: You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open ticket.")
-                if final_chatbot:
-                    printout.append("BOT: If you don't have any other questions you can type bye.")
-            if data['chosen_dest_str'] == None:
-                printout.append("BOT: You have not chosen a destination. please choose a destination.")
-            if data['arrive_date_str'] == None:
-                printout.append("BOT: You have not chosen a date to arrive. please choose a date.")
+    if ticket=="open ticket":
+        printout.append("BOT: You have selected a " + ticket + " ticket.")
+        if data['chosen_dest_str'] != None and data['arrive_date_str'] != None:
+            printout.append("BOT: You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open ticket.")
+            if final_chatbot:
+                printout.append("BOT: If you don't have any other questions you can type bye.")
+        if data['chosen_dest_str'] == None:
+            printout.append("BOT: You have not chosen a destination. please choose a destination.")
+        if data['arrive_date_str'] == None:
+            printout.append("BOT: You have not chosen a date to arrive. please choose a date.")
 
-        if ticket=="open return":
-            printout.append("BOT: You have selected a " + ticket + " ticket.")
-            if data['chosen_dest_str'] != None and data['arrive_date_str'] != None and data['leave_date_str'] != None:
-                printout.append("BOT: You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open return ticket.")
-                printout.append("BOT: You want to return on " + data['leave_date_str'] + ".")
-                if final_chatbot:
-                    printout.append("BOT: If you don't have any other questions you can type bye.")
-            if data['chosen_dest_str'] == None:
-                printout.append("BOT: You have not chosen a destination. please choose a destination.")
-            if data['arrive_date_str'] == None:
-                printout.append("BOT: You have not chosen a date to arrive. please choose a date.")
-            if data['leave_date_str'] == None:
-                printout.append("BOT: You have not chosen a date to leave. please choose a date.")
+    if ticket=="open return":
+        printout.append("BOT: You have selected a " + ticket + " ticket.")
+        if data['chosen_dest_str'] != None and data['arrive_date_str'] != None and data['leave_date_str'] != None:
+            printout.append("BOT: You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open return ticket.")
+            printout.append("BOT: You want to return on " + data['leave_date_str'] + ".")
+            if final_chatbot:
+                printout.append("BOT: If you don't have any other questions you can type bye.")
+        if data['chosen_dest_str'] == None:
+            printout.append("BOT: You have not chosen a destination. please choose a destination.")
+        if data['arrive_date_str'] == None:
+            printout.append("BOT: You have not chosen a date to arrive. please choose a date.")
+        if data['leave_date_str'] == None:
+            printout.append("BOT: You have not chosen a date to leave. please choose a date.")
 def check_ticket(user_input, loc):
 
     user_input = user_input.lower()
