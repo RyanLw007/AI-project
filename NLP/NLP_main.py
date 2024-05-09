@@ -32,7 +32,7 @@ def llama3_response(user_input):
 
 if __name__ == "__main__":
 
-    global printout
+    
 
     final_chatbot = True
 

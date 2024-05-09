@@ -1,0 +1,1353 @@
+{
+  "build": "py311haa95532_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64",
+  "constrains": [
+    "ipywidgets >=7.5.1,<9"
+  ],
+  "depends": [
+    "markdown-it-py >=2.2.0,<3.0.0",
+    "pygments >=2.13.0,<3.0.0",
+    "python >=3.11,<3.12.0a0"
+  ],
+  "extracted_package_dir": "C:\\Users\\Setha\\anaconda3\\pkgs\\rich-13.3.5-py311haa95532_0",
+  "files": [
+    "Lib/site-packages/rich-13.3.5.dist-info/INSTALLER",
+    "Lib/site-packages/rich-13.3.5.dist-info/LICENSE",
+    "Lib/site-packages/rich-13.3.5.dist-info/METADATA",
+    "Lib/site-packages/rich-13.3.5.dist-info/RECORD",
+    "Lib/site-packages/rich-13.3.5.dist-info/REQUESTED",
+    "Lib/site-packages/rich-13.3.5.dist-info/WHEEL",
+    "Lib/site-packages/rich-13.3.5.dist-info/direct_url.json",
+    "Lib/site-packages/rich/__init__.py",
+    "Lib/site-packages/rich/__main__.py",
+    "Lib/site-packages/rich/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/__main__.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_cell_widths.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_emoji_codes.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_emoji_replace.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_export_format.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_extension.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_fileno.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_inspect.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_log_render.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_loop.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_null_file.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_palettes.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_pick.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_ratio.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_spinners.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_stack.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_timer.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_win32_console.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_windows.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_windows_renderer.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/_wrap.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/abc.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/align.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/ansi.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/bar.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/box.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/cells.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/color.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/color_triplet.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/columns.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/console.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/constrain.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/containers.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/control.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/default_styles.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/diagnose.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/emoji.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/errors.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/file_proxy.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/filesize.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/highlighter.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/json.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/jupyter.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/layout.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/live.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/live_render.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/logging.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/markdown.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/markup.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/measure.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/padding.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/pager.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/palette.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/panel.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/pretty.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/progress.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/progress_bar.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/prompt.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/protocol.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/region.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/repr.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/rule.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/scope.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/screen.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/segment.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/spinner.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/status.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/style.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/styled.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/syntax.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/table.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/terminal_theme.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/text.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/theme.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/themes.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/traceback.cpython-311.pyc",
+    "Lib/site-packages/rich/__pycache__/tree.cpython-311.pyc",
+    "Lib/site-packages/rich/_cell_widths.py",
+    "Lib/site-packages/rich/_emoji_codes.py",
+    "Lib/site-packages/rich/_emoji_replace.py",
+    "Lib/site-packages/rich/_export_format.py",
+    "Lib/site-packages/rich/_extension.py",
+    "Lib/site-packages/rich/_fileno.py",
+    "Lib/site-packages/rich/_inspect.py",
+    "Lib/site-packages/rich/_log_render.py",
+    "Lib/site-packages/rich/_loop.py",
+    "Lib/site-packages/rich/_null_file.py",
+    "Lib/site-packages/rich/_palettes.py",
+    "Lib/site-packages/rich/_pick.py",
+    "Lib/site-packages/rich/_ratio.py",
+    "Lib/site-packages/rich/_spinners.py",
+    "Lib/site-packages/rich/_stack.py",
+    "Lib/site-packages/rich/_timer.py",
+    "Lib/site-packages/rich/_win32_console.py",
+    "Lib/site-packages/rich/_windows.py",
+    "Lib/site-packages/rich/_windows_renderer.py",
+    "Lib/site-packages/rich/_wrap.py",
+    "Lib/site-packages/rich/abc.py",
+    "Lib/site-packages/rich/align.py",
+    "Lib/site-packages/rich/ansi.py",
+    "Lib/site-packages/rich/bar.py",
+    "Lib/site-packages/rich/box.py",
+    "Lib/site-packages/rich/cells.py",
+    "Lib/site-packages/rich/color.py",
+    "Lib/site-packages/rich/color_triplet.py",
+    "Lib/site-packages/rich/columns.py",
+    "Lib/site-packages/rich/console.py",
+    "Lib/site-packages/rich/constrain.py",
+    "Lib/site-packages/rich/containers.py",
+    "Lib/site-packages/rich/control.py",
+    "Lib/site-packages/rich/default_styles.py",
+    "Lib/site-packages/rich/diagnose.py",
+    "Lib/site-packages/rich/emoji.py",
+    "Lib/site-packages/rich/errors.py",
+    "Lib/site-packages/rich/file_proxy.py",
+    "Lib/site-packages/rich/filesize.py",
+    "Lib/site-packages/rich/highlighter.py",
+    "Lib/site-packages/rich/json.py",
+    "Lib/site-packages/rich/jupyter.py",
+    "Lib/site-packages/rich/layout.py",
+    "Lib/site-packages/rich/live.py",
+    "Lib/site-packages/rich/live_render.py",
+    "Lib/site-packages/rich/logging.py",
+    "Lib/site-packages/rich/markdown.py",
+    "Lib/site-packages/rich/markup.py",
+    "Lib/site-packages/rich/measure.py",
+    "Lib/site-packages/rich/padding.py",
+    "Lib/site-packages/rich/pager.py",
+    "Lib/site-packages/rich/palette.py",
+    "Lib/site-packages/rich/panel.py",
+    "Lib/site-packages/rich/pretty.py",
+    "Lib/site-packages/rich/progress.py",
+    "Lib/site-packages/rich/progress_bar.py",
+    "Lib/site-packages/rich/prompt.py",
+    "Lib/site-packages/rich/protocol.py",
+    "Lib/site-packages/rich/py.typed",
+    "Lib/site-packages/rich/region.py",
+    "Lib/site-packages/rich/repr.py",
+    "Lib/site-packages/rich/rule.py",
+    "Lib/site-packages/rich/scope.py",
+    "Lib/site-packages/rich/screen.py",
+    "Lib/site-packages/rich/segment.py",
+    "Lib/site-packages/rich/spinner.py",
+    "Lib/site-packages/rich/status.py",
+    "Lib/site-packages/rich/style.py",
+    "Lib/site-packages/rich/styled.py",
+    "Lib/site-packages/rich/syntax.py",
+    "Lib/site-packages/rich/table.py",
+    "Lib/site-packages/rich/terminal_theme.py",
+    "Lib/site-packages/rich/text.py",
+    "Lib/site-packages/rich/theme.py",
+    "Lib/site-packages/rich/themes.py",
+    "Lib/site-packages/rich/traceback.py",
+    "Lib/site-packages/rich/tree.py",
+    ".nonadmin"
+  ],
+  "fn": "rich-13.3.5-py311haa95532_0.conda",
+  "legacy_bz2_md5": "ec927ba33477805af32e44884347b6cb",
+  "legacy_bz2_size": 557484,
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "C:\\Users\\Setha\\anaconda3\\pkgs\\rich-13.3.5-py311haa95532_0",
+    "type": 1
+  },
+  "md5": "809df7c1d902a689745f02c48073dd74",
+  "name": "rich",
+  "package_tarball_full_path": "C:\\Users\\Setha\\anaconda3\\pkgs\\rich-13.3.5-py311haa95532_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "Lib/site-packages/rich-13.3.5.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "Lib/site-packages/rich-13.3.5.dist-info/LICENSE",
+        "path_type": "hardlink",
+        "sha256": "deed7c17a4318158190a3ea239cc879a5a50271cebb98ae7025f48fbe58dca15",
+        "sha256_in_prefix": "deed7c17a4318158190a3ea239cc879a5a50271cebb98ae7025f48fbe58dca15",
+        "size_in_bytes": 1056
+      },
+      {
+        "_path": "Lib/site-packages/rich-13.3.5.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "2995c53e20f25ae935b430b3408976fef16bbdc792f302b7bd9c6bd7912b8461",
+        "sha256_in_prefix": "2995c53e20f25ae935b430b3408976fef16bbdc792f302b7bd9c6bd7912b8461",
+        "size_in_bytes": 18590
+      },
+      {
+        "_path": "Lib/site-packages/rich-13.3.5.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "258b44330d615bfb747385d2ba328e806ef5e1be1d2eaf3f9c64d5e0632b0902",
+        "sha256_in_prefix": "258b44330d615bfb747385d2ba328e806ef5e1be1d2eaf3f9c64d5e0632b0902",
+        "size_in_bytes": 9829
+      },
+      {
+        "_path": "Lib/site-packages/rich-13.3.5.dist-info/REQUESTED",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/rich-13.3.5.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "4abb673c655331e616b6d96cf719d6034d5e521099dee7c57495186f5277afe5",
+        "sha256_in_prefix": "4abb673c655331e616b6d96cf719d6034d5e521099dee7c57495186f5277afe5",
+        "size_in_bytes": 83
+      },
+      {
+        "_path": "Lib/site-packages/rich-13.3.5.dist-info/direct_url.json",
+        "path_type": "hardlink",
+        "sha256": "ba248b53e401c07e5d0cfea5a394215650b8a33fdd486b2685f5935264c4c821",
+        "sha256_in_prefix": "ba248b53e401c07e5d0cfea5a394215650b8a33fdd486b2685f5935264c4c821",
+        "size_in_bytes": 84
+      },
+      {
+        "_path": "Lib/site-packages/rich/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "961d9672820e269e4ce7f95b02c494306bfca2225eba644e6b31c7fc060c4bc2",
+        "sha256_in_prefix": "961d9672820e269e4ce7f95b02c494306bfca2225eba644e6b31c7fc060c4bc2",
+        "size_in_bytes": 6066
+      },
+      {
+        "_path": "Lib/site-packages/rich/__main__.py",
+        "path_type": "hardlink",
+        "sha256": "9590b9571d1d47b244e4150a0b18ede4f358ba1c57f5aba82e2a3b7f804390aa",
+        "sha256_in_prefix": "9590b9571d1d47b244e4150a0b18ede4f358ba1c57f5aba82e2a3b7f804390aa",
+        "size_in_bytes": 8334
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "2e76662883b0a3d7ef776c474029971e521010628f0227edb6b0f70b4251e9d5",
+        "sha256_in_prefix": "2e76662883b0a3d7ef776c474029971e521010628f0227edb6b0f70b4251e9d5",
+        "size_in_bytes": 7420
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/__main__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "a17cffb6d5d8cea016392c3b6330d330893cfbad8860f7647fe7879f2fb6537d",
+        "sha256_in_prefix": "a17cffb6d5d8cea016392c3b6330d330893cfbad8860f7647fe7879f2fb6537d",
+        "size_in_bytes": 11378
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_cell_widths.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "79a9b3a756a83884a7d1598c0d6b35ffb613a8634ec29c435b3affcf26a76268",
+        "sha256_in_prefix": "79a9b3a756a83884a7d1598c0d6b35ffb613a8634ec29c435b3affcf26a76268",
+        "size_in_bytes": 7783
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_emoji_codes.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5103c5c26ddedb5b70f327d9e0f168aef0366a7f8509f7fd24232c9c30155456",
+        "sha256_in_prefix": "5103c5c26ddedb5b70f327d9e0f168aef0366a7f8509f7fd24232c9c30155456",
+        "size_in_bytes": 208470
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_emoji_replace.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "15ab4c27f9c224c379102541df4ac09b278882b866ca74e2c69c1437034d7e90",
+        "sha256_in_prefix": "15ab4c27f9c224c379102541df4ac09b278882b866ca74e2c69c1437034d7e90",
+        "size_in_bytes": 1882
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_export_format.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "db705adf416fd2e2b82d1e40982b09de67424334036e7d593a0a9a035de019b4",
+        "sha256_in_prefix": "db705adf416fd2e2b82d1e40982b09de67424334036e7d593a0a9a035de019b4",
+        "size_in_bytes": 2273
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_extension.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "307ffe15d47acfa700c0009deaead2b5c3d42d6075ee8e1264e3b9421749c5b8",
+        "sha256_in_prefix": "307ffe15d47acfa700c0009deaead2b5c3d42d6075ee8e1264e3b9421749c5b8",
+        "size_in_bytes": 559
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_fileno.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f89142f8a4e7d803b32aab1f9cba92ff52249f9dc8b758a11965ba606c5bf9a2",
+        "sha256_in_prefix": "f89142f8a4e7d803b32aab1f9cba92ff52249f9dc8b758a11965ba606c5bf9a2",
+        "size_in_bytes": 925
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_inspect.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "cbcce0629aaa1217a0e791de56c0da7dd0828acfddcedfb27223ac65d1a653b2",
+        "sha256_in_prefix": "cbcce0629aaa1217a0e791de56c0da7dd0828acfddcedfb27223ac65d1a653b2",
+        "size_in_bytes": 14135
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_log_render.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "811047db295e72cbe9521cff7a3f469e0051cb21314b5172024a33dd769c882d",
+        "sha256_in_prefix": "811047db295e72cbe9521cff7a3f469e0051cb21314b5172024a33dd769c882d",
+        "size_in_bytes": 4705
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_loop.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "b39de5a3128c86866df7e6c42d69baca9a0dcba812eb1e63170edb07bfdfc0ab",
+        "sha256_in_prefix": "b39de5a3128c86866df7e6c42d69baca9a0dcba812eb1e63170edb07bfdfc0ab",
+        "size_in_bytes": 2063
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_null_file.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "88b85275f32f309d64a4f5b05c04f56888c2a5b8af200f3be41fa9c057861c8a",
+        "sha256_in_prefix": "88b85275f32f309d64a4f5b05c04f56888c2a5b8af200f3be41fa9c057861c8a",
+        "size_in_bytes": 4122
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_palettes.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "a0cf9d2f848c774791b29ee7fdebba493f00a199564bfb50a3460a9b7e8cb199",
+        "sha256_in_prefix": "a0cf9d2f848c774791b29ee7fdebba493f00a199564bfb50a3460a9b7e8cb199",
+        "size_in_bytes": 5199
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_pick.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "d2a47ad47772a9c7dda44c1854bd404f9177d8351c95ac5b4d3651b668d202a7",
+        "sha256_in_prefix": "d2a47ad47772a9c7dda44c1854bd404f9177d8351c95ac5b4d3651b668d202a7",
+        "size_in_bytes": 744
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_ratio.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "17799f67adb6e2b7679d626238a38f29f52d6f7cc631ac6af40ebd7e08e177a5",
+        "sha256_in_prefix": "17799f67adb6e2b7679d626238a38f29f52d6f7cc631ac6af40ebd7e08e177a5",
+        "size_in_bytes": 7870
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_spinners.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "fabe5a45e30817c2e3e1085144699a5b7231dbae34aa1b5de1fd578f59ae77e3",
+        "sha256_in_prefix": "fabe5a45e30817c2e3e1085144699a5b7231dbae34aa1b5de1fd578f59ae77e3",
+        "size_in_bytes": 13632
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_stack.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "d59dbf1688ee1c141f1eeebf6011704f8f7944a2762a5881e9bcba6620e2c08d",
+        "sha256_in_prefix": "d59dbf1688ee1c141f1eeebf6011704f8f7944a2762a5881e9bcba6620e2c08d",
+        "size_in_bytes": 1078
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_timer.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "272839b345ae704419c93900eaaed63b5e998001ee992dbe169fdf106f9ff6f6",
+        "sha256_in_prefix": "272839b345ae704419c93900eaaed63b5e998001ee992dbe169fdf106f9ff6f6",
+        "size_in_bytes": 931
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_win32_console.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "11e3b28159cc1e8a1d63291fe901c6ee21a5928f9d45e3e824ada3dee39152b8",
+        "sha256_in_prefix": "11e3b28159cc1e8a1d63291fe901c6ee21a5928f9d45e3e824ada3dee39152b8",
+        "size_in_bytes": 30083
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_windows.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "1ed1583354744ffc96f058badebbcbc00e9684011fe9d4d584b5794acae966b5",
+        "sha256_in_prefix": "1ed1583354744ffc96f058badebbcbc00e9684011fe9d4d584b5794acae966b5",
+        "size_in_bytes": 2754
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_windows_renderer.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "554becca5b5f9bbcc22d93c858c14ef8bf635ad9f0f7bde0cba7c429d79fb1bb",
+        "sha256_in_prefix": "554becca5b5f9bbcc22d93c858c14ef8bf635ad9f0f7bde0cba7c429d79fb1bb",
+        "size_in_bytes": 3945
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/_wrap.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "88f99819f09fe71877d39a22d9e6ac30a89a0d770eb70b4d32924dd7ce4525bd",
+        "sha256_in_prefix": "88f99819f09fe71877d39a22d9e6ac30a89a0d770eb70b4d32924dd7ce4525bd",
+        "size_in_bytes": 2734
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/abc.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "30bde6d54d83bcc3f352dc4eda567fd6e604178b465c9f6671329dec5bb49ccc",
+        "sha256_in_prefix": "30bde6d54d83bcc3f352dc4eda567fd6e604178b465c9f6671329dec5bb49ccc",
+        "size_in_bytes": 1863
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/align.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "c2fd5f436ae6d6b428afc0f58f28591e3d301ab6c14327acc8877f621611b8a1",
+        "sha256_in_prefix": "c2fd5f436ae6d6b428afc0f58f28591e3d301ab6c14327acc8877f621611b8a1",
+        "size_in_bytes": 13369
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/ansi.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "2d7f8b655b759d7188eeaaa57627782fa74c32307669490fd837afa0dca635e0",
+        "sha256_in_prefix": "2d7f8b655b759d7188eeaaa57627782fa74c32307669490fd837afa0dca635e0",
+        "size_in_bytes": 10448
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/bar.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "e6ce12c6b05d312db7bb7d4a6e3f712456bb2e6c17e05e5e58ad138621fc068c",
+        "sha256_in_prefix": "e6ce12c6b05d312db7bb7d4a6e3f712456bb2e6c17e05e5e58ad138621fc068c",
+        "size_in_bytes": 4497
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/box.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "1b88997d54ae2433054237019d0a90757eb7dc10fe9d1487c43790969b796905",
+        "sha256_in_prefix": "1b88997d54ae2433054237019d0a90757eb7dc10fe9d1487c43790969b796905",
+        "size_in_bytes": 12891
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/cells.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "e36c317458875606835e63cc1a09dbe40f320a53b1502761b24fd15a88a6f866",
+        "sha256_in_prefix": "e36c317458875606835e63cc1a09dbe40f320a53b1502761b24fd15a88a6f866",
+        "size_in_bytes": 6569
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/color.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "1ad9808777099444b064790fc5e135e11ce89e3cff5119db5ec52278f212272b",
+        "sha256_in_prefix": "1ad9808777099444b064790fc5e135e11ce89e3cff5119db5ec52278f212272b",
+        "size_in_bytes": 27753
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/color_triplet.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "0c45ebf1f37ae9d515ab5a4c391786a93af9cd26810f50f7a828830e7cb57923",
+        "sha256_in_prefix": "0c45ebf1f37ae9d515ab5a4c391786a93af9cd26810f50f7a828830e7cb57923",
+        "size_in_bytes": 1823
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/columns.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5a6964d8b82b9d2033fd35ad3be01423d39b422c77aa312dbe10c8ca9464a575",
+        "sha256_in_prefix": "5a6964d8b82b9d2033fd35ad3be01423d39b422c77aa312dbe10c8ca9464a575",
+        "size_in_bytes": 10594
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/console.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "90d323328c5f6b85143fe481da4bd202ad932f7caa58facc0be0a3d07778f02e",
+        "sha256_in_prefix": "90d323328c5f6b85143fe481da4bd202ad932f7caa58facc0be0a3d07778f02e",
+        "size_in_bytes": 123625
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/constrain.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "2d41febff7550063a9a172122dc05aa5e33acdcd797bd8b02f73049973ce5f43",
+        "sha256_in_prefix": "2d41febff7550063a9a172122dc05aa5e33acdcd797bd8b02f73049973ce5f43",
+        "size_in_bytes": 2415
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/containers.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "fdd3d5d4d25ac8e879b4932547b7037fad635b299d828a13a6b8fa486151f754",
+        "sha256_in_prefix": "fdd3d5d4d25ac8e879b4932547b7037fad635b299d828a13a6b8fa486151f754",
+        "size_in_bytes": 10756
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/control.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "53e4f6a976febaa64e87507f47081a9ddc564090a376595257950b5e9779d80d",
+        "sha256_in_prefix": "53e4f6a976febaa64e87507f47081a9ddc564090a376595257950b5e9779d80d",
+        "size_in_bytes": 11823
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/default_styles.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "b5c24a0de3e53a054c0b98189ac06fdfb9d35e3713ef2c44a08aa32f05038003",
+        "sha256_in_prefix": "b5c24a0de3e53a054c0b98189ac06fdfb9d35e3713ef2c44a08aa32f05038003",
+        "size_in_bytes": 12514
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/diagnose.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "474c3fd7566230bb9a1fef4572b0f1667319414cd4e4c4a3cbb5e8730c976ff6",
+        "sha256_in_prefix": "474c3fd7566230bb9a1fef4572b0f1667319414cd4e4c4a3cbb5e8730c976ff6",
+        "size_in_bytes": 1722
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/emoji.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "80c97b643eafdf882bf67c90d277abf436f213234810ce3327f6abeaf9e475e2",
+        "sha256_in_prefix": "80c97b643eafdf882bf67c90d277abf436f213234810ce3327f6abeaf9e475e2",
+        "size_in_bytes": 4712
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/errors.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "7ab36af2c5568a5a2df7801ead1a87398ee8320ae1ed76a269e79157c584f6c7",
+        "sha256_in_prefix": "7ab36af2c5568a5a2df7801ead1a87398ee8320ae1ed76a269e79157c584f6c7",
+        "size_in_bytes": 2279
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/file_proxy.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ec91429084d4dd5e9a7d02afc3937e6de376f67e85451c4130cfec6f422d268c",
+        "sha256_in_prefix": "ec91429084d4dd5e9a7d02afc3937e6de376f67e85451c4130cfec6f422d268c",
+        "size_in_bytes": 3983
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/filesize.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "c80d24fb2aab9198648cbb71170c0d4f4ec68afb15c7bbb731b9eaf1d134f308",
+        "sha256_in_prefix": "c80d24fb2aab9198648cbb71170c0d4f4ec68afb15c7bbb731b9eaf1d134f308",
+        "size_in_bytes": 3251
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/highlighter.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "a13c143e22e7dafd0609f7ca88b4f86c5b3b966f0552728c75170f3777fe38c2",
+        "sha256_in_prefix": "a13c143e22e7dafd0609f7ca88b4f86c5b3b966f0552728c75170f3777fe38c2",
+        "size_in_bytes": 10937
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/json.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "b49ff8faad1b0f47988d9e5d9f23acf10dcd81ff06d6e3fb7f7c8bb5fcc88084",
+        "sha256_in_prefix": "b49ff8faad1b0f47988d9e5d9f23acf10dcd81ff06d6e3fb7f7c8bb5fcc88084",
+        "size_in_bytes": 6482
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/jupyter.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ff6ac0a358e8646cfa42793179aab42488cf03b5b1e70c125023c95039dd99db",
+        "sha256_in_prefix": "ff6ac0a358e8646cfa42793179aab42488cf03b5b1e70c125023c95039dd99db",
+        "size_in_bytes": 6342
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/layout.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "b93c1b12da439277e22b59922fd7d26caf4e9cb5f143f7561bae5d712007fbd7",
+        "sha256_in_prefix": "b93c1b12da439277e22b59922fd7d26caf4e9cb5f143f7561bae5d712007fbd7",
+        "size_in_bytes": 23213
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/live.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "faa4dd079f930cb182e9cd3251aa6331cda45b827bac9ed3efe6985e8d3a562a",
+        "sha256_in_prefix": "faa4dd079f930cb182e9cd3251aa6331cda45b827bac9ed3efe6985e8d3a562a",
+        "size_in_bytes": 21247
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/live_render.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "92923fd0744a0c24c47aebc150b7c398cb23fe533be70f2ce83550961db21763",
+        "sha256_in_prefix": "92923fd0744a0c24c47aebc150b7c398cb23fe533be70f2ce83550961db21763",
+        "size_in_bytes": 5083
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/logging.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "86b68210bd36df98238ba48560d7d35d24d3e316312f0818dc665a3640d63e1c",
+        "sha256_in_prefix": "86b68210bd36df98238ba48560d7d35d24d3e316312f0818dc665a3640d63e1c",
+        "size_in_bytes": 14454
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/markdown.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "106fbeb6fc84b9ca7e84d247f8d5656a3c6e4271bbd286231b6d5ac0730d9e64",
+        "sha256_in_prefix": "106fbeb6fc84b9ca7e84d247f8d5656a3c6e4271bbd286231b6d5ac0730d9e64",
+        "size_in_bytes": 33800
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/markup.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "1ab78d9db7a8de9151cccda25e67fe31c9e57c41034bc8eb67a8a928710dfc78",
+        "sha256_in_prefix": "1ab78d9db7a8de9151cccda25e67fe31c9e57c41034bc8eb67a8a928710dfc78",
+        "size_in_bytes": 10364
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/measure.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "0c16456a89f4178347fade42abcfcdce45707aa22f7d6c579941645b501b1f57",
+        "sha256_in_prefix": "0c16456a89f4178347fade42abcfcdce45707aa22f7d6c579941645b501b1f57",
+        "size_in_bytes": 7221
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/padding.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "046f6b5168ff750c6e0e2c4c238fb77b9ee92173d8b25a66e8855a5fc8df37f3",
+        "sha256_in_prefix": "046f6b5168ff750c6e0e2c4c238fb77b9ee92173d8b25a66e8855a5fc8df37f3",
+        "size_in_bytes": 7425
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/pager.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "8b054b9fdc9073ae42f27a2c0dbc7b1a2831de3981982b3e519a8cd6422995c3",
+        "sha256_in_prefix": "8b054b9fdc9073ae42f27a2c0dbc7b1a2831de3981982b3e519a8cd6422995c3",
+        "size_in_bytes": 2195
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/palette.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "e4b33b34f7e1ddb141488a2c7a41da101a914a8340eb85dd397fbdb47e3bcc27",
+        "sha256_in_prefix": "e4b33b34f7e1ddb141488a2c7a41da101a914a8340eb85dd397fbdb47e3bcc27",
+        "size_in_bytes": 5856
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/panel.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "a2a459c0b0bb976755957fb55d651081d1914320e07338f75dcb017f63871d56",
+        "sha256_in_prefix": "a2a459c0b0bb976755957fb55d651081d1914320e07338f75dcb017f63871d56",
+        "size_in_bytes": 12684
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/pretty.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "c03c2d766f0bb604adaec66eba1ab9d3591a166a4cff22758efb653b29b25ea5",
+        "sha256_in_prefix": "c03c2d766f0bb604adaec66eba1ab9d3591a166a4cff22758efb653b29b25ea5",
+        "size_in_bytes": 44274
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/progress.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "d6e1db8b46ab04361fefe3d5ff0f5bef111732a6bfe0bb80c1579ea960bf74b7",
+        "sha256_in_prefix": "d6e1db8b46ab04361fefe3d5ff0f5bef111732a6bfe0bb80c1579ea960bf74b7",
+        "size_in_bytes": 82552
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/progress_bar.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5eef2f7148c1d3dea572388816e0a234a99c4c4367c15e14d5557d3c00dba107",
+        "sha256_in_prefix": "5eef2f7148c1d3dea572388816e0a234a99c4c4367c15e14d5557d3c00dba107",
+        "size_in_bytes": 10962
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/prompt.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "c81f4258bcbe89a7db12cd6cc462f0ee7ba2832b0ad425efcf1fd972821b7ae0",
+        "sha256_in_prefix": "c81f4258bcbe89a7db12cd6cc462f0ee7ba2832b0ad425efcf1fd972821b7ae0",
+        "size_in_bytes": 16316
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/protocol.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "3c39135675a2fa581dbd4d6e3b8d62918d59a8d133e619ed734cf6cfacc0c7d9",
+        "sha256_in_prefix": "3c39135675a2fa581dbd4d6e3b8d62918d59a8d133e619ed734cf6cfacc0c7d9",
+        "size_in_bytes": 2034
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/region.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "8d448a677fb51194bc1ba9a40d237d852adca160c1249244b5d70497b930e346",
+        "sha256_in_prefix": "8d448a677fb51194bc1ba9a40d237d852adca160c1249244b5d70497b930e346",
+        "size_in_bytes": 609
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/repr.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "537e526c1d21c11ff467888dc4458045dd502740cdf2e65513eb10f6f49fc8db",
+        "sha256_in_prefix": "537e526c1d21c11ff467888dc4458045dd502740cdf2e65513eb10f6f49fc8db",
+        "size_in_bytes": 7564
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/rule.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "32b428e9650128a74ad439c2c937316b20172b80986cd55d48afd34ef0d95b12",
+        "sha256_in_prefix": "32b428e9650128a74ad439c2c937316b20172b80986cd55d48afd34ef0d95b12",
+        "size_in_bytes": 7103
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/scope.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5dc9e2762fa1ccb17786f8f7cf2936225bf4953117a9d98a741ea848d8a56d48",
+        "sha256_in_prefix": "5dc9e2762fa1ccb17786f8f7cf2936225bf4953117a9d98a741ea848d8a56d48",
+        "size_in_bytes": 4289
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/screen.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "40e5f8d6b042fccbc4a780f1cb7de6aff090b6d633c0e13a038e94513c5df2aa",
+        "sha256_in_prefix": "40e5f8d6b042fccbc4a780f1cb7de6aff090b6d633c0e13a038e94513c5df2aa",
+        "size_in_bytes": 2712
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/segment.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "78a91c5236f7b3fbf53d5c9eed42fe18ad6104da3aa5b286e7095c5a3590d700",
+        "sha256_in_prefix": "78a91c5236f7b3fbf53d5c9eed42fe18ad6104da3aa5b286e7095c5a3590d700",
+        "size_in_bytes": 31518
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/spinner.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "0e68d2d450b718697debfd9b3665e1c50fb8aac53b9b1919c3fbb77a8ca920af",
+        "sha256_in_prefix": "0e68d2d450b718697debfd9b3665e1c50fb8aac53b9b1919c3fbb77a8ca920af",
+        "size_in_bytes": 6830
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/status.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "96b91584b875901a6a0e98a6aa828c1327957b54db3eb9e37847e8523d59f2fa",
+        "sha256_in_prefix": "96b91584b875901a6a0e98a6aa828c1327957b54db3eb9e37847e8523d59f2fa",
+        "size_in_bytes": 6708
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/style.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "c668f6b79e7e3166b57603fb3d2bf39b075104ffeabf117540370896716261cb",
+        "sha256_in_prefix": "c668f6b79e7e3166b57603fb3d2bf39b075104ffeabf117540370896716261cb",
+        "size_in_bytes": 35148
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/styled.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f8347063fe4be4b29f9ded2f4f9a90a214dcbf2620e5c1577e9faca68be437d2",
+        "sha256_in_prefix": "f8347063fe4be4b29f9ded2f4f9a90a214dcbf2620e5c1577e9faca68be437d2",
+        "size_in_bytes": 2365
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/syntax.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5f44e0b331a45e04b57e18ef7c0f4b23bfc82208e01b217d331b5869bbfebb32",
+        "sha256_in_prefix": "5f44e0b331a45e04b57e18ef7c0f4b23bfc82208e01b217d331b5869bbfebb32",
+        "size_in_bytes": 42491
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/table.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "a8c8257bdb3ceb49cb5f5a2d9c20dfc89daf2205dcff9acb75c3e400e5d2ceb6",
+        "sha256_in_prefix": "a8c8257bdb3ceb49cb5f5a2d9c20dfc89daf2205dcff9acb75c3e400e5d2ceb6",
+        "size_in_bytes": 48714
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/terminal_theme.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "799be60ad76bfe1440ec95f450000f6c62802998ff7dfa6def94ec56311abb73",
+        "sha256_in_prefix": "799be60ad76bfe1440ec95f450000f6c62802998ff7dfa6def94ec56311abb73",
+        "size_in_bytes": 3655
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/text.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ce9e77c3ac2a48ea3216e0d235a0cbf6e1b73bba138e6b3c2ade6554926ba5ae",
+        "sha256_in_prefix": "ce9e77c3ac2a48ea3216e0d235a0cbf6e1b73bba138e6b3c2ade6554926ba5ae",
+        "size_in_bytes": 64896
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/theme.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "cb778e2a59338bbe9709352bec81657cd79dc8458bb5677a56edee12e1925a55",
+        "sha256_in_prefix": "cb778e2a59338bbe9709352bec81657cd79dc8458bb5677a56edee12e1925a55",
+        "size_in_bytes": 7254
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/themes.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "aef9d574f03b1490081b26b9b39171875fb89abc12b3d89820cf7db28b65947a",
+        "sha256_in_prefix": "aef9d574f03b1490081b26b9b39171875fb89abc12b3d89820cf7db28b65947a",
+        "size_in_bytes": 305
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/traceback.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f736b839a7d8226bf224b554b9969ed4281256e2adf395ed0e2799339f304851",
+        "sha256_in_prefix": "f736b839a7d8226bf224b554b9969ed4281256e2adf395ed0e2799339f304851",
+        "size_in_bytes": 34468
+      },
+      {
+        "_path": "Lib/site-packages/rich/__pycache__/tree.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "710fd6d0b5b15da5c647f1dca11223965360b6f03e6119a1fc2db2ab9981b356",
+        "sha256_in_prefix": "710fd6d0b5b15da5c647f1dca11223965360b6f03e6119a1fc2db2ab9981b356",
+        "size_in_bytes": 12416
+      },
+      {
+        "_path": "Lib/site-packages/rich/_cell_widths.py",
+        "path_type": "hardlink",
+        "sha256": "da7e048898b75fdb2a22ad0ed7a91467fcf2e9460c777c457c286529f9d6d477",
+        "sha256_in_prefix": "da7e048898b75fdb2a22ad0ed7a91467fcf2e9460c777c457c286529f9d6d477",
+        "size_in_bytes": 10096
+      },
+      {
+        "_path": "Lib/site-packages/rich/_emoji_codes.py",
+        "path_type": "hardlink",
+        "sha256": "86ed552fd9db55da6926b5688a356c85195c4517bfbf7763bb7326776b0a65d6",
+        "sha256_in_prefix": "86ed552fd9db55da6926b5688a356c85195c4517bfbf7763bb7326776b0a65d6",
+        "size_in_bytes": 140235
+      },
+      {
+        "_path": "Lib/site-packages/rich/_emoji_replace.py",
+        "path_type": "hardlink",
+        "sha256": "9fe91c7adb04531d99526850adf78c35cfad79e1a1a6e490e45f153c1b32bc3a",
+        "sha256_in_prefix": "9fe91c7adb04531d99526850adf78c35cfad79e1a1a6e490e45f153c1b32bc3a",
+        "size_in_bytes": 1064
+      },
+      {
+        "_path": "Lib/site-packages/rich/_export_format.py",
+        "path_type": "hardlink",
+        "sha256": "ab1815de72a75d0bb585f6e7455b303d8cbe030220d57d0b482e3b70ae6cf239",
+        "sha256_in_prefix": "ab1815de72a75d0bb585f6e7455b303d8cbe030220d57d0b482e3b70ae6cf239",
+        "size_in_bytes": 2100
+      },
+      {
+        "_path": "Lib/site-packages/rich/_extension.py",
+        "path_type": "hardlink",
+        "sha256": "1bae8f91b1ff41d4c987a8c3f89db6f0eefa0a6027af684b42fef60a03cfbb31",
+        "sha256_in_prefix": "1bae8f91b1ff41d4c987a8c3f89db6f0eefa0a6027af684b42fef60a03cfbb31",
+        "size_in_bytes": 241
+      },
+      {
+        "_path": "Lib/site-packages/rich/_fileno.py",
+        "path_type": "hardlink",
+        "sha256": "1d66713f90b66a331b1ebcaf01066c79f9557d0a06cec28e1f3286b0b0fcca74",
+        "sha256_in_prefix": "1d66713f90b66a331b1ebcaf01066c79f9557d0a06cec28e1f3286b0b0fcca74",
+        "size_in_bytes": 799
+      },
+      {
+        "_path": "Lib/site-packages/rich/_inspect.py",
+        "path_type": "hardlink",
+        "sha256": "a19246c37d5eeb87705d20a6ac39ef65bc156f564a8567d4f30237556a218c99",
+        "sha256_in_prefix": "a19246c37d5eeb87705d20a6ac39ef65bc156f564a8567d4f30237556a218c99",
+        "size_in_bytes": 9695
+      },
+      {
+        "_path": "Lib/site-packages/rich/_log_render.py",
+        "path_type": "hardlink",
+        "sha256": "c41282c6a88ee05664f1e1b9e9ff1cac576b989c45ac9b1013757717e7c57a47",
+        "sha256_in_prefix": "c41282c6a88ee05664f1e1b9e9ff1cac576b989c45ac9b1013757717e7c57a47",
+        "size_in_bytes": 3213
+      },
+      {
+        "_path": "Lib/site-packages/rich/_loop.py",
+        "path_type": "hardlink",
+        "sha256": "855ffa08b7683e6d2f6b6d96a70e332aa334458b33dd36715e3d0fa12fbd7834",
+        "sha256_in_prefix": "855ffa08b7683e6d2f6b6d96a70e332aa334458b33dd36715e3d0fa12fbd7834",
+        "size_in_bytes": 1236
+      },
+      {
+        "_path": "Lib/site-packages/rich/_null_file.py",
+        "path_type": "hardlink",
+        "sha256": "b4649793fbfe21999b8f5180cc78adf00de460840c882a55b0215fb02fbf289e",
+        "sha256_in_prefix": "b4649793fbfe21999b8f5180cc78adf00de460840c882a55b0215fb02fbf289e",
+        "size_in_bytes": 1387
+      },
+      {
+        "_path": "Lib/site-packages/rich/_palettes.py",
+        "path_type": "hardlink",
+        "sha256": "71d7afd4940a67426f960b95f62a478339d3767be52335050c16f422dd8fce32",
+        "sha256_in_prefix": "71d7afd4940a67426f960b95f62a478339d3767be52335050c16f422dd8fce32",
+        "size_in_bytes": 7063
+      },
+      {
+        "_path": "Lib/site-packages/rich/_pick.py",
+        "path_type": "hardlink",
+        "sha256": "7af0edf10378945e428b0ad421794e2429ed8ad0423ac23764b3c42005512c95",
+        "sha256_in_prefix": "7af0edf10378945e428b0ad421794e2429ed8ad0423ac23764b3c42005512c95",
+        "size_in_bytes": 423
+      },
+      {
+        "_path": "Lib/site-packages/rich/_ratio.py",
+        "path_type": "hardlink",
+        "sha256": "e9d047c62c3f49835145d719f600ca2391a701e1d9f16be64e072d36972eb665",
+        "sha256_in_prefix": "e9d047c62c3f49835145d719f600ca2391a701e1d9f16be64e072d36972eb665",
+        "size_in_bytes": 5460
+      },
+      {
+        "_path": "Lib/site-packages/rich/_spinners.py",
+        "path_type": "hardlink",
+        "sha256": "536af5fe0ff5cd28ec8e251d00449cda200c7378b8ae2fd2f0f60fea4439cf52",
+        "sha256_in_prefix": "536af5fe0ff5cd28ec8e251d00449cda200c7378b8ae2fd2f0f60fea4439cf52",
+        "size_in_bytes": 19919
+      },
+      {
+        "_path": "Lib/site-packages/rich/_stack.py",
+        "path_type": "hardlink",
+        "sha256": "f82f0e2bbaf19f7b0851d570c59041a5e1e12335f4788f9533731e9987da5e6d",
+        "sha256_in_prefix": "f82f0e2bbaf19f7b0851d570c59041a5e1e12335f4788f9533731e9987da5e6d",
+        "size_in_bytes": 351
+      },
+      {
+        "_path": "Lib/site-packages/rich/_timer.py",
+        "path_type": "hardlink",
+        "sha256": "cde9716d3ea83c566736bc163e973592d51e013f957387ee15c4592d018bb4c2",
+        "sha256_in_prefix": "cde9716d3ea83c566736bc163e973592d51e013f957387ee15c4592d018bb4c2",
+        "size_in_bytes": 417
+      },
+      {
+        "_path": "Lib/site-packages/rich/_win32_console.py",
+        "path_type": "hardlink",
+        "sha256": "f8db5e6a5b105d0e79f1efb3a49b64c21f31fdda82f928e500603cef674613a5",
+        "sha256_in_prefix": "f8db5e6a5b105d0e79f1efb3a49b64c21f31fdda82f928e500603cef674613a5",
+        "size_in_bytes": 22784
+      },
+      {
+        "_path": "Lib/site-packages/rich/_windows.py",
+        "path_type": "hardlink",
+        "sha256": "27fae1687ec73377f95ef1f96ec02b18aaa84e88da57c1deb4d2d4275497f48e",
+        "sha256_in_prefix": "27fae1687ec73377f95ef1f96ec02b18aaa84e88da57c1deb4d2d4275497f48e",
+        "size_in_bytes": 1902
+      },
+      {
+        "_path": "Lib/site-packages/rich/_windows_renderer.py",
+        "path_type": "hardlink",
+        "sha256": "77bf7dc4e9f12db0820b31aef7e53b60b988424c6dc5020115043a8aee2f7927",
+        "sha256_in_prefix": "77bf7dc4e9f12db0820b31aef7e53b60b988424c6dc5020115043a8aee2f7927",
+        "size_in_bytes": 2759
+      },
+      {
+        "_path": "Lib/site-packages/rich/_wrap.py",
+        "path_type": "hardlink",
+        "sha256": "c5f57ff6dd1283aaf38a69ab0ebbbc7c25665256a56007072c37eb2599db6f04",
+        "sha256_in_prefix": "c5f57ff6dd1283aaf38a69ab0ebbbc7c25665256a56007072c37eb2599db6f04",
+        "size_in_bytes": 1840
+      },
+      {
+        "_path": "Lib/site-packages/rich/abc.py",
+        "path_type": "hardlink",
+        "sha256": "7402cc3867ca54d7806efaaaeba2294d0c5051eaf10fb004e052b0a9dd1e40a9",
+        "sha256_in_prefix": "7402cc3867ca54d7806efaaaeba2294d0c5051eaf10fb004e052b0a9dd1e40a9",
+        "size_in_bytes": 878
+      },
+      {
+        "_path": "Lib/site-packages/rich/align.py",
+        "path_type": "hardlink",
+        "sha256": "e73e47bd4dfb268468e7bf59d92b5d8f711ac2cd5c418a266ea401fad4f75636",
+        "sha256_in_prefix": "e73e47bd4dfb268468e7bf59d92b5d8f711ac2cd5c418a266ea401fad4f75636",
+        "size_in_bytes": 10320
+      },
+      {
+        "_path": "Lib/site-packages/rich/ansi.py",
+        "path_type": "hardlink",
+        "sha256": "883eb9df6418aa7066ea1003ba52a3ad5f25f24149fbd7c4568a072471f784c8",
+        "sha256_in_prefix": "883eb9df6418aa7066ea1003ba52a3ad5f25f24149fbd7c4568a072471f784c8",
+        "size_in_bytes": 6906
+      },
+      {
+        "_path": "Lib/site-packages/rich/bar.py",
+        "path_type": "hardlink",
+        "sha256": "6bb503df4dc171c442ac48468df304969bf94456088a7680840baa62a854be6c",
+        "sha256_in_prefix": "6bb503df4dc171c442ac48468df304969bf94456088a7680840baa62a854be6c",
+        "size_in_bytes": 3264
+      },
+      {
+        "_path": "Lib/site-packages/rich/box.py",
+        "path_type": "hardlink",
+        "sha256": "b0589cbd122159119d44ce5adfa5df7c3899ba4b12f4857cef077f14e6d7590d",
+        "sha256_in_prefix": "b0589cbd122159119d44ce5adfa5df7c3899ba4b12f4857cef077f14e6d7590d",
+        "size_in_bytes": 9794
+      },
+      {
+        "_path": "Lib/site-packages/rich/cells.py",
+        "path_type": "hardlink",
+        "sha256": "eb6ef3b49b3dcce2fedfc1c9ee45c17ab47e813f0a05f602f14cc4c0c243618a",
+        "sha256_in_prefix": "eb6ef3b49b3dcce2fedfc1c9ee45c17ab47e813f0a05f602f14cc4c0c243618a",
+        "size_in_bytes": 4509
+      },
+      {
+        "_path": "Lib/site-packages/rich/color.py",
+        "path_type": "hardlink",
+        "sha256": "f4687de7c5377fbe5655d2d3782d14f679064e7da7d309e88caa49ea34049081",
+        "sha256_in_prefix": "f4687de7c5377fbe5655d2d3782d14f679064e7da7d309e88caa49ea34049081",
+        "size_in_bytes": 18224
+      },
+      {
+        "_path": "Lib/site-packages/rich/color_triplet.py",
+        "path_type": "hardlink",
+        "sha256": "de585091d25bbd63e82c33be0276089805a626f579765818342559f7b39168de",
+        "sha256_in_prefix": "de585091d25bbd63e82c33be0276089805a626f579765818342559f7b39168de",
+        "size_in_bytes": 1054
+      },
+      {
+        "_path": "Lib/site-packages/rich/columns.py",
+        "path_type": "hardlink",
+        "sha256": "1d45f429c326f5db0a362d757d36e233f876883b65f3248269573195a944ceaf",
+        "sha256_in_prefix": "1d45f429c326f5db0a362d757d36e233f876883b65f3248269573195a944ceaf",
+        "size_in_bytes": 7131
+      },
+      {
+        "_path": "Lib/site-packages/rich/console.py",
+        "path_type": "hardlink",
+        "sha256": "3a610a20f935aebfea1d8d8e56e89c3ee73892f7c5e5993d8cd3a124ef7076c3",
+        "sha256_in_prefix": "3a610a20f935aebfea1d8d8e56e89c3ee73892f7c5e5993d8cd3a124ef7076c3",
+        "size_in_bytes": 99146
+      },
+      {
+        "_path": "Lib/site-packages/rich/constrain.py",
+        "path_type": "hardlink",
+        "sha256": "d5520fb82f0082d296adc9dc42b8c1758a80dc9556cacbba8d9a35aeb87b73b4",
+        "sha256_in_prefix": "d5520fb82f0082d296adc9dc42b8c1758a80dc9556cacbba8d9a35aeb87b73b4",
+        "size_in_bytes": 1288
+      },
+      {
+        "_path": "Lib/site-packages/rich/containers.py",
+        "path_type": "hardlink",
+        "sha256": "68a826e540c79f9366ba2e8825a29db1985b1c2961fd7ec3fbf5a0f0486bafbb",
+        "sha256_in_prefix": "68a826e540c79f9366ba2e8825a29db1985b1c2961fd7ec3fbf5a0f0486bafbb",
+        "size_in_bytes": 5497
+      },
+      {
+        "_path": "Lib/site-packages/rich/control.py",
+        "path_type": "hardlink",
+        "sha256": "231fab3bc661481daad4189acebe25ef6672030dbb1fda2bec4962a56555a343",
+        "sha256_in_prefix": "231fab3bc661481daad4189acebe25ef6672030dbb1fda2bec4962a56555a343",
+        "size_in_bytes": 6606
+      },
+      {
+        "_path": "Lib/site-packages/rich/default_styles.py",
+        "path_type": "hardlink",
+        "sha256": "881134e1b0fa449095865a5491e0a7127ba59b2759ccaa950311ccf86a685c12",
+        "sha256_in_prefix": "881134e1b0fa449095865a5491e0a7127ba59b2759ccaa950311ccf86a685c12",
+        "size_in_bytes": 8046
+      },
+      {
+        "_path": "Lib/site-packages/rich/diagnose.py",
+        "path_type": "hardlink",
+        "sha256": "668a43d84a5656d9a62a9b606d74feb0e324009ec31ab312517522694d8667bf",
+        "sha256_in_prefix": "668a43d84a5656d9a62a9b606d74feb0e324009ec31ab312517522694d8667bf",
+        "size_in_bytes": 924
+      },
+      {
+        "_path": "Lib/site-packages/rich/emoji.py",
+        "path_type": "hardlink",
+        "sha256": "d634d11c5c2f431635722ba5db631d11971673b6eb7e3293f051ba6635e3e5d3",
+        "sha256_in_prefix": "d634d11c5c2f431635722ba5db631d11971673b6eb7e3293f051ba6635e3e5d3",
+        "size_in_bytes": 2465
+      },
+      {
+        "_path": "Lib/site-packages/rich/errors.py",
+        "path_type": "hardlink",
+        "sha256": "e693f729ce5de1027f734285b31adfca18e23d57bb275ccea9215b140cdc57e6",
+        "sha256_in_prefix": "e693f729ce5de1027f734285b31adfca18e23d57bb275ccea9215b140cdc57e6",
+        "size_in_bytes": 642
+      },
+      {
+        "_path": "Lib/site-packages/rich/file_proxy.py",
+        "path_type": "hardlink",
+        "sha256": "4e5f531cc0d9f8f9395a6f2c23580683f5390e1bac9b10fe159d1f51b714d16d",
+        "sha256_in_prefix": "4e5f531cc0d9f8f9395a6f2c23580683f5390e1bac9b10fe159d1f51b714d16d",
+        "size_in_bytes": 1683
+      },
+      {
+        "_path": "Lib/site-packages/rich/filesize.py",
+        "path_type": "hardlink",
+        "sha256": "f5f4cb00f080c079815dd46feca654d7de234a036b45be96c7b448a0182a78a6",
+        "sha256_in_prefix": "f5f4cb00f080c079815dd46feca654d7de234a036b45be96c7b448a0182a78a6",
+        "size_in_bytes": 2508
+      },
+      {
+        "_path": "Lib/site-packages/rich/highlighter.py",
+        "path_type": "hardlink",
+        "sha256": "a770b5838418cdecc529d47b345f4484f6f3403bdd3d48464604b21861263e4a",
+        "sha256_in_prefix": "a770b5838418cdecc529d47b345f4484f6f3403bdd3d48464604b21861263e4a",
+        "size_in_bytes": 9584
+      },
+      {
+        "_path": "Lib/site-packages/rich/json.py",
+        "path_type": "hardlink",
+        "sha256": "b5c4195b250d16e8f1628374880aa36ffc2d205f9e52176e6973a142bf82689c",
+        "sha256_in_prefix": "b5c4195b250d16e8f1628374880aa36ffc2d205f9e52176e6973a142bf82689c",
+        "size_in_bytes": 5020
+      },
+      {
+        "_path": "Lib/site-packages/rich/jupyter.py",
+        "path_type": "hardlink",
+        "sha256": "1bda4e26647811220561277830a1aa987a82b6cb71d28456a7279382fe78f977",
+        "sha256_in_prefix": "1bda4e26647811220561277830a1aa987a82b6cb71d28456a7279382fe78f977",
+        "size_in_bytes": 3228
+      },
+      {
+        "_path": "Lib/site-packages/rich/layout.py",
+        "path_type": "hardlink",
+        "sha256": "f9a6d2f2bbe3aa57ae86fd98130c27a2de157fbc835ecd1b8d4e78ae8b448642",
+        "sha256_in_prefix": "f9a6d2f2bbe3aa57ae86fd98130c27a2de157fbc835ecd1b8d4e78ae8b448642",
+        "size_in_bytes": 13947
+      },
+      {
+        "_path": "Lib/site-packages/rich/live.py",
+        "path_type": "hardlink",
+        "sha256": "bd9cd8beeedfab096fdc6b61976c62c350dcfcef3456519c095d03387c02c833",
+        "sha256_in_prefix": "bd9cd8beeedfab096fdc6b61976c62c350dcfcef3456519c095d03387c02c833",
+        "size_in_bytes": 14273
+      },
+      {
+        "_path": "Lib/site-packages/rich/live_render.py",
+        "path_type": "hardlink",
+        "sha256": "bd27fbb2eff0ad7cd96063310210803e81898024e39a5c5c53d1b8bd28a3b9c5",
+        "sha256_in_prefix": "bd27fbb2eff0ad7cd96063310210803e81898024e39a5c5c53d1b8bd28a3b9c5",
+        "size_in_bytes": 3655
+      },
+      {
+        "_path": "Lib/site-packages/rich/logging.py",
+        "path_type": "hardlink",
+        "sha256": "5c4294b5e09984dee3d299889e04ce081498d86bee4f8ff8f85db4fa26cfac49",
+        "sha256_in_prefix": "5c4294b5e09984dee3d299889e04ce081498d86bee4f8ff8f85db4fa26cfac49",
+        "size_in_bytes": 11891
+      },
+      {
+        "_path": "Lib/site-packages/rich/markdown.py",
+        "path_type": "hardlink",
+        "sha256": "56e612c4dd0c33fac8ef0bd15cf584ca18c26c90b0916b2babff1ce66d61fc73",
+        "sha256_in_prefix": "56e612c4dd0c33fac8ef0bd15cf584ca18c26c90b0916b2babff1ce66d61fc73",
+        "size_in_bytes": 22368
+      },
+      {
+        "_path": "Lib/site-packages/rich/markup.py",
+        "path_type": "hardlink",
+        "sha256": "caff58f675fe624c1fd3731da5fd494d21385f0909650bcb3128c0721bc6774e",
+        "sha256_in_prefix": "caff58f675fe624c1fd3731da5fd494d21385f0909650bcb3128c0721bc6774e",
+        "size_in_bytes": 8174
+      },
+      {
+        "_path": "Lib/site-packages/rich/measure.py",
+        "path_type": "hardlink",
+        "sha256": "1e6ac8257f2c5914c76e087c33111acbff37564a8d5bfef4b3c68a3f965c608f",
+        "sha256_in_prefix": "1e6ac8257f2c5914c76e087c33111acbff37564a8d5bfef4b3c68a3f965c608f",
+        "size_in_bytes": 5305
+      },
+      {
+        "_path": "Lib/site-packages/rich/padding.py",
+        "path_type": "hardlink",
+        "sha256": "f08d5d40d4102b58828c7b46043127efc911a77a76ec6633979511dea07b7b61",
+        "sha256_in_prefix": "f08d5d40d4102b58828c7b46043127efc911a77a76ec6633979511dea07b7b61",
+        "size_in_bytes": 4958
+      },
+      {
+        "_path": "Lib/site-packages/rich/pager.py",
+        "path_type": "hardlink",
+        "sha256": "48efc44c114a6e0de7fc080ecd79b8d52bf7e98c57032237fd1f8a398dbfb927",
+        "sha256_in_prefix": "48efc44c114a6e0de7fc080ecd79b8d52bf7e98c57032237fd1f8a398dbfb927",
+        "size_in_bytes": 828
+      },
+      {
+        "_path": "Lib/site-packages/rich/palette.py",
+        "path_type": "hardlink",
+        "sha256": "02be9952b607885b7af91af693e93d17c57b87180960735daa3936bd55ec2e07",
+        "sha256_in_prefix": "02be9952b607885b7af91af693e93d17c57b87180960735daa3936bd55ec2e07",
+        "size_in_bytes": 3288
+      },
+      {
+        "_path": "Lib/site-packages/rich/panel.py",
+        "path_type": "hardlink",
+        "sha256": "c0631ee3427c2821a04283342f28d112b986224bf66ec600ef54425d3843d311",
+        "sha256_in_prefix": "c0631ee3427c2821a04283342f28d112b986224bf66ec600ef54425d3843d311",
+        "size_in_bytes": 10574
+      },
+      {
+        "_path": "Lib/site-packages/rich/pretty.py",
+        "path_type": "hardlink",
+        "sha256": "d5eac6e951b41787be7fd023521bc1baec4ac481442a1e8ca3f8f5c9ffdd5f31",
+        "sha256_in_prefix": "d5eac6e951b41787be7fd023521bc1baec4ac481442a1e8ca3f8f5c9ffdd5f31",
+        "size_in_bytes": 35816
+      },
+      {
+        "_path": "Lib/site-packages/rich/progress.py",
+        "path_type": "hardlink",
+        "sha256": "fc0de3415d27dcb4f7f106f10ed3b868db0e7ee6a4121890a3262edef29369f8",
+        "sha256_in_prefix": "fc0de3415d27dcb4f7f106f10ed3b868db0e7ee6a4121890a3262edef29369f8",
+        "size_in_bytes": 59694
+      },
+      {
+        "_path": "Lib/site-packages/rich/progress_bar.py",
+        "path_type": "hardlink",
+        "sha256": "704a017e473794bc2a6dae172ac529cb8bd240a0e1d9043927627de3e002168a",
+        "sha256_in_prefix": "704a017e473794bc2a6dae172ac529cb8bd240a0e1d9043927627de3e002168a",
+        "size_in_bytes": 8165
+      },
+      {
+        "_path": "Lib/site-packages/rich/prompt.py",
+        "path_type": "hardlink",
+        "sha256": "53ded4063097059ed39884692be27190893d8abbc9888bbf1c1da967651a43dc",
+        "sha256_in_prefix": "53ded4063097059ed39884692be27190893d8abbc9888bbf1c1da967651a43dc",
+        "size_in_bytes": 11291
+      },
+      {
+        "_path": "Lib/site-packages/rich/protocol.py",
+        "path_type": "hardlink",
+        "sha256": "5adfb61d977aece622a295240933b3ee5337f2fca8e6bdc711067d4ce3c39794",
+        "sha256_in_prefix": "5adfb61d977aece622a295240933b3ee5337f2fca8e6bdc711067d4ce3c39794",
+        "size_in_bytes": 1367
+      },
+      {
+        "_path": "Lib/site-packages/rich/py.typed",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/rich/region.py",
+        "path_type": "hardlink",
+        "sha256": "acd4fdc59ad56536085d90b43589f8d42250c1835b47e29e70f3b14e042f07c6",
+        "sha256_in_prefix": "acd4fdc59ad56536085d90b43589f8d42250c1835b47e29e70f3b14e042f07c6",
+        "size_in_bytes": 166
+      },
+      {
+        "_path": "Lib/site-packages/rich/repr.py",
+        "path_type": "hardlink",
+        "sha256": "76093a20c29892c683ce82766bacb1b5d699780c27e5e6651b8152054f1b7b7b",
+        "sha256_in_prefix": "76093a20c29892c683ce82766bacb1b5d699780c27e5e6651b8152054f1b7b7b",
+        "size_in_bytes": 4419
+      },
+      {
+        "_path": "Lib/site-packages/rich/rule.py",
+        "path_type": "hardlink",
+        "sha256": "ba63b6d568f0d0571801e4c1dd4ba634b0ac0d685e8f3c678e57f65708978832",
+        "sha256_in_prefix": "ba63b6d568f0d0571801e4c1dd4ba634b0ac0d685e8f3c678e57f65708978832",
+        "size_in_bytes": 4590
+      },
+      {
+        "_path": "Lib/site-packages/rich/scope.py",
+        "path_type": "hardlink",
+        "sha256": "95fe907adfdee09398df89708584801be3415d8281718bbab7f8a0bff2681a88",
+        "sha256_in_prefix": "95fe907adfdee09398df89708584801be3415d8281718bbab7f8a0bff2681a88",
+        "size_in_bytes": 2831
+      },
+      {
+        "_path": "Lib/site-packages/rich/screen.py",
+        "path_type": "hardlink",
+        "sha256": "acbfe3db05fee127ae20e236a0e95ce35f103fd100bc3e7d1889d4984004ea34",
+        "sha256_in_prefix": "acbfe3db05fee127ae20e236a0e95ce35f103fd100bc3e7d1889d4984004ea34",
+        "size_in_bytes": 1579
+      },
+      {
+        "_path": "Lib/site-packages/rich/segment.py",
+        "path_type": "hardlink",
+        "sha256": "7fb537a5571ced3a57b30d0b987ead7016e154805198d45c0db42f957d331900",
+        "sha256_in_prefix": "7fb537a5571ced3a57b30d0b987ead7016e154805198d45c0db42f957d331900",
+        "size_in_bytes": 24211
+      },
+      {
+        "_path": "Lib/site-packages/rich/spinner.py",
+        "path_type": "hardlink",
+        "sha256": "d799280a61740d0783f3e936f0ba6de97ff3250525cc4860a3fe80eaecb8ee57",
+        "sha256_in_prefix": "d799280a61740d0783f3e936f0ba6de97ff3250525cc4860a3fe80eaecb8ee57",
+        "size_in_bytes": 4339
+      },
+      {
+        "_path": "Lib/site-packages/rich/status.py",
+        "path_type": "hardlink",
+        "sha256": "809b085c865e4a8deeacecb14548ece95ae15f9099ac0d0dc4843e7718429f0a",
+        "sha256_in_prefix": "809b085c865e4a8deeacecb14548ece95ae15f9099ac0d0dc4843e7718429f0a",
+        "size_in_bytes": 4425
+      },
+      {
+        "_path": "Lib/site-packages/rich/style.py",
+        "path_type": "hardlink",
+        "sha256": "de18a8707ff837cbf0466dfef32156ccceed4b08e312f7a7ebd5ea59ab124303",
+        "sha256_in_prefix": "de18a8707ff837cbf0466dfef32156ccceed4b08e312f7a7ebd5ea59ab124303",
+        "size_in_bytes": 27073
+      },
+      {
+        "_path": "Lib/site-packages/rich/styled.py",
+        "path_type": "hardlink",
+        "sha256": "c258d5b154d76c004c319be4ce43b8dd9124ffe8abcc4b6f52243eb0d9e2910f",
+        "sha256_in_prefix": "c258d5b154d76c004c319be4ce43b8dd9124ffe8abcc4b6f52243eb0d9e2910f",
+        "size_in_bytes": 1234
+      },
+      {
+        "_path": "Lib/site-packages/rich/syntax.py",
+        "path_type": "hardlink",
+        "sha256": "9a38be6e37e9f8a7caf77ca1bc6f15efb6b533d6bcef6fef750f1f7a2c967ce5",
+        "sha256_in_prefix": "9a38be6e37e9f8a7caf77ca1bc6f15efb6b533d6bcef6fef750f1f7a2c967ce5",
+        "size_in_bytes": 35065
+      },
+      {
+        "_path": "Lib/site-packages/rich/table.py",
+        "path_type": "hardlink",
+        "sha256": "4eec6e954200c1bc25bd23c06f525866db8c8cb92b75296c35382fceab6a76cc",
+        "sha256_in_prefix": "4eec6e954200c1bc25bd23c06f525866db8c8cb92b75296c35382fceab6a76cc",
+        "size_in_bytes": 39648
+      },
+      {
+        "_path": "Lib/site-packages/rich/terminal_theme.py",
+        "path_type": "hardlink",
+        "sha256": "d63e7eb9f25f9ef940a3942c8bf0026625c39b0317cea826141c8e6d3f7ec896",
+        "sha256_in_prefix": "d63e7eb9f25f9ef940a3942c8bf0026625c39b0317cea826141c8e6d3f7ec896",
+        "size_in_bytes": 3370
+      },
+      {
+        "_path": "Lib/site-packages/rich/text.py",
+        "path_type": "hardlink",
+        "sha256": "ab2364a4c8261f73ef9fca6336b60ca15f0c2d16e38b5c7e10e3f6a3a74433ad",
+        "sha256_in_prefix": "ab2364a4c8261f73ef9fca6336b60ca15f0c2d16e38b5c7e10e3f6a3a74433ad",
+        "size_in_bytes": 45513
+      },
+      {
+        "_path": "Lib/site-packages/rich/theme.py",
+        "path_type": "hardlink",
+        "sha256": "6de9452688330345b41f2b1069b29a1ce7374561f6928ddf400261a0df8015da",
+        "sha256_in_prefix": "6de9452688330345b41f2b1069b29a1ce7374561f6928ddf400261a0df8015da",
+        "size_in_bytes": 3777
+      },
+      {
+        "_path": "Lib/site-packages/rich/themes.py",
+        "path_type": "hardlink",
+        "sha256": "d318132e8cdf69b79b62d709b43742e50917e4855411abe2a83509261e185459",
+        "sha256_in_prefix": "d318132e8cdf69b79b62d709b43742e50917e4855411abe2a83509261e185459",
+        "size_in_bytes": 102
+      },
+      {
+        "_path": "Lib/site-packages/rich/traceback.py",
+        "path_type": "hardlink",
+        "sha256": "b4124fe2ca292386eb42d94cad2f94cd9c580b3a1478294b7cb26f7ece0dd452",
+        "sha256_in_prefix": "b4124fe2ca292386eb42d94cad2f94cd9c580b3a1478294b7cb26f7ece0dd452",
+        "size_in_bytes": 29532
+      },
+      {
+        "_path": "Lib/site-packages/rich/tree.py",
+        "path_type": "hardlink",
+        "sha256": "02cdc19225fb571e054244ce167b6b7fa94c2404d95cad02f9ced1bb12fa2f21",
+        "sha256_in_prefix": "02cdc19225fb571e054244ce167b6b7fa94c2404d95cad02f9ced1bb12fa2f21",
+        "size_in_bytes": 9109
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "dff6124d532d32dcccb35ce71d50691d7e774c7a3e9a3229d4e819d130aa02de",
+  "size": 579365,
+  "subdir": "win-64",
+  "timestamp": 1684282441549,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/rich-13.3.5-py311haa95532_0.conda",
+  "version": "13.3.5"
+}

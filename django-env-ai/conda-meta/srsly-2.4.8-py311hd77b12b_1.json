@@ -1,0 +1,2088 @@
+{
+  "build": "py311hd77b12b_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64",
+  "constrains": [],
+  "depends": [
+    "catalogue >=2.0.3,<2.1.0",
+    "python >=3.11,<3.12.0a0",
+    "vc >=14.1,<15.0a0",
+    "vs2015_runtime >=14.16.27012,<15.0a0"
+  ],
+  "extracted_package_dir": "C:\\Users\\Setha\\anaconda3\\pkgs\\srsly-2.4.8-py311hd77b12b_1",
+  "files": [
+    "Lib/site-packages/srsly-2.4.8.dist-info/INSTALLER",
+    "Lib/site-packages/srsly-2.4.8.dist-info/LICENSE",
+    "Lib/site-packages/srsly-2.4.8.dist-info/METADATA",
+    "Lib/site-packages/srsly-2.4.8.dist-info/RECORD",
+    "Lib/site-packages/srsly-2.4.8.dist-info/REQUESTED",
+    "Lib/site-packages/srsly-2.4.8.dist-info/WHEEL",
+    "Lib/site-packages/srsly-2.4.8.dist-info/direct_url.json",
+    "Lib/site-packages/srsly-2.4.8.dist-info/entry_points.txt",
+    "Lib/site-packages/srsly-2.4.8.dist-info/top_level.txt",
+    "Lib/site-packages/srsly-2.4.8.dist-info/zip-safe",
+    "Lib/site-packages/srsly/__init__.py",
+    "Lib/site-packages/srsly/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/__pycache__/_json_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/__pycache__/_msgpack_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/__pycache__/_pickle_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/__pycache__/_yaml_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/__pycache__/about.cpython-311.pyc",
+    "Lib/site-packages/srsly/__pycache__/util.cpython-311.pyc",
+    "Lib/site-packages/srsly/_json_api.py",
+    "Lib/site-packages/srsly/_msgpack_api.py",
+    "Lib/site-packages/srsly/_pickle_api.py",
+    "Lib/site-packages/srsly/_yaml_api.py",
+    "Lib/site-packages/srsly/about.py",
+    "Lib/site-packages/srsly/cloudpickle/__init__.py",
+    "Lib/site-packages/srsly/cloudpickle/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/cloudpickle/__pycache__/cloudpickle.cpython-311.pyc",
+    "Lib/site-packages/srsly/cloudpickle/__pycache__/cloudpickle_fast.cpython-311.pyc",
+    "Lib/site-packages/srsly/cloudpickle/__pycache__/compat.cpython-311.pyc",
+    "Lib/site-packages/srsly/cloudpickle/cloudpickle.py",
+    "Lib/site-packages/srsly/cloudpickle/cloudpickle_fast.py",
+    "Lib/site-packages/srsly/cloudpickle/compat.py",
+    "Lib/site-packages/srsly/msgpack/__init__.py",
+    "Lib/site-packages/srsly/msgpack/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/msgpack/__pycache__/_ext_type.cpython-311.pyc",
+    "Lib/site-packages/srsly/msgpack/__pycache__/_msgpack_numpy.cpython-311.pyc",
+    "Lib/site-packages/srsly/msgpack/__pycache__/_version.cpython-311.pyc",
+    "Lib/site-packages/srsly/msgpack/__pycache__/exceptions.cpython-311.pyc",
+    "Lib/site-packages/srsly/msgpack/__pycache__/util.cpython-311.pyc",
+    "Lib/site-packages/srsly/msgpack/_ext_type.py",
+    "Lib/site-packages/srsly/msgpack/_msgpack_numpy.py",
+    "Lib/site-packages/srsly/msgpack/_packer.cp311-win_amd64.pyd",
+    "Lib/site-packages/srsly/msgpack/_packer.cpp",
+    "Lib/site-packages/srsly/msgpack/_packer.pyx",
+    "Lib/site-packages/srsly/msgpack/_unpacker.cp311-win_amd64.pyd",
+    "Lib/site-packages/srsly/msgpack/_unpacker.cpp",
+    "Lib/site-packages/srsly/msgpack/_unpacker.pyx",
+    "Lib/site-packages/srsly/msgpack/_version.py",
+    "Lib/site-packages/srsly/msgpack/buff_converter.h",
+    "Lib/site-packages/srsly/msgpack/exceptions.py",
+    "Lib/site-packages/srsly/msgpack/pack.h",
+    "Lib/site-packages/srsly/msgpack/pack_template.h",
+    "Lib/site-packages/srsly/msgpack/sysdep.h",
+    "Lib/site-packages/srsly/msgpack/unpack.h",
+    "Lib/site-packages/srsly/msgpack/unpack_define.h",
+    "Lib/site-packages/srsly/msgpack/unpack_template.h",
+    "Lib/site-packages/srsly/msgpack/util.py",
+    "Lib/site-packages/srsly/ruamel_yaml/__init__.py",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/anchor.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/comments.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/compat.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/composer.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/configobjwalker.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/constructor.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/cyaml.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/dumper.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/emitter.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/error.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/events.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/loader.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/main.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/nodes.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/parser.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/reader.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/representer.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/resolver.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarbool.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarfloat.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarint.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarstring.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scanner.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/serializer.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/timestamp.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/tokens.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/__pycache__/util.cpython-311.pyc",
+    "Lib/site-packages/srsly/ruamel_yaml/anchor.py",
+    "Lib/site-packages/srsly/ruamel_yaml/comments.py",
+    "Lib/site-packages/srsly/ruamel_yaml/compat.py",
+    "Lib/site-packages/srsly/ruamel_yaml/composer.py",
+    "Lib/site-packages/srsly/ruamel_yaml/configobjwalker.py",
+    "Lib/site-packages/srsly/ruamel_yaml/constructor.py",
+    "Lib/site-packages/srsly/ruamel_yaml/cyaml.py",
+    "Lib/site-packages/srsly/ruamel_yaml/dumper.py",
+    "Lib/site-packages/srsly/ruamel_yaml/emitter.py",
+    "Lib/site-packages/srsly/ruamel_yaml/error.py",
+    "Lib/site-packages/srsly/ruamel_yaml/events.py",
+    "Lib/site-packages/srsly/ruamel_yaml/loader.py",
+    "Lib/site-packages/srsly/ruamel_yaml/main.py",
+    "Lib/site-packages/srsly/ruamel_yaml/nodes.py",
+    "Lib/site-packages/srsly/ruamel_yaml/parser.py",
+    "Lib/site-packages/srsly/ruamel_yaml/reader.py",
+    "Lib/site-packages/srsly/ruamel_yaml/representer.py",
+    "Lib/site-packages/srsly/ruamel_yaml/resolver.py",
+    "Lib/site-packages/srsly/ruamel_yaml/scalarbool.py",
+    "Lib/site-packages/srsly/ruamel_yaml/scalarfloat.py",
+    "Lib/site-packages/srsly/ruamel_yaml/scalarint.py",
+    "Lib/site-packages/srsly/ruamel_yaml/scalarstring.py",
+    "Lib/site-packages/srsly/ruamel_yaml/scanner.py",
+    "Lib/site-packages/srsly/ruamel_yaml/serializer.py",
+    "Lib/site-packages/srsly/ruamel_yaml/timestamp.py",
+    "Lib/site-packages/srsly/ruamel_yaml/tokens.py",
+    "Lib/site-packages/srsly/ruamel_yaml/util.py",
+    "Lib/site-packages/srsly/tests/__init__.py",
+    "Lib/site-packages/srsly/tests/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/__pycache__/test_json_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/__pycache__/test_msgpack_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/__pycache__/test_pickle_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/__pycache__/test_yaml_api.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/__pycache__/util.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/cloudpickle/__init__.py",
+    "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/cloudpickle_file_test.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/cloudpickle_test.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/testutils.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/cloudpickle/cloudpickle_file_test.py",
+    "Lib/site-packages/srsly/tests/cloudpickle/cloudpickle_test.py",
+    "Lib/site-packages/srsly/tests/cloudpickle/testutils.py",
+    "Lib/site-packages/srsly/tests/msgpack/__init__.py",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_buffer.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_case.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_except.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_extension.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_format.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_limits.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_memoryview.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_newspec.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_numpy.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_pack.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_read_size.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_seq.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_sequnpack.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_stricttype.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_subtype.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_unpack.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/msgpack/test_buffer.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_case.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_except.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_extension.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_format.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_limits.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_memoryview.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_newspec.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_numpy.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_pack.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_read_size.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_seq.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_sequnpack.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_stricttype.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_subtype.py",
+    "Lib/site-packages/srsly/tests/msgpack/test_unpack.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__init__.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/roundtrip.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_a_dedent.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_add_xxx.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_anchor.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_api_change.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_appliance.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_class_register.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_collections.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_comment_manipulation.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_comments.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_contextmanager.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_copy.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_datetime.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_deprecation.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_documents.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_fail.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_float.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_flowsequencekey.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_indentation.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_int.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_issues.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_json_numbers.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_line_col.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_literal.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_none.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_numpy.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_program_config.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_spec_examples.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_string.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_tag.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_version.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_yamlfile.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_yamlobject.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_z_check_debug_leftovers.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_z_data.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/roundtrip.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_a_dedent.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_add_xxx.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_anchor.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_api_change.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_appliance.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_class_register.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_collections.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_comment_manipulation.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_comments.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_contextmanager.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_copy.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_datetime.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_deprecation.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_documents.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_fail.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_float.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_flowsequencekey.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_indentation.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_int.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_issues.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_json_numbers.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_line_col.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_literal.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_none.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_numpy.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_program_config.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_spec_examples.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_string.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_tag.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_version.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_yamlfile.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_yamlobject.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_z_check_debug_leftovers.py",
+    "Lib/site-packages/srsly/tests/ruamel_yaml/test_z_data.py",
+    "Lib/site-packages/srsly/tests/test_json_api.py",
+    "Lib/site-packages/srsly/tests/test_msgpack_api.py",
+    "Lib/site-packages/srsly/tests/test_pickle_api.py",
+    "Lib/site-packages/srsly/tests/test_yaml_api.py",
+    "Lib/site-packages/srsly/tests/ujson/334-reproducer.json",
+    "Lib/site-packages/srsly/tests/ujson/__init__.py",
+    "Lib/site-packages/srsly/tests/ujson/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ujson/__pycache__/test_ujson.cpython-311.pyc",
+    "Lib/site-packages/srsly/tests/ujson/test_ujson.py",
+    "Lib/site-packages/srsly/tests/util.py",
+    "Lib/site-packages/srsly/ujson/JSONtoObj.c",
+    "Lib/site-packages/srsly/ujson/__init__.py",
+    "Lib/site-packages/srsly/ujson/__pycache__/__init__.cpython-311.pyc",
+    "Lib/site-packages/srsly/ujson/lib/dconv_wrapper.cc",
+    "Lib/site-packages/srsly/ujson/lib/ultrajson.h",
+    "Lib/site-packages/srsly/ujson/lib/ultrajsondec.c",
+    "Lib/site-packages/srsly/ujson/lib/ultrajsonenc.c",
+    "Lib/site-packages/srsly/ujson/objToJSON.c",
+    "Lib/site-packages/srsly/ujson/py_defines.h",
+    "Lib/site-packages/srsly/ujson/ujson.c",
+    "Lib/site-packages/srsly/ujson/ujson.cp311-win_amd64.pyd",
+    "Lib/site-packages/srsly/ujson/version.h",
+    "Lib/site-packages/srsly/util.py",
+    ".nonadmin"
+  ],
+  "fn": "srsly-2.4.8-py311hd77b12b_1.conda",
+  "legacy_bz2_md5": "9790be28e637e055ba3bc894218e2aed",
+  "legacy_bz2_size": 730165,
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "C:\\Users\\Setha\\anaconda3\\pkgs\\srsly-2.4.8-py311hd77b12b_1",
+    "type": 1
+  },
+  "md5": "bb29eff507c2bcd939bad5881c150d27",
+  "name": "srsly",
+  "package_tarball_full_path": "C:\\Users\\Setha\\anaconda3\\pkgs\\srsly-2.4.8-py311hd77b12b_1.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/LICENSE",
+        "path_type": "hardlink",
+        "sha256": "6c9e9291cb685579e05a3f76c776cc5dee1ebd89d6823b93d5f875b96e4e5f11",
+        "sha256_in_prefix": "6c9e9291cb685579e05a3f76c776cc5dee1ebd89d6823b93d5f875b96e4e5f11",
+        "size_in_bytes": 1103
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "0a9ac6e6c39def686a3295a3e09113397347bf41ac60d31c91073d7988441ed2",
+        "sha256_in_prefix": "0a9ac6e6c39def686a3295a3e09113397347bf41ac60d31c91073d7988441ed2",
+        "size_in_bytes": 20526
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "ed171911d5f6525cee2e076f199318418fb15c79411481b065d339b04c4cb7a9",
+        "sha256_in_prefix": "ed171911d5f6525cee2e076f199318418fb15c79411481b065d339b04c4cb7a9",
+        "size_in_bytes": 19865
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/REQUESTED",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "6da76f352fb2f5f12ad17faacdd658bea97f2458c8ed77f0fb047c16c8e82b42",
+        "sha256_in_prefix": "6da76f352fb2f5f12ad17faacdd658bea97f2458c8ed77f0fb047c16c8e82b42",
+        "size_in_bytes": 102
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/direct_url.json",
+        "path_type": "hardlink",
+        "sha256": "fbd7a15400032b8edeb3f847205595514c8efe61a7fc7744b521a4f798c6707a",
+        "sha256_in_prefix": "fbd7a15400032b8edeb3f847205595514c8efe61a7fc7744b521a4f798c6707a",
+        "size_in_bytes": 85
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/entry_points.txt",
+        "path_type": "hardlink",
+        "sha256": "7a088eebbd38341671361233f7abff8a15cbd02df0459ced0aa7dcdcc3785727",
+        "sha256_in_prefix": "7a088eebbd38341671361233f7abff8a15cbd02df0459ced0aa7dcdcc3785727",
+        "size_in_bytes": 172
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "4d785aced296163b862a54c5349712c0342460dd042c7aa88416bd02ba4ad2e2",
+        "sha256_in_prefix": "4d785aced296163b862a54c5349712c0342460dd042c7aa88416bd02ba4ad2e2",
+        "size_in_bytes": 6
+      },
+      {
+        "_path": "Lib/site-packages/srsly-2.4.8.dist-info/zip-safe",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "03ad02b24d38c631ebb95816e1e50dc4cc1f15d13af1aea16ae4d09314619f15",
+        "sha256_in_prefix": "03ad02b24d38c631ebb95816e1e50dc4cc1f15d13af1aea16ae4d09314619f15",
+        "size_in_bytes": 591
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5a5c04a87b4c7805c019993fe81683c8980d1cf591947e556fdc99a59b06b764",
+        "sha256_in_prefix": "5a5c04a87b4c7805c019993fe81683c8980d1cf591947e556fdc99a59b06b764",
+        "size_in_bytes": 1160
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__pycache__/_json_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "68b4c4daf9a783de9a645eb6f06e34d96843dd624dfe1af46d4d9d8716e7abb4",
+        "sha256_in_prefix": "68b4c4daf9a783de9a645eb6f06e34d96843dd624dfe1af46d4d9d8716e7abb4",
+        "size_in_bytes": 11754
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__pycache__/_msgpack_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ae0700f44f3bd1a1b1b43bdefd8011cc09c0f0c7a5a703ffb9bdc8a7d12974df",
+        "sha256_in_prefix": "ae0700f44f3bd1a1b1b43bdefd8011cc09c0f0c7a5a703ffb9bdc8a7d12974df",
+        "size_in_bytes": 3114
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__pycache__/_pickle_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "865ff3e95b79fa2403b0a7cd4b03ede1154a7eb028934f403e186335b2de898d",
+        "sha256_in_prefix": "865ff3e95b79fa2403b0a7cd4b03ede1154a7eb028934f403e186335b2de898d",
+        "size_in_bytes": 1163
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__pycache__/_yaml_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "bd270d5f31bff4ad2038626838bd9b5363bdba70a8f6e68cdfb4fca68db8bd9f",
+        "sha256_in_prefix": "bd270d5f31bff4ad2038626838bd9b5363bdba70a8f6e68cdfb4fca68db8bd9f",
+        "size_in_bytes": 5949
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__pycache__/about.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "8ca3db112324f66aa57aef80158db8dfb24f0116d3a98636ae6a82ceb34e7817",
+        "sha256_in_prefix": "8ca3db112324f66aa57aef80158db8dfb24f0116d3a98636ae6a82ceb34e7817",
+        "size_in_bytes": 161
+      },
+      {
+        "_path": "Lib/site-packages/srsly/__pycache__/util.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "cae2d8366e9e9b47a1e9b5b50dc37ac63914887da23d8ca4a06c19fb578c4330",
+        "sha256_in_prefix": "cae2d8366e9e9b47a1e9b5b50dc37ac63914887da23d8ca4a06c19fb578c4330",
+        "size_in_bytes": 1697
+      },
+      {
+        "_path": "Lib/site-packages/srsly/_json_api.py",
+        "path_type": "hardlink",
+        "sha256": "88272f1e7ad3673f372d281151495d66c3e3b56c384c18daddef3fa50844747b",
+        "sha256_in_prefix": "88272f1e7ad3673f372d281151495d66c3e3b56c384c18daddef3fa50844747b",
+        "size_in_bytes": 7068
+      },
+      {
+        "_path": "Lib/site-packages/srsly/_msgpack_api.py",
+        "path_type": "hardlink",
+        "sha256": "b12974af0e42e98e3958f3f56bdc1a1e87cf4e277d75ab8adc123fa1c7b9fa5b",
+        "sha256_in_prefix": "b12974af0e42e98e3958f3f56bdc1a1e87cf4e277d75ab8adc123fa1c7b9fa5b",
+        "size_in_bytes": 1855
+      },
+      {
+        "_path": "Lib/site-packages/srsly/_pickle_api.py",
+        "path_type": "hardlink",
+        "sha256": "1155ac8a4a15746ef958ef5558fc2929e51e86374b78e67d3d780ecb08643964",
+        "sha256_in_prefix": "1155ac8a4a15746ef958ef5558fc2929e51e86374b78e67d3d780ecb08643964",
+        "size_in_bytes": 631
+      },
+      {
+        "_path": "Lib/site-packages/srsly/_yaml_api.py",
+        "path_type": "hardlink",
+        "sha256": "19cdc4122fbe4b7f473fb0d23da87e8115ec04372c0b8285654b6cc9ed747f8a",
+        "sha256_in_prefix": "19cdc4122fbe4b7f473fb0d23da87e8115ec04372c0b8285654b6cc9ed747f8a",
+        "size_in_bytes": 3773
+      },
+      {
+        "_path": "Lib/site-packages/srsly/about.py",
+        "path_type": "hardlink",
+        "sha256": "82532e390a261aa3de26f9fc507ccb6bcdccba3aa3357dafa5a8326de322b780",
+        "sha256_in_prefix": "82532e390a261aa3de26f9fc507ccb6bcdccba3aa3357dafa5a8326de322b780",
+        "size_in_bytes": 22
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "02326ea98b5f59948fe6281e24816f018b0dcba90780b7a7e7c438c3e672587e",
+        "sha256_in_prefix": "02326ea98b5f59948fe6281e24816f018b0dcba90780b7a7e7c438c3e672587e",
+        "size_in_bytes": 292
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "891678fe39a7430e541ef526f472a325d98ee3f08eaa5817356be27f36a73c00",
+        "sha256_in_prefix": "891678fe39a7430e541ef526f472a325d98ee3f08eaa5817356be27f36a73c00",
+        "size_in_bytes": 351
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/__pycache__/cloudpickle.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "6a4d8084390ce2ddf80c88c14ea9ec60e5009082a6661337c623b6392a2468de",
+        "sha256_in_prefix": "6a4d8084390ce2ddf80c88c14ea9ec60e5009082a6661337c623b6392a2468de",
+        "size_in_bytes": 37621
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/__pycache__/cloudpickle_fast.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "e90f77578e3fe56794243c66cf6ef88afc343c23899c0297540b191b1e849aa2",
+        "sha256_in_prefix": "e90f77578e3fe56794243c66cf6ef88afc343c23899c0297540b191b1e849aa2",
+        "size_in_bytes": 34569
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/__pycache__/compat.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "99d81fe1082fbd6bbc7014008c041a1cdf73670eecd6023dc4884fd245db902a",
+        "sha256_in_prefix": "99d81fe1082fbd6bbc7014008c041a1cdf73670eecd6023dc4884fd245db902a",
+        "size_in_bytes": 540
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/cloudpickle.py",
+        "path_type": "hardlink",
+        "sha256": "b5d494a8c693d4e41c49a8aba4c08fa969fa9e956971d8cbb936e15230f5d5af",
+        "sha256_in_prefix": "b5d494a8c693d4e41c49a8aba4c08fa969fa9e956971d8cbb936e15230f5d5af",
+        "size_in_bytes": 35137
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/cloudpickle_fast.py",
+        "path_type": "hardlink",
+        "sha256": "057127bee1aa375ada90d7f1a66934cc46d97502eab6d9f79f64023b8d749919",
+        "sha256_in_prefix": "057127bee1aa375ada90d7f1a66934cc46d97502eab6d9f79f64023b8d749919",
+        "size_in_bytes": 34114
+      },
+      {
+        "_path": "Lib/site-packages/srsly/cloudpickle/compat.py",
+        "path_type": "hardlink",
+        "sha256": "213383531d14fdbedc8694b8eff4a2ab1ed83f5acc614a491fa077ac100d9966",
+        "sha256_in_prefix": "213383531d14fdbedc8694b8eff4a2ab1ed83f5acc614a491fa077ac100d9966",
+        "size_in_bytes": 508
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "9ab1a04efb70ec385d565c6c262ac7a7780f8361a1215a75ee14627f3c574f9c",
+        "sha256_in_prefix": "9ab1a04efb70ec385d565c6c262ac7a7780f8361a1215a75ee14627f3c574f9c",
+        "size_in_bytes": 2573
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "39ec151c547c64ba617d4140435ec3a7f80b204a43e4c21b42c42dcb5675623b",
+        "sha256_in_prefix": "39ec151c547c64ba617d4140435ec3a7f80b204a43e4c21b42c42dcb5675623b",
+        "size_in_bytes": 4682
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/__pycache__/_ext_type.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "6de4ac66156b4a100b979740d5092058e177e6ba13d7cf5a98daeb26d29c29b7",
+        "sha256_in_prefix": "6de4ac66156b4a100b979740d5092058e177e6ba13d7cf5a98daeb26d29c29b7",
+        "size_in_bytes": 1311
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/__pycache__/_msgpack_numpy.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "fead377ff4c7f37673559a8fb5ae187fb8723bfb0d44357692e7eda43be0e421",
+        "sha256_in_prefix": "fead377ff4c7f37673559a8fb5ae187fb8723bfb0d44357692e7eda43be0e421",
+        "size_in_bytes": 3929
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/__pycache__/_version.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ff7164441e84b41df1c12cdd057af973988d707fe7f5ac133e295e1745d3eb1a",
+        "sha256_in_prefix": "ff7164441e84b41df1c12cdd057af973988d707fe7f5ac133e295e1745d3eb1a",
+        "size_in_bytes": 178
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/__pycache__/exceptions.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "50725924d93cf733dee2ca286b57e987450a98264a68e3752439fa5af2e97e3e",
+        "sha256_in_prefix": "50725924d93cf733dee2ca286b57e987450a98264a68e3752439fa5af2e97e3e",
+        "size_in_bytes": 2331
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/__pycache__/util.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "6b595efcb7c5102ed08ad62dad3375a3314cc5a0e06770f2daa701286d28dda3",
+        "sha256_in_prefix": "6b595efcb7c5102ed08ad62dad3375a3314cc5a0e06770f2daa701286d28dda3",
+        "size_in_bytes": 675
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_ext_type.py",
+        "path_type": "hardlink",
+        "sha256": "b49accc7ee6e3bc821fbc7335540a8adb3750ce4af3bf586069d139a3185c5f2",
+        "sha256_in_prefix": "b49accc7ee6e3bc821fbc7335540a8adb3750ce4af3bf586069d139a3185c5f2",
+        "size_in_bytes": 493
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_msgpack_numpy.py",
+        "path_type": "hardlink",
+        "sha256": "5f743657e633a3e0ec5ba7cac160bb60647f96a8a5ac08b1a0b13fb7b342c5b3",
+        "sha256_in_prefix": "5f743657e633a3e0ec5ba7cac160bb60647f96a8a5ac08b1a0b13fb7b342c5b3",
+        "size_in_bytes": 2717
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_packer.cp311-win_amd64.pyd",
+        "path_type": "hardlink",
+        "sha256": "9b0763d1b73a06e4ee3c89f4bbe83e249158ef6eed9bf58957c6b8b2567b3b8e",
+        "sha256_in_prefix": "9b0763d1b73a06e4ee3c89f4bbe83e249158ef6eed9bf58957c6b8b2567b3b8e",
+        "size_in_bytes": 58880
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_packer.cpp",
+        "path_type": "hardlink",
+        "sha256": "3eb83d1d7ca163b0504ee2be054cbed67879e4ef3f0e46e60a6ab96221bc7434",
+        "sha256_in_prefix": "3eb83d1d7ca163b0504ee2be054cbed67879e4ef3f0e46e60a6ab96221bc7434",
+        "size_in_bytes": 410387
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_packer.pyx",
+        "path_type": "hardlink",
+        "sha256": "3d74a9b4d4bf93ba4822e53abb0cc4cb82ceff42e1a12e286f7ba787e371693c",
+        "sha256_in_prefix": "3d74a9b4d4bf93ba4822e53abb0cc4cb82ceff42e1a12e286f7ba787e371693c",
+        "size_in_bytes": 13850
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_unpacker.cp311-win_amd64.pyd",
+        "path_type": "hardlink",
+        "sha256": "114dfdac8a3000c498b922aa3caf6a05d122d52944a6ff32bcd53854acb4779a",
+        "sha256_in_prefix": "114dfdac8a3000c498b922aa3caf6a05d122d52944a6ff32bcd53854acb4779a",
+        "size_in_bytes": 71680
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_unpacker.cpp",
+        "path_type": "hardlink",
+        "sha256": "3fe290a0cf11eb1a49a2cc32137eccb3b1ef473136f30f3daaeae8e61c3cccee",
+        "sha256_in_prefix": "3fe290a0cf11eb1a49a2cc32137eccb3b1ef473136f30f3daaeae8e61c3cccee",
+        "size_in_bytes": 416210
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_unpacker.pyx",
+        "path_type": "hardlink",
+        "sha256": "02ef98c48555e9765b7526a62f4e1f263ef5d5d428d82eb81768872cc1dcca6c",
+        "sha256_in_prefix": "02ef98c48555e9765b7526a62f4e1f263ef5d5d428d82eb81768872cc1dcca6c",
+        "size_in_bytes": 19218
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/_version.py",
+        "path_type": "hardlink",
+        "sha256": "38b308f5d5e3a64d5ada0e28e63ce0065f685d0aba680cd72f61775a527f134e",
+        "sha256_in_prefix": "38b308f5d5e3a64d5ada0e28e63ce0065f685d0aba680cd72f61775a527f134e",
+        "size_in_bytes": 20
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/buff_converter.h",
+        "path_type": "hardlink",
+        "sha256": "19a0dbc599cda564799f95732400399f9871b2ed233ecd42bc245a8559531ddd",
+        "sha256_in_prefix": "19a0dbc599cda564799f95732400399f9871b2ed233ecd42bc245a8559531ddd",
+        "size_in_bytes": 661
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/exceptions.py",
+        "path_type": "hardlink",
+        "sha256": "7424d67a2f1da64accb100dc8d093be004e5f47b08047d326edf3338f36a3187",
+        "sha256_in_prefix": "7424d67a2f1da64accb100dc8d093be004e5f47b08047d326edf3338f36a3187",
+        "size_in_bytes": 1081
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/pack.h",
+        "path_type": "hardlink",
+        "sha256": "56c566812002a484c0f4a0aa003f035474f47bfe19e9c448a3a9578954a44cdb",
+        "sha256_in_prefix": "56c566812002a484c0f4a0aa003f035474f47bfe19e9c448a3a9578954a44cdb",
+        "size_in_bytes": 2628
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/pack_template.h",
+        "path_type": "hardlink",
+        "sha256": "0626c1e27b6277d8afedd3aa2c03d5b54233ee2e33d9c63840f8bfedf6b2d664",
+        "sha256_in_prefix": "0626c1e27b6277d8afedd3aa2c03d5b54233ee2e33d9c63840f8bfedf6b2d664",
+        "size_in_bytes": 20708
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/sysdep.h",
+        "path_type": "hardlink",
+        "sha256": "0608ba6aa97c6b1eb0435ba9538b1cce5661ff4bb6dc637434fc9f7e36a56d77",
+        "sha256_in_prefix": "0608ba6aa97c6b1eb0435ba9538b1cce5661ff4bb6dc637434fc9f7e36a56d77",
+        "size_in_bytes": 6464
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/unpack.h",
+        "path_type": "hardlink",
+        "sha256": "13be47e4ccd4d2666b94ed1bee349d11ad4dab7bba59bf27e80ee019373304ed",
+        "sha256_in_prefix": "13be47e4ccd4d2666b94ed1bee349d11ad4dab7bba59bf27e80ee019373304ed",
+        "size_in_bytes": 8070
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/unpack_define.h",
+        "path_type": "hardlink",
+        "sha256": "aa32cd06e1e7e33141181964a84cd86081930c2a05c81d1a27b83d1603520dda",
+        "sha256_in_prefix": "aa32cd06e1e7e33141181964a84cd86081930c2a05c81d1a27b83d1603520dda",
+        "size_in_bytes": 2372
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/unpack_template.h",
+        "path_type": "hardlink",
+        "sha256": "682c099deddec141545c8d1b909661cd83c963b76f120bec0d7490652b883381",
+        "sha256_in_prefix": "682c099deddec141545c8d1b909661cd83c963b76f120bec0d7490652b883381",
+        "size_in_bytes": 14888
+      },
+      {
+        "_path": "Lib/site-packages/srsly/msgpack/util.py",
+        "path_type": "hardlink",
+        "sha256": "68a3f85ae90ec2e518d70c4f1ed65fec3cabed68f42371fedd987bdb5a704242",
+        "sha256_in_prefix": "68a3f85ae90ec2e518d70c4f1ed65fec3cabed68f42371fedd987bdb5a704242",
+        "size_in_bytes": 301
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "0abc936942ca979bb000fd190798bc8770536c16af9b30617952024ccd92daed",
+        "sha256_in_prefix": "0abc936942ca979bb000fd190798bc8770536c16af9b30617952024ccd92daed",
+        "size_in_bytes": 104
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "e636bcdcd6be8960bf8b12f83cb38706c205cc438ba0bf22039f40cb6fa60484",
+        "sha256_in_prefix": "e636bcdcd6be8960bf8b12f83cb38706c205cc438ba0bf22039f40cb6fa60484",
+        "size_in_bytes": 282
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/anchor.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "0d6fb748f300d234b2df9bac354b9b026b0838ddfb7308d52dc576f4251592fc",
+        "sha256_in_prefix": "0d6fb748f300d234b2df9bac354b9b026b0838ddfb7308d52dc576f4251592fc",
+        "size_in_bytes": 1069
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/comments.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5a70e107afcc02e99407570768f5255ecddd87096a4d2e642fba6572bd9c1ce2",
+        "sha256_in_prefix": "5a70e107afcc02e99407570768f5255ecddd87096a4d2e642fba6572bd9c1ce2",
+        "size_in_bytes": 52845
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/compat.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "fa0ddda459b75670b42c1e0d49e46a2ffe3089429f74f643e1a585fd5a5244b4",
+        "sha256_in_prefix": "fa0ddda459b75670b42c1e0d49e46a2ffe3089429f74f643e1a585fd5a5244b4",
+        "size_in_bytes": 12248
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/composer.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "769fa9703bd61388c62b4e7175ba4d4e274546b9559f56a02a9efaa15204945c",
+        "sha256_in_prefix": "769fa9703bd61388c62b4e7175ba4d4e274546b9559f56a02a9efaa15204945c",
+        "size_in_bytes": 10294
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/configobjwalker.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "efa07b7e0c981be38a91521bffb206f9e24f9b7158e62ce2daab90025ca4a3ac",
+        "sha256_in_prefix": "efa07b7e0c981be38a91521bffb206f9e24f9b7158e62ce2daab90025ca4a3ac",
+        "size_in_bytes": 612
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/constructor.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "a21d8b7ca28bbe1c99664eaa0f2a06d945588770ffa5b6658f88e0a82728392f",
+        "sha256_in_prefix": "a21d8b7ca28bbe1c99664eaa0f2a06d945588770ffa5b6658f88e0a82728392f",
+        "size_in_bytes": 72700
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/cyaml.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "928c68feb776f53cd57044f5127ce7d314c934869098bc445b250df9f6d62fbc",
+        "sha256_in_prefix": "928c68feb776f53cd57044f5127ce7d314c934869098bc445b250df9f6d62fbc",
+        "size_in_bytes": 5570
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/dumper.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "6beb7071a9746dd88e94acbe2441c057b0af52982e6ac741f4044dad5b146fe1",
+        "sha256_in_prefix": "6beb7071a9746dd88e94acbe2441c057b0af52982e6ac741f4044dad5b146fe1",
+        "size_in_bytes": 4538
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/emitter.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "8ef4e2d1318f91e93ab00af0abed16a7f6efcfe2123a2d78dc3af7a71504f3e0",
+        "sha256_in_prefix": "8ef4e2d1318f91e93ab00af0abed16a7f6efcfe2123a2d78dc3af7a71504f3e0",
+        "size_in_bytes": 71218
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/error.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "1bf63211306ad65df1fca79b879981b1ab10cb20281bbe93007ec5e693aa7d3e",
+        "sha256_in_prefix": "1bf63211306ad65df1fca79b879981b1ab10cb20281bbe93007ec5e693aa7d3e",
+        "size_in_bytes": 13223
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/events.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "96f2e10d5bce886c7275f89debb239ed2183bb223ba6262d0f80cde3734bcd81",
+        "sha256_in_prefix": "96f2e10d5bce886c7275f89debb239ed2183bb223ba6262d0f80cde3734bcd81",
+        "size_in_bytes": 6806
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/loader.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "272d1a636428bf43833d442d7caf165581f69ca84d55602e091c90252100d796",
+        "sha256_in_prefix": "272d1a636428bf43833d442d7caf165581f69ca84d55602e091c90252100d796",
+        "size_in_bytes": 3748
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/main.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "bd64f98a9879addab9239792b10d8af8a046913095bfe1c6d1d947a491ed0b47",
+        "sha256_in_prefix": "bd64f98a9879addab9239792b10d8af8a046913095bfe1c6d1d947a491ed0b47",
+        "size_in_bytes": 60566
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/nodes.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "1fca683c3bb2a4a34ad2c3e3926ea25a4fe07b6ed151a0d75fde89cef3b3fbee",
+        "sha256_in_prefix": "1fca683c3bb2a4a34ad2c3e3926ea25a4fe07b6ed151a0d75fde89cef3b3fbee",
+        "size_in_bytes": 5279
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/parser.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "029b0f534a96beed398cf3dec50435e896a4a0d1e3cb8f476205daa19386bc18",
+        "sha256_in_prefix": "029b0f534a96beed398cf3dec50435e896a4a0d1e3cb8f476205daa19386bc18",
+        "size_in_bytes": 32853
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/reader.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "8f0c8b4f57d5aa71e6fdba0cb0827395886b5d2a6f4b57609bd2b38e12b113c9",
+        "sha256_in_prefix": "8f0c8b4f57d5aa71e6fdba0cb0827395886b5d2a6f4b57609bd2b38e12b113c9",
+        "size_in_bytes": 13310
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/representer.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "83ac92d12259e3fc2ef6f0e51f4e1958566b33fdef81168c699d936e4bfe0ccf",
+        "sha256_in_prefix": "83ac92d12259e3fc2ef6f0e51f4e1958566b33fdef81168c699d936e4bfe0ccf",
+        "size_in_bytes": 55919
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/resolver.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "4d75601d2a24912865f5cca6be8fafb47e567126cf1b6fcc3bb9f5015f213ef9",
+        "sha256_in_prefix": "4d75601d2a24912865f5cca6be8fafb47e567126cf1b6fcc3bb9f5015f213ef9",
+        "size_in_bytes": 16909
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarbool.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "3800cfea9f2ff6737e3f0af469b345086a50ddfc39425ea2f7bae850ab775591",
+        "sha256_in_prefix": "3800cfea9f2ff6737e3f0af469b345086a50ddfc39425ea2f7bae850ab775591",
+        "size_in_bytes": 2164
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarfloat.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "0cdea7057b714c2123c9d08f60f388268d0df1315973a78c2c3187ed923ec095",
+        "sha256_in_prefix": "0cdea7057b714c2123c9d08f60f388268d0df1315973a78c2c3187ed923ec095",
+        "size_in_bytes": 5466
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarint.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "11ed77ce539dad1e582e0d6c67792cc6559e81b989f10fa42d8301ad00c84fb9",
+        "sha256_in_prefix": "11ed77ce539dad1e582e0d6c67792cc6559e81b989f10fa42d8301ad00c84fb9",
+        "size_in_bytes": 6063
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scalarstring.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "18ee4a95a1dfcf3de0f44946b0338184ef01eff2adb2ecac3c945375c0ae0c40",
+        "sha256_in_prefix": "18ee4a95a1dfcf3de0f44946b0338184ef01eff2adb2ecac3c945375c0ae0c40",
+        "size_in_bytes": 6674
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/scanner.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ab6d8ee91888b4d149c2891346820a1a570f44f60f7efeda25519501f47cda6e",
+        "sha256_in_prefix": "ab6d8ee91888b4d149c2891346820a1a570f44f60f7efeda25519501f47cda6e",
+        "size_in_bytes": 75251
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/serializer.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "09066732b6c9e32342ada2a8b03db4085ff9f07b6560e1e91d9907d5efb734a5",
+        "sha256_in_prefix": "09066732b6c9e32342ada2a8b03db4085ff9f07b6560e1e91d9907d5efb734a5",
+        "size_in_bytes": 10278
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/timestamp.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "752bf1cf41cf0b732d878ba2286d03bad6f304ce1027ca2f13d8d39afee35776",
+        "sha256_in_prefix": "752bf1cf41cf0b732d878ba2286d03bad6f304ce1027ca2f13d8d39afee35776",
+        "size_in_bytes": 1589
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/tokens.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "699ff52ed30586abfa365cc797bbb89f49a3161787a250ebbefa91a17ddba434",
+        "sha256_in_prefix": "699ff52ed30586abfa365cc797bbb89f49a3161787a250ebbefa91a17ddba434",
+        "size_in_bytes": 12853
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/__pycache__/util.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "69103da106ed086ef96a573dce445a47b0b0e0718f91fe772a2f57590b608f50",
+        "sha256_in_prefix": "69103da106ed086ef96a573dce445a47b0b0e0718f91fe772a2f57590b608f50",
+        "size_in_bytes": 7659
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/anchor.py",
+        "path_type": "hardlink",
+        "sha256": "774161293cde79474d33495e8021ccb43afb79d9198be7b62632b4272eab0216",
+        "sha256_in_prefix": "774161293cde79474d33495e8021ccb43afb79d9198be7b62632b4272eab0216",
+        "size_in_bytes": 501
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/comments.py",
+        "path_type": "hardlink",
+        "sha256": "11d97a9bc2c80e5639f05de2f84a39b38d0c6663f3f4d39945312b2322e05f31",
+        "sha256_in_prefix": "11d97a9bc2c80e5639f05de2f84a39b38d0c6663f3f4d39945312b2322e05f31",
+        "size_in_bytes": 35006
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/compat.py",
+        "path_type": "hardlink",
+        "sha256": "42ecc8445b035c01cd29fa198f7ff8bad94fc6cfec905d3cfd180a5fc35fbba8",
+        "sha256_in_prefix": "42ecc8445b035c01cd29fa198f7ff8bad94fc6cfec905d3cfd180a5fc35fbba8",
+        "size_in_bytes": 8594
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/composer.py",
+        "path_type": "hardlink",
+        "sha256": "32729b0606fd1cbf5c9c5b1ccac8c572ce6b84d89a18eeed32e29aec4e3ed9e9",
+        "sha256_in_prefix": "32729b0606fd1cbf5c9c5b1ccac8c572ce6b84d89a18eeed32e29aec4e3ed9e9",
+        "size_in_bytes": 8355
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/configobjwalker.py",
+        "path_type": "hardlink",
+        "sha256": "2b799195f247bec84f8cbcadbc9e74ec570eecc1fb66855b33305d83fce2c81c",
+        "sha256_in_prefix": "2b799195f247bec84f8cbcadbc9e74ec570eecc1fb66855b33305d83fce2c81c",
+        "size_in_bytes": 351
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/constructor.py",
+        "path_type": "hardlink",
+        "sha256": "a12e5c1877d2199a412a872bfad74e33ab721404d720734c748d06af61496ef0",
+        "sha256_in_prefix": "a12e5c1877d2199a412a872bfad74e33ab721404d720734c748d06af61496ef0",
+        "size_in_bytes": 64802
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/cyaml.py",
+        "path_type": "hardlink",
+        "sha256": "3e5992d4c22c6516c4b66252ef888d6f4579d7816579c556e523f1e4ee392063",
+        "sha256_in_prefix": "3e5992d4c22c6516c4b66252ef888d6f4579d7816579c556e523f1e4ee392063",
+        "size_in_bytes": 6567
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/dumper.py",
+        "path_type": "hardlink",
+        "sha256": "3051915708c3c2e22d83d3810b7f9759b1ba868582bce7d9915420159725f020",
+        "sha256_in_prefix": "3051915708c3c2e22d83d3810b7f9759b1ba868582bce7d9915420159725f020",
+        "size_in_bytes": 6570
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/emitter.py",
+        "path_type": "hardlink",
+        "sha256": "c74cc6926c71c7055ed350de483e55f0336a8fe38751fe99e04effc0979c64e7",
+        "sha256_in_prefix": "c74cc6926c71c7055ed350de483e55f0336a8fe38751fe99e04effc0979c64e7",
+        "size_in_bytes": 64676
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/error.py",
+        "path_type": "hardlink",
+        "sha256": "43b7379fa8b3ff22a3cd8f69c87b95fcc31aa274f91ef048fdc626534e3945f6",
+        "sha256_in_prefix": "43b7379fa8b3ff22a3cd8f69c87b95fcc31aa274f91ef048fdc626534e3945f6",
+        "size_in_bytes": 9104
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/events.py",
+        "path_type": "hardlink",
+        "sha256": "d160423e0a45cefe0c28337b8a302978f4cfe7c6f1cd334cecc7b51e2d0703c8",
+        "sha256_in_prefix": "d160423e0a45cefe0c28337b8a302978f4cfe7c6f1cd334cecc7b51e2d0703c8",
+        "size_in_bytes": 3902
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/loader.py",
+        "path_type": "hardlink",
+        "sha256": "bc927045ab8557f6b7f28eee9969eca99a6335d649a79074aa31c5b5b6f9bec5",
+        "sha256_in_prefix": "bc927045ab8557f6b7f28eee9969eca99a6335d649a79074aa31c5b5b6f9bec5",
+        "size_in_bytes": 2597
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/main.py",
+        "path_type": "hardlink",
+        "sha256": "739e7354dd70bc67c442c78a79c39eb6fcd3ef37f1628807277e7cfa38b56ebf",
+        "sha256_in_prefix": "739e7354dd70bc67c442c78a79c39eb6fcd3ef37f1628807277e7cfa38b56ebf",
+        "size_in_bytes": 53946
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/nodes.py",
+        "path_type": "hardlink",
+        "sha256": "2a094e3c8ddec7d46f5423a6ec23ed90f91d79841728b61b776262fec89a0c9d",
+        "sha256_in_prefix": "2a094e3c8ddec7d46f5423a6ec23ed90f91d79841728b61b776262fec89a0c9d",
+        "size_in_bytes": 3716
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/parser.py",
+        "path_type": "hardlink",
+        "sha256": "09893f2140f65272cf65b5b3678fbdae5e6ba8b0898b0e3dd8e8b04594ce2efd",
+        "sha256_in_prefix": "09893f2140f65272cf65b5b3678fbdae5e6ba8b0898b0e3dd8e8b04594ce2efd",
+        "size_in_bytes": 33818
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/reader.py",
+        "path_type": "hardlink",
+        "sha256": "b8a71adf3ea8cdd7a82038f2d4a584fb4db73f9309e47facb64a7f799f409393",
+        "sha256_in_prefix": "b8a71adf3ea8cdd7a82038f2d4a584fb4db73f9309e47facb64a7f799f409393",
+        "size_in_bytes": 11177
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/representer.py",
+        "path_type": "hardlink",
+        "sha256": "34a64c87ea22f05b098cf1654ae8abc1bd003ac3bcc5263d5a227ef11ed47edf",
+        "sha256_in_prefix": "34a64c87ea22f05b098cf1654ae8abc1bd003ac3bcc5263d5a227ef11ed47edf",
+        "size_in_bytes": 49193
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/resolver.py",
+        "path_type": "hardlink",
+        "sha256": "c8b15a1c91cd91320face80239465603c59bccc81a5cff03966ac3e2e8dcd702",
+        "sha256_in_prefix": "c8b15a1c91cd91320face80239465603c59bccc81a5cff03966ac3e2e8dcd702",
+        "size_in_bytes": 15456
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/scalarbool.py",
+        "path_type": "hardlink",
+        "sha256": "f37563d410e5618e8a2b6c2833a9661a40343f14cfbd02f0c60d97c669a5faa6",
+        "sha256_in_prefix": "f37563d410e5618e8a2b6c2833a9661a40343f14cfbd02f0c60d97c669a5faa6",
+        "size_in_bytes": 1520
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/scalarfloat.py",
+        "path_type": "hardlink",
+        "sha256": "edbd9c87104e49626a0424a80fc645c4e4043f93692bf9032aa59ff2b13b1ff7",
+        "sha256_in_prefix": "edbd9c87104e49626a0424a80fc645c4e4043f93692bf9032aa59ff2b13b1ff7",
+        "size_in_bytes": 4515
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/scalarint.py",
+        "path_type": "hardlink",
+        "sha256": "7005b1af43573a05386ac357dc807df7f3adebc61920315d1ad88f0078d2d656",
+        "sha256_in_prefix": "7005b1af43573a05386ac357dc807df7f3adebc61920315d1ad88f0078d2d656",
+        "size_in_bytes": 4681
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/scalarstring.py",
+        "path_type": "hardlink",
+        "sha256": "4ef36ba4142279dd18e532877c5a77d352618e72987cfa039f678c182388009a",
+        "sha256_in_prefix": "4ef36ba4142279dd18e532877c5a77d352618e72987cfa039f678c182388009a",
+        "size_in_bytes": 4463
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/scanner.py",
+        "path_type": "hardlink",
+        "sha256": "569c8bb948bf535f5e4dede3f3961d0dd964fb58d992b09528813c1df063249a",
+        "sha256_in_prefix": "569c8bb948bf535f5e4dede3f3961d0dd964fb58d992b09528813c1df063249a",
+        "size_in_bytes": 72758
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/serializer.py",
+        "path_type": "hardlink",
+        "sha256": "084425dc28c9a14a80a33d0308438f7bb81d854498278d8fa70fa563d33ef0be",
+        "sha256_in_prefix": "084425dc28c9a14a80a33d0308438f7bb81d854498278d8fa70fa563d33ef0be",
+        "size_in_bytes": 8531
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/timestamp.py",
+        "path_type": "hardlink",
+        "sha256": "c13ecfbdc510dd75373256ccdef4ddd693271e7e849e426f57e583cebe646adf",
+        "sha256_in_prefix": "c13ecfbdc510dd75373256ccdef4ddd693271e7e849e426f57e583cebe646adf",
+        "size_in_bytes": 939
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/tokens.py",
+        "path_type": "hardlink",
+        "sha256": "cf580f0a0cb3edd85d05d28a2b750f4f0fc403010b68f45113131af4a215eaaf",
+        "sha256_in_prefix": "cf580f0a0cb3edd85d05d28a2b750f4f0fc403010b68f45113131af4a215eaaf",
+        "size_in_bytes": 7471
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ruamel_yaml/util.py",
+        "path_type": "hardlink",
+        "sha256": "5ce3c5eb1e5c6e554d086a648ff742d73d6488177da3724c77c6e88f847c0eb4",
+        "sha256_in_prefix": "5ce3c5eb1e5c6e554d086a648ff742d73d6488177da3724c77c6e88f847c0eb4",
+        "size_in_bytes": 6098
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5749483c611ba71085ce2e412a637e6347fc72f02536e8d44c6f1ad044f8c37d",
+        "sha256_in_prefix": "5749483c611ba71085ce2e412a637e6347fc72f02536e8d44c6f1ad044f8c37d",
+        "size_in_bytes": 150
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/__pycache__/test_json_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "07908d9ab2a6cbdcf9095f44caf35b28daab1561deef2ac309190f5ff0bc7e28",
+        "sha256_in_prefix": "07908d9ab2a6cbdcf9095f44caf35b28daab1561deef2ac309190f5ff0bc7e28",
+        "size_in_bytes": 17948
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/__pycache__/test_msgpack_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "3b9c9529c19be00fe71a19c846ed7f2350295ec4b94dcdc77ea3eb7383774ed2",
+        "sha256_in_prefix": "3b9c9529c19be00fe71a19c846ed7f2350295ec4b94dcdc77ea3eb7383774ed2",
+        "size_in_bytes": 7426
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/__pycache__/test_pickle_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "80adba8a9281f86cc75cd1c26405bedf4760b663a1405f9727879f3648e57bab",
+        "sha256_in_prefix": "80adba8a9281f86cc75cd1c26405bedf4760b663a1405f9727879f3648e57bab",
+        "size_in_bytes": 1172
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/__pycache__/test_yaml_api.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "27874079f0268a673395026dd9aa19664dc3ef777b8abf989a886d441133f263",
+        "sha256_in_prefix": "27874079f0268a673395026dd9aa19664dc3ef777b8abf989a886d441133f263",
+        "size_in_bytes": 5997
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/__pycache__/util.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "beda2c8f4aa672c5d66e75817b346ec6c1aa633b1eaab531e6d7d7ff636038ac",
+        "sha256_in_prefix": "beda2c8f4aa672c5d66e75817b346ec6c1aa633b1eaab531e6d7d7ff636038ac",
+        "size_in_bytes": 1146
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "6d6890ee5c302524cb11bcd649c9d0c0235bd2416cb7eec3d8e315a5593a2c21",
+        "sha256_in_prefix": "6d6890ee5c302524cb11bcd649c9d0c0235bd2416cb7eec3d8e315a5593a2c21",
+        "size_in_bytes": 162
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/cloudpickle_file_test.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "d587722a696701b63b344cd2c165aeb56d96d19d7249ea520b26106a64b69028",
+        "sha256_in_prefix": "d587722a696701b63b344cd2c165aeb56d96d19d7249ea520b26106a64b69028",
+        "size_in_bytes": 8562
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/cloudpickle_test.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "3c8f938c3a5fc8d379bcdb096a680c8be02ec3632b6b16b4e9f469f804f04f22",
+        "sha256_in_prefix": "3c8f938c3a5fc8d379bcdb096a680c8be02ec3632b6b16b4e9f469f804f04f22",
+        "size_in_bytes": 170812
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/__pycache__/testutils.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "e1f99e769d12e9e30042348373f30896bad59cbdf5475af684f75f5320139faf",
+        "sha256_in_prefix": "e1f99e769d12e9e30042348373f30896bad59cbdf5475af684f75f5320139faf",
+        "size_in_bytes": 11760
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/cloudpickle_file_test.py",
+        "path_type": "hardlink",
+        "sha256": "47688bf183c08ef389c22f5f299335fdf10f1ad35ae9fcfd71de08be3b3381cd",
+        "sha256_in_prefix": "47688bf183c08ef389c22f5f299335fdf10f1ad35ae9fcfd71de08be3b3381cd",
+        "size_in_bytes": 3244
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/cloudpickle_test.py",
+        "path_type": "hardlink",
+        "sha256": "ad3928170048009556e01125c98b002b832f206a5acc55c77cfb60cfcec977fd",
+        "sha256_in_prefix": "ad3928170048009556e01125c98b002b832f206a5acc55c77cfb60cfcec977fd",
+        "size_in_bytes": 106299
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/cloudpickle/testutils.py",
+        "path_type": "hardlink",
+        "sha256": "19df8b5fc8722cb9334a882e6742c0494301d056117563053c1b9feea1aa5f8e",
+        "sha256_in_prefix": "19df8b5fc8722cb9334a882e6742c0494301d056117563053c1b9feea1aa5f8e",
+        "size_in_bytes": 7466
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ee1e5f5d07f7a531fba4040970159c75d4f105dd8247059018c389145f550e00",
+        "sha256_in_prefix": "ee1e5f5d07f7a531fba4040970159c75d4f105dd8247059018c389145f550e00",
+        "size_in_bytes": 158
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_buffer.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ab98f30d80fd78a856310f324300ca3f2f22eaabda680dd91baed37eaa551739",
+        "sha256_in_prefix": "ab98f30d80fd78a856310f324300ca3f2f22eaabda680dd91baed37eaa551739",
+        "size_in_bytes": 2201
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_case.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "2f8975c64d1183867501aa7d73dff56c815bc81b6797e8762c28331295197091",
+        "sha256_in_prefix": "2f8975c64d1183867501aa7d73dff56c815bc81b6797e8762c28331295197091",
+        "size_in_bytes": 5499
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_except.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "7f85e01bd9f360efab98105bfd577efa9f1e72e6e67a08cecaf081f743136fd1",
+        "sha256_in_prefix": "7f85e01bd9f360efab98105bfd577efa9f1e72e6e67a08cecaf081f743136fd1",
+        "size_in_bytes": 7549
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_extension.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "4dcb3fe3c435ed4f1c977a665afc8fe8be48648f8a0040c20cd239df98d575e3",
+        "sha256_in_prefix": "4dcb3fe3c435ed4f1c977a665afc8fe8be48648f8a0040c20cd239df98d575e3",
+        "size_in_bytes": 5500
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_format.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "075cdfcbfb9e0dc94884d4878b7422a3030ffbb03e81773b80eeb519a8fd9a69",
+        "sha256_in_prefix": "075cdfcbfb9e0dc94884d4878b7422a3030ffbb03e81773b80eeb519a8fd9a69",
+        "size_in_bytes": 2872
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_limits.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "7bc46199cd75fe5424c5eb09488cc9524306767d49f968ace770d13c54c0d1ba",
+        "sha256_in_prefix": "7bc46199cd75fe5424c5eb09488cc9524306767d49f968ace770d13c54c0d1ba",
+        "size_in_bytes": 6684
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_memoryview.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "566eae8d23302cc3568db9c75cb8e6b53c2b46c96adafff21618e493bbf5588f",
+        "sha256_in_prefix": "566eae8d23302cc3568db9c75cb8e6b53c2b46c96adafff21618e493bbf5588f",
+        "size_in_bytes": 4688
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_newspec.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f9376befd13ce35ebe32ce7548e265771640d24bca563b2cc4c1b62a0cf97686",
+        "sha256_in_prefix": "f9376befd13ce35ebe32ce7548e265771640d24bca563b2cc4c1b62a0cf97686",
+        "size_in_bytes": 6809
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_numpy.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "473f0465794bca8ccab4dd091c98d42b5a8cff4885873da2140c67013f8e2e8b",
+        "sha256_in_prefix": "473f0465794bca8ccab4dd091c98d42b5a8cff4885873da2140c67013f8e2e8b",
+        "size_in_bytes": 27628
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_pack.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "9e65a0238a4ffe42a9d36b1567d17c07b306dedb8ae363e95d285e65c4ad619a",
+        "sha256_in_prefix": "9e65a0238a4ffe42a9d36b1567d17c07b306dedb8ae363e95d285e65c4ad619a",
+        "size_in_bytes": 11025
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_read_size.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f9de23da30bb6ae5b32baa1f1264af059f6a38b187727520bee183411908d4e9",
+        "sha256_in_prefix": "f9de23da30bb6ae5b32baa1f1264af059f6a38b187727520bee183411908d4e9",
+        "size_in_bytes": 3867
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_seq.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "03770472956263b660c36d92631ac4a0f85893ae56a8cd59215ff7d94c511321",
+        "sha256_in_prefix": "03770472956263b660c36d92631ac4a0f85893ae56a8cd59215ff7d94c511321",
+        "size_in_bytes": 1751
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_sequnpack.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "41616e24670cbfcc633c2c9b3ee71c731cb4cdafcd2849a562f78d5964af96be",
+        "sha256_in_prefix": "41616e24670cbfcc633c2c9b3ee71c731cb4cdafcd2849a562f78d5964af96be",
+        "size_in_bytes": 10855
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_stricttype.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "30b79b646a61d3a1fe028912130014039224c0a9ecb88c0a3f32d48ae4a36e14",
+        "sha256_in_prefix": "30b79b646a61d3a1fe028912130014039224c0a9ecb88c0a3f32d48ae4a36e14",
+        "size_in_bytes": 3627
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_subtype.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "4599e7d8f46ebd14c2102ee60a716a3a5826e770c4af700ef31f21d341a3d67b",
+        "sha256_in_prefix": "4599e7d8f46ebd14c2102ee60a716a3a5826e770c4af700ef31f21d341a3d67b",
+        "size_in_bytes": 1557
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/__pycache__/test_unpack.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5d1f504ad5e7dce28bf2795fe3a127cd99a5f5e9983d718b5b96471f7c45d800",
+        "sha256_in_prefix": "5d1f504ad5e7dce28bf2795fe3a127cd99a5f5e9983d718b5b96471f7c45d800",
+        "size_in_bytes": 4912
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_buffer.py",
+        "path_type": "hardlink",
+        "sha256": "96a5c34dc31c18e23521d2abb9cc392aa3dffe1411dccc7d0c24d28610320126",
+        "sha256_in_prefix": "96a5c34dc31c18e23521d2abb9cc392aa3dffe1411dccc7d0c24d28610320126",
+        "size_in_bytes": 709
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_case.py",
+        "path_type": "hardlink",
+        "sha256": "97b0b071b495350de3b7bc19f67c17d34446b12f187b695bf6e8b8cf1feccdb3",
+        "sha256_in_prefix": "97b0b071b495350de3b7bc19f67c17d34446b12f187b695bf6e8b8cf1feccdb3",
+        "size_in_bytes": 2846
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_except.py",
+        "path_type": "hardlink",
+        "sha256": "5a2437762c21dfbe1fe1108fb4675223c9e44a656ba0a74935c81588fd92e473",
+        "sha256_in_prefix": "5a2437762c21dfbe1fe1108fb4675223c9e44a656ba0a74935c81588fd92e473",
+        "size_in_bytes": 1682
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_extension.py",
+        "path_type": "hardlink",
+        "sha256": "6b8c6c5413419143ad7e61d0b856af5baf9448c1a7d2de5587c7d7d370e122ba",
+        "sha256_in_prefix": "6b8c6c5413419143ad7e61d0b856af5baf9448c1a7d2de5587c7d7d370e122ba",
+        "size_in_bytes": 2575
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_format.py",
+        "path_type": "hardlink",
+        "sha256": "ad03809e5d28029e8abe82a29c87882a76217459eec41ab093edf18316a607db",
+        "sha256_in_prefix": "ad03809e5d28029e8abe82a29c87882a76217459eec41ab093edf18316a607db",
+        "size_in_bytes": 2052
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_limits.py",
+        "path_type": "hardlink",
+        "sha256": "be40f0c28c6ab70d9a9626c882fb96ea535e1a23e4746c017674082cca0fb221",
+        "sha256_in_prefix": "be40f0c28c6ab70d9a9626c882fb96ea535e1a23e4746c017674082cca0fb221",
+        "size_in_bytes": 3123
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_memoryview.py",
+        "path_type": "hardlink",
+        "sha256": "823dafc1bcc43e9cccc944daf2b9b9c185e61fe8becc0a0f8f1eb276fda7875b",
+        "sha256_in_prefix": "823dafc1bcc43e9cccc944daf2b9b9c185e61fe8becc0a0f8f1eb276fda7875b",
+        "size_in_bytes": 2581
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_newspec.py",
+        "path_type": "hardlink",
+        "sha256": "104ffc45c6a03ad91f7b835ce59dcce54b126b081bf7ddd830092c5038bda160",
+        "sha256_in_prefix": "104ffc45c6a03ad91f7b835ce59dcce54b126b081bf7ddd830092c5038bda160",
+        "size_in_bytes": 2604
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_numpy.py",
+        "path_type": "hardlink",
+        "sha256": "add8979548cca23527d10ebd05ea952860471f44a1095b95c3a934e4a9d5ed2f",
+        "sha256_in_prefix": "add8979548cca23527d10ebd05ea952860471f44a1095b95c3a934e4a9d5ed2f",
+        "size_in_bytes": 8609
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_pack.py",
+        "path_type": "hardlink",
+        "sha256": "3b4934e7106de7d883efb63d840ad33fede886a46e60fb80301188379d5721f0",
+        "sha256_in_prefix": "3b4934e7106de7d883efb63d840ad33fede886a46e60fb80301188379d5721f0",
+        "size_in_bytes": 4733
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_read_size.py",
+        "path_type": "hardlink",
+        "sha256": "e568e8ad15e98a61690643eb287ac32d38e51a01d4eebfa832cb72db3f83c80b",
+        "sha256_in_prefix": "e568e8ad15e98a61690643eb287ac32d38e51a01d4eebfa832cb72db3f83c80b",
+        "size_in_bytes": 1800
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_seq.py",
+        "path_type": "hardlink",
+        "sha256": "ea899e83827974c6db3e3d3d6ea381a3eaa80ddc28085b11843f7dfd963b213a",
+        "sha256_in_prefix": "ea899e83827974c6db3e3d3d6ea381a3eaa80ddc28085b11843f7dfd963b213a",
+        "size_in_bytes": 1125
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_sequnpack.py",
+        "path_type": "hardlink",
+        "sha256": "703b65f88cbb8d32e62db325789f5957a5b46778fc6ce9f23563931927635077",
+        "sha256_in_prefix": "703b65f88cbb8d32e62db325789f5957a5b46778fc6ce9f23563931927635077",
+        "size_in_bytes": 3632
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_stricttype.py",
+        "path_type": "hardlink",
+        "sha256": "52ccc99888664e8bc5d93cce91c91b71659048e837aca18fc8a9473e3db2a663",
+        "sha256_in_prefix": "52ccc99888664e8bc5d93cce91c91b71659048e837aca18fc8a9473e3db2a663",
+        "size_in_bytes": 1781
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_subtype.py",
+        "path_type": "hardlink",
+        "sha256": "d61eba5e8b6ab4ffca0513454b85dcd3625d37cedb5ec211595c758241ab1575",
+        "sha256_in_prefix": "d61eba5e8b6ab4ffca0513454b85dcd3625d37cedb5ec211595c758241ab1575",
+        "size_in_bytes": 375
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/msgpack/test_unpack.py",
+        "path_type": "hardlink",
+        "sha256": "84c2f5db1f24212fb795950a5c9be1ad8d7ae633c77e681636c7e11f53d981ad",
+        "sha256_in_prefix": "84c2f5db1f24212fb795950a5c9be1ad8d7ae633c77e681636c7e11f53d981ad",
+        "size_in_bytes": 1820
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "7c0a62833a9839b7734314fabca68078040be2c759ebf2b85ae01e6b29570c51",
+        "sha256_in_prefix": "7c0a62833a9839b7734314fabca68078040be2c759ebf2b85ae01e6b29570c51",
+        "size_in_bytes": 162
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/roundtrip.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "69cf885beec98279e2482574d90418902adfe4199797e58771313b4e17626c0c",
+        "sha256_in_prefix": "69cf885beec98279e2482574d90418902adfe4199797e58771313b4e17626c0c",
+        "size_in_bytes": 13364
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_a_dedent.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "8329aa7b2165ab7b3b92886ed349bf3ab0629af6e0f431b01f4d4365ee9ddae0",
+        "sha256_in_prefix": "8329aa7b2165ab7b3b92886ed349bf3ab0629af6e0f431b01f4d4365ee9ddae0",
+        "size_in_bytes": 2142
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_add_xxx.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "bafad3c03714c2152be9313f4d5a53260776646bc4a0fbbde75229924de52b25",
+        "sha256_in_prefix": "bafad3c03714c2152be9313f4d5a53260776646bc4a0fbbde75229924de52b25",
+        "size_in_bytes": 11487
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_anchor.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "7377b862bc0ecd3bf743003fe1d77163764a4ba6759d304848ad2030cc4cabf9",
+        "sha256_in_prefix": "7377b862bc0ecd3bf743003fe1d77163764a4ba6759d304848ad2030cc4cabf9",
+        "size_in_bytes": 24033
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_api_change.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "16cb4ed06d2807ff1c9aeac99b9e0ae1b9779edf3dda19436361879f6b527d1a",
+        "sha256_in_prefix": "16cb4ed06d2807ff1c9aeac99b9e0ae1b9779edf3dda19436361879f6b527d1a",
+        "size_in_bytes": 15321
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_appliance.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "97bda9a30169660357453cb7f5cd3905317514382083cfdca10824cff1a52c8e",
+        "sha256_in_prefix": "97bda9a30169660357453cb7f5cd3905317514382083cfdca10824cff1a52c8e",
+        "size_in_bytes": 10985
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_class_register.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "08a8a4bab5fe016df63946094a55e32a446d9d43e6e234c6c8ff62dee2e5a645",
+        "sha256_in_prefix": "08a8a4bab5fe016df63946094a55e32a446d9d43e6e234c6c8ff62dee2e5a645",
+        "size_in_bytes": 7744
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_collections.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "74b97b5a1f2800ed800dbe9caed72ea4ef4b7145a13292f3b9d8368a6b7f4682",
+        "sha256_in_prefix": "74b97b5a1f2800ed800dbe9caed72ea4ef4b7145a13292f3b9d8368a6b7f4682",
+        "size_in_bytes": 1217
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_comment_manipulation.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "da2c3f4129dfb7509145f952e6462b388dc337f38806cc3c5bc8366a18b9c834",
+        "sha256_in_prefix": "da2c3f4129dfb7509145f952e6462b388dc337f38806cc3c5bc8366a18b9c834",
+        "size_in_bytes": 20813
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_comments.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "3d427f0144655768a182cbffc71bfd239a32f2000713c4a9cfd12cb58f87e481",
+        "sha256_in_prefix": "3d427f0144655768a182cbffc71bfd239a32f2000713c4a9cfd12cb58f87e481",
+        "size_in_bytes": 32710
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_contextmanager.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "57a2a195bbd9d65dd9c3da9d87387aa8bef51a2bbc75b012d8cf755bf8dd49ca",
+        "sha256_in_prefix": "57a2a195bbd9d65dd9c3da9d87387aa8bef51a2bbc75b012d8cf755bf8dd49ca",
+        "size_in_bytes": 5928
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_copy.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f6115cb17b9bc2a306ad4f3b8abeb58f2874e84ebae281ba1ba7d7c2b464e096",
+        "sha256_in_prefix": "f6115cb17b9bc2a306ad4f3b8abeb58f2874e84ebae281ba1ba7d7c2b464e096",
+        "size_in_bytes": 7205
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_datetime.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ba1ae78a6500e1f491b08397b83d8c10afd18f88a5aef1af9a0d50690dbab941",
+        "sha256_in_prefix": "ba1ae78a6500e1f491b08397b83d8c10afd18f88a5aef1af9a0d50690dbab941",
+        "size_in_bytes": 5593
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_deprecation.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "4df94b519a4f2f5d04ac3b66445ad6481d62bba10c8247d5cc432da9b1956586",
+        "sha256_in_prefix": "4df94b519a4f2f5d04ac3b66445ad6481d62bba10c8247d5cc432da9b1956586",
+        "size_in_bytes": 1006
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_documents.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "d97dfbb74f5028da7dc4a94ba4cf33225b1bd345e0b9f0560d9919f6f634cf11",
+        "sha256_in_prefix": "d97dfbb74f5028da7dc4a94ba4cf33225b1bd345e0b9f0560d9919f6f634cf11",
+        "size_in_bytes": 3525
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_fail.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "196cf24c1b3353f3bd2c39e2bd3fdfd45671cda879243ded578ed5b97c8a1ff8",
+        "sha256_in_prefix": "196cf24c1b3353f3bd2c39e2bd3fdfd45671cda879243ded578ed5b97c8a1ff8",
+        "size_in_bytes": 9251
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_float.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "72b91480e0b08eb896b3e19605d9a0ed797aef2f7bf5d4a88238fcd33db57976",
+        "sha256_in_prefix": "72b91480e0b08eb896b3e19605d9a0ed797aef2f7bf5d4a88238fcd33db57976",
+        "size_in_bytes": 4460
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_flowsequencekey.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "392dfe80a320ad6954e184679347db4e863dd2989aa81aaab8e55126fe85bf3d",
+        "sha256_in_prefix": "392dfe80a320ad6954e184679347db4e863dd2989aa81aaab8e55126fe85bf3d",
+        "size_in_bytes": 1023
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_indentation.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "b6a04c4f1e1af46b3afcdf96c5dc57dd8ad064fa6b1ace6b9b3bc69cc1586eee",
+        "sha256_in_prefix": "b6a04c4f1e1af46b3afcdf96c5dc57dd8ad064fa6b1ace6b9b3bc69cc1586eee",
+        "size_in_bytes": 14099
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_int.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "48ba63c4c8579866f19ab26ed3d8bba2a582cef53c7da77ea035d3b72dc2db6b",
+        "sha256_in_prefix": "48ba63c4c8579866f19ab26ed3d8bba2a582cef53c7da77ea035d3b72dc2db6b",
+        "size_in_bytes": 1516
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_issues.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "0ad2e1885a2dee879a1228d3e7d3c3a8c22e212530568a1e9c501956f8cb200b",
+        "sha256_in_prefix": "0ad2e1885a2dee879a1228d3e7d3c3a8c22e212530568a1e9c501956f8cb200b",
+        "size_in_bytes": 35750
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_json_numbers.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "d0290a3ed7a4b714239732dba3aa64090756dcaf78f5bd308a74650621013b58",
+        "sha256_in_prefix": "d0290a3ed7a4b714239732dba3aa64090756dcaf78f5bd308a74650621013b58",
+        "size_in_bytes": 3034
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_line_col.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "4a9252866359e712681f5777f257e1ecbb54e25392d7ce0f5f6b017f69572ad9",
+        "sha256_in_prefix": "4a9252866359e712681f5777f257e1ecbb54e25392d7ce0f5f6b017f69572ad9",
+        "size_in_bytes": 4119
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_literal.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f86759a4d4b28204f3903e1819ad157790b1af5284cae863e588b8447cf47419",
+        "sha256_in_prefix": "f86759a4d4b28204f3903e1819ad157790b1af5284cae863e588b8447cf47419",
+        "size_in_bytes": 13274
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_none.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "f06902fe1b07407580b638490a4613fa57d4622f2a70447e79e8b0b5f802c99d",
+        "sha256_in_prefix": "f06902fe1b07407580b638490a4613fa57d4622f2a70447e79e8b0b5f802c99d",
+        "size_in_bytes": 2569
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_numpy.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "3d950a5ade1d73c05bd20bd7a1444f3cc48d2a177b768e99604fee6c846b573b",
+        "sha256_in_prefix": "3d950a5ade1d73c05bd20bd7a1444f3cc48d2a177b768e99604fee6c846b573b",
+        "size_in_bytes": 1142
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_program_config.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "50aa1f448ee91a15fea6d84aae9415c492a4f302157179bae1741fa09e039dd4",
+        "sha256_in_prefix": "50aa1f448ee91a15fea6d84aae9415c492a4f302157179bae1741fa09e039dd4",
+        "size_in_bytes": 2534
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_spec_examples.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "467d84a72750f3ee18583db3cac18cb424370c969c1c2cad23f43987f7df60a1",
+        "sha256_in_prefix": "467d84a72750f3ee18583db3cac18cb424370c969c1c2cad23f43987f7df60a1",
+        "size_in_bytes": 10531
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_string.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "543160234906e43aa846995f7f452187b4412edbaadc8d726da9229b9befc0b3",
+        "sha256_in_prefix": "543160234906e43aa846995f7f452187b4412edbaadc8d726da9229b9befc0b3",
+        "size_in_bytes": 9533
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_tag.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "81f4bade3548ceee28ec5070d71f219b1864f74f9487d67ff2755e721d48d4fa",
+        "sha256_in_prefix": "81f4bade3548ceee28ec5070d71f219b1864f74f9487d67ff2755e721d48d4fa",
+        "size_in_bytes": 7382
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_version.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "35e86dc66f8defeab716448f30b20c2c56d39db766cc4f73c79b2703f5234fac",
+        "sha256_in_prefix": "35e86dc66f8defeab716448f30b20c2c56d39db766cc4f73c79b2703f5234fac",
+        "size_in_bytes": 7678
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_yamlfile.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "8bd3e0e960df6b2390571adbdf07dc37a3c077d5647a57e19eace5a73c51267e",
+        "sha256_in_prefix": "8bd3e0e960df6b2390571adbdf07dc37a3c077d5647a57e19eace5a73c51267e",
+        "size_in_bytes": 9959
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_yamlobject.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "5e2c174c2564cc71934046c52907e67897071b2a3541126f0603d0813331979b",
+        "sha256_in_prefix": "5e2c174c2564cc71934046c52907e67897071b2a3541126f0603d0813331979b",
+        "size_in_bytes": 3771
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_z_check_debug_leftovers.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "ba3eb41728378116fbf7290e958d97e2c03e09a6c270a09fd4021b1ff812fff6",
+        "sha256_in_prefix": "ba3eb41728378116fbf7290e958d97e2c03e09a6c270a09fd4021b1ff812fff6",
+        "size_in_bytes": 1645
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/__pycache__/test_z_data.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "80c53514a466a1a95510d48c4ab99c95f704082f2989ff8ffa8d1ec1ef448110",
+        "sha256_in_prefix": "80c53514a466a1a95510d48c4ab99c95f704082f2989ff8ffa8d1ec1ef448110",
+        "size_in_bytes": 11972
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/roundtrip.py",
+        "path_type": "hardlink",
+        "sha256": "955a3ddc562b12ab5612f9dbe4b7f30bb5b32ddcbc9b457cde556d5d44faef40",
+        "sha256_in_prefix": "955a3ddc562b12ab5612f9dbe4b7f30bb5b32ddcbc9b457cde556d5d44faef40",
+        "size_in_bytes": 9490
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_a_dedent.py",
+        "path_type": "hardlink",
+        "sha256": "8d72b78e092863dacb21c67ecc29157f5150717dc885e540eecb213cecd6fa17",
+        "sha256_in_prefix": "8d72b78e092863dacb21c67ecc29157f5150717dc885e540eecb213cecd6fa17",
+        "size_in_bytes": 1125
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_add_xxx.py",
+        "path_type": "hardlink",
+        "sha256": "2c3ff844f588c44d9c28b30ccb276146a426af189533b169464e8b610920901f",
+        "sha256_in_prefix": "2c3ff844f588c44d9c28b30ccb276146a426af189533b169464e8b610920901f",
+        "size_in_bytes": 5347
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_anchor.py",
+        "path_type": "hardlink",
+        "sha256": "11032594d0710ed9bd7af2bd2a051ad46075be9d45ec747fe08770358eb95f2b",
+        "sha256_in_prefix": "11032594d0710ed9bd7af2bd2a051ad46075be9d45ec747fe08770358eb95f2b",
+        "size_in_bytes": 14428
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_api_change.py",
+        "path_type": "hardlink",
+        "sha256": "46deb7e86c4c9b0de4f5f911e5b5d2a600d762334c65ae7293853f91afc46877",
+        "sha256_in_prefix": "46deb7e86c4c9b0de4f5f911e5b5d2a600d762334c65ae7293853f91afc46877",
+        "size_in_bytes": 7078
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_appliance.py",
+        "path_type": "hardlink",
+        "sha256": "deeaa2f938ee82550a17018c03970d2db6abcf347060f705b3ec2cbe69fddc65",
+        "sha256_in_prefix": "deeaa2f938ee82550a17018c03970d2db6abcf347060f705b3ec2cbe69fddc65",
+        "size_in_bytes": 7680
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_class_register.py",
+        "path_type": "hardlink",
+        "sha256": "5ea95901cbb974520f445e78ed361c14317861dc47c1ae8ef10fa90e5a477c29",
+        "sha256_in_prefix": "5ea95901cbb974520f445e78ed361c14317861dc47c1ae8ef10fa90e5a477c29",
+        "size_in_bytes": 3340
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_collections.py",
+        "path_type": "hardlink",
+        "sha256": "27cd578008a07886d036798413cd2437079e19fb159a12767c7f4444ce69cd5c",
+        "sha256_in_prefix": "27cd578008a07886d036798413cd2437079e19fb159a12767c7f4444ce69cd5c",
+        "size_in_bytes": 508
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_comment_manipulation.py",
+        "path_type": "hardlink",
+        "sha256": "8c32c93ddb1fce66426aba0939e9004e9cb537303b71811c3bb9b57970f07c26",
+        "sha256_in_prefix": "8c32c93ddb1fce66426aba0939e9004e9cb537303b71811c3bb9b57970f07c26",
+        "size_in_bytes": 14843
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_comments.py",
+        "path_type": "hardlink",
+        "sha256": "6780efa1a041f60aea640e3c2feb7ebc799d15ed114915773ee47db9677f4c28",
+        "sha256_in_prefix": "6780efa1a041f60aea640e3c2feb7ebc799d15ed114915773ee47db9677f4c28",
+        "size_in_bytes": 20553
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_contextmanager.py",
+        "path_type": "hardlink",
+        "sha256": "f53d13f6c9a2ae6c8107afafd3a7c8cbb75a868a5d2a0c4e953a15c57368083d",
+        "sha256_in_prefix": "f53d13f6c9a2ae6c8107afafd3a7c8cbb75a868a5d2a0c4e953a15c57368083d",
+        "size_in_bytes": 2804
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_copy.py",
+        "path_type": "hardlink",
+        "sha256": "766370d941bc0f50018dca3fd401174186dd844d50dfd3a617dc304c0913980f",
+        "sha256_in_prefix": "766370d941bc0f50018dca3fd401174186dd844d50dfd3a617dc304c0913980f",
+        "size_in_bytes": 3651
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_datetime.py",
+        "path_type": "hardlink",
+        "sha256": "946117d1d8f5691d0dfbefb362bf3e2dab2cbc51d01d18315b5ffa076205d085",
+        "sha256_in_prefix": "946117d1d8f5691d0dfbefb362bf3e2dab2cbc51d01d18315b5ffa076205d085",
+        "size_in_bytes": 3787
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_deprecation.py",
+        "path_type": "hardlink",
+        "sha256": "55f7e6d6c32c4acfedb5de10ac2c2da59a21b4a7d5c32e382e218a816b8c0b6f",
+        "sha256_in_prefix": "55f7e6d6c32c4acfedb5de10ac2c2da59a21b4a7d5c32e382e218a816b8c0b6f",
+        "size_in_bytes": 353
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_documents.py",
+        "path_type": "hardlink",
+        "sha256": "8f23e0e57d859c7de98f19e9efc66bb1fba6e0c19e90e8cdfb944b43b5b51050",
+        "sha256_in_prefix": "8f23e0e57d859c7de98f19e9efc66bb1fba6e0c19e90e8cdfb944b43b5b51050",
+        "size_in_bytes": 1827
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_fail.py",
+        "path_type": "hardlink",
+        "sha256": "aaddc6dbfd11a16715ceaf813a7bb62671c43e4bb97be622fa9e6c9910efca6a",
+        "sha256_in_prefix": "aaddc6dbfd11a16715ceaf813a7bb62671c43e4bb97be622fa9e6c9910efca6a",
+        "size_in_bytes": 6290
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_float.py",
+        "path_type": "hardlink",
+        "sha256": "be3811ee107dfb4c0e14b63e57921b6d50ae0cb5e349c08ee4bf1a969af1c505",
+        "sha256_in_prefix": "be3811ee107dfb4c0e14b63e57921b6d50ae0cb5e349c08ee4bf1a969af1c505",
+        "size_in_bytes": 2130
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_flowsequencekey.py",
+        "path_type": "hardlink",
+        "sha256": "6cd1eb182400bf44bb17d412ca18bb39c2e28f70b7b7e838b4b377cd155f70ba",
+        "sha256_in_prefix": "6cd1eb182400bf44bb17d412ca18bb39c2e28f70b7b7e838b4b377cd155f70ba",
+        "size_in_bytes": 487
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_indentation.py",
+        "path_type": "hardlink",
+        "sha256": "6f1d0fa8fc34576183872f6cd19ece38d4c31ed3414ba5557072b185e6925423",
+        "sha256_in_prefix": "6f1d0fa8fc34576183872f6cd19ece38d4c31ed3414ba5557072b185e6925423",
+        "size_in_bytes": 8512
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_int.py",
+        "path_type": "hardlink",
+        "sha256": "573cf55928f729f7cf6dd73db35a5c33e068e410565574315a12c6a47d4761c6",
+        "sha256_in_prefix": "573cf55928f729f7cf6dd73db35a5c33e068e410565574315a12c6a47d4761c6",
+        "size_in_bytes": 907
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_issues.py",
+        "path_type": "hardlink",
+        "sha256": "ecf03d23f16b62c6a455e3663070512a5515295921de62b99a0256c7ea4fa9da",
+        "sha256_in_prefix": "ecf03d23f16b62c6a455e3663070512a5515295921de62b99a0256c7ea4fa9da",
+        "size_in_bytes": 23713
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_json_numbers.py",
+        "path_type": "hardlink",
+        "sha256": "929324cd1a0d6740001e024a45c5c0d2f02c7a6d3ca8eb42b51b2cafe099b708",
+        "sha256_in_prefix": "929324cd1a0d6740001e024a45c5c0d2f02c7a6d3ca8eb42b51b2cafe099b708",
+        "size_in_bytes": 1452
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_line_col.py",
+        "path_type": "hardlink",
+        "sha256": "47eda24fd7bd79ceafbdd86e9dd811772facb950cf7bda6a375eab536d07bf63",
+        "sha256_in_prefix": "47eda24fd7bd79ceafbdd86e9dd811772facb950cf7bda6a375eab536d07bf63",
+        "size_in_bytes": 2106
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_literal.py",
+        "path_type": "hardlink",
+        "sha256": "38ee8dabf382a3f0acdc74057db1b07f189178aeee3c253634a0f4692cdb35f6",
+        "sha256_in_prefix": "38ee8dabf382a3f0acdc74057db1b07f189178aeee3c253634a0f4692cdb35f6",
+        "size_in_bytes": 7787
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_none.py",
+        "path_type": "hardlink",
+        "sha256": "0a52945f6a378a13267d806317edba3bb2d1000f6899c9cef0eb3f5cb9475650",
+        "sha256_in_prefix": "0a52945f6a378a13267d806317edba3bb2d1000f6899c9cef0eb3f5cb9475650",
+        "size_in_bytes": 1428
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_numpy.py",
+        "path_type": "hardlink",
+        "sha256": "44c562f1a57a72c534b5ad261d6947221c2c5422cd8cc0e2b55aab734ad2f8f4",
+        "sha256_in_prefix": "44c562f1a57a72c534b5ad261d6947221c2c5422cd8cc0e2b55aab734ad2f8f4",
+        "size_in_bytes": 488
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_program_config.py",
+        "path_type": "hardlink",
+        "sha256": "0cedc0649fc2294987801c80764ebcbe8307eaa10d615ffe57e0a89777ea096a",
+        "sha256_in_prefix": "0cedc0649fc2294987801c80764ebcbe8307eaa10d615ffe57e0a89777ea096a",
+        "size_in_bytes": 1869
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_spec_examples.py",
+        "path_type": "hardlink",
+        "sha256": "c356865272ab31610ffe566948ba965dec5d4c7fcae6012b9131b769d90216a3",
+        "sha256_in_prefix": "c356865272ab31610ffe566948ba965dec5d4c7fcae6012b9131b769d90216a3",
+        "size_in_bytes": 5880
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_string.py",
+        "path_type": "hardlink",
+        "sha256": "ae6aa291ad393f08d9f3159d48d8c7a6fc8abdb75fc80dd947068cf35a0b5224",
+        "sha256_in_prefix": "ae6aa291ad393f08d9f3159d48d8c7a6fc8abdb75fc80dd947068cf35a0b5224",
+        "size_in_bytes": 5603
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_tag.py",
+        "path_type": "hardlink",
+        "sha256": "ba733513b9593b1b016b13e518ecb36a36d1b467216eb8bfeba6c8ee51185400",
+        "sha256_in_prefix": "ba733513b9593b1b016b13e518ecb36a36d1b467216eb8bfeba6c8ee51185400",
+        "size_in_bytes": 3619
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_version.py",
+        "path_type": "hardlink",
+        "sha256": "2be71c97c940b416be56391ccc43f203e7c882df04a4724b3610da0fa9cc758e",
+        "sha256_in_prefix": "2be71c97c940b416be56391ccc43f203e7c882df04a4724b3610da0fa9cc758e",
+        "size_in_bytes": 4343
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_yamlfile.py",
+        "path_type": "hardlink",
+        "sha256": "65c7ca640b6bacdaf1607b557870cf22a6edf35270f9cc6dd0e260b2ef9e9418",
+        "sha256_in_prefix": "65c7ca640b6bacdaf1607b557870cf22a6edf35270f9cc6dd0e260b2ef9e9418",
+        "size_in_bytes": 5897
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_yamlobject.py",
+        "path_type": "hardlink",
+        "sha256": "b5a373de9852e62945498896a45e79538fcdde4cd88cc560b82be3ca046c4808",
+        "sha256_in_prefix": "b5a373de9852e62945498896a45e79538fcdde4cd88cc560b82be3ca046c4808",
+        "size_in_bytes": 2513
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_z_check_debug_leftovers.py",
+        "path_type": "hardlink",
+        "sha256": "7440bf93ed7b5d03d5d0f94e400ae9a42d54c9a7b3c5417061c9b0be661dfe6e",
+        "sha256_in_prefix": "7440bf93ed7b5d03d5d0f94e400ae9a42d54c9a7b3c5417061c9b0be661dfe6e",
+        "size_in_bytes": 891
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ruamel_yaml/test_z_data.py",
+        "path_type": "hardlink",
+        "sha256": "2c5b07a3ada4c4fadd7bfa07a49f18c4d2803b67b1605c9a1c2d030d5f55e9c3",
+        "sha256_in_prefix": "2c5b07a3ada4c4fadd7bfa07a49f18c4d2803b67b1605c9a1c2d030d5f55e9c3",
+        "size_in_bytes": 7319
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/test_json_api.py",
+        "path_type": "hardlink",
+        "sha256": "54ab2d9ed2ae998f92b08170ecfe615f5d1f2e0d46d340a4c79bd2e131920bdc",
+        "sha256_in_prefix": "54ab2d9ed2ae998f92b08170ecfe615f5d1f2e0d46d340a4c79bd2e131920bdc",
+        "size_in_bytes": 8291
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/test_msgpack_api.py",
+        "path_type": "hardlink",
+        "sha256": "2c4009ba597398ec15302e77e0f3b4f88cd969a21352e90720fa44850e7273fb",
+        "sha256_in_prefix": "2c4009ba597398ec15302e77e0f3b4f88cd969a21352e90720fa44850e7273fb",
+        "size_in_bytes": 3568
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/test_pickle_api.py",
+        "path_type": "hardlink",
+        "sha256": "af951c5363a49fe134ebaee14a581df90eb66bd1a582cd8147a9786a609d6cc3",
+        "sha256_in_prefix": "af951c5363a49fe134ebaee14a581df90eb66bd1a582cd8147a9786a609d6cc3",
+        "size_in_bytes": 870
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/test_yaml_api.py",
+        "path_type": "hardlink",
+        "sha256": "8eeddcd388f3e646ed599680655d5dff86e268028a97d013f6b53654b8e493a2",
+        "sha256_in_prefix": "8eeddcd388f3e646ed599680655d5dff86e268028a97d013f6b53654b8e493a2",
+        "size_in_bytes": 3162
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ujson/334-reproducer.json",
+        "path_type": "hardlink",
+        "sha256": "1aea3dbbd39033de9fb8fd8bc33105b32345992125bcc2377d61438406ab0270",
+        "sha256_in_prefix": "1aea3dbbd39033de9fb8fd8bc33105b32345992125bcc2377d61438406ab0270",
+        "size_in_bytes": 29345
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ujson/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ujson/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "e0895fdcf4f716f70d36929cb9e8232dc34c4937963d9a608a2e76d128eb1b6c",
+        "sha256_in_prefix": "e0895fdcf4f716f70d36929cb9e8232dc34c4937963d9a608a2e76d128eb1b6c",
+        "size_in_bytes": 156
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ujson/__pycache__/test_ujson.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "2c1f57a10d8fd76f377123341cbeb78453f009e94e72e4b9d2362b9fa037854b",
+        "sha256_in_prefix": "2c1f57a10d8fd76f377123341cbeb78453f009e94e72e4b9d2362b9fa037854b",
+        "size_in_bytes": 66178
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/ujson/test_ujson.py",
+        "path_type": "hardlink",
+        "sha256": "0dcb8fec3f935c9e3db93a3c83ae7988079dc4a08132f739341f6dbfe2e401fc",
+        "sha256_in_prefix": "0dcb8fec3f935c9e3db93a3c83ae7988079dc4a08132f739341f6dbfe2e401fc",
+        "size_in_bytes": 33468
+      },
+      {
+        "_path": "Lib/site-packages/srsly/tests/util.py",
+        "path_type": "hardlink",
+        "sha256": "6b263754b3fc95982e570e4231c79e8f5d65a9baad92077692a23289eef71906",
+        "sha256_in_prefix": "6b263754b3fc95982e570e4231c79e8f5d65a9baad92077692a23289eef71906",
+        "size_in_bytes": 415
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/JSONtoObj.c",
+        "path_type": "hardlink",
+        "sha256": "78e88fdde7891f570977b1d53ff5eeef0c30a6f0026f22762fba7b823457f763",
+        "sha256_in_prefix": "78e88fdde7891f570977b1d53ff5eeef0c30a6f0026f22762fba7b823457f763",
+        "size_in_bytes": 6361
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "1cfa9a8984af6db0ae633e4a30440ecf17a5d864c517e0833edcc5a23905abdd",
+        "sha256_in_prefix": "1cfa9a8984af6db0ae633e4a30440ecf17a5d864c517e0833edcc5a23905abdd",
+        "size_in_bytes": 74
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/__pycache__/__init__.cpython-311.pyc",
+        "path_type": "hardlink",
+        "sha256": "4da6d80f08f06c065c67640fcaa051e7df4d1a029191c071800c4a830aa5a491",
+        "sha256_in_prefix": "4da6d80f08f06c065c67640fcaa051e7df4d1a029191c071800c4a830aa5a491",
+        "size_in_bytes": 309
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/lib/dconv_wrapper.cc",
+        "path_type": "hardlink",
+        "sha256": "0b7412387cdafd399eee8c8c81c833bdd06becdc7e493c2140ef8dbc4900d946",
+        "sha256_in_prefix": "0b7412387cdafd399eee8c8c81c833bdd06becdc7e493c2140ef8dbc4900d946",
+        "size_in_bytes": 2038
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/lib/ultrajson.h",
+        "path_type": "hardlink",
+        "sha256": "b45f8f10de1eafa497053532b03d53505f2536ee224783b6e8246f272fed01fd",
+        "sha256_in_prefix": "b45f8f10de1eafa497053532b03d53505f2536ee224783b6e8246f272fed01fd",
+        "size_in_bytes": 9792
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/lib/ultrajsondec.c",
+        "path_type": "hardlink",
+        "sha256": "c24a4dccab7ce1ef0dcb362307f75bfc44be8c36c73a61e494d167b602fe8821",
+        "sha256_in_prefix": "c24a4dccab7ce1ef0dcb362307f75bfc44be8c36c73a61e494d167b602fe8821",
+        "size_in_bytes": 21708
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/lib/ultrajsonenc.c",
+        "path_type": "hardlink",
+        "sha256": "a97119c638d9dac8f55f00a2d16219b14790b0e0fad9d64e24522e21dee5e6de",
+        "sha256_in_prefix": "a97119c638d9dac8f55f00a2d16219b14790b0e0fad9d64e24522e21dee5e6de",
+        "size_in_bytes": 26333
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/objToJSON.c",
+        "path_type": "hardlink",
+        "sha256": "5e30f87ca7fbe5075a8dec77a70f4e46bced27ef1573ace90ec4d09761f3c2d2",
+        "sha256_in_prefix": "5e30f87ca7fbe5075a8dec77a70f4e46bced27ef1573ace90ec4d09761f3c2d2",
+        "size_in_bytes": 22961
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/py_defines.h",
+        "path_type": "hardlink",
+        "sha256": "69270a12b292938f307486585327052a2985818b10c73626deacca8c8cc41a83",
+        "sha256_in_prefix": "69270a12b292938f307486585327052a2985818b10c73626deacca8c8cc41a83",
+        "size_in_bytes": 2365
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/ujson.c",
+        "path_type": "hardlink",
+        "sha256": "2ba3f636ffa1432441d8c2984360999771a221416572cc14e18a851f4a0e9821",
+        "sha256_in_prefix": "2ba3f636ffa1432441d8c2984360999771a221416572cc14e18a851f4a0e9821",
+        "size_in_bytes": 4748
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/ujson.cp311-win_amd64.pyd",
+        "path_type": "hardlink",
+        "sha256": "ed878f7bdfe74341264681ad683b1b510d5ffc87b94b23058aec72980ea8c367",
+        "sha256_in_prefix": "ed878f7bdfe74341264681ad683b1b510d5ffc87b94b23058aec72980ea8c367",
+        "size_in_bytes": 35328
+      },
+      {
+        "_path": "Lib/site-packages/srsly/ujson/version.h",
+        "path_type": "hardlink",
+        "sha256": "96d573ac1fcaba4d9ce390e5f93df1936d2ba4adb5f71c31dbc95b556a9a56e2",
+        "sha256_in_prefix": "96d573ac1fcaba4d9ce390e5f93df1936d2ba4adb5f71c31dbc95b556a9a56e2",
+        "size_in_bytes": 1999
+      },
+      {
+        "_path": "Lib/site-packages/srsly/util.py",
+        "path_type": "hardlink",
+        "sha256": "373010c5d13be80578342c1bb91bddabbeef15a2237fd0910f20685b1039c690",
+        "sha256_in_prefix": "373010c5d13be80578342c1bb91bddabbeef15a2237fd0910f20685b1039c690",
+        "size_in_bytes": 1108
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "c35277123325ca172a7beb12fe828de92fa13349aac9ad07b668cca10e74b2d5",
+  "size": 701347,
+  "subdir": "win-64",
+  "timestamp": 1703692222644,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/srsly-2.4.8-py311hd77b12b_1.conda",
+  "version": "2.4.8"
+}

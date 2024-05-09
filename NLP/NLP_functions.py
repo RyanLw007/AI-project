@@ -1,6 +1,7 @@
 import json
 import random
-import spacy.cli
+import spacy
+from spacy import cli
 from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')
