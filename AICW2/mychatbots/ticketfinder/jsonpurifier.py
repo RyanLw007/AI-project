@@ -1,4 +1,4 @@
-import _json
+import _json as json
 
 
 def purify_json(file_path):
