@@ -49,7 +49,7 @@ def main(input):
 
         with open(data_path, 'w') as file:
             json.dump(default, file, indent=4)
-        printout.append("BOT: I have reset the selection. start by telling me your ticket type.")
+        printout.append("I have reset the selection. start by telling me your ticket type.")
         return printout
 
     data['chosen_intention'] = check_intention_by_keyword(user_input)
@@ -117,8 +117,8 @@ def main(input):
                         if check_intention_by_keyword_nr(user_input) == "book":
                             return printout
                         else:
-                            printout.append("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                            printout.append(f"BOT: {llama3_response(user_input)}")
+                            printout.append("Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                            printout.append(f"{llama3_response(user_input)}")
                             return printout
     if data['chosen_intention'] == None:
         ner_response(user_input)
@@ -145,8 +145,8 @@ def main(input):
                         return printout
                     else:
                         printout.pop(0)
-                        printout.append( "BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                        printout.append(f"BOT: {llama3_response(user_input)}")
+                        printout.append( "Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                        printout.append(f"{llama3_response(user_input)}")
                         return printout
 
 
@@ -179,8 +179,8 @@ def main(input):
                         if check_intention_by_keyword_nr(user_input) == "greeting":
                             return printout
                         else:
-                            printout.append("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                            printout.append(f"BOT: {llama3_response(user_input)}")
+                            printout.append("Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                            printout.append(f"{llama3_response(user_input)}")
                             return printout
 
     if data['chosen_intention'] != 'goodbye' and data['chosen_intention'] != 'book' and data['chosen_intention'] != None and data['chosen_intention'] != 'greeting':
@@ -205,8 +205,8 @@ def main(input):
                     if check_intention_by_keyword_nr(user_input) == "book":
                         return printout
                     else:
-                        printout.append("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                        printout.append(f"BOT: {llama3_response(user_input)}")
+                        printout.append("Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                        printout.append(f"{llama3_response(user_input)}")
                         return printout
 
 if __name__ == "__main__":
@@ -222,24 +222,24 @@ if __name__ == "__main__":
 
 
 
-    output1 = main("hello")
-    print(output1)
-    output2 = main ("I want to book a train")
-    print(output2)
-    output3 = main("open return")
-    print(output3)
-    output4 = main("leave")
-    print(output4)
-    output5 = main("I want to from Brighton to Newcastle going on sunday and return on tuesday")
-    print(output5)
-    output6 = main("2")
-    print(output6)
-    output8 = main("2")
-    print(output8)
-    output7 = main("bye")
-    print(output7)
-
-    exit()
+    # output1 = main("hello")
+    # print(output1)
+    # output2 = main ("I want to book a train")
+    # print(output2)
+    # output3 = main("open return")
+    # print(output3)
+    # output4 = main("leave")
+    # print(output4)
+    # output5 = main("I want to from Brighton to Newcastle going on sunday and return on tuesday")
+    # print(output5)
+    # output6 = main("2")
+    # print(output6)
+    # output8 = main("2")
+    # print(output8)
+    # output7 = main("bye")
+    # print(output7)
+    #
+    # exit()
 
     test = ""
     print("Welcome to the chatbot! Type 'exit' to end the conversation")

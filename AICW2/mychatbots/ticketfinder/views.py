@@ -21,15 +21,23 @@ def chat_interface(request):
 
 def get_response(request):
 
-     user_input = request.GET.get('message', '')
+    user_input = request.GET.get('message', '')
+    bot_response = None
 
-     if user_input:
-         UserQuery.objects.create(query_text=user_input)
-         bot_response = main(user_input)
+    messages = []
 
-     response = {'response': f': {bot_response}'}
+    if user_input:
+        output = main(user_input)
 
-     return JsonResponse(response)
+    if output:
+        for message in output:
+            messages.append(message)
+
+    print(messages)
+
+    response = {'response': messages }
+
+    return JsonResponse(response)
 
 # copy encase it doesn't work
 # def get_response(request):

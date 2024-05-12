@@ -1,4 +1,4 @@
-from .NLP_booking import *
+from NLP_booking import *
 import requests
 import csv
 import json
@@ -217,29 +217,6 @@ if __name__ == "__main__":
     # output = main("reset")
     # print(output)
     # exit()
-
-
-
-
-
-    output1 = main("hello")
-    print(output1)
-    output2 = main ("I want to book a train")
-    print(output2)
-    output3 = main("open return")
-    print(output3)
-    output4 = main("leave")
-    print(output4)
-    output5 = main("I want to from Brighton to Newcastle going on sunday and return on tuesday")
-    print(output5)
-    output6 = main("2")
-    print(output6)
-    output8 = main("2")
-    print(output8)
-    output7 = main("bye")
-    print(output7)
-
-    exit()
 
     test = ""
     print("Welcome to the chatbot! Type 'exit' to end the conversation")

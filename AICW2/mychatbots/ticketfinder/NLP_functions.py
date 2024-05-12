@@ -149,12 +149,12 @@ def check_intention_by_keyword(sentence):
         for type_of_intention in intentions:
             if word.lower() in intentions[type_of_intention]["patterns"]:
 
-                printout.append("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
+                printout.append("" + random.choice(intentions[type_of_intention]["responses"]))
                 if type_of_intention == 'book':
-                    printout.append("BOT: note, if you would like to start over, just type 'reset' and I will start selection again.")
+                    printout.append("note, if you would like to start over, just type 'reset' and I will start selection again.")
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:
-                    printout.append("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
+                    printout.append("I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
                 printout.insert(0, True)
                 return type_of_intention
     printout.insert(0, False)
@@ -218,14 +218,14 @@ def date_time_response(user_input):
     # Do not change these lines
     if similarities[max_similarity_idx] > min_similarity:
         if labels[max_similarity_idx] == 'time':
-            printout.append("BOT: " + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
+            printout.append("" + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
             if final_chatbot:
-                printout.append("BOT: You can also ask me what the date is today. (Hint: What is the date today?)")
+                printout.append("You can also ask me what the date is today. (Hint: What is the date today?)")
         elif labels[max_similarity_idx] == 'date':
-            printout.append("BOT: " + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
+            printout.append("" + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
             if final_chatbot:
                 printout.append(
-                    "BOT: I can help you book a train if you want, firstly let me know what type of ticket you want. (one way, round, open ticket, open return)")
+                    "I can help you book a train if you want, firstly let me know what type of ticket you want. (one way, round, open ticket, open return)")
         printout.insert(0, True)
         
 

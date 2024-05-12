@@ -10,7 +10,7 @@ $(document).ready(function(){
                 },
                 dataType: 'json',
                 success: function(data) {
-                    $("#chat-box").append("<div class='bot mb-2 p-2 border rounded bg-light'>Bot: " + data.response + "</div>");
+                    $("#chat-box").append("<div class='bot mb-2 p-2 border rounded bg-light'>BOT: " + data.response + "</div>");
                     $("#user-input").val('');  
                     $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);  
                 }
