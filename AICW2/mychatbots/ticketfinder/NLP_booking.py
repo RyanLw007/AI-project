@@ -1,4 +1,4 @@
-from NLP_functions import *
+from .NLP_functions import *
 import pandas as pd
 from fuzzywuzzy import process
 
@@ -6,10 +6,10 @@ nlp = spacy.load("en_core_web_sm")
 
 return_phrases = ['coming back', 'returning', 'return', 'departing', 'leaving', 'leave']
 
-df = pd.read_csv('data/stations.csv')
+df = pd.read_csv(stations_path)
 df['combined'] = df['name'] + ' ' + df['longname.name_alias']
 
-data = json.loads(open('data/data.json').read())
+data = json.loads(open(data_path).read())
 
 multiple_loc = False
 
@@ -120,14 +120,14 @@ def selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
     if chosen_time:
         chosen_time_beforecon = " ".join(chosen_time)
         data['arrive_time_str'] = time_conversion(chosen_time_beforecon)
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         printout.append("BOT: " + "You want to travel at " + data['arrive_time_str'] + ".")
 
     if chosen_origin and data['flag_loc'] < 3:
         data['flag_loc'] = 3
         data['chosen_origin_str'] = " ".join(chosen_origin)
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         station_selector(data['chosen_origin_str'])
         return True
@@ -135,14 +135,14 @@ def selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
     if data['station_selector'] and data['flag_loc'] == 3:
         data['chosen_origin_str'], data['origin_code'] = selected_station(data['selected'])
         data['flag_loc'] = 0
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         printout.append("BOT: " + "You want to travel from " + data['chosen_origin_str'] + ".")
 
     if chosen_dest and data['flag_loc'] < 4:
         data['flag_loc'] = 4
         data['chosen_dest_str'] = " ".join(chosen_dest)
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         station_selector(data['chosen_dest_str'])
         return True
@@ -150,7 +150,7 @@ def selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
     if data['station_selector'] and data['flag_loc'] == 4:
         data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
         data['flag_loc'] = 0
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         printout.append("BOT: " + "You want to travel to " + data['chosen_dest_str'] + ".")
 
@@ -159,7 +159,7 @@ def selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
         cleaned_date = clean_date(chosen_date_before)
         chosen_date_date = date_conversion(cleaned_date)
         data['arrive_date_str'] = "".join(chosen_date_date)
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         printout.append("BOT: " + "You want to travel on " + data['arrive_date_str'] + ".")
 
@@ -173,7 +173,7 @@ def check_ticket(user_input , loc):
     for ticket in ticket_list:
         if ticket in user_input:
             data['ticket_type'] = ticket_list[ticket_list.index(ticket)]
-            with open('data/data.json', 'w') as file:
+            with open(data_path, 'w') as file:
                 json.dump(data, file, indent=4)
             if loc == 1:
                 return ticket_list[ticket_list.index(ticket)]
@@ -192,7 +192,7 @@ def find_similar_stations(target):
 
 def station_selector(target_station):
     data['station_selector'] = True
-    with open('data/data.json', 'w') as file:
+    with open(data_path, 'w') as file:
         json.dump(data, file, indent=4)
 
     global printout
@@ -205,14 +205,14 @@ def station_selector(target_station):
         printout.append(f"{station['index']} Station: {station['matched station']}, Similarity Score: {station['similarity score']}")
         data[f"station{station['index']}"] = similar_stations[station['index'] - 1]['original index']
 
-    with open('data/data.json', 'w') as file:
+    with open(data_path, 'w') as file:
         json.dump(data, file, indent=4)
     printout.append("BOT: Enter the index of the station you want to select:")
 
 
 def selected_station(selected_station):
     data['station_selector'] = False
-    with open('data/data.json', 'w') as file:
+    with open(data_path, 'w') as file:
         json.dump(data, file, indent=4)
     station_df_index = data[f'station{selected_station}']
     station_name = df.iloc[station_df_index]['name']
@@ -220,7 +220,7 @@ def selected_station(selected_station):
 
     for i in range (1, 6):
         data[f'station{i}'] = None
-    with open('data/data.json', 'w') as file:
+    with open(data_path, 'w') as file:
         json.dump(data, file, indent=4)
 
     return station_name, station_tiploc
@@ -252,7 +252,7 @@ def ner_response(user_input):
     # this checks the user input for the specific words 'leave' and 'arrive' to determine if the user wants to leave or arrive at the time given
     if user_input == "leave":
         data['leave_arrive'] = "leave"
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         printout.append("BOT: You have chosen to leave at the time you given.")
         missing_info_response()
@@ -261,7 +261,7 @@ def ner_response(user_input):
         
     if user_input == "arrive":
         data['leave_arrive'] = "arrive"
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
         printout.append("BOT: You have chosen to arrive at your destination.")
         missing_info_response()
@@ -290,7 +290,7 @@ def ner_response(user_input):
                 if chosen_origin != [] and data['flag_loc'] < 1:
                     data['flag_loc'] = 1
                     data['chosen_origin_str'] = " ".join(chosen_origin)
-                    with open('data/data.json', 'w') as file:
+                    with open(data_path, 'w') as file:
                         json.dump(data, file, indent=4)
                     station_selector(data['chosen_origin_str'])
                     return printout.insert(0, True)
@@ -298,7 +298,7 @@ def ner_response(user_input):
                 if data['station_selector'] and data['flag_loc'] == 1:
                     data['chosen_origin_str'], data['origin_code'] = selected_station(data['selected'])
                     data['flag_loc'] = 0
-                    with open('data/data.json', 'w') as file:
+                    with open(data_path, 'w') as file:
                         json.dump(data, file, indent=4)
                     printout.append("BOT: You want to go to " + data['chosen_origin_str'] + ".")
 
@@ -306,7 +306,7 @@ def ner_response(user_input):
                 if chosen_dest != [] and data['flag_loc'] < 2:
                     data['flag_loc'] = 2
                     data['chosen_dest_str'] = " ".join(chosen_dest)
-                    with open('data/data.json', 'w') as file:
+                    with open(data_path, 'w') as file:
                         json.dump(data, file, indent=4)
                     station_selector(data['chosen_dest_str'])
                     return printout.insert(0, True)
@@ -314,7 +314,7 @@ def ner_response(user_input):
                 if data['station_selector'] and data['flag_loc'] == 2:
                     data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
                     data['flag_loc'] = 0
-                    with open('data/data.json', 'w') as file:
+                    with open(data_path, 'w') as file:
                         json.dump(data, file, indent=4)
                     printout.append("BOT: " + "You want to go to " + data['chosen_dest_str'] + ".")
 
@@ -363,7 +363,7 @@ def ner_response(user_input):
                 if go_time != []:
                     ar_time_beforecon = " ".join(go_time)
                     data['arrive_time_str'] = time_conversion(ar_time_beforecon)
-                    with open('data/data.json', 'w') as file:
+                    with open(data_path, 'w') as file:
                         json.dump(data, file, indent=4)
                     printout.append("BOT: " + "You want to travel at " + data['arrive_time_str'] + ".")
 
@@ -372,14 +372,14 @@ def ner_response(user_input):
                     cleaned_date = clean_date(chosen_date_before)
                     chosen_date_date = date_conversion(cleaned_date)
                     data['arrive_date_str'] = "".join(chosen_date_date)
-                    with open('data/data.json', 'w') as file:
+                    with open(data_path, 'w') as file:
                         json.dump(data, file, indent=4)
                     printout.append("BOT: " + "You want to travel on " + data['arrive_date_str'] + ".")
 
                 if back_time != []:
                     back_time_beforecon = " ".join(back_time)
                     data['leave_time_str'] = time_conversion(back_time_beforecon)
-                    with open('data/data.json', 'w') as file:
+                    with open(data_path, 'w') as file:
                         json.dump(data, file, indent=4)
                     printout.append("BOT: " + "You want to return at " + data['leave_time_str'] + ".")
 
@@ -395,7 +395,7 @@ def ner_response(user_input):
                             leave_date_date = datetime.strptime(fixed_date, "%Y-%m-%d").strftime("%Y-%m-%d")
 
                             data['leave_date_str'] = "".join(leave_date_date)
-                            with open('data/data.json', 'w') as file:
+                            with open(data_path, 'w') as file:
                                 json.dump(data, file, indent=4)
 
                             printout.append("BOT: " + "You want to return on " + data['leave_date_str'] + ".")
@@ -405,7 +405,7 @@ def ner_response(user_input):
                         cleaned_date = clean_date(back_date_before)
                         back_date_date = date_conversion(cleaned_date)
                         data['leave_date_str'] = "".join(back_date_date)
-                        with open('data/data.json', 'w') as file:
+                        with open(data_path, 'w') as file:
                             json.dump(data, file, indent=4)
                         printout.append("BOT: " + "You want to return on " + data['leave_date_str'] + ".")
 
@@ -462,7 +462,7 @@ def ner_response(user_input):
                 date = clean_date(date)
                 date = date_conversion(date)
                 data['arrive_date_str'] = date
-                with open('data/data.json', 'w') as file:
+                with open(data_path, 'w') as file:
                     json.dump(data, file, indent=4)
                 printout.append("BOT: You want to travel on " + date + ".")
                 missing_info_response()
@@ -473,7 +473,7 @@ def ner_response(user_input):
                 time = ent.text
                 time = time_conversion(time)
                 data['arrive_time_str'] = time
-                with open('data/data.json', 'w') as file:
+                with open(data_path, 'w') as file:
                     json.dump(data, file, indent=4)
                 printout.append("BOT: You want to travel at " + time + ".")
                 missing_info_response()
@@ -488,7 +488,7 @@ def ner_response(user_input):
                     if chosen_origin != [] and data['flag_loc'] < 5:
                         data['flag_loc'] = 5
                         data['chosen_origin_str'] = " ".join(chosen_origin)
-                        with open('data/data.json', 'w') as file:
+                        with open(data_path, 'w') as file:
                             json.dump(data, file, indent=4)
                         station_selector(data['chosen_origin_str'])
                         return printout.insert(0, True)
@@ -496,7 +496,7 @@ def ner_response(user_input):
                     if data['station_selector'] and data['flag_loc'] == 5:
                         data['chosen_origin_str'], data['origin_code'] = selected_station(data['selected'])
                         data['flag_loc'] = 0
-                        with open('data/data.json', 'w') as file:
+                        with open(data_path, 'w') as file:
                             json.dump(data, file, indent=4)
                         printout.append("BOT: " + "You want to travel from " + data['chosen_origin_str'] + ".")
                         missing_info_response()
@@ -508,7 +508,7 @@ def ner_response(user_input):
                     if chosen_dest != [] and data['flag_loc'] < 6:
                         data['flag_loc'] = 6
                         data['chosen_dest_str'] = " ".join(chosen_dest)
-                        with open('data/data.json', 'w') as file:
+                        with open(data_path, 'w') as file:
                             json.dump(data, file, indent=4)
                         station_selector(data['chosen_dest_str'])
                         return printout.insert(0, True)
@@ -516,7 +516,7 @@ def ner_response(user_input):
                     if data['station_selector'] and data['flag_loc'] == 6:
                         data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
                         data['flag_loc'] = 0
-                        with open('data/data.json', 'w') as file:
+                        with open(data_path, 'w') as file:
                             json.dump(data, file, indent=4)
                         printout.append("BOT: " + "You want to travel to " + data['chosen_dest_str'] + ".")
                         missing_info_response()
@@ -527,7 +527,7 @@ def ner_response(user_input):
                     if chosen_dest != [] and data['flag_loc'] < 7:
                         data['flag_loc'] = 7
                         data['chosen_dest_str'] = " ".join(chosen_dest)
-                        with open('data/data.json', 'w') as file:
+                        with open(data_path, 'w') as file:
                             json.dump(data, file, indent=4)
                         station_selector(data['chosen_dest_str'])
                         return printout.insert(0, True)
@@ -535,7 +535,7 @@ def ner_response(user_input):
                     if data['station_selector'] and data['flag_loc'] == 7:
                         data['chosen_dest_str'], data['dest_code'] = selected_station(data['selected'])
                         data['flag_loc'] = 0
-                        with open('data/data.json', 'w') as file:
+                        with open(data_path, 'w') as file:
                             json.dump(data, file, indent=4)
                         printout.append("BOT: " + "You want to travel to " + data['chosen_dest_str'] + ".")
                         missing_info_response()
@@ -614,7 +614,7 @@ def check_ticket(user_input, loc):
     for ticket in ticket_list:
         if ticket in user_input:
             data['ticket_type'] = ticket_list[ticket_list.index(ticket)]
-            with open('data/data.json', 'w') as file:
+            with open(data_path, 'w') as file:
                 json.dump(data, file, indent=4)
             if loc == 1:
                 return ticket_list[ticket_list.index(ticket)]

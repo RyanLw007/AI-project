@@ -9,18 +9,26 @@ def purify_json(file_path):
     file_path (str): The path to the JSON file to clear.
     """
     default_data = {
-        "chosen_origin_str": "Norwich",
-        "chosen_dest_str": None,
-        "arrive_date_str": None,
-        "arrive_time_str": None,
-        "leave_date_str": None,
-        "leave_time_str": None,
-        "ticket_type": None,
-        "leave_arrive": None,
-        "origin_code": "NRW",
-        "dest_code": None,
-        "chosen_intention": None
-    }
+    "chosen_origin_str": "Norwich",
+    "chosen_dest_str": None,
+    "arrive_date_str": None,
+    "arrive_time_str": None,
+    "leave_date_str": None,
+    "leave_time_str": None,
+    "ticket_type": None,
+    "leave_arrive": None,
+    "origin_code": "NRW",
+    "dest_code": None,
+    "chosen_intention": None,
+    "flag_loc": 0,
+    "station_selector": False,
+    "station1" : None,
+    "station2" : None,
+    "station3" : None,
+    "station4" : None,
+    "station5" : None,
+    "selected": None
+}
 
     try:
         with open(file_path, 'w') as file:

@@ -113,13 +113,13 @@ doc = nlp("the 5th December 2024")
 
 print(clean_date(doc))
 
-with open('../AICW2/mychatbots/ticketfinder/data/past_inputs.csv', 'w', newline='') as file:
+with open('../AICW2/mychatbots/ticketfinder/past_inputs.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Past User Inputs"])
 
 user_input = input()
 
-reader = csv.reader(open('../AICW2/mychatbots/ticketfinder/data/stations.csv', 'r'))
+reader = csv.reader(open('../AICW2/mychatbots/ticketfinder/stations.csv', 'r'))
 
 indatabase = False
 for row in reader:

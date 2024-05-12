@@ -1,4 +1,4 @@
-from NLP_booking import *
+from .NLP_booking import *
 import requests
 import csv
 import json

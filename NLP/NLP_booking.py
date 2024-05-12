@@ -1,4 +1,4 @@
-from NLP_functions import *
+from .NLP_functions import *
 import pandas as pd
 from fuzzywuzzy import process
 

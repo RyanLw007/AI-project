@@ -1,4 +1,4 @@
-from NLP_booking import *
+from .NLP_booking import *
 import requests
 import csv
 import json
@@ -37,39 +37,39 @@ def main(input):
 
     user_input = input
 
-    with open('data/past_inputs.csv', 'a', newline='') as file:
+    with open(past_inputs, 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([user_input])
 
 
 
     if user_input == "reset":
-        with open('data/reset.json', 'r') as reset:
+        with open(reset_path, 'r') as reset:
             default = json.load(reset)
 
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
             json.dump(default, file, indent=4)
         printout.append("BOT: I have reset the selection. start by telling me your ticket type.")
         return printout
 
     data['chosen_intention'] = check_intention_by_keyword(user_input)
-    with open('data/data.json', 'w') as file:
+    with open(data_path, 'w') as file:
         json.dump(data, file, indent=4)
 
     if data['station_selector']:
         if data['selected'] == None:
             data['selected'] = user_input
-            with open('data/data.json', 'w') as file:
+            with open(data_path, 'w') as file:
                 json.dump(data, file, indent=4)
 
-            with open('data/past_inputs.csv', 'r') as past:
+            with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-2]
         else:
             data['selected'] = int(user_input)
-            with open('data/data.json', 'w') as file:
+            with open(data_path, 'w') as file:
                 json.dump(data, file, indent=4)
 
-            with open('data/past_inputs.csv', 'r') as past:
+            with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
 
 
@@ -81,10 +81,10 @@ def main(input):
         goodbye_response()
 
 
-        with open('data/reset.json', 'r') as reset:
+        with open(reset_path, 'r') as reset:
             default = json.load(reset)
 
-        with open('data/data.json', 'w') as file:
+        with open(data_path, 'w') as file:
                 json.dump(default, file, indent=4)
 
         return printout

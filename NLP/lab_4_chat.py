@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 
 
 intentions_path = "../AICW2/mychatbots/ticketfinder/intentions.json"
-sentences_path = "../AICW2/mychatbots/ticketfinder/data/sentences.txt"
+sentences_path = "../AICW2/mychatbots/ticketfinder/sentences.txt"
 
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
 
@@ -529,7 +529,7 @@ while(flag==True):
 
 
     user_input = input()
-    with open('../AICW2/mychatbots/ticketfinder/data/past_inputs.csv', 'a', newline='') as file:
+    with open('../AICW2/mychatbots/ticketfinder/past_inputs.csv', 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([user_input])
 

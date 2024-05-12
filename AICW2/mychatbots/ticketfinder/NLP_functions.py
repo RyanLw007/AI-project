@@ -10,15 +10,23 @@ nlp = spacy.load("en_core_web_sm")
 labels = []
 sentences = []
 
-intentions_path = "data/intentions.json"
-sentences_path = "data/sentences.txt"
+#file paths
+
+past_inputs = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\past_inputs.csv"
+data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\data.json"
+reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\reset.json"
+intentions_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\intentions.json"
+sentences_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\sentences.txt"
+stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\stations.csv"
+
+
 
 # this has not been put into a seperate file as implementation would be more complex
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
 verbs = ['going', 'visit', 'travel', 'go', 'choose', 'get', 'goes']
 loc_types = ['GPE', 'ORG', 'LOC', 'NORP', 'PERSON']
 
-data = json.loads(open('data/data.json').read())
+data = json.loads(open(data_path).read())
 
 printout = []
 
