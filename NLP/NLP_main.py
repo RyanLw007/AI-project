@@ -1,6 +1,8 @@
 from NLP_booking import *
 import requests
+import csv
 import json
+
 
 llama_url = "http://localhost:11434/api/chat"
 
@@ -15,6 +17,7 @@ def llama3_response(user_input):
         ],
         "stream": False
     }
+
     headers = {
         'Content-Type': 'application/json'
     }
@@ -24,77 +27,233 @@ def llama3_response(user_input):
 
 
 
-
-if __name__ == "__main__":
+def main(input):
+    global final_chatbot
+    global printout
 
     final_chatbot = True
 
-    flag = True
+    printout.clear()
 
-    print("BOT: Hi there! How can I help you?.\n (If you want to exit, just type bye!)")
+    user_input = input
 
-    while (flag == True):
+    with open('data/past_inputs.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([user_input])
 
-        user_input = input()
-        with open('data/past_inputs.csv', 'a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow([user_input])
 
-        if user_input == "reset":
-            chosen_origin_str = "Norwich"
-            chosen_dest_str = None
-            arrive_date_str = None
-            arrive_time_str = None
-            leave_date_str = None
-            leave_time_str = None
-            ticket_type = None
-            leave_arrive = None
-            chosen_intention = None
-            print("BOT: I have reset the selection. start by telling me your ticket type.")
-            continue
 
-        chosen_intention = check_intention_by_keyword(user_input)
+    if user_input == "reset":
+        with open('data/reset.json', 'r') as reset:
+            default = json.load(reset)
 
-        if chosen_intention == 'goodbye':
-            goodbye_response()
-            flag = False
-            # change intention for different responses (prediction etc)
+        with open('data/data.json', 'w') as file:
+            json.dump(default, file, indent=4)
+        printout.append("BOT: I have reset the selection. start by telling me your ticket type.")
+        return printout
 
-            # if one way ticket I only need destination, date and time
-            # if round ticket I need destination, date and time arriving and date and time leaving
-            # if open ticket I need destination and date no extra info is needed
-            # if open return ticket I need destination and date arriving and date leaving no extra info is needed
+    data['chosen_intention'] = check_intention_by_keyword(user_input)
+    with open('data/data.json', 'w') as file:
+        json.dump(data, file, indent=4)
 
-        if chosen_intention == 'book':
-            if not ner_response(user_input):
-                if not date_time_response(user_input):
-                    if not expert_response(user_input):
-                        if not ner_response(user_input):
-                            if check_intention_by_keyword_nr(user_input) != "book":
-                                print("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                                print(f"\033[32mBOT: {llama3_response(user_input)}")
-                                print(f"\n \033[0m")
-        if chosen_intention == None:
-            if not ner_response(user_input):
-                if not date_time_response(user_input):
-                    if not expert_response(user_input):
-                        if not ner_response(user_input):
-                            print("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                            print(f"\033[32mBOT: {llama3_response(user_input)}")
-                            print(f"\n \033[0m")
+    if data['station_selector']:
+        if data['selected'] == None:
+            data['selected'] = user_input
+            with open('data/data.json', 'w') as file:
+                json.dump(data, file, indent=4)
 
-        if chosen_intention == 'greeting':
-            chosen_intention = None
-            if not ner_response(user_input):
-                if not date_time_response(user_input):
-                    if not expert_response(user_input):
-                        if not ner_response(user_input):
-                            continue
+            with open('data/past_inputs.csv', 'r') as past:
+                user_input = past.readlines()[-2]
+        else:
+            data['selected'] = int(user_input)
+            with open('data/data.json', 'w') as file:
+                json.dump(data, file, indent=4)
 
-        if chosen_intention != 'goodbye' and chosen_intention != 'book' and chosen_intention != None and chosen_intention != 'greeting':
-            if not date_time_response(user_input):
-                if not expert_response(user_input):
-                    if not ner_response(user_input):
-                        print("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                        print(f"\033[32mBOT: {llama3_response(user_input)}")
-                        print(f"\n \033[0m")
+            with open('data/past_inputs.csv', 'r') as past:
+                user_input = past.readlines()[-3]
+
+
+
+    printout.pop(0)
+
+
+    if data['chosen_intention'] == 'goodbye':
+        goodbye_response()
+
+
+        with open('data/reset.json', 'r') as reset:
+            default = json.load(reset)
+
+        with open('data/data.json', 'w') as file:
+                json.dump(default, file, indent=4)
+
+        return printout
+
+    if data['chosen_intention'] == 'book':
+        ner_response(user_input)
+        if printout[0]:
+            printout.pop(0)
+            return printout
+        else:
+            printout.pop(0)
+            date_time_response(user_input)
+            if printout[0]:
+                printout.pop(0)
+                return printout
+            else:
+                printout.pop(0)
+                expert_response(user_input)
+                if printout[0]:
+                    printout.pop(0)
+                    return printout
+                else:
+                    printout.pop(0)
+                    ner_response(user_input)
+                    if printout[0]:
+                        printout.pop(0)
+                        return printout
+                    else:
+                        printout.pop(0)
+                        if check_intention_by_keyword_nr(user_input) == "book":
+                            return printout
+                        else:
+                            printout.append("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                            printout.append(f"BOT: {llama3_response(user_input)}")
+                            return printout
+    if data['chosen_intention'] == None:
+        ner_response(user_input)
+        if printout[0]:
+            printout.pop(0)
+            return printout
+        else:
+            printout.pop(0)
+            date_time_response(user_input)
+            if printout[0]:
+                printout.pop(0)
+                return printout
+            else:
+                printout.pop(0)
+                expert_response(user_input)
+                if printout[0]:
+                    printout.pop(0)
+                    return printout
+                else:
+                    printout.pop(0)
+                    ner_response(user_input)
+                    if printout[0]:
+                        printout.pop(0)
+                        return printout
+                    else:
+                        printout.pop(0)
+                        printout.append( "BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                        printout.append(f"BOT: {llama3_response(user_input)}")
+                        return printout
+
+
+    if data['chosen_intention'] == 'greeting':
+        data['chosen_intention'] = None
+        ner_response(user_input)
+        if printout[0]:
+            printout.pop(0)
+            return printout
+        else:
+            printout.pop(0)
+            date_time_response(user_input)
+            if printout[0]:
+                printout.pop(0)
+                return printout
+            else:
+                printout.pop(0)
+                expert_response(user_input)
+                if printout[0]:
+                    printout.pop(0)
+                    return printout
+                else:
+                    printout.pop(0)
+                    ner_response(user_input)
+                    if printout[0]:
+                        printout.pop(0)
+                        return printout
+                    else:
+                        printout.pop(0)
+                        if check_intention_by_keyword_nr(user_input) == "greeting":
+                            return printout
+                        else:
+                            printout.append("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                            printout.append(f"BOT: {llama3_response(user_input)}")
+                            return printout
+
+    if data['chosen_intention'] != 'goodbye' and data['chosen_intention'] != 'book' and data['chosen_intention'] != None and data['chosen_intention'] != 'greeting':
+        date_time_response(user_input)
+        if printout[0]:
+            printout.pop(0)
+            return printout
+        else:
+            printout.pop(0)
+            expert_response(user_input)
+            if printout[0]:
+                printout.pop(0)
+                return printout
+            else:
+                printout.pop(0)
+                ner_response(user_input)
+                if printout[0]:
+                    printout.pop(0)
+                    return printout
+                else:
+                    printout.pop(0)
+                    if check_intention_by_keyword_nr(user_input) == "book":
+                        return printout
+                    else:
+                        printout.append("BOT: Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                        printout.append(f"BOT: {llama3_response(user_input)}")
+                        return printout
+
+if __name__ == "__main__":
+
+
+
+
+    # output = main("reset")
+    # print(output)
+    # exit()
+
+
+
+
+
+    output1 = main("hello")
+    print(output1)
+    output2 = main ("I want to book a train")
+    print(output2)
+    output3 = main("open return")
+    print(output3)
+    output4 = main("leave")
+    print(output4)
+    output5 = main("I want to from Brighton to Newcastle going on sunday and return on tuesday")
+    print(output5)
+    output6 = main("2")
+    print(output6)
+    output8 = main("2")
+    print(output8)
+    output7 = main("bye")
+    print(output7)
+
+    exit()
+
+    test = ""
+    print("Welcome to the chatbot! Type 'exit' to end the conversation")
+
+    while (test != "exit"):
+        in_put = input()
+
+        if in_put == "exit":
+            in_put = "bye"
+            output = main(in_put)
+            for item in output:
+                print(item)
+            test = "exit"
+        else:
+            output = main(in_put)
+            for item in output:
+                print(item)
