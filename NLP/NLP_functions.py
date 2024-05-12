@@ -18,28 +18,20 @@ weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 
 verbs = ['going', 'visit', 'travel', 'go', 'choose', 'get', 'goes']
 loc_types = ['GPE', 'ORG', 'LOC', 'NORP', 'PERSON']
 
-data = json.loads(open('data/data.json').read())
-
-printout = []
-
+chosen_intention = None
 
 # Opening JSON file and return JSON object as a dictionary
 
 with open(intentions_path) as f:
     intentions = json.load(f)
 
-final_chatbot = True
-
-def print_out():
-    global printout
-    for message in printout:
-        print(message)
+final_chatbot = False
 
 # this function checks to see if the word may is in the text supplied as in some cases may can be used to indicate a date
 def may_check(phrase):
     lower = phrase.lower()
     if "may" in lower:
-        return True
+        return True#
 
 def clean_date(date):
     date = nlp(date)
@@ -134,25 +126,22 @@ def time_conversion(time):
         return datetime.strptime(time, "%H:%M").strftime("%H:%M")
 
 def check_intention_by_keyword(sentence):
-    global final_chatbot
-
-    global printout
+    global chosen_intention
     for word in sentence.split():
         for type_of_intention in intentions:
             if word.lower() in intentions[type_of_intention]["patterns"]:
 
-                printout.append("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
+                print("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
                 if type_of_intention == 'book':
-                    printout.append("BOT: note, if you would like to start over, just type 'reset' and I will start selection again.")
+                    print("BOT: note, if you would like to start over, just type 'reset' and I will start selection again.")
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:
-                    printout.append("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
-                printout.insert(0, True)
+                    print("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
                 return type_of_intention
-    printout.insert(0, False)
-    return data['chosen_intention']
+    return chosen_intention
 
 def check_intention_by_keyword_nr(sentence):
+    global chosen_intention
     for word in sentence.split():
         for type_of_intention in intentions:
             if word.lower() in intentions[type_of_intention]["patterns"]:
@@ -190,8 +179,6 @@ for sentence in doc.sents:
     sentences.append(sentence.text.lower().strip())
 
 def date_time_response(user_input):
-    global final_chatbot
-    global printout
     cleaned_user_input = lemmatize_and_clean(user_input)
     doc_1 = nlp(cleaned_user_input)
     similarities = {}
@@ -210,16 +197,14 @@ def date_time_response(user_input):
     # Do not change these lines
     if similarities[max_similarity_idx] > min_similarity:
         if labels[max_similarity_idx] == 'time':
-            printout.append("BOT: " + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
+            print("BOT: " + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
             if final_chatbot:
-                printout.append("BOT: You can also ask me what the date is today. (Hint: What is the date today?)")
+                print("BOT: You can also ask me what the date is today. (Hint: What is the date today?)")
         elif labels[max_similarity_idx] == 'date':
-            printout.append("BOT: " + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
+            print("BOT: " + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
             if final_chatbot:
-                printout.append(
-                    "BOT: I can help you book a train if you want, firstly let me know what type of ticket you want. (one way, round, open ticket, open return)")
-        printout.insert(0, True)
-        
+                print(
+                    "BOT: Now can you tell me where you want to go? (Hints: you can type in a city's name, or an organisation. I am going to London or I want to visit the University of East Anglia.)")
+        return True
 
-    printout.insert(0, False)
-    
+    return False
