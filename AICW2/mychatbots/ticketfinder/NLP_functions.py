@@ -22,6 +22,7 @@ data = json.loads(open('data/data.json').read())
 
 printout = []
 
+
 # Opening JSON file and return JSON object as a dictionary
 
 with open(intentions_path) as f:
@@ -32,7 +33,7 @@ final_chatbot = True
 def print_out():
     global printout
     for message in printout:
-        return message
+        print(message)
 
 # this function checks to see if the word may is in the text supplied as in some cases may can be used to indicate a date
 def may_check(phrase):
