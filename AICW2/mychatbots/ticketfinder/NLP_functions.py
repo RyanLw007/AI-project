@@ -1,6 +1,7 @@
 from .config import (past_inputs, data_path, reset_path,
                      intentions_path, sentences_path, stations_path)
 import json
+from .jsonpurifier import purify_json
 import random
 import spacy.cli
 from datetime import datetime, timedelta
@@ -12,14 +13,8 @@ nlp = spacy.load("en_core_web_sm")
 labels = []
 sentences = []
 
-#file paths
-
-# past_inputs = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\past_inputs.csv"
-# data_path = r"C:\Users\Setha\Documents\GitHub 2\AI-project\AICW2\mychatbots\ticketfinder\data\data.json"
-# reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\reset.json"
-# intentions_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\intentions.json"
-# sentences_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\sentences.txt"
-# stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\stations.csv"
+reset_file_path = data_path
+purify_json(reset_file_path)
 
 
 

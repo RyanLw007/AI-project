@@ -1,4 +1,4 @@
-import _json as json
+import json
 
 
 def purify_json(file_path):
@@ -19,7 +19,7 @@ def purify_json(file_path):
     "leave_arrive": None,
     "origin_code": "NRW",
     "dest_code": None,
-    "chosen_intention": None,
+    "chosen_intention": "greeting",
     "flag_loc": 0,
     "station_selector": False,
     "station1" : None,
