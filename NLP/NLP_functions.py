@@ -1,7 +1,6 @@
 import json
 import random
-import spacy
-from spacy import cli
+import spacy.cli
 from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')
@@ -22,6 +21,7 @@ loc_types = ['GPE', 'ORG', 'LOC', 'NORP', 'PERSON']
 data = json.loads(open('data/data.json').read())
 
 printout = []
+
 
 # Opening JSON file and return JSON object as a dictionary
 

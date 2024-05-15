@@ -24,7 +24,17 @@ def get_user_input():
     extra_time = extra_time if extra_time else "0"
 
     # Construct the URL with input parameters
-    return f"{base_url}?type={type_journey}&origin={origin}&destination={destination}&leavingType={leaving_type}&leavingDate={leaving_date}&leavingHour={leaving_hour}&leavingMin={leaving_min}&adults={adults}&extraTime={extra_time}#O"
+    url = f"{base_url}?type={type_journey}&origin={origin}&destination={destination}&leavingType={leaving_type}&leavingDate={leaving_date}&leavingHour={leaving_hour}&leavingMin={leaving_min}&adults={adults}&extraTime={extra_time}"
+    
+    if type_journey == "return":
+        return_type = input("Return type (departing/arriving) [e.g., departing]: ")
+        return_date = input("Return date (yymmdd) [e.g., 200425]: ")
+        return_hour = input("Return hour (HH) [e.g., 10]: ")
+        return_min = input("Return minute (MM) [e.g., 30]: ")
+        # Append return journey details to the URL
+        url += f"&returnType={return_type}&returnDate={return_date}&returnHour={return_hour}&returnMin={return_min}"
+
+    return url + "#O"
 
 # Set up Chrome options
 chrome_options = Options()
@@ -61,7 +71,7 @@ for section in sections:
             prices.append(float(price))
             print(f"Found price: £{price}")
         except Exception as e:
-            print("Error finding price for item:", e)
+            print("Not Found")
 
 # Clean up: close the browser
 driver.quit()

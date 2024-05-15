@@ -4,10 +4,11 @@ from .models import UserQuery, TrainJourney
 from .predictions_functionised import load_and_clean_data, calculate_features, train_and_evaluate
 import logging
 from .jsonpurifier import purify_json
+from .NLP_main import main
 
 def clear_json(request):
     if request.method == 'POST':
-        file_path = 'path/to/your/file.json'  # change this to the location of the json
+        file_path = 'data.json'  # change this to the location of the json
         purify_json(file_path)
         return JsonResponse({'status': 'success'})
     else:
@@ -19,28 +20,36 @@ def chat_interface(request):
     return render(request, 'ticketfinder/chat_interface.html')
 
 def get_response(request):
-     
-     user_input = request.GET.get('message', '')
 
-     if user_input:  
-         UserQuery.objects.create(query_text=user_input)
+    user_input = request.GET.get('message', '')
+    bot_response = None
 
+    messages = []
 
-     response = {'response': f'Echo: {user_input}'}
+    if user_input:
+        output = main(user_input)
 
-     return JsonResponse(response)
+    if output:
+        for message in output:
+            messages.append(message)
 
-# def get_input(request):
+    print(messages)
+
+    response = {'response': messages }
+
+    return JsonResponse(response)
+
+# copy encase it doesn't work
+# def get_response(request):
 #     user_input = request.GET.get('message', '')
-
+#
 #     if user_input:
 #         UserQuery.objects.create(query_text=user_input)
-
-#     return user_input
-
-# def send(text):
-#     response = {'response': f'Echo: {text}'}
+#
+#     response = {'response': f'Echo: {user_input}'}
+#
 #     return JsonResponse(response)
+
 logger = logging.getLogger(__name__)
 def train_view(request):
     try:
