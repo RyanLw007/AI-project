@@ -1,0 +1,10 @@
+import os
+
+SUB_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+past_inputs = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'past_inputs.csv')
+data_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'data.json')
+reset_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'reset.json')
+intentions_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'intentions.json')
+sentences_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'sentences.txt')
+stations_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'stations.csv')
