@@ -13,7 +13,7 @@ from .config import (past_inputs, data_path, reset_path,
 
 
 import json
-from .jsonpurifier import purify_json
+from .jsonpurifier import purify_json, purify_pred_json
 import random
 import spacy.cli
 from datetime import datetime, timedelta
@@ -26,8 +26,8 @@ nlp = spacy.load("en_core_web_sm")
 labels = []
 sentences = []
 
-reset_file_path = data_path
-purify_json(reset_file_path)
+purify_json()
+purify_pred_json()
 
 
 

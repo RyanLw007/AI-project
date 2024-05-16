@@ -3,15 +3,13 @@ from django.http import JsonResponse, HttpResponse
 from .models import UserQuery, TrainJourney
 from .predictions_functionised import load_and_clean_data, calculate_features, train_and_evaluate
 import logging
-from .jsonpurifier import purify_json
+from .jsonpurifier import purify_json, purify_pred_json
 from .NLP_main import main
 
 def clear_json(request):
     if request.method == 'POST':
-        file_path = 'data.json'  # change this to the location of the json
-        file_path2 = 'pred_data.json'
-        purify_json(file_path)
-        purify_json(file_path2)
+        purify_json()
+        purify_pred_json()
         return JsonResponse({'status': 'success'})
     else:
         return JsonResponse({'status': 'failed'}, status=400)

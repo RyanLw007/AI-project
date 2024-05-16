@@ -12,10 +12,10 @@
     "chosen_intention": null,
     "flag_loc": 0,
     "station_selector": false,
-    "station1": null,
-    "station2": null,
-    "station3": null,
-    "station4": null,
-    "station5": null,
+    "station1" : null,
+    "station2" : null,
+    "station3" : null,
+    "station4" : null,
+    "station5" : null,
     "selected": null
 }
