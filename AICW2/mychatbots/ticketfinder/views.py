@@ -9,7 +9,9 @@ from .NLP_main import main
 def clear_json(request):
     if request.method == 'POST':
         file_path = 'data.json'  # change this to the location of the json
+        file_path2 = 'pred_data.json'
         purify_json(file_path)
+        purify_json(file_path2)
         return JsonResponse({'status': 'success'})
     else:
         return JsonResponse({'status': 'failed'}, status=400)
