@@ -132,7 +132,7 @@ def date_conversion(date):
             return date
 
 def time_conversion(time):
-    
+
     time = time.replace(" ", "")
 
     if "afternoon" in str(time).lower():
