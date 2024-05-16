@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views#, NLP2
+from ticketfinder.views import clear_json
+
 
 
 urlpatterns = [
