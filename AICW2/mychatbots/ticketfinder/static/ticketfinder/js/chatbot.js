@@ -10,15 +10,23 @@ $(document).ready(function(){
                 },
                 dataType: 'json',
                 success: function(data) {
-                    $("#chat-box").append("<div class='bot mb-2 p-2 border rounded bg-light'>BOT: " + data.response + "</div>");
-                    $("#user-input").val('');  
-                    $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);  
+                    // this checks if data.response is an array and iterate over it
+                    if (Array.isArray(data.response)) {
+                        data.response.forEach(function(message) {
+                            $("#chat-box").append("<div class='bot mb-2 p-2 border rounded bg-light'>BOT: " + message + "</div>");
+                        });
+                    } else {
+                        // if not a bunch of messages then fallback for single message responses
+                        $("#chat-box").append("<div class='bot mb-2 p-2 border rounded bg-light'>BOT: " + data.response + "</div>");
+                    }
+                    $("#user-input").val('');  // Clear input field
+                    $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);  // Scroll to the bottom
                 }
             });
         }
     }
 
-    // Code to send message via the enter key
+    // Code to send message when the send button is clicked
     $("#send").click(sendMessage);
 
     // Code to send message via the enter key

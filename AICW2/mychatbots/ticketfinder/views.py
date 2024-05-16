@@ -32,7 +32,7 @@ def get_response(request):
     if output:
         for message in output:
             messages.append(message)
-
+    print(user_input)
     print(messages)
 
     response = {'response': messages }

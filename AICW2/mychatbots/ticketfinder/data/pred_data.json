@@ -5,7 +5,7 @@
     "time_str": null,
     "delay": null,
     "current_station": null,
-    "pred_type": null,
+    "pred_type": "future train",
     "origin_code": null,
     "dest_code": null,
     "current_code": null,
