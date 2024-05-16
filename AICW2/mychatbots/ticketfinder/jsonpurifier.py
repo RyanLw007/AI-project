@@ -1,6 +1,5 @@
 import json
-from .config import (past_inputs, data_path, reset_path,
-                     intentions_path, sentences_path, stations_path, pred_data_path, pred_reset_path,pred_stations_path)
+from .config import (data_path, pred_data_path)
 
 
 def purify_json():

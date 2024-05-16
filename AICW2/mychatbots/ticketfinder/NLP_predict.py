@@ -7,7 +7,7 @@ nlp = spacy.load("en_core_web_sm")
 pdf = pd.read_csv(pred_stations_path)
 pdf['combined'] = pdf['name'] + ' ' + pdf['longname.name_alias']
 
-pd_data = json.loads(open(pred_data_path).read())
+
 
 multiple_loc = False
 
@@ -38,10 +38,10 @@ def pred_missing_info_response():
             printout.append("Please tell me the time you want to travel at.")
 
     if pd_data['pred_type'] == 'active train':
-        if pd_data['chosen_origin_str'] is not None and pd_data['current_station'] is not None and pd_data['delay'] is not None:
+        if pd_data['chosen_dest_str'] is not None and pd_data['current_station'] is not None and pd_data['delay'] is not None:
             pd_data['date_str'] = date_conversion("today")
             pd_data['time_str'] = time_conversion("now")
-            printout.append("You want to predict for a train journey that you are currently on, at the moment you are at " + pd_data['current_station'] + " and you are experiencing a delay of " + pd_data['delay'] + ".")
+            printout.append("You want to predict for a train journey that you are currently on, at the moment you are at " + pd_data['current_station'] + " and you are experiencing a delay of " + str(pd_data['delay']) + ".")
             if final_chatbot:
                 printout.append("If you don't have any other questions you can type bye.")
 
@@ -114,6 +114,8 @@ def pred_selected_station(selected_station):
 
 
 def pred_ner_response(user_input):
+
+
 
     doc = nlp(user_input)
     chosen_origin = []
@@ -193,10 +195,10 @@ def pred_ner_response(user_input):
             chosen_date_before = " ".join(chosen_date)
             cleaned_date = clean_date(chosen_date_before)
             chosen_date_date = date_conversion(cleaned_date)
-            pd_data['arrive_date_str'] = "".join(chosen_date_date)
+            pd_data['date_str'] = "".join(chosen_date_date)
             with open(pred_data_path, 'w') as file:
                 json.dump(pd_data, file, indent=4)
-            printout.append("" + "You want to travel on " + pd_data['arrive_date_str'] + ".")
+            printout.append("" + "You want to travel on " + pd_data['date_str'] + ".")
 
 
         pred_missing_info_response()
@@ -240,8 +242,8 @@ def pred_ner_response(user_input):
             pred_station_selector(pd_data['chosen_dest_str'])
             return printout.insert(0, True)
 
-        if pd_data['station_selector'] and pd_data['flag_loc'] == 2:
-            pd_data['chosen_dest_str'], pd_data['dest_code'] = pred_selected_station(pd_data['selected'])
+        if pd_data['pred_station_selector'] and pd_data['flag_loc'] == 2:
+            pd_data['chosen_dest_str'], pd_data['dest_code'] = pred_selected_station(pd_data['pred_selected'])
             pd_data['flag_loc'] = 0
             with open(pred_data_path, 'w') as file:
                 json.dump(pd_data, file, indent=4)
@@ -252,7 +254,7 @@ def pred_ner_response(user_input):
             pd_data['delay'] = pred_time_conversion(delay_beforecon)
             with open(pred_data_path, 'w') as file:
                 json.dump(pd_data, file, indent=4)
-            printout.append("" + "You are currently experiencing a delay of " + pd_data['delay'] + ".")
+            printout.append("" + "You are currently experiencing a delay of " + str(pd_data['delay']) + " minutes.")
 
         pred_missing_info_response()
         printout.insert(0, True)

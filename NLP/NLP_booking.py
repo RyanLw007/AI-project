@@ -9,7 +9,7 @@ return_phrases = ['coming back', 'returning', 'return', 'departing', 'leaving', 
 df = pd.read_csv(stations_path)
 df['combined'] = df['name'] + ' ' + df['longname.name_alias']
 
-data = json.loads(open(data_path).read())
+
 
 multiple_loc = False
 
@@ -227,6 +227,7 @@ def selected_station(selected_station):
 
 
 def ner_response(user_input):
+
 
     doc = nlp(user_input)
     chosen_origin = []

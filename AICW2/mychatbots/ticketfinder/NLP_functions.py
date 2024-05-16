@@ -1,15 +1,15 @@
 from .config import (past_inputs, data_path, reset_path,
                      intentions_path, sentences_path, stations_path, pred_data_path, pred_reset_path,pred_stations_path)
 
-# past_inputs = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\past_inputs.csv"
-# data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\data.json"
-# reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\reset.json"
-# intentions_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\intentions.json"
-# sentences_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\sentences.txt"
-# stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\stations.csv"
-# pred_data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\pred_data.json"
-# pred_reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\pred_reset.json"
-# pred_stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\pred_stations.csv"
+# past_inputs = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\past_inputs.csv"
+# data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\data.json"
+# reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\reset.json"
+# intentions_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\intentions.json"
+# sentences_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\sentences.txt"
+# stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\stations.csv"
+# pred_data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\pred_data.json"
+# pred_reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\pred_reset.json"
+# pred_stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\pred_stations.csv"
 
 
 import json
