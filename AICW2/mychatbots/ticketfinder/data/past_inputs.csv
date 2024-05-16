@@ -1434,28 +1434,5 @@ I want to go to London on monday at 5pm
 1
 reset
 hello
-I want to book a train
-I want a one way ticket
-I want to go to Cambridge on sunday at 5pm
-1
-reset
-hello
-I want to book a train
-I want a one way ticket
-I want to go to Cambridge on monday at 5pm
-1
-1
-hello
-I want to book a train
-I want a one way ticket
-I want to go to Cambridge on sunday at 5pm
-1
-leave
-bye
-hello
-I want to predict a train
-future train
-I want to travel from Norwich to Colchester on sunday at 5pm
-1
-1
-bye
+testing
+train ticket to london
