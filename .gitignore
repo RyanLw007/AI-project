@@ -1,0 +1,6 @@
+.venv
+.vscode
+
+# all pycache files
+*/__pycache__/
+*.pyc
