@@ -1,18 +1,17 @@
 {
-    "chosen_origin_str": null,
-    "chosen_dest_str": null,
+    "chosen_origin_str": "NORWICH",
+    "chosen_dest_str": "KELVEDON",
     "date_str": null,
     "time_str": null,
     "delay": null,
     "current_station": null,
-    "pred_type": null,
-    "origin_code": null,
-    "dest_code": null,
+    "pred_type": "future train",
+    "origin_code": "NRW",
+    "dest_code": "KEL",
     "current_code": null,
     "flag_loc": 0,
     "pred_station_selector": false,
     "pred_station1": null,
     "pred_station2": null,
-    "pred_selected": null,
-    "chosen_intention": "greeting"
+    "pred_selected": 2
 }

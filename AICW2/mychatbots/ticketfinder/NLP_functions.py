@@ -1,11 +1,24 @@
 from .config import (past_inputs, data_path, reset_path,
-                     intentions_path, sentences_path, stations_path)
+                     intentions_path, sentences_path, stations_path, pred_data_path, pred_reset_path,pred_stations_path)
+
+# past_inputs = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\past_inputs.csv"
+# data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\data.json"
+# reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\reset.json"
+# intentions_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\intentions.json"
+# sentences_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\sentences.txt"
+# stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\stations.csv"
+# pred_data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\pred_data.json"
+# pred_reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\pred_reset.json"
+# pred_stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\ticketfinder\data\pred_stations.csv"
+
+
 import json
 from .jsonpurifier import purify_json
 import random
 import spacy.cli
 from datetime import datetime, timedelta
 import warnings
+import re
 warnings.filterwarnings('ignore')
 
 nlp = spacy.load("en_core_web_sm")
@@ -24,6 +37,7 @@ verbs = ['going', 'visit', 'travel', 'go', 'choose', 'get', 'goes']
 loc_types = ['GPE', 'ORG', 'LOC', 'NORP', 'PERSON']
 
 data = json.loads(open(data_path).read())
+pd_data = json.loads(open(pred_data_path).read())
 
 printout = []
 
@@ -138,6 +152,38 @@ def time_conversion(time):
     if ":" in str(time):
         return datetime.strptime(time, "%H:%M").strftime("%H:%M")
 
+def pred_time_conversion(time):
+
+    split = time.split()
+    total = 0
+    if "and" in split:
+        for word in split:
+            if word == "minutes" or word == "minute":
+                index = split.index(word)
+                match = re.search(r'\d+', split[index - 1])
+                if match:
+                    total = total + int(match.group())
+            if word == "hours" or word == "hour":
+                index = split.index(word)
+                match = re.search(r'\d+', split[index - 1])
+                if match:
+                    total = total + (int(match.group()) * 60)
+        return total
+
+    for word in split:
+        if word == "minutes" or word == "minute":
+            match = re.search(r'\d+', time)
+            if match:
+                return int(match.group())
+        if word == "hours" or word == "hour":
+            match = re.search(r'\d+', time)
+            if match:
+                return (int(match.group()) * 60)
+
+
+
+
+
 def check_intention_by_keyword(sentence):
     global final_chatbot
 
@@ -149,6 +195,11 @@ def check_intention_by_keyword(sentence):
                 printout.append("" + random.choice(intentions[type_of_intention]["responses"]))
                 if type_of_intention == 'book':
                     printout.append("note, if you would like to start over, just type 'reset' and I will start selection again.")
+                if type_of_intention == 'predict':
+                    printout.append("(for a train that you are actively on type 'Active Train')\n"
+                                    "(for a train that you are going to take type 'Future Train')\n"
+                                    "(prediction cannot be made for current selection as it may not be on the route)"
+                                    "you can type 'reset' to start over.")
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:
                     printout.append("I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
@@ -227,4 +278,3 @@ def date_time_response(user_input):
         
 
     printout.insert(0, False)
-    

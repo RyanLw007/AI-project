@@ -1,4 +1,5 @@
 from .NLP_booking import *
+from .NLP_predict import *
 import requests
 import csv
 import json
@@ -49,7 +50,13 @@ def main(input):
 
         with open(data_path, 'w') as file:
             json.dump(default, file, indent=4)
-        printout.append("I have reset the selection. start by telling me your ticket type.")
+
+        with open(pred_reset_path, 'r') as pd_rs:
+            pd_default = json.load(pd_rs)
+
+        with open(pred_data_path, 'w') as pd_file:
+            json.dump(pd_default, pd_file, indent=4)
+        printout.append("I have reset the selection. start by telling me your ticket type. or type 'predict' to predict a train.")
         return printout
 
     data['chosen_intention'] = check_intention_by_keyword(user_input)
@@ -72,6 +79,21 @@ def main(input):
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
 
+    if pd_data['pred_station_selector']:
+        if pd_data['pred_selected'] == None:
+            pd_data['pred_selected'] = user_input
+            with open(pred_data_path, 'w') as file:
+                json.dump(pd_data, file, indent=4)
+
+            with open(past_inputs, 'r') as past:
+                user_input = past.readlines()[-2]
+        else:
+            pd_data['pred_selected'] = int(user_input)
+            with open(pred_data_path, 'w') as file:
+                json.dump(pd_data, file, indent=4)
+
+            with open(past_inputs, 'r') as past:
+                user_input = past.readlines()[-3]
 
 
     printout.pop(0)
@@ -86,6 +108,12 @@ def main(input):
 
         with open(data_path, 'w') as file:
                 json.dump(default, file, indent=4)
+
+        with open(pred_reset_path, 'r') as pd_rs:
+            pd_default = json.load(pd_rs)
+
+        with open(pred_data_path, 'w') as pd_file:
+            json.dump(pd_default, pd_file, indent=4)
 
         return printout
 
@@ -183,7 +211,39 @@ def main(input):
                             printout.append(f"{llama3_response(user_input)}")
                             return printout
 
-    if data['chosen_intention'] != 'goodbye' and data['chosen_intention'] != 'book' and data['chosen_intention'] != None and data['chosen_intention'] != 'greeting':
+    if data['chosen_intention'] == 'predict':
+        pred_ner_response(user_input)
+        if printout[0]:
+            printout.pop(0)
+            return printout
+        else:
+            printout.pop(0)
+            date_time_response(user_input)
+            if printout[0]:
+                printout.pop(0)
+                return printout
+            else:
+                printout.pop(0)
+                pred_expert_response(user_input)
+                if printout[0]:
+                    printout.pop(0)
+                    return printout
+                else:
+                    printout.pop(0)
+                    pred_ner_response(user_input)
+                    if printout[0]:
+                        printout.pop(0)
+                        return printout
+                    else:
+                        printout.pop(0)
+                        if check_intention_by_keyword_nr(user_input) == "predict":
+                            return printout
+                        else:
+                            printout.append("Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                            printout.append(f"{llama3_response(user_input)}")
+                            return printout
+
+    if data['chosen_intention'] != 'goodbye' and data['chosen_intention'] != 'book' and data['chosen_intention'] != None and data['chosen_intention'] != 'greeting' and data['chosen_intention'] != 'predict':
         date_time_response(user_input)
         if printout[0]:
             printout.pop(0)
@@ -212,48 +272,9 @@ def main(input):
 if __name__ == "__main__":
 
 
+    output = main("reset")
+    print(output)
+
+    exit()
 
 
-    # output = main("reset")
-    # print(output)
-    # exit()
-
-
-
-
-
-    # output1 = main("hello")
-    # print(output1)
-    # output2 = main ("I want to book a train")
-    # print(output2)
-    # output3 = main("open return")
-    # print(output3)
-    # output4 = main("leave")
-    # print(output4)
-    # output5 = main("I want to from Brighton to Newcastle going on sunday and return on tuesday")
-    # print(output5)
-    # output6 = main("2")
-    # print(output6)
-    # output8 = main("2")
-    # print(output8)
-    # output7 = main("bye")
-    # print(output7)
-    #
-    # exit()
-
-    test = ""
-    print("Welcome to the chatbot! Type 'exit' to end the conversation")
-
-    while (test != "exit"):
-        in_put = input()
-
-        if in_put == "exit":
-            in_put = "bye"
-            output = main(in_put)
-            for item in output:
-                print(item)
-            test = "exit"
-        else:
-            output = main(in_put)
-            for item in output:
-                print(item)
