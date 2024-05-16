@@ -1,0 +1,7 @@
+.venv
+.vscode
+.idea
+
+# all pycache files
+*/__pycache__/
+*.pyc

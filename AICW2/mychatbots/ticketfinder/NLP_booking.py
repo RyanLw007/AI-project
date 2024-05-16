@@ -9,7 +9,7 @@ return_phrases = ['coming back', 'returning', 'return', 'departing', 'leaving', 
 df = pd.read_csv(stations_path)
 df['combined'] = df['name'] + ' ' + df['longname.name_alias']
 
-data = json.loads(open(data_path).read())
+
 
 multiple_loc = False
 
@@ -227,6 +227,7 @@ def selected_station(selected_station):
 
 
 def ner_response(user_input):
+
 
     doc = nlp(user_input)
     chosen_origin = []
@@ -606,21 +607,6 @@ def ticket_response(ticket):
             printout.append("You have not chosen a date to arrive. please choose a date.")
         if data['leave_date_str'] == None:
             printout.append("You have not chosen a date to leave. please choose a date.")
-def check_ticket(user_input, loc):
-
-    user_input = user_input.lower()
-    ticket_list = ['one way', 'round', 'open ticket', 'open return']
-
-    for ticket in ticket_list:
-        if ticket in user_input:
-            data['ticket_type'] = ticket_list[ticket_list.index(ticket)]
-            with open(data_path, 'w') as file:
-                json.dump(data, file, indent=4)
-            if loc == 1:
-                return ticket_list[ticket_list.index(ticket)]
-
-    if loc == 1:
-        return None
 
 def expert_response(user_input):
     global printout

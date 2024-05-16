@@ -3,23 +3,16 @@ from django.http import JsonResponse, HttpResponse
 from .models import UserQuery, TrainJourney
 from .predictions_functionised import load_and_clean_data, calculate_features, train_and_evaluate
 import logging
-from .jsonpurifier import purify_json
+from .jsonpurifier import purify_json, purify_pred_json
 from .NLP_main import main
-from django.views.decorators.csrf import csrf_exempt
-from .config import data_path
 
-@csrf_exempt
 def clear_json(request):
     if request.method == 'POST':
-        if request.POST.get('confirm') == 'true':
-            
-            purify_json(data_path)
-            print("JSON is being cleared")
-            return JsonResponse({'status': 'success'})
-        else:
-            return JsonResponse({'status': 'invalid request'}, status=400)
-    return JsonResponse({'status': 'bad request'}, status=400)
-
+        purify_json()
+        purify_pred_json()
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'failed'}, status=400)
 
 
 
@@ -34,16 +27,14 @@ def get_response(request):
     messages = []
 
     if user_input:
-        UserQuery.objects.create(query_text = user_input)
         output = main(user_input)
-    
+
     if output:
         for message in output:
             messages.append(message)
-    print(user_input)
+
     print(messages)
 
-    
     response = {'response': messages }
 
     return JsonResponse(response)

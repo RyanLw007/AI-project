@@ -42,5 +42,15 @@
         "responses": [
             "I can help you with that. firstly what type of ticket do you want to book?"
         ]
+    },
+    "predict": {
+        "patterns": [
+            "predict",
+            "prediction",
+            "delay"
+        ],
+        "responses": [
+            "I can help you with that. Firstly please let me know what you want to predict?"
+        ]
     }
 }

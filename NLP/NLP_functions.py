@@ -1,8 +1,21 @@
+
+past_inputs = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\past_inputs.csv"
+data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\data.json"
+reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\reset.json"
+intentions_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\intentions.json"
+sentences_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\sentences.txt"
+stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\stations.csv"
+pred_data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\pred_data.json"
+pred_reset_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\pred_reset.json"
+pred_stations_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\pred_stations.csv"
+
+
 import json
 import random
 import spacy.cli
 from datetime import datetime, timedelta
 import warnings
+import re
 warnings.filterwarnings('ignore')
 
 nlp = spacy.load("en_core_web_sm")
@@ -10,15 +23,15 @@ nlp = spacy.load("en_core_web_sm")
 labels = []
 sentences = []
 
-intentions_path = "data/intentions.json"
-sentences_path = "data/sentences.txt"
+
 
 # this has not been put into a seperate file as implementation would be more complex
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
 verbs = ['going', 'visit', 'travel', 'go', 'choose', 'get', 'goes']
 loc_types = ['GPE', 'ORG', 'LOC', 'NORP', 'PERSON']
 
-data = json.loads(open('data/data.json').read())
+data = json.loads(open(data_path).read())
+pd_data = json.loads(open(pred_data_path).read())
 
 printout = []
 
@@ -133,6 +146,38 @@ def time_conversion(time):
     if ":" in str(time):
         return datetime.strptime(time, "%H:%M").strftime("%H:%M")
 
+def pred_time_conversion(time):
+
+    split = time.split()
+    total = 0
+    if "and" in split:
+        for word in split:
+            if word == "minutes" or word == "minute":
+                index = split.index(word)
+                match = re.search(r'\d+', split[index - 1])
+                if match:
+                    total = total + int(match.group())
+            if word == "hours" or word == "hour":
+                index = split.index(word)
+                match = re.search(r'\d+', split[index - 1])
+                if match:
+                    total = total + (int(match.group()) * 60)
+        return total
+
+    for word in split:
+        if word == "minutes" or word == "minute":
+            match = re.search(r'\d+', time)
+            if match:
+                return int(match.group())
+        if word == "hours" or word == "hour":
+            match = re.search(r'\d+', time)
+            if match:
+                return (int(match.group()) * 60)
+
+
+
+
+
 def check_intention_by_keyword(sentence):
     global final_chatbot
 
@@ -141,12 +186,17 @@ def check_intention_by_keyword(sentence):
         for type_of_intention in intentions:
             if word.lower() in intentions[type_of_intention]["patterns"]:
 
-                printout.append("BOT: " + random.choice(intentions[type_of_intention]["responses"]))
+                printout.append("" + random.choice(intentions[type_of_intention]["responses"]))
                 if type_of_intention == 'book':
-                    printout.append("BOT: note, if you would like to start over, just type 'reset' and I will start selection again.")
+                    printout.append("note, if you would like to start over, just type 'reset' and I will start selection again.")
+                if type_of_intention == 'predict':
+                    printout.append("(for a train that you are actively on type 'Active Train')\n"
+                                    "(for a train that you are going to take type 'Future Train')\n"
+                                    "(prediction cannot be made for current selection as it may not be on the route)"
+                                    "you can type 'reset' to start over.")
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:
-                    printout.append("BOT: I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
+                    printout.append("I am built for helping you with your travel plans. You can ask me about the time, date, and train tickets.\n(Hint: What time is it?)")
                 printout.insert(0, True)
                 return type_of_intention
     printout.insert(0, False)
@@ -210,16 +260,15 @@ def date_time_response(user_input):
     # Do not change these lines
     if similarities[max_similarity_idx] > min_similarity:
         if labels[max_similarity_idx] == 'time':
-            printout.append("BOT: " + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
+            printout.append("" + "It’s " + str(datetime.now().strftime('%H:%M:%S')))
             if final_chatbot:
-                printout.append("BOT: You can also ask me what the date is today. (Hint: What is the date today?)")
+                printout.append("You can also ask me what the date is today. (Hint: What is the date today?)")
         elif labels[max_similarity_idx] == 'date':
-            printout.append("BOT: " + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
+            printout.append("" + "It’s " + str(datetime.now().strftime('%Y-%m-%d')))
             if final_chatbot:
                 printout.append(
-                    "BOT: I can help you book a train if you want, firstly let me know what type of ticket you want. (one way, round, open ticket, open return)")
+                    "I can help you book a train if you want, firstly let me know what type of ticket you want. (one way, round, open ticket, open return)")
         printout.insert(0, True)
         
 
     printout.insert(0, False)
-    
