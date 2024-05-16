@@ -21,7 +21,7 @@ def purify_json():
     "leave_arrive": None,
     "origin_code": "NRW",
     "dest_code": None,
-    "chosen_intention": "greeting",
+    "chosen_intention": None,
     "flag_loc": 0,
     "station_selector": False,
     "station1" : None,
