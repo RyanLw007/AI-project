@@ -139,12 +139,13 @@ def time_conversion(time):
         return datetime.strptime("09:00", "%H:%M").strftime("%H:%M")
     if "evening" in str(time).lower():
         return datetime.strptime("18:00", "%H:%M").strftime("%H:%M")
+    if ":" in str(time):
+        if "am" in str(time).lower() or "pm" in str(time).lower():
+            time = time[:-2]
+            return datetime.strptime(time, "%H:%M").strftime("%H:%M")
+        return datetime.strptime(time, "%H:%M").strftime("%H:%M")
     if "am" in str(time).lower() or "pm" in str(time).lower():
         return datetime.strptime(time, "%I%p").strftime("%H:%M")
-    if str(time).isdigit():
-        return datetime.strptime(time, "%H%M").strftime("%H:%M")
-    if ":" in str(time):
-        return datetime.strptime(time, "%H:%M").strftime("%H:%M")
 
 def pred_time_conversion(time):
 

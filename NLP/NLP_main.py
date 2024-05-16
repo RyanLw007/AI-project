@@ -311,25 +311,36 @@ if __name__ == "__main__":
     # output6 = main("bye")
     # print(output6)
 
-    output = main("hello")
-    print(output)
-    output1 = main("I want to predict a ticket")
-    print(output1)
-    output2 = main("active train")
-    print(output2)
-    output3 = main("I am currently at Colchester and I am going to Norwich and I am delayed by 30 minutes")
-    print(output3)
-    output4 = main("1")
-    print(output4)
-    output5 = main("1")
-    print(output5)
-    output6 = main("bye")
-    print(output6)
+    # output = main("hello")
+    # print(output)
+    # output1 = main("I want to predict a ticket")
+    # print(output1)
+    # output2 = main("active train")
+    # print(output2)
+    # output3 = main("I am currently at Colchester and I am going to Norwich and I am delayed by 30 minutes")
+    # print(output3)
+    # output4 = main("1")
+    # print(output4)
+    # output5 = main("1")
+    # print(output5)
+    # output6 = main("bye")
+    # print(output6)
 
+    test = ""
+    print("Welcome to the chatbot! Type 'exit' to end the conversation")
 
+    while (test != "exit"):
+        in_put = input()
 
-
-
-    exit()
+        if in_put == "exit":
+            in_put = "bye"
+            output = main(in_put)
+            for item in output:
+                print(item)
+            test = "exit"
+        else:
+            output = main(in_put)
+            for item in output:
+                print(item)
 
 
