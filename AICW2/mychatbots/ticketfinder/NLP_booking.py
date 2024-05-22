@@ -400,6 +400,18 @@ def ner_response(user_input):
                     if back_ent.label_ == "TIME":
                         back_time.append(back_ent.text)
 
+                time_pattern = r"\b\d{2]:\d{2}\b"
+
+                if go_time == []:
+                    match = re.search(time_pattern, go_to)
+                    if match:
+                        go_time.append(match.group())
+
+                if back_time == []:
+                    match = re.search(time_pattern, come_back)
+                    if match:
+                        back_time.append(match.group())
+
                 if may_check(go_to):
                     if "May" not in go_date:
                         go_date.append("May")
@@ -497,6 +509,13 @@ def ner_response(user_input):
                             if "May" not in chosen_date:
                                 chosen_date.append("May")
 
+                        time_pattern = r"\b\d{2]:\d{2}\b"
+
+                        if chosen_time == []:
+                            match = re.search(time_pattern, user_input)
+                            if match:
+                                chosen_time.append(match.group())
+
                         if selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
                             return printout.insert(0, True)
                         else:
@@ -589,6 +608,18 @@ def ner_response(user_input):
                         missing_info_response()
                         printout.insert(0, True)
                         return
+        if chosen_time == []:
+            time_pattern = r"\b\d{2]:\d{2}\b"
+            match = re.search(time_pattern, user_input)
+            if match:
+                time = match.group()
+                time = time_conversion(time)
+                data['arrive_time_str'] = time
+                with open(data_path, 'w') as file:
+                    json.dump(data, file, indent=4)
+                printout.append("You want to travel at " + time + ".")
+                printout.insert(0, True)
+                return
                     
     printout.insert(0, False)
     return
