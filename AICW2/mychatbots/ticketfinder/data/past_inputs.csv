@@ -1456,3 +1456,41 @@ bye
 hey there
 can you predict a delay for me
 future train
+hello
+I want to book a train
+one way
+I want to go to London on sunday at 7:00 pm
+5
+leave
+reset
+hello
+I want to book a train
+reset
+hello
+I want to book a train
+one way
+I want to go to Cambridge on sunday at 5pm
+1
+leave
+reset
+hello
+I want to book a train
+one way
+I want to go to Cambridge on tuesday at 5pm
+1
+leave
+reset
+bye
+hello
+I want to book a train
+one way
+I want to go to Cambridge on tuesday at 5pm
+1
+reset
+hello
+I want to book a train
+one way
+I want to go to Cambridge on monday at 8pm
+1
+arrive
+bye

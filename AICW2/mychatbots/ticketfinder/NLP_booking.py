@@ -1,4 +1,5 @@
 from .NLP_functions import *
+from .journey_new import *
 import pandas as pd
 from fuzzywuzzy import process
 
@@ -42,6 +43,11 @@ def missing_info_response():
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
             printout.append("You have not provided a Origin, Default is Norwich, if you want to change this simply type 'from' and then the origin location.")
             if final_chatbot:
+                price = one_way(origin=data['origin_code'], dest=data['dest_code'], date=data['arrive_date_str'], time=data['arrive_time_str'], lor=data['leave_arrive'])
+                if price is None:
+                    printout.append("Unfortunately, we could not find any prices for this journey.")
+                else:
+                    printout.append("The price for this journey is £" + str(price))
                 printout.append("If you don't have any other questions you can type bye.")
         if data['arrive_date_str'] is not None and data['chosen_dest_str'] is not None and data['arrive_time_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
@@ -255,7 +261,7 @@ def ner_response(user_input):
         data['leave_arrive'] = "leave"
         with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
-        printout.append("You have chosen to leave at the time you given.")
+        printout.append("You have chosen to leave at the time you have given.")
         missing_info_response()
         printout.insert(0, True)
         return
@@ -264,7 +270,7 @@ def ner_response(user_input):
         data['leave_arrive'] = "arrive"
         with open(data_path, 'w') as file:
             json.dump(data, file, indent=4)
-        printout.append("You have chosen to arrive at your destination.")
+        printout.append("You have chosen to arrive at your destination at the time you have given.")
         missing_info_response()
         printout.insert(0, True)
         return

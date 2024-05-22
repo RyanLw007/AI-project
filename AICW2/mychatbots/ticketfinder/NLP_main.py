@@ -71,8 +71,7 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-2]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
         else:
             data['selected'] = int(user_input)
             with open(data_path, 'w') as file:
@@ -80,8 +79,7 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
 
     if pd_data['pred_station_selector']:
         if pd_data['pred_selected'] == None:
@@ -91,8 +89,7 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-2]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
         else:
             pd_data['pred_selected'] = int(user_input)
             with open(pred_data_path, 'w') as file:
@@ -100,8 +97,9 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
+
+    user_input = user_input.replace('\n', '').replace('\r', '')
 
 
     printout.pop(0)

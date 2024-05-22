@@ -63,9 +63,27 @@ def find_lowest_price(prices):
     else:
         return None
 
+def date_conversion(date):
+    year, month, day = date.split("-")
+
+    year_short = year[2:]
+
+    formatted_date = f"{day}{month}{year_short}"
+
+    return formatted_date
+
+def time_conversion(time):
+    return time.replace(":", "")
+
 # One way journey
 def one_way(origin, dest, date, time, lor, adults=1, extra_time=0):
+    date = date_conversion(date)
+    time = time_conversion(time)
     url = build_url("single", origin, dest, lor, date, time, adults=adults, extra_time=extra_time)
+
+    with open("urls.txt", 'w') as file:
+        file.write(url)
+
     prices = scrape_prices(url)
     return find_lowest_price(prices)
 

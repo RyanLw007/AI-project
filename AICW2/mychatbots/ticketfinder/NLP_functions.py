@@ -145,11 +145,11 @@ def time_conversion(time):
         return datetime.strptime("09:00", "%H:%M").strftime("%H:%M")
     if "evening" in str(time).lower():
         return datetime.strptime("18:00", "%H:%M").strftime("%H:%M")
-    if ":" in str(time):
-        if "am" in str(time).lower() or "pm" in str(time).lower():
-            time = time[:-2]
-            return datetime.strptime(time, "%H:%M").strftime("%H:%M")
-        return datetime.strptime(time, "%H:%M").strftime("%H:%M")
+    # if ":" in str(time):
+    #     if "am" in str(time).lower() or "pm" in str(time).lower():
+    #         time = time[:-2]
+    #         return datetime.strptime(time, "%H:%M").strftime("%H:%M")
+    #     return datetime.strptime(time, "%H:%M").strftime("%H:%M")
     if "am" in str(time).lower() or "pm" in str(time).lower():
         return datetime.strptime(time, "%I%p").strftime("%H:%M")
 
@@ -195,6 +195,7 @@ def check_intention_by_keyword(sentence):
 
                 printout.append("" + random.choice(intentions[type_of_intention]["responses"]))
                 if type_of_intention == 'book':
+                    printout.append("(for a one way train ticket type 'one way',\n for a round trip ticket type 'round trip',\n for an open ticket type 'open ticket',\n for an open return ticket type 'open return')\n")
                     printout.append("note, if you would like to start over, just type 'reset' and I will start selection again.")
                 if type_of_intention == 'predict':
                     printout.append("(for a train that you are actively on type 'Active Train')\n"
