@@ -77,6 +77,12 @@ def missing_info_response():
         if data['arrive_date_str'] is not None and data['chosen_dest_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open ticket.")
             if final_chatbot:
+                price = open_ticket(dest=data['dest_code'], origin=data['origin_code'], date=data['arrive_date_str'], lor=data['leave_arrive'])
+                if price is None:
+                    printout.append("Sorry, I could not find a ticket for this journey.")
+                else:
+                    price = format_float(float(price))
+                    printout.append("The price for this journey is £" + price + " .")
                 printout.append("If you don't have any other questions you can type bye.")
         if data['chosen_dest_str'] is None:
             printout.append("Please Choose a Destination.")

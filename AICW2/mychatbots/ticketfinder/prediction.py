@@ -101,3 +101,7 @@ def active_trains(cur_stat, dest, delay):
     
     return prediction[0]
 
+if __name__ == '__main__':
+    # Test the functions
+    print(active_trains('CLCHSTR', 'NRCH', 5))
+
