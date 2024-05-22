@@ -71,8 +71,7 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-2]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
         else:
             data['selected'] = int(user_input)
             with open(data_path, 'w') as file:
@@ -80,8 +79,7 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
 
     if pd_data['pred_station_selector']:
         if pd_data['pred_selected'] == None:
@@ -91,8 +89,7 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-2]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
         else:
             pd_data['pred_selected'] = int(user_input)
             with open(pred_data_path, 'w') as file:
@@ -100,8 +97,9 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
-                if user_input[-2:] == r"\n":
-                    user_input = user_input[:-2]
+
+
+    user_input = user_input.replace('\n', '').replace('\r', '')
 
 
     printout.pop(0)
@@ -279,22 +277,20 @@ def main(input):
 
 if __name__ == "__main__":
 
-    # output = main("hello")
-    # print(output)
-    # output1 = main("I want to book a ticket")
-    # print(output1)
-    # output2 = main("round")
-    # print(output2)
-    # output3 = main("I would like to go to from Cambridge to Norwich on sunday at 5pm returning on monday at 5pm")
-    # print(output3)
-    # output4 = main("1")
-    # print(output4)
-    # output5 = main("1")
-    # print(output5)
-    # output6 = main("leave")
-    # print(output6)
-    # output7 = main("bye")
-    # print(output7)
+    output = main("hello")
+    print(output)
+    output1 = main("I want to book a ticket")
+    print(output1)
+    output2 = main("round")
+    print(output2)
+    output3 = main("I would like to go to Cambridge on tuesday at 5pm and return on friday at 9pm")
+    print(output3)
+    output4 = main("1")
+    print(output4)
+    output5 = main("leave")
+    print(output5)
+    output6 = main("bye")
+    print(output6)
 
     # output = main("hello")
     # print(output)
@@ -326,21 +322,21 @@ if __name__ == "__main__":
     # output6 = main("bye")
     # print(output6)
 
-    test = ""
-    print("Welcome to the chatbot! Type 'exit' to end the conversation")
-
-    while (test != "exit"):
-        in_put = input()
-
-        if in_put == "exit":
-            in_put = "bye"
-            output = main(in_put)
-            for item in output:
-                print(item)
-            test = "exit"
-        else:
-            output = main(in_put)
-            for item in output:
-                print(item)
+    # test = ""
+    # print("Welcome to the chatbot! Type 'exit' to end the conversation")
+    #
+    # while (test != "exit"):
+    #     in_put = input()
+    #
+    #     if in_put == "exit":
+    #         in_put = "bye"
+    #         output = main(in_put)
+    #         for item in output:
+    #             print(item)
+    #         test = "exit"
+    #     else:
+    #         output = main(in_put)
+    #         for item in output:
+    #             print(item)
 
 

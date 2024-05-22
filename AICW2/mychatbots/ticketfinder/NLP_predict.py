@@ -11,6 +11,12 @@ pdf['combined'] = pdf['name'] + ' ' + pdf['longname.name_alias']
 
 multiple_loc = False
 
+def tiploc_to_extended_name(tiploc):
+    result = pdf.loc[pdf['tiploc'] == tiploc, 'Bad']
+    if not result.empty:
+        return result.iloc[0]
+    return None
+
 def pred_missing_info_response():
     global final_chatbot
     global printout
@@ -23,6 +29,8 @@ def pred_missing_info_response():
         if pd_data['chosen_origin_str'] is not None and pd_data['chosen_dest_str'] is not None and pd_data['date_str'] is not None and pd_data['time_str'] is not None:
             printout.append("You want to predict for a train traveling from " + pd_data['chosen_origin_str'] + " to " + pd_data['chosen_dest_str'] + " on " + pd_data['date_str'] + " at " + pd_data['time_str'] + ".")
             if final_chatbot:
+                orig_stat = tiploc_to_extended_name(pd_data['origin_code'])
+                dest_stat = tiploc_to_extended_name(pd_data['dest_code'])
                 printout.append("If you don't have any other questions you can type bye.")
 
         if pd_data['chosen_origin_str'] is None:
@@ -43,6 +51,8 @@ def pred_missing_info_response():
             pd_data['time_str'] = time_conversion("now")
             printout.append("You want to predict for a train journey that you are currently on, at the moment you are at " + pd_data['current_station'] + " and you are experiencing a delay of " + str(pd_data['delay']) + ".")
             if final_chatbot:
+                curr_stat = tiploc_to_extended_name(pd_data['current_code'])
+                dest_stat = tiploc_to_extended_name(pd_data['dest_code'])
                 printout.append("If you don't have any other questions you can type bye.")
 
         if pd_data['current_station'] is None:
