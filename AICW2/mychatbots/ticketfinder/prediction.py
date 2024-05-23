@@ -6,7 +6,7 @@ from sklearn.linear_model import Ridge
 import numpy as np
 
 # Load your dataset
-data = pd.read_csv('/content/LIVST_NRCH_OD_a51_2020_12_12.csv')
+data = pd.read_csv(r'C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\historictraindata\LIVST_NRCH_OD_a51_2020\LIVST_NRCH_OD_a51_2020_12_12.csv')
 
 # Display the first few rows of the dataset
 # print(data.head())
