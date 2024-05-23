@@ -97,7 +97,7 @@ def one_way(origin, dest, date, time, lor, adults=1, extra_time=0):
     lor = lor_formatting(lor)
     url = build_url("single", origin, dest, lor, date, time, adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
-    return find_lowest_price(prices)
+    return find_lowest_price(prices), url
 
 # Open ticket journey
 def open_ticket(origin, dest, date, lor="departing", adults=1, extra_time=0):
@@ -106,7 +106,7 @@ def open_ticket(origin, dest, date, lor="departing", adults=1, extra_time=0):
     time = "0800"
     url = build_url("single", origin, dest, lor, date, time, adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
-    return find_lowest_price(prices)
+    return find_lowest_price(prices), url
 
 # Open return journey
 def open_return(origin, dest, leave_date, return_date, lor="departing", return_lor="departing", adults=1, extra_time=0):
@@ -117,7 +117,7 @@ def open_return(origin, dest, leave_date, return_date, lor="departing", return_l
     time = "0800"
     url = build_url("return", origin, dest, lor, leave_date, time, return_date, time, return_lor, adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
-    return find_lowest_price(prices)
+    return find_lowest_price(prices), url
 
 # Round trip journey
 def round_trip(origin, dest, leave_date, leave_time, return_date, return_time, lor, return_lor, adults=1, extra_time=0):
@@ -129,11 +129,11 @@ def round_trip(origin, dest, leave_date, leave_time, return_date, return_time, l
     return_lor = lor_formatting(return_lor)
     url = build_url("return", origin, dest, lor, leave_date, leave_time, return_date, return_time, return_lor, adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
-    return find_lowest_price(prices)
+    return find_lowest_price(prices), url
 
 # Example usage
 if __name__ == "__main__":
-    print("One way journey price:", one_way("NRW", "ABE", "240524", "0215", "departing", 1, 0))
-    print("Open ticket journey price:", open_ticket("NRW", "ABE", "240524", "departing", 1, 0))
-    print("Open return journey price:", open_return("NRW", "ABE", "240524", "250524", "departing", "departing", 1, 0))
-    print("Round trip journey price:", round_trip("NRW", "ABE", "240524", "0215", "250524", "1030", "departing", "departing", 1, 0))
+    print("One way journey price:", one_way("NRW", "CBG", "2024-05-24", "12:15", "leave", 1, 0))
+    print("Open ticket journey price:", open_ticket("NRW", "CBG", "2024-05-24", "leave", 1, 0))
+    print("Open return journey price:", open_return("NRW", "CBG", "2024-05-24", "2024-05-25", "leave", "leave", 1, 0))
+    print("Round trip journey price:", round_trip("NRW", "CBG", "2024-05-24", "12:15", "2024-05-25", "10:30", "leave", "leave", 1, 0))
