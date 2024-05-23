@@ -48,7 +48,7 @@ def missing_info_response():
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
-                    printout.append("The price for this journey is £" + price + " .")
+                    printout.append("The price for this journey is £" + format_float(float(price)) + " .")
                 printout.append("If you don't have any other questions you can type bye.")
         if data['arrive_date_str'] is not None and data['chosen_dest_str'] is not None and data['arrive_time_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
