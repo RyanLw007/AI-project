@@ -5,7 +5,7 @@ from sklearn.utils import shuffle
 from sklearn.linear_model import Ridge
 import os
 
-year = ("2017")
+year = ("2022")
 
 #load dataset
 csv_directory = r'C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\AICW2\mychatbots\historictraindata\LIVST_NRCH_OD_a51_' + year
@@ -33,7 +33,7 @@ cdf['dep_at'] = pd.to_datetime(cdf['dep_at'], errors='coerce').dt.time
 cdf['ptd'] = pd.to_datetime(cdf['ptd'], errors='coerce').dt.time
 
 # Calculate delay
-def calculate_time_difference(row):
+def calculate_time_difference_arrive(row):
     if pd.notna(row['arr_at']) and pd.notna(row['pta']):
         arr_at_time = pd.to_datetime(row['arr_at'], format='%H:%M:%S')
         pta_time = pd.to_datetime(row['pta'], format='%H:%M:%S')
@@ -44,9 +44,33 @@ def calculate_time_difference(row):
     else:
         return None
 
-cdf['delay'] = cdf.apply(calculate_time_difference, axis=1)
+def calculate_time_difference_depart(row):
+    if pd.notna(row['dep_at']) and pd.notna(row['ptd']):
+        dep_at_time = pd.to_datetime(row['dep_at'], format='%H:%M:%S')
+        ptd_time = pd.to_datetime(row['ptd'], format='%H:%M:%S')
+        # Calculate the difference in seconds
+        diff_seconds = (dep_at_time - ptd_time).total_seconds()
+        # Convert to hours
+        return diff_seconds / 3600
+    else:
+        return None
 
-data = cdf[['tpl','pta','ptd','arr_at','dep_at', 'delay']]
+cdf['arr_delay'] = cdf.apply(calculate_time_difference_arrive, axis=1)
+cdf['dep_delay'] = cdf.apply(calculate_time_difference_depart, axis=1)
+
+
+data = cdf[['tpl','pta','ptd','arr_at','dep_at', 'arr_delay', 'dep_delay']]
+
+# data['ID'] = 0
+#
+# current_id = 1
+# for i in range(len(data)):
+#     if data.iloc[i]['tpl'] == 'NRCH':
+#         current_id += 1
+#     data.at[i, 'ID'] = current_id
+#
+# data = data[['ID'] + data.columns[:-1].tolist()]
+
 
 data.to_csv(f'data{year}.csv',index=False)
 
