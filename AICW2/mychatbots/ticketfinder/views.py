@@ -27,6 +27,7 @@ def get_response(request):
     messages = []
 
     if user_input:
+        UserQuery.objects.create(query_text = user_input) #please do not touch this line otherwise it will not add stuff to the data base
         output = main(user_input)
 
     if output:
