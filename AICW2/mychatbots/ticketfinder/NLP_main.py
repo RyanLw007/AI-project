@@ -80,6 +80,12 @@ def main(input):
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
 
+            user_input = user_input.replace('\n', '').replace('\r', '')
+
+            if re.fullmatch(r'\d', user_input):
+                with open(past_inputs, 'r') as past:
+                    user_input = past.readlines()[-2]
+
 
     if pd_data['pred_station_selector']:
         if pd_data['pred_selected'] == None:
@@ -97,6 +103,12 @@ def main(input):
 
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
+
+            user_input = user_input.replace('\n', '').replace('\r', '')
+
+            if re.fullmatch(r'\d',user_input):
+                with open(past_inputs, 'r') as past:
+                    user_input = past.readlines()[-2]
 
 
     user_input = user_input.replace('\n', '').replace('\r', '')

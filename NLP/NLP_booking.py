@@ -53,6 +53,13 @@ def missing_info_response():
         if data['arrive_date_str'] is not None and data['chosen_dest_str'] is not None and data['arrive_time_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
             if final_chatbot:
+                price = one_way(data['origin_code'], data['dest_code'], data['arrive_date_str'],
+                                data['arrive_time_str'], data['leave_arrive'])
+                if price is None:
+                    printout.append("Sorry, I could not find a ticket for this journey.")
+                else:
+                    price = format_float(float(price))
+                    printout.append("The price for this journey is £" + price + " .")
                 printout.append("If you don't have any other questions you can type bye.")
         if data['chosen_dest_str'] is None:
             printout.append("Please Choose a Destination.")
@@ -273,6 +280,8 @@ def selected_station(selected_station):
 
 
 def ner_response(user_input):
+
+    user_input = user_input.replace(" of", "")
 
 
     doc = nlp(user_input)
@@ -496,6 +505,13 @@ def ner_response(user_input):
                             if "May" not in chosen_date:
                                 chosen_date.append("May")
 
+                        time_pattern = r"\b\d{2}:\d{2}\b"
+
+                        if chosen_time == []:
+                            match = re.search(time_pattern, user_input)
+                            if match:
+                                chosen_time.append(match.group())
+
                         if selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
                             return printout.insert(0, True)
                         else:
@@ -591,74 +607,12 @@ def ner_response(user_input):
                     
     printout.insert(0, False)
     return
-    
-def ticket_response(ticket):
-    global final_chatbot
-    global printout
-
-    if ticket == "one way":
-        printout.append("You have selected a one way ticket.")
-        if data['chosen_dest_str'] != None and data['arrive_date_str'] != None and data['arrive_time_str'] != None:
-            printout.append(
-                "You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
-            if final_chatbot:
-                printout.append("If you don't have any other questions you can type bye.")
-        if data['arrive_time_str'] == None:
-            printout.append("You have not chosen a time. please choose a time.")
-        if data['chosen_dest_str'] == None:
-            printout.append("You have not chosen a destination. please choose a destination.")
-        if data['arrive_date_str'] == None:
-            printout.append("You have not chosen a date. please choose a date.")
-
-    if ticket == "round":
-        printout.append("You have selected a round ticket.")
-        if data['chosen_dest_str'] != None and data['arrive_date_str'] != None and data['arrive_time_str'] != None and data['leave_date_str'] != None and data['leave_time_str'] != None:
-            printout.append(
-                "You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a round ticket.")
-            printout.append("You want to return on " + data['leave_date_str'] + " at " + data['leave_time_str'] + ".")
-            if final_chatbot:
-                printout.append("If you don't have any other questions you can type bye.")
-        if data['chosen_dest_str'] == None:
-            printout.append("You have not chosen a destination. please choose a destination.")
-        if data['arrive_date_str'] == None:
-            printout.append("You have not chosen a date to arrive. please choose a date.")
-        if data['arrive_time_str'] == None:
-            printout.append("You have not chosen a time to arrive. please choose a time.")
-        if data['leave_date_str'] == None:
-            printout.append("You have not chosen a date to leave. please choose a date.")
-        if data['leave_time_str'] == None:
-            printout.append("You have not chosen a time to leave. please choose a time.")
-
-    if ticket=="open ticket":
-        printout.append("You have selected a " + ticket + " ticket.")
-        if data['chosen_dest_str'] != None and data['arrive_date_str'] != None:
-            printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open ticket.")
-            if final_chatbot:
-                printout.append("If you don't have any other questions you can type bye.")
-        if data['chosen_dest_str'] == None:
-            printout.append("You have not chosen a destination. please choose a destination.")
-        if data['arrive_date_str'] == None:
-            printout.append("You have not chosen a date to arrive. please choose a date.")
-
-    if ticket=="open return":
-        printout.append("You have selected a " + ticket + " ticket.")
-        if data['chosen_dest_str'] != None and data['arrive_date_str'] != None and data['leave_date_str'] != None:
-            printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open return ticket.")
-            printout.append("You want to return on " + data['leave_date_str'] + ".")
-            if final_chatbot:
-                printout.append("If you don't have any other questions you can type bye.")
-        if data['chosen_dest_str'] == None:
-            printout.append("You have not chosen a destination. please choose a destination.")
-        if data['arrive_date_str'] == None:
-            printout.append("You have not chosen a date to arrive. please choose a date.")
-        if data['leave_date_str'] == None:
-            printout.append("You have not chosen a date to leave. please choose a date.")
 
 def expert_response(user_input):
     global printout
     ticket = check_ticket(user_input, 1)
     if ticket != None:
-        ticket_response(ticket)
+        missing_info_response()
         printout.insert(0,True)
         return
         

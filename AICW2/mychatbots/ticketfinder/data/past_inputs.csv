@@ -1528,3 +1528,46 @@ leave
 one way
 9am
 9am
+hello
+I want to book a train
+one way
+I would like to go to Portsmouth on the 5th of June at 9am
+3
+leave
+from Cambridge
+1
+hello
+I would like to book a train
+one way
+leave
+I would like to go to Portsmouth on the 5th of June at 15:00
+3
+15:00
+from Cambridge
+1
+hello
+I want to book a train
+one way
+leave
+I would like to go to Portsmouth on the 5th of June at 15:00
+3
+from Cambridge
+1
+1
+reset
+hello
+I would like to book a train
+one way
+leave
+I would like to go to Portsmouth on the 5th of June at 17:00
+3
+from Cambridge
+1
+hello
+I want to book a train
+one way
+leave
+I would like to go to Portsmouth on the 5th of June at 16:00
+3
+from Cambridge
+1

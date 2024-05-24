@@ -54,6 +54,14 @@ def missing_info_response():
         if data['arrive_date_str'] is not None and data['chosen_dest_str'] is not None and data['arrive_time_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
             if final_chatbot:
+                price, url = one_way(data['origin_code'], data['dest_code'], data['arrive_date_str'],
+                                     data['arrive_time_str'], data['leave_arrive'])
+                if price is None:
+                    printout.append("Sorry, I could not find a ticket for this journey.")
+                else:
+                    price = format_float(float(price))
+                    printout.append("The price for this journey is £" + format_float(float(price)) + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
         if data['chosen_dest_str'] is None:
             printout.append("Please Choose a Destination.")
@@ -282,6 +290,8 @@ def selected_station(selected_station):
 
 def ner_response(user_input):
 
+    user_input = user_input.replace(" of", "")
+
 
     doc = nlp(user_input)
     chosen_origin = []
@@ -407,7 +417,7 @@ def ner_response(user_input):
                     if back_ent.label_ == "TIME":
                         back_time.append(back_ent.text)
 
-                time_pattern = r"\b\d{2]:\d{2}\b"
+                time_pattern = r"\b\d{2}:\d{2}\b"
 
                 if go_time == []:
                     match = re.search(time_pattern, go_to)
@@ -516,7 +526,7 @@ def ner_response(user_input):
                             if "May" not in chosen_date:
                                 chosen_date.append("May")
 
-                        time_pattern = r"\b\d{2]:\d{2}\b"
+                        time_pattern = r"\b\d{2}:\d{2}\b"
 
                         if chosen_time == []:
                             match = re.search(time_pattern, user_input)
@@ -616,7 +626,7 @@ def ner_response(user_input):
                         printout.insert(0, True)
                         return
         if chosen_time == []:
-            time_pattern = r"\b\d{2]:\d{2}\b"
+            time_pattern = r"\b\d{2}:\d{2}\b"
             match = re.search(time_pattern, user_input)
             if match:
                 time = match.group()
@@ -697,7 +707,7 @@ def expert_response(user_input):
     global printout
     ticket = check_ticket(user_input, 1)
     if ticket != None:
-        ticket_response(ticket)
+        missing_info_response()
         printout.insert(0,True)
         return
         

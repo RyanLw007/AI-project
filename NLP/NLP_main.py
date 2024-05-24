@@ -80,6 +80,12 @@ def main(input):
             with open(past_inputs, 'r') as past:
                 user_input = past.readlines()[-3]
 
+            user_input = user_input.replace('\n', '').replace('\r', '')
+
+            if re.fullmatch(r'\d',user_input):
+                with open(past_inputs, 'r') as past:
+                    user_input = past.readlines()[-2]
+
 
     if pd_data['pred_station_selector']:
         if pd_data['pred_selected'] == None:
@@ -281,16 +287,20 @@ if __name__ == "__main__":
     print(output)
     output1 = main("I want to book a ticket")
     print(output1)
-    output2 = main("round")
+    output2 = main("one way")
     print(output2)
-    output3 = main("I would like to go to Cambridge on tuesday at 5pm and return on friday at 9pm")
+    output3 = main("leave")
     print(output3)
-    output4 = main("1")
+    output4 = main("I would like to go to Portsmouth on the 5th of June at 15:00")
     print(output4)
-    output5 = main("leave")
+    output5 = main("3")
     print(output5)
-    output6 = main("bye")
+    output6 = main("from Cambridge")
     print(output6)
+    output8 = main("1")
+    print(output8)
+    output7 = main("bye")
+    print(output7)
 
     # output = main("hello")
     # print(output)
