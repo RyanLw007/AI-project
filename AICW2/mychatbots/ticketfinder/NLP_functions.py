@@ -198,9 +198,7 @@ def check_intention_by_keyword(sentence):
                     printout.append("(for a one way train ticket type 'one way',\n for a round trip ticket type 'round trip',\n for an open ticket type 'open ticket',\n for an open return ticket type 'open return')\n")
                     printout.append("note, if you would like to start over, just type 'reset' and I will start selection again.")
                 if type_of_intention == 'predict':
-                    printout.append("(for a train that you are actively on type 'Active Train')\n"
-                                    "(for a train that you are going to take type 'Future Train')\n"
-                                    "(prediction cannot be made for current selection as it may not be on the route)"
+                    printout.append("Can you please provide your current station, your destination and the current delay you are experiencing\n"
                                     "you can type 'reset' to start over.")
                 # Do not change these lines
                 if type_of_intention == 'greeting' and final_chatbot:

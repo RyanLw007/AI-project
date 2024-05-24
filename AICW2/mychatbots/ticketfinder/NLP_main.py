@@ -230,24 +230,18 @@ def main(input):
                 return printout
             else:
                 printout.pop(0)
-                pred_expert_response(user_input)
+                pred_ner_response(user_input)
                 if printout[0]:
                     printout.pop(0)
                     return printout
                 else:
                     printout.pop(0)
-                    pred_ner_response(user_input)
-                    if printout[0]:
-                        printout.pop(0)
+                    if check_intention_by_keyword_nr(user_input) == "predict":
                         return printout
                     else:
-                        printout.pop(0)
-                        if check_intention_by_keyword_nr(user_input) == "predict":
-                            return printout
-                        else:
-                            printout.append("Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
-                            printout.append(f"{llama3_response(user_input)}")
-                            return printout
+                        printout.append("Sorry I don't understand that. I have sent your message to a LLM and this is the response:")
+                        printout.append(f"{llama3_response(user_input)}")
+                        return printout
 
     if data['chosen_intention'] != 'goodbye' and data['chosen_intention'] != 'book' and data['chosen_intention'] != None and data['chosen_intention'] != 'greeting' and data['chosen_intention'] != 'predict':
         date_time_response(user_input)
