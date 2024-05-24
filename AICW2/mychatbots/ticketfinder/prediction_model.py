@@ -94,6 +94,7 @@ def predict_delay(model, current_station, dep_delay, feature_columns):
 # Main function to load, preprocess, train, and predict
 def main():
     file_path = '/content/train_data_combined_with_id.csv'
+    #file_path = 'train_data_clean/train_data_combined_with_id.csv'
     data = load_data(file_path)
     data = preprocess_data(data)
     ridge_model, feature_columns = train_model(data)
