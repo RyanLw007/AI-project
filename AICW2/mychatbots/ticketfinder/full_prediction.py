@@ -5,6 +5,8 @@ from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import mean_squared_error
 import numpy as np
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 # Load data from CSV
 def load_data(file_path):
@@ -106,8 +108,9 @@ def predict_delay(model, current_station, dep_delay, feature_columns):
     return predicted_delay_minutes
 
 # Main function to load, preprocess, train, and predict
-def main():
-    file_path = '/content/train_data_combined_with_id.csv'
+def main(current_station, dest_station, dep_delay):
+    #file_path = '/content/train_data_combined_with_id.csv'
+    file_path = 'train_data_clean/train_data_combined_with_id.csv'
     data = load_data(file_path)
     data = preprocess_data(data)
     model, feature_columns = train_model(data)
@@ -117,7 +120,25 @@ def main():
     dest_station = 'NRCH'
     dep_delay = 0.5
     delay_prediction = predict_delay(model, current_station, dep_delay, feature_columns)
+    return delay_prediction, dest_station
     print(f'Predicted delay at {dest_station}: {delay_prediction:.2f} hours')
 
 if __name__ == "__main__":
-    main()
+    current_station = 'LIVST'
+    dest_station = 'NRCH'
+    dep_delay = 0.1
+    dep_delay1 = 0.3
+    dep_delay2 = 0.5
+    dep_delay3 = 0.7
+    dep_delay4 = 1
+    dep_delay5 = 2
+    dep_delay6 = 5
+    print(main(current_station, dest_station, dep_delay))
+    print(main(current_station, dest_station, dep_delay1))
+    print(main(current_station, dest_station, dep_delay2))
+    print(main(current_station, dest_station, dep_delay3))
+    print(main(current_station, dest_station, dep_delay4))
+    print(main(current_station, dest_station, dep_delay5))
+    print(main(current_station, dest_station, dep_delay6))
+
+
