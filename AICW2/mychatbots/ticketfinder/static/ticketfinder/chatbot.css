@@ -127,3 +127,31 @@ body {
     clear: both;
     display: table;
 }
+
+.station-button {
+    display: block;
+    width: 75%; 
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: #5b98d5; 
+    border: 1px solid #dee2e6;
+    text-align: left;
+    border-radius: 0.5rem;
+    font-size: 0.9rem; 
+    color: #ffffff; 
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .1); 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.station-button:hover {
+    background-color: #2969a9; 
+}
+
+.station-button:active {
+    background-color: #bfc7cf; 
+}
+
+.station-button:focus {
+    outline: none; 
+}
