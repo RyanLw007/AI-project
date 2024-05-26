@@ -10,6 +10,9 @@ return_phrases = ['coming back', 'returning', 'return', 'departing', 'leaving', 
 df = pd.read_csv(stations_path)
 df['combined'] = df['name'] + ' ' + df['longname.name_alias']
 
+def format_float(value):
+    return "{:.2f}".format(value)
+
 
 
 multiple_loc = False
