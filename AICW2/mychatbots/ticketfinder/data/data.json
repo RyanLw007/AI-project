@@ -1,14 +1,14 @@
 {
     "chosen_origin_str": "Norwich",
-    "chosen_dest_str": "ABBEY WOOD",
-    "arrive_date_str": "2024-05-30",
-    "arrive_time_str": "14:00",
+    "chosen_dest_str": null,
+    "arrive_date_str": null,
+    "arrive_time_str": null,
     "leave_date_str": null,
     "leave_time_str": null,
-    "ticket_type": "one way",
-    "leave_arrive": "leave",
+    "ticket_type": null,
+    "leave_arrive": null,
     "origin_code": "NRW",
-    "dest_code": "ABW",
+    "dest_code": null,
     "chosen_intention": null,
     "flag_loc": 0,
     "station_selector": false,
@@ -17,5 +17,5 @@
     "station3": null,
     "station4": null,
     "station5": null,
-    "selected": "1"
+    "selected": null
 }
