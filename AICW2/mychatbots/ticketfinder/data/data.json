@@ -8,7 +8,7 @@
     "ticket_type": null,
     "leave_arrive": null,
     "origin_code": "NRW",
-    "dest_code": null,
+    "dest_code": "CMB",
     "chosen_intention": null,
     "flag_loc": 4,
     "station_selector": true,
@@ -17,5 +17,5 @@
     "station3": 499,
     "station4": 1965,
     "station5": 332,
-    "selected": null
+    "selected": "3"
 }

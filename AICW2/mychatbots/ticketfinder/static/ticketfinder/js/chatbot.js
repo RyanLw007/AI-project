@@ -124,7 +124,7 @@ $(document).ready(function() {
                         data.response.forEach(function(msg) {
                             if (/^\d+ Station:/.test(msg)) {
                                 var index = msg.split(' ')[0];
-                                var buttonText = msg.replace(/^\d+ Station:                            /, '').trim().replace(/\\N/g, '').trim();
+                                var buttonText = msg.replace(/^\d+ Station:/, '').trim().replace(/\\N/g, '').trim();
                                 var button = $('<button>').addClass('btn station-button').text(index + ') ' + buttonText).attr('data-index', index);
                                 $("#chat-box").append(button);
                             // } else if (/one way|round|open return/i.test(msg)) {
