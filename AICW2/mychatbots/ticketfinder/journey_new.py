@@ -8,13 +8,11 @@ from selenium.webdriver.support import expected_conditions as EC
 # Install chromedriver
 chromedriver_autoinstaller.install()
 
-<<<<<<< Updated upstream
-=======
 def random_sleep():
     import random
     import time
     time.sleep(random.uniform(0.3,0.5))
->>>>>>> Stashed changes
+
 
 def build_url(journey_type, origin, dest, lor, date, time=None, return_date=None, return_time=None, return_lor=None, adults=1, extra_time=0):
     base_url = "https://www.nationalrail.co.uk/journey-planner/"
@@ -40,14 +38,13 @@ def scrape_prices(url):
 
 
     driver = webdriver.Chrome(options=chrome_options)
-<<<<<<< Updated upstream
+
     print(driver.capabilities['browserVersion'])
     print(driver.capabilities['chrome']['chromedriverVersion'])
     driver = webdriver.Chrome(options=chrome_options)
-=======
+
     # print(driver.capabilities['browserVersion'])
     # print(driver.capabilities['chrome']['chromedriverVersion'])
->>>>>>> Stashed changes
     driver.get(url)
     random_sleep()
 

@@ -1798,3 +1798,25 @@ leave
 from Cambridge
 2
 one way
+hello
+I want to book a train
+one way
+leave
+I want to go to Cambridge on Sunday at 7pm
+1
+hello
+I want to book a train
+round trip
+leave
+I want to go to London on Sunday at 5pm and I want to return on the 5th of June at 7:00
+3
+I want to return at 07:00
+hello
+I want to predict how late my train will arrive at the destination
+I am currently at Colchester and I am going to Norwich and I am delayed by 30 minutes
+1
+1
+reset
+hello
+I want to book a train
+bye
