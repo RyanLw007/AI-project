@@ -1,4 +1,6 @@
 from .NLP_functions import *
+from .full_prediction import *
+from datetime import datetime, timedelta
 import pandas as pd
 from fuzzywuzzy import process
 
@@ -28,6 +30,13 @@ def pred_missing_info_response():
         if final_chatbot:
             curr_stat = tiploc_to_extended_name(pd_data['current_code'])
             dest_stat = tiploc_to_extended_name(pd_data['dest_code'])
+
+            prediction = pred_model_main(curr_stat, dest_stat, pd_data['delay'])
+            pred_secs = prediction * 3600
+            pred_time_short = round(prediction, 2)
+            pred_time = datetime.now() + timedelta(seconds=pred_secs)
+            pred_time_str = pred_time.strftime("%H:%M")
+            printout.append("The predicted delay at " + pd_data['chosen_dest_str'] + " is " + str(pred_time_short) + " hours, which is expected to arrive at " + pred_time_str + ".")
             printout.append("If you don't have any other questions you can type bye.")
 
     if pd_data['current_station'] is None:

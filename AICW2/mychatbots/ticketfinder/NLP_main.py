@@ -32,6 +32,8 @@ def main(input):
     global final_chatbot
     global printout
 
+    update()
+
     final_chatbot = True
 
     printout.clear()
