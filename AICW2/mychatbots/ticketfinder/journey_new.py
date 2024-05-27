@@ -24,9 +24,6 @@ def scrape_prices(url):
     chrome_options.add_argument('--disable-dev-shm-usage')
 
     driver = webdriver.Chrome(options=chrome_options)
-
-    print(driver.capabilities['browserVersion'])
-    print(driver.capabilities['chrome']['chromedriverVersion'])
     driver.get(url)
 
     prices = []
