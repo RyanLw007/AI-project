@@ -92,28 +92,28 @@ if __name__ == "__main__":
     # print("Open return journey price:", open_return("NRW", "LST", "2024-06-06", "2024-06-10", "leave", "leave", 1, 0))
     # print("Round trip journey price:", round_trip("NRW", "LST", "2024-06-06", "12:15", "2024-06-10", "10:30", "leave", "leave", 1, 0))
 
-    one = one_way("NRW","LST","2024-06-06","12:00","leave")
+    one = one_way("NRW","LST","2024-06-15","12:00","leave")
     print(one)
-    two = one_way("CBG", "PMS", "2024-06-06", "13:00", "leave")
+    two = one_way("CBG", "PMS", "2024-06-15", "13:00", "leave")
     print(two)
-    three = one_way("NRW", "CBG", "2024-06-05", "14:00", "leave")
+    three = one_way("NRW", "CBG", "2024-06-15", "14:00", "leave")
     print(three)
 
-    six = round_trip("CBG", "PMS", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
+    six = round_trip("CBG", "PMS", "2024-06-12", "14:00", "2024-06-15", "14:00", "leave", "leave")
     print(six)
-    seven = round_trip("NRW", "PMS", "2024-06-04", "14:00", "2024-06-06", "16:00", "leave", "leave")
+    seven = round_trip("NRW", "PMS", "2024-06-12", "14:00", "2024-06-15", "16:00", "leave", "leave")
     print(seven)
-    eight = round_trip("CBG", "NRW", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
+    eight = round_trip("CBG", "NRW", "2024-06-12", "14:00", "2024-06-15", "14:00", "leave", "leave")
     print(eight)
 
-    eleven = one_way("PMS", "NRW", "2024-06-07", "10:00", "leave")
+    eleven = one_way("PMS", "NRW", "2024-06-15", "10:00", "leave")
     print(eleven)
-    twelve = one_way("NRW", "CBG", "2024-06-08", "09:00", "leave")
+    twelve = one_way("NRW", "CBG", "2024-06-15", "09:00", "leave")
     print(twelve)
  
-    seventeen = round_trip("CBG", "PMS", "2024-06-14", "07:00", "2024-06-15", "17:00", "leave", "leave")
+    seventeen = round_trip("CBG", "PMS", "2024-06-14", "07:00", "2024-06-17", "17:00", "leave", "leave")
     print(seventeen)
-    eighteen = round_trip("NRW", "CBG", "2024-06-16", "14:00", "2024-06-17", "14:00", "leave", "leave")
+    eighteen = round_trip("NRW", "CBG", "2024-06-16", "14:00", "2024-06-18", "14:00", "leave", "leave")
     print(eighteen)
 
 
