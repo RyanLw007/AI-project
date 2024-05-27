@@ -70,12 +70,12 @@ def one_way(origin, dest, date, time, lor, adults=1, extra_time=0):
     return find_lowest_price(prices), url
 
 def open_ticket(origin, dest, date, lor="departing", adults=1, extra_time=0):
-    url = build_url("single", origin, dest, lor_formatting(lor), format_date_url(date), "0800", adults=adults, extra_time=extra_time)
+    url = build_url("single", origin, dest, lor_formatting(lor), format_date_url(date), "1200", adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
     return find_lowest_price(prices), url
 
 def open_return(origin, dest, leave_date, return_date, lor="departing", return_lor="departing", adults=1, extra_time=0):
-    url = build_url("return", origin, dest, lor_formatting(lor), format_date_url(leave_date), "0800", format_date_url(return_date), "0800", lor_formatting(return_lor), adults=adults, extra_time=extra_time)
+    url = build_url("return", origin, dest, lor_formatting(lor), format_date_url(leave_date), "1200", format_date_url(return_date), "1200", lor_formatting(return_lor), adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
     return find_lowest_price(prices), url
 
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
     six = round_trip("CBG", "PMS", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
     print(six)
-    seven = round_trip("NRW", "PMS", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
+    seven = round_trip("NRW", "PMS", "2024-06-04", "14:00", "2024-06-06", "16:00", "leave", "leave")
     print(seven)
     eight = round_trip("CBG", "NRW", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
     print(eight)
