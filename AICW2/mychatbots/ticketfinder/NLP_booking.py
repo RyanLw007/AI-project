@@ -267,7 +267,7 @@ def station_selector(target_station):
     printout.append("Here are the top 5 matching stations, please select the one you want to use:")
 
     for station in similar_stations:
-        printout.append(f"{station['index']} Station: {station['matched station']}, Similarity Score: {station['similarity score']}")
+        printout.append(f"{station['index']} Station: {station['matched station']}")
         data[f"station{station['index']}"] = similar_stations[station['index'] - 1]['original index']
 
     with open(data_path, 'w') as file:
