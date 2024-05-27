@@ -31,7 +31,7 @@ def scrape_prices(url):
 
     prices = []
     try:
-        wait = WebDriverWait(driver, 20)
+        wait = WebDriverWait(driver, 28)
         wait.until(EC.visibility_of_element_located((By.ID, "main-content")))
 
         main_section = driver.find_element(By.ID, "main-content")
