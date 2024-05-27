@@ -43,7 +43,7 @@ body {
 #chat-box {
     flex-grow: 1;
     overflow-y: auto;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
     margin-bottom: 1rem;
     padding: 0.5rem;
     background-color: #f8f9fa; 
