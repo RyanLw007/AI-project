@@ -1606,6 +1606,21 @@ I want to go to Cambridge on tuesday at 5pm
 leave
 one way
 hello
+<<<<<<< HEAD
+I want to predict how late my train will be
+I am currently at Colchester and I am going to Norwich and I am delayed by 20 minutes
+1
+1
+hello
+I want to predict how late my train will be
+I am currently at Colchester and i am going to Norwich at the moment I am delayed by 20 minutes
+1
+1
+hello
+I want to predict how late my train will be
+I am currently at Colchester and I am travelling to Norwich and I am delayed by 30 minutes
+1
+=======
 I want to book a train
 one way
 leave
@@ -1671,6 +1686,7 @@ hi
 i want to go to london
 hi
 i want to go to london
+>>>>>>> 87beef1fa135e18d6b02102ce9e32f40840d53d5
 1
 hi
 i want to go to london

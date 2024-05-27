@@ -41,6 +41,12 @@ pd_data = json.loads(open(pred_data_path).read())
 
 printout = []
 
+def update():
+    global data
+    global pd_data
+    data = json.loads(open(data_path).read())
+    pd_data = json.loads(open(pred_data_path).read())
+
 
 # Opening JSON file and return JSON object as a dictionary
 

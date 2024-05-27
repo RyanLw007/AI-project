@@ -13,3 +13,5 @@ stations_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'stations.csv
 pred_data_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'pred_data.json')
 pred_reset_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'pred_reset.json')
 pred_stations_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'data', 'pred_stations.csv')
+
+pred_dataset_path = os.path.join(SUB_BASE_DIR, 'ticketfinder', 'train_data_clean', 'train_data_combined_with_id.csv')
