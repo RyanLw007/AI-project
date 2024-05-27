@@ -28,14 +28,11 @@ def scrape_prices(url):
     print(driver.capabilities['browserVersion'])
     print(driver.capabilities['chrome']['chromedriverVersion'])
     driver = webdriver.Chrome(options=chrome_options)
-
-    print(driver.capabilities['browserVersion'])
-    print(driver.capabilities['chrome']['chromedriverVersion'])
     driver.get(url)
 
     prices = []
     try:
-        wait = WebDriverWait(driver, 20)
+        wait = WebDriverWait(driver, 28)
         wait.until(EC.visibility_of_element_located((By.ID, "main-content")))
 
         main_section = driver.find_element(By.ID, "main-content")
@@ -77,12 +74,12 @@ def one_way(origin, dest, date, time, lor, adults=1, extra_time=0):
     return find_lowest_price(prices), url
 
 def open_ticket(origin, dest, date, lor="departing", adults=1, extra_time=0):
-    url = build_url("single", origin, dest, lor_formatting(lor), format_date_url(date), "0800", adults=adults, extra_time=extra_time)
+    url = build_url("single", origin, dest, lor_formatting(lor), format_date_url(date), "1200", adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
     return find_lowest_price(prices), url
 
 def open_return(origin, dest, leave_date, return_date, lor="departing", return_lor="departing", adults=1, extra_time=0):
-    url = build_url("return", origin, dest, lor_formatting(lor), format_date_url(leave_date), "0800", format_date_url(return_date), "0800", lor_formatting(return_lor), adults=adults, extra_time=extra_time)
+    url = build_url("return", origin, dest, lor_formatting(lor), format_date_url(leave_date), "1200", format_date_url(return_date), "1200", lor_formatting(return_lor), adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
     return find_lowest_price(prices), url
 
@@ -98,47 +95,30 @@ if __name__ == "__main__":
     # print("Open ticket journey price:", open_ticket("NRW", "LST", "2024-06-06", "leave", 1, 0))
     # print("Open return journey price:", open_return("NRW", "LST", "2024-06-06", "2024-06-10", "leave", "leave", 1, 0))
     # print("Round trip journey price:", round_trip("NRW", "LST", "2024-06-06", "12:15", "2024-06-10", "10:30", "leave", "leave", 1, 0))
-    one = one_way("NRW","PMS","2024-06-05","14:00","leave")
-    print(one)
-    two = one_way("CBG", "PMS", "2024-06-05", "14:00", "leave")
-    print(two)
-    three = one_way("NRW", "CBG", "2024-06-05", "14:00", "leave")
-    print(three)
-    four = one_way("CBG", "PMS", "2024-06-05", "15:00", "leave")
-    print(four)
-    five = one_way("NRW", "PMS", "2024-06-04", "14:00", "leave")
-    print(five)
-    six = round_trip("CBG", "PMS", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
-    print(six)
-    seven = round_trip("NRW", "PMS", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
-    print(seven)
-    eight = round_trip("CBG", "NRW", "2024-06-04", "14:00", "2024-06-06", "14:00", "leave", "leave")
-    print(eight)
-    nine = round_trip("CBG", "PMS", "2024-06-05", "12:00", "2024-06-07", "12:00", "leave", "leave")
-    print(nine)
-    ten = round_trip("CBG", "PMS", "2024-06-06", "14:00", "2024-06-08", "17:00", "leave", "leave")
-    print(ten)
-    eleven = one_way("PMS", "NRW", "2024-06-07", "10:00", "leave")
-    print(eleven)
-    twelve = one_way("NRW", "CBG", "2024-06-08", "09:00", "leave")
-    print(twelve)
-    thirteen = one_way("PMS", "CBG", "2024-06-09", "16:00", "leave")
-    print(thirteen)
-    fourteen = one_way("NRW", "PMS", "2024-06-10", "11:00", "leave")
-    print(fourteen)
-    fifteen = one_way("CBG", "NRW", "2024-06-11", "15:00", "leave")
-    print(fifteen)
-    sixteen = round_trip("PMS", "NRW", "2024-06-12", "08:00", "2024-06-13", "18:00", "leave", "leave")
-    print(sixteen)
-    seventeen = round_trip("CBG", "PMS", "2024-06-14", "07:00", "2024-06-15", "17:00", "leave", "leave")
-    print(seventeen)
-    eighteen = round_trip("NRW", "CBG", "2024-06-16", "14:00", "2024-06-17", "14:00", "leave", "leave")
-    print(eighteen)
-    nineteen = round_trip("PMS", "CBG", "2024-06-18", "13:00", "2024-06-19", "13:00", "leave", "leave")
-    print(nineteen)
-    twenty = round_trip("NRW", "PMS", "2024-06-20", "06:00", "2024-06-21", "09:00", "leave", "leave")
-    print(twenty)
 
+    one = one_way("NRW","LST","2024-06-15","12:00","leave")
+    print(one)
+    two = one_way("NRW", "CBG", "2024-06-15", "13:00", "leave")
+    print(two)
+    three = one_way("NRW", "CBG", "2024-06-15", "14:00", "leave")
+    print(three)
+
+    six = round_trip("CBG", "PMS", "2024-06-12", "14:00", "2024-06-15", "14:00", "leave", "leave")
+    print(six)
+    seven = round_trip("NRW", "PMS", "2024-06-12", "14:00", "2024-06-15", "16:00", "leave", "leave")
+    print(seven)
+    eight = round_trip("CBG", "NRW", "2024-06-12", "14:00", "2024-06-15", "14:00", "leave", "leave")
+    print(eight)
+
+    eleven = one_way("PMS", "NRW", "2024-06-15", "10:00", "leave")
+    print(eleven)
+    twelve = one_way("NRW", "CBG", "2024-06-15", "09:00", "leave")
+    print(twelve)
+ 
+    seventeen = round_trip("CBG", "PMS", "2024-06-14", "07:00", "2024-06-17", "17:00", "leave", "leave")
+    print(seventeen)
+    eighteen = round_trip("NRW", "CBG", "2024-06-16", "14:00", "2024-06-18", "14:00", "leave", "leave")
+    print(eighteen)
 
 
 
