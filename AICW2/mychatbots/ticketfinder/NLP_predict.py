@@ -69,7 +69,7 @@ def pred_station_selector(target_station):
     printout.append("Did you mean one of these stations? (Please enter the index of the station you want to select)")
 
     for station in similar_stations:
-        printout.append(f"{station['index']} Station: {station['matched station']}, Similarity Score: {station['similarity score']}")
+        printout.append(f"{station['index']} Station: {station['matched station']}")
         pd_data[f"pred_station{station['index']}"] = similar_stations[station['index'] - 1]['original index']
 
     with open(pred_data_path, 'w') as file:
