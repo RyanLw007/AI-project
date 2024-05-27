@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 # Install chromedriver
 chromedriver_autoinstaller.install()
 
+
 def build_url(journey_type, origin, dest, lor, date, time=None, return_date=None, return_time=None, return_lor=None, adults=1, extra_time=0):
     base_url = "https://www.nationalrail.co.uk/journey-planner/"
     url = f"{base_url}?type={journey_type}&origin={origin}&destination={dest}&leavingType={lor}&leavingDate={date}&adults={adults}&extraTime={extra_time}"
@@ -23,6 +24,9 @@ def scrape_prices(url):
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
 
+    driver = webdriver.Chrome(options=chrome_options)
+    print(driver.capabilities['browserVersion'])
+    print(driver.capabilities['chrome']['chromedriverVersion'])
     driver = webdriver.Chrome(options=chrome_options)
 
     print(driver.capabilities['browserVersion'])
