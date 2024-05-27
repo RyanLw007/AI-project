@@ -8,48 +8,64 @@ from selenium.webdriver.support import expected_conditions as EC
 # Install chromedriver
 chromedriver_autoinstaller.install()
 
+def random_sleep():
+    import random
+    import time
+    time.sleep(random.uniform(0.3,0.5))
+
 
 def build_url(journey_type, origin, dest, lor, date, time=None, return_date=None, return_time=None, return_lor=None, adults=1, extra_time=0):
     base_url = "https://www.nationalrail.co.uk/journey-planner/"
-    url = f"{base_url}?type={journey_type}&origin={origin}&destination={dest}&leavingType={lor}&leavingDate={date}&adults={adults}&extraTime={extra_time}"
+    url = f"{base_url}?type={journey_type}&origin={origin}&destination={dest}&leavingType={lor}&leavingDate={date}"
     if time:
         url += f"&leavingHour={time[:2]}&leavingMin={time[2:]}"
     if journey_type == "return" and return_date and return_time and return_lor:
         url += f"&returnType={return_lor}&returnDate={return_date}&returnHour={return_time[:2]}&returnMin={return_time[2:]}"
-    return url + "#O"
+    return url + f"&adults={adults}&extraTime={extra_time}#O"
 
 def scrape_prices(url):
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-extensions')
+    chrome_options.add_argument('--disable-cookies')
+    prefs = {"profile.default_content_settings.cookies": 2,
+             "profile.block_third_party_cookies": True}
+
+    chrome_options.add_experimental_option('prefs',prefs)
+
 
     driver = webdriver.Chrome(options=chrome_options)
+
     print(driver.capabilities['browserVersion'])
     print(driver.capabilities['chrome']['chromedriverVersion'])
     driver = webdriver.Chrome(options=chrome_options)
+
+    # print(driver.capabilities['browserVersion'])
+    # print(driver.capabilities['chrome']['chromedriverVersion'])
     driver.get(url)
+    random_sleep()
 
     prices = []
     try:
-        wait = WebDriverWait(driver, 28)
+        wait = WebDriverWait(driver, 7)
         wait.until(EC.visibility_of_element_located((By.ID, "main-content")))
+        random_sleep()
 
-        main_section = driver.find_element(By.ID, "main-content")
-        sections = main_section.find_elements(By.TAG_NAME, "section")
-
-        for section in sections:
-            list_items = section.find_elements(By.TAG_NAME, "li")
-            for item in list_items:
-                try:
-                    button = item.find_element(By.XPATH, ".//button[contains(@id, 'result-card-selection-outward-')]")
-                    price_span = button.find_element(By.XPATH, ".//span[@class='styled__StyledCalculatedFare-sc-1gozmfn-2 goNENa']")
-                    price = price_span.text.strip('£')
-                    prices.append(float(price))
-                except Exception:
-                    continue
+        buttons = driver.find_elements(By.XPATH, "//button[contains(@id, 'result-card-selection-outward-')]")
+        for button in buttons:
+            try:
+                price_span = button.find_element(By.XPATH, ".//span[@class='styled__StyledCalculatedFare-sc-1gozmfn-2 goNENa']")
+                price = price_span.text.strip('£')
+                prices.append(float(price))
+                random_sleep()
+            except Exception:
+                continue
 
         return prices
+
     except Exception:
         return []
     finally:
