@@ -37,13 +37,13 @@ body {
     margin: auto; 
     background-color: rgba(255, 255, 255, 0.8); 
     box-shadow: 0 4px 6px rgba(0,0,0,.1); 
-    overflow: hidden; 
+    /*overflow: hidden; */
 }
 
 #chat-box {
     flex-grow: 1;
     overflow-y: auto;
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
     margin-bottom: 1rem;
     padding: 0.5rem;
     background-color: #f8f9fa; 
@@ -174,4 +174,9 @@ body {
     margin-right: 0; /* Adjust margin for alignment */
     border-radius: 0.25rem;
     text-align: center;
+}
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
 }
