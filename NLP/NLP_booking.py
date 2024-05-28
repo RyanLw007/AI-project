@@ -10,7 +10,8 @@ return_phrases = ['coming back', 'returning', 'return', 'departing', 'leaving', 
 df = pd.read_csv(stations_path)
 df['combined'] = df['name'] + ' ' + df['longname.name_alias']
 
-
+def format_float(value):
+    return "{:.2f}".format(value)
 
 multiple_loc = False
 
@@ -43,23 +44,25 @@ def missing_info_response():
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
             printout.append("You have not provided a Origin, Default is Norwich, if you want to change this simply type 'from' and then the origin location.")
             if final_chatbot:
-                price = one_way(data['origin_code'], data['dest_code'], data['arrive_date_str'], data['arrive_time_str'], data['leave_arrive'])
+                price, url = one_way(data['origin_code'], data['dest_code'], data['arrive_date_str'], data['arrive_time_str'], data['leave_arrive'])
                 if price is None:
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
-                    printout.append("The price for this journey is £" + price + " .")
+                    printout.append("The price for this journey is £" + format_float(float(price)) + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
         if data['arrive_date_str'] is not None and data['chosen_dest_str'] is not None and data['arrive_time_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a one way ticket.")
             if final_chatbot:
-                price = one_way(data['origin_code'], data['dest_code'], data['arrive_date_str'],
-                                data['arrive_time_str'], data['leave_arrive'])
+                price, url = one_way(data['origin_code'], data['dest_code'], data['arrive_date_str'],
+                                     data['arrive_time_str'], data['leave_arrive'])
                 if price is None:
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
-                    printout.append("The price for this journey is £" + price + " .")
+                    printout.append("The price for this journey is £" + format_float(float(price)) + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
         if data['chosen_dest_str'] is None:
             printout.append("Please Choose a Destination.")
@@ -73,23 +76,25 @@ def missing_info_response():
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open ticket.")
             printout.append("You have not provided a Origin, Default is Norwich, if you want to change this simply type 'from' and then the origin location.")
             if final_chatbot:
-                price = open_ticket(dest=data['dest_code'], origin=data['origin_code'], date=data['arrive_date_str'], lor=data['leave_arrive'])
+                price, url = open_ticket(dest=data['dest_code'], origin=data['origin_code'], date=data['arrive_date_str'], lor=data['leave_arrive'])
                 if price is None:
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
                     printout.append("The price for this journey is £" + price + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
 
         if data['arrive_date_str'] is not None and data['chosen_dest_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open ticket.")
             if final_chatbot:
-                price = open_ticket(dest=data['dest_code'], origin=data['origin_code'], date=data['arrive_date_str'], lor=data['leave_arrive'])
+                price, url = open_ticket(dest=data['dest_code'], origin=data['origin_code'], date=data['arrive_date_str'], lor=data['leave_arrive'])
                 if price is None:
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
                     printout.append("The price for this journey is £" + price + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
         if data['chosen_dest_str'] is None:
             printout.append("Please Choose a Destination.")
@@ -102,7 +107,7 @@ def missing_info_response():
             printout.append("You want to return on " + data['leave_date_str'] + " at " + data['leave_time_str'] + ".")
             printout.append("You have not provided a Origin, Default is Norwich, if you want to change this simply type 'from' and then the origin location.")
             if final_chatbot:
-                price = round_trip(data['origin_code'], data['dest_code'], data['arrive_date_str'],
+                price, url = round_trip(data['origin_code'], data['dest_code'], data['arrive_date_str'],
                                    data['arrive_time_str'], data['leave_date_str'], data['leave_time_str'],
                                    data['leave_arrive'], data['leave_arrive'])
                 if price is None:
@@ -110,17 +115,19 @@ def missing_info_response():
                 else:
                     price = format_float(float(price))
                     printout.append("The price for this journey is £" + price + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
         if data['chosen_dest_str'] is not None and data['arrive_date_str'] is not None and data['arrive_time_str'] is not None and data['leave_date_str'] is not None and data['leave_time_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " at " + data['arrive_time_str'] + " with a round ticket.")
             printout.append("You want to return on " + data['leave_date_str'] + " at " + data['leave_time_str'] + ".")
             if final_chatbot:
-                price = round_trip(data['origin_code'], data['dest_code'], data['arrive_date_str'], data['arrive_time_str'], data['leave_date_str'], data['leave_time_str'], data['leave_arrive'], data['leave_arrive'])
+                price, url = round_trip(data['origin_code'], data['dest_code'], data['arrive_date_str'], data['arrive_time_str'], data['leave_date_str'], data['leave_time_str'], data['leave_arrive'], data['leave_arrive'])
                 if price is None:
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
                     printout.append("The price for this journey is £" + price + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
         if data['chosen_dest_str'] is None:
             printout.append("Please Choose a Destination.")
@@ -139,26 +146,29 @@ def missing_info_response():
             printout.append("You want to return on " + data['leave_date_str'] + ".")
             printout.append("You have not provided a Origin, Default is Norwich, if you want to change this simply type 'from' and then the origin location.")
             if final_chatbot:
-                price = open_return(data['origin_code'], data['dest_code'], data['arrive_date_str'], data['leave_date_str'], data['leave_arrive'], data['leave_arrive'])
+                price, url = open_return(data['origin_code'], data['dest_code'], data['arrive_date_str'], data['leave_date_str'], data['leave_arrive'], data['leave_arrive'])
                 if price is None:
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
                     printout.append("The price for this journey is £" + price + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
 
         if data['chosen_dest_str'] is not None and data['arrive_date_str'] is not None and data['leave_date_str'] is not None and data['chosen_origin_str'] != "Norwich":
             printout.append("You want to travel from " + data['chosen_origin_str'] + " to " + data['chosen_dest_str'] + " on " + data['arrive_date_str'] + " with an open return ticket.")
             printout.append("You want to return on " + data['leave_date_str'] + ".")
             if final_chatbot:
-                price = open_return(data['origin_code'], data['dest_code'], data['arrive_date_str'],
+                price, url = open_return(data['origin_code'], data['dest_code'], data['arrive_date_str'],
                                     data['leave_date_str'], data['leave_arrive'], data['leave_arrive'])
                 if price is None:
                     printout.append("Sorry, I could not find a ticket for this journey.")
                 else:
                     price = format_float(float(price))
                     printout.append("The price for this journey is £" + price + " .")
+                printout.append(url)
                 printout.append("If you don't have any other questions you can type bye.")
+
         if data['chosen_dest_str'] is None:
             printout.append("Please Choose a Destination.")
         if data['arrive_date_str'] is None:

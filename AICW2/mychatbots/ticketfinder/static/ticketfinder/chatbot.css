@@ -130,10 +130,11 @@ body {
 
 .station-button {
     display: block;
-    width: 75%; 
+    width: 100%;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    background-color: #5b98d5; 
+    /*padding-right: 4rem;*/
+    background-color: #5b98d5;
     border: 1px solid #dee2e6;
     text-align: left;
     border-radius: 0.5rem;
