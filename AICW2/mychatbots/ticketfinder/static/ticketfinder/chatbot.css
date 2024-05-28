@@ -161,7 +161,7 @@ body {
     background-color: #007bff;
     border-color: #007bff;
     margin: 5px;
-    display: block; /* Make buttons block to occupy full width */
+    display: block; 
 }
 
 .btn.ticket-button:hover {
@@ -171,7 +171,7 @@ body {
 
 #chat-box .bot button {
     padding: 0.375rem 0.75rem;
-    margin-right: 0; /* Adjust margin for alignment */
+    margin-right: 0; 
     border-radius: 0.25rem;
     text-align: center;
 }
