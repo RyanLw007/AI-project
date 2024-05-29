@@ -39,6 +39,10 @@ def scrape_prices(url):
 
     driver = webdriver.Chrome(options=chrome_options)
 
+    print(driver.capabilities['browserVersion'])
+    print(driver.capabilities['chrome']['chromedriverVersion'])
+    driver = webdriver.Chrome(options=chrome_options)
+
     # print(driver.capabilities['browserVersion'])
     # print(driver.capabilities['chrome']['chromedriverVersion'])
     driver.get(url)

@@ -201,7 +201,7 @@ def check_intention_by_keyword(sentence):
 
                 printout.append("" + random.choice(intentions[type_of_intention]["responses"]))
                 if type_of_intention == 'book':
-                    printout.append("(for a one way train ticket type 'one way',\n for a round trip ticket type 'round trip')")
+                    printout.append("(for a one way train ticket type 'one way',\n for a round trip ticket type 'round trip',\n for an open ticket type 'open ticket',\n for an open return ticket type 'open return')\n")
                     printout.append("note, if you would like to start over, just type 'reset' and I will start selection again.")
                 if type_of_intention == 'predict':
                     printout.append("Can you please provide your current station, your destination and the current delay you are experiencing\n"
