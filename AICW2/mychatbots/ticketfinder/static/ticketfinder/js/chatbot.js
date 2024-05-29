@@ -154,7 +154,7 @@ $(document).ready(function() {
         var indexOrType = $(this).data('index') || $(this).data('ticket-type');
         sendMessage(indexOrType);
     });
-    // This code allows the user to send a message by pressing enter or by clicking send
+
     $("#send").click(function() { sendMessage(); });
     $("#user-input").keypress(function(event) {
         if (event.keyCode === 13) {
