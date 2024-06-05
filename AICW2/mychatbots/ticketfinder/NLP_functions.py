@@ -1,5 +1,9 @@
 from .config import (past_inputs, data_path, reset_path,
                      intentions_path, sentences_path, stations_path, pred_data_path, pred_reset_path,pred_stations_path)
+# The import above is used to import the paths from the config file, this is used to make the code more modular and easier to maintain
+
+
+# These are static paths that are used to load the data from the files, this was used for testing purposes
 
 # past_inputs = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\past_inputs.csv"
 # data_path = r"C:\Users\ryanl\Documents\Artificial Intelligence\AI project\AI-project\NLP\data\data.json"
@@ -21,6 +25,8 @@ import warnings
 import re
 warnings.filterwarnings('ignore')
 
+# This is used to download the spacy model, this is used to process the text data
+#spacy.cli.download("en_core_web_sm")
 nlp = spacy.load("en_core_web_sm")
 
 labels = []
@@ -31,16 +37,19 @@ purify_pred_json()
 
 
 
-# this has not been put into a seperate file as implementation would be more complex
+# this has not been put into a seperate file as implementation would be more complex than would be necessary
 weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'today', 'tomorrow', 'week']
 verbs = ['going', 'visit', 'travel', 'go', 'choose', 'get', 'goes']
 loc_types = ['GPE', 'ORG', 'LOC', 'NORP', 'PERSON']
 
+# Opening JSON file and return JSON object as a dictionary
 data = json.loads(open(data_path).read())
 pd_data = json.loads(open(pred_data_path).read())
 
 printout = []
 
+
+# this function is used to update the data and pd_data dictionaries
 def update():
     global data
     global pd_data
@@ -55,6 +64,8 @@ with open(intentions_path) as f:
 
 final_chatbot = True
 
+# this function is used to print out the messages that are stored in the printout list, this was used for testing purposes
+# this function is not used in the Web GUI
 def print_out():
     global printout
     for message in printout:
@@ -66,6 +77,7 @@ def may_check(phrase):
     if "may" in lower:
         return True
 
+# this function is used to clean the date, this is done by removing the determiners from the date as they are not needed
 def clean_date(date):
     date = nlp(date)
     out = ""
@@ -76,6 +88,7 @@ def clean_date(date):
             out += token.text + " "
     return out.rstrip()
 
+# this function is used to clean the time, this is done by converting the time to an ordinal number
 def clean_ord(ord):
     if "st" in ord:
         ord = ord.replace("st", "")
@@ -90,6 +103,10 @@ def clean_ord(ord):
         ord = ord.replace("th", "")
         return ord
 
+# this function is used to convert the 'date' provided by the user to a standard format
+# this can also be used if the user provides a day of the week, tomorrow, today, or a week
+
+# it then returns the date in the format YYYY-MM-DD, this makes it much less ambiguous
 def date_conversion(date):
     if date.lower() in weekdays:
 
@@ -137,6 +154,9 @@ def date_conversion(date):
         else:
             return date
 
+# this function is used to convert the 'time' provided by the user to a standard format
+# this can also be used if the user provides a time of day, such as morning, afternoon, evening, midnight, or noon
+# it then returns the time in the format HH:MM, this makes it much less ambiguous
 def time_conversion(time):
 
     time = time.replace(" ", "")
@@ -159,6 +179,10 @@ def time_conversion(time):
     if "am" in str(time).lower() or "pm" in str(time).lower():
         return datetime.strptime(time, "%I%p").strftime("%H:%M")
 
+
+# this function is used to convert the delay provided by the user to a standard format
+# this can also be used if the user provides a delay in hours and minutes
+# it then returns the delay in minutes, this makes it much less ambiguous
 def pred_time_conversion(time):
 
     split = time.split()
@@ -187,10 +211,7 @@ def pred_time_conversion(time):
             if match:
                 return (int(match.group()) * 60)
 
-
-
-
-
+# this function is used to check the intention of the user based on the keywords stored in the intentions.json file
 def check_intention_by_keyword(sentence):
     global final_chatbot
 
@@ -214,12 +235,17 @@ def check_intention_by_keyword(sentence):
     printout.insert(0, False)
     return data['chosen_intention']
 
+# this function is the same as the check_intention_by_keyword function, however, it does not return the response
+
 def check_intention_by_keyword_nr(sentence):
     for word in sentence.split():
         for type_of_intention in intentions:
             if word.lower() in intentions[type_of_intention]["patterns"]:
                 return type_of_intention
     return None
+
+# this function is used to clean the text, this is done by removing the stop words and punctuation from the text
+# this is done in some cases as the stop words and punctuation are not needed
 def lemmatize_and_clean(text):
     doc = nlp(text.lower())
     out = ""
@@ -228,6 +254,9 @@ def lemmatize_and_clean(text):
             out = out + token.lemma_ + " "
     return out.strip()
 
+
+# The following chunk of code is taken from our lab assignment,
+# this gives the chatbot the ability to give the user the current time and date when asked
 time_sentences = ''
 date_sentences = ''
 with open(sentences_path) as file:

@@ -13,12 +13,17 @@ pdf['combined'] = pdf['name'] + ' ' + pdf['longname.name_alias']
 
 multiple_loc = False
 
+# The stations.csv file contains another column which we have labelled as 'Bad' which contains the extended name of the station
+# This function is used to convert the tiploc code to the extended name of the station, as the extended name is used for the prediction model
 def tiploc_to_extended_name(tiploc):
     result = pdf.loc[pdf['tiploc'] == tiploc, 'Bad']
     if not result.empty:
         return result.iloc[0]
     return None
 
+# This function is used to give a response to the user if the user has not provided all the necessary information for the prediction
+# The user is asked to provide the missing information in order to make a prediction.
+# If the user has provided all the necessary information, the prediction is made and the user is given the prediction
 def pred_missing_info_response():
     global final_chatbot
     global printout
@@ -48,6 +53,7 @@ def pred_missing_info_response():
     if pd_data['delay'] is None:
         printout.append("Please tell me the delay you are experiencing.")
 
+# This function is used to find the top 2 stations that are similar to the station that the user has entered
 def pred_similar_stations(target):
     global pdf
     station_names = [(name,idx) for idx, name in enumerate(pdf['combined'])]
@@ -57,6 +63,7 @@ def pred_similar_stations(target):
                 'index': i+1, 'original index': match[0][1]} for i, match in enumerate(top_matches)]
     return results
 
+# This function is used to return the top 2 stations that are similar to the station that the user has entered
 def pred_station_selector(target_station):
     pd_data['pred_station_selector'] = True
     with open(pred_data_path, 'w') as file:
@@ -75,7 +82,7 @@ def pred_station_selector(target_station):
     with open(pred_data_path, 'w') as file:
         json.dump(pd_data, file, indent=4)
 
-
+# This function is used to convert the input response from the user to the station that the user has selected
 def pred_selected_station(selected_station):
     pd_data['pred_station_selector'] = False
     with open(pred_data_path, 'w') as file:
@@ -92,6 +99,7 @@ def pred_selected_station(selected_station):
     return station_name, station_tiploc
 
 
+# This is essentially the main function that is used to predict the delay of a train journey
 def pred_ner_response(user_input):
 
 
@@ -102,6 +110,8 @@ def pred_ner_response(user_input):
     chosen_cur_stat = []
     global printout
 
+    # First we check if the user has entered any entities and then we check if the entities are of the correct type
+    # and then we store the entities in the correct variables
     if any(doc.ents):
         for ent in doc.ents:
             ent_index = ent.start
@@ -113,6 +123,14 @@ def pred_ner_response(user_input):
                     chosen_dest.append(ent.text)
             if ent.label_ == "TIME":
                 chosen_time.append(ent.text)
+
+        # If the user has entered a location, we raise a flag to indicate that the user has entered a location
+        # and then find the top 2 stations that are similar to the station that the user has entered
+        # We then ask the user to select the station that they want to choose
+        # after the user has selected the station, we convert the input response from the user to the station that the user has selected
+        # We then store the station that the user has selected in the correct variable
+
+        # Then we continue the process for the original user input and check if the user has entered a time or destination
 
         if chosen_cur_stat != [] and pd_data['flag_loc'] < 1:
             pd_data['flag_loc'] = 1
@@ -160,6 +178,8 @@ def pred_ner_response(user_input):
     printout.insert(0, False)
     return
 
+# This function is used to respond to the user if the user has entered all the necessary information for the prediction, this is different from the pred_missing_info_response function
+# as this function is used to respond to the user if the user has already entered all the necessary information for the prediction
     
 def pred_ticket_response():
     global final_chatbot

@@ -1,5 +1,7 @@
 import json
 
+# Reset the data.json and pred_data.json files to their default values
+
 with open('reset.json', 'r') as reset:
     default = json.load(reset)
 

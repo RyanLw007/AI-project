@@ -5,6 +5,8 @@ from sklearn.utils import shuffle
 from sklearn.linear_model import Ridge
 import os
 
+# This script is used to clean the data from the historic train data files
+
 year = ("2022")
 
 #load dataset

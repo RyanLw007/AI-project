@@ -3,6 +3,7 @@ from .journey_new import *
 import pandas as pd
 from fuzzywuzzy import process
 
+# Load the spaCy model
 nlp = spacy.load("en_core_web_sm")
 
 return_phrases = ['coming back', 'returning', 'return', 'departing', 'leaving', 'leave']
@@ -10,6 +11,7 @@ return_phrases = ['coming back', 'returning', 'return', 'departing', 'leaving', 
 df = pd.read_csv(stations_path)
 df['combined'] = df['name'] + ' ' + df['longname.name_alias']
 
+# this function is used to format the price to 2 decimal places
 def format_float(value):
     return "{:.2f}".format(value)
 
@@ -17,6 +19,10 @@ def format_float(value):
 
 multiple_loc = False
 
+# similar to the missing_info_response function in NLP_Predict this function is used to check if the user has given all the necessary information to the chatbot
+# if the user has not given all the necessary information the chatbot will prompt the user to give the missing information
+# if the user has given all the necessary information the chatbot will return the ticket price and a url to the user
+# the chatbot will also prompt the user to ask any other questions or to end the conversation
 def missing_info_response():
     global final_chatbot
     global printout
@@ -178,6 +184,9 @@ def missing_info_response():
         if data['leave_date_str'] is None:
             printout.append("Please Choose a Date to return.")
 
+
+# this function is used to enter the selected information into the data dictionary
+# this is done as a separate function to make the main function more readable
 def selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
 
     global printout
@@ -231,6 +240,8 @@ def selection(chosen_time, chosen_origin, chosen_dest, chosen_date):
     if data['ticket_type'] is not None:
         printout.append("" + "You want to travel with a " + data['ticket_type'] + " ticket.")
 
+# this function is used to check if the user has entered a ticket type in their input
+# if the user has entered a ticket type the function will enter the ticket type into the data dictionary
 def check_ticket(user_input , loc):
     user_input = user_input.lower()
     ticket_list = ['one way', 'round', 'open ticket', 'open return']
@@ -246,6 +257,7 @@ def check_ticket(user_input , loc):
     if loc == 1:
         return None
 
+# this function is used to find the top 5 stations that are similar to the target station
 def find_similar_stations(target):
     global df
     station_names = [(name,idx) for idx, name in enumerate(df['combined'])]
@@ -255,6 +267,7 @@ def find_similar_stations(target):
                 'index': i+1, 'original index': match[0][1]} for i, match in enumerate(top_matches)]
     return results
 
+# this function is used to return the most similar station to the station the user has entered
 def station_selector(target_station):
     data['station_selector'] = True
     with open(data_path, 'w') as file:
@@ -274,7 +287,8 @@ def station_selector(target_station):
         json.dump(data, file, indent=4)
     printout.append("Enter the index of the station you want to select:")
 
-
+# this function is used to select the station the user has chosen from the list of similar stations
+# the function will then store the station name and tiploc in the data dictionary
 def selected_station(selected_station):
     data['station_selector'] = False
     with open(data_path, 'w') as file:
@@ -290,8 +304,11 @@ def selected_station(selected_station):
 
     return station_name, station_tiploc
 
-
+# This is the main function that is called when the user enters a sentence into the chatbot
+# this function will process the user input and determine what the user is asking for
 def ner_response(user_input):
+
+    # this is used to remove the word 'of' from the user input as it is not needed and can cause issues with the NER
 
     user_input = user_input.replace(" of", "")
 
@@ -355,6 +372,13 @@ def ner_response(user_input):
                         if ent.label_ in loc_types:
                             chosen_dest.append(ent.text)
 
+                # If the user has entered a location, we raise a flag to indicate that the user has entered a location
+                # and then find the top 2 stations that are similar to the station that the user has entered
+                # We then ask the user to select the station that they want to choose
+                # after the user has selected the station, we convert the input response from the user to the station that the user has selected
+                # We then store the station that the user has selected in the correct variable
+
+                # Then we continue the process for the original user input and check if the user has entered a time or destination
                 if chosen_origin != [] and data['flag_loc'] < 1:
                     data['flag_loc'] = 1
                     data['chosen_origin_str'] = " ".join(chosen_origin)
@@ -386,6 +410,9 @@ def ner_response(user_input):
                         json.dump(data, file, indent=4)
                     printout.append("" + "You want to go to " + data['chosen_dest_str'] + ".")
 
+
+                # Return phrases located in the text indicate where the return date and time is located in the user input
+                # We process each segment of the user input to find the date and time of the return journey and store it in the data dictionary
 
                 go_date = []
                 go_time = []
@@ -420,6 +447,8 @@ def ner_response(user_input):
                     if back_ent.label_ == "TIME":
                         back_time.append(back_ent.text)
 
+                # If the time provided is in the format HH:MM we need to locate it in the text and convert it to a string
+                # SpaCy cannot recognise this format as a time entity so we need to locate it manually
                 time_pattern = r"\b\d{2}:\d{2}\b"
 
                 if go_time == []:
@@ -492,10 +521,12 @@ def ner_response(user_input):
                 missing_info_response()
                 printout.insert(0, True)
                 return
-                
+
+    # IF the user has not asked for a return ticket we assume they are asking for a one way ticket, we then process the user input to find the date, time, origin and destination
+    # if no origin is given we default to Norwich
     else:
         for token in doc:
-            if token.pos_ == "VERB":
+            if token.pos_ == "VERB": # this checks the user input for a spcific verb as this is a good indicator that they are providing a several pieces of information
                 choose = False
                 if token.text.lower() in verbs:
                     choose = True
@@ -542,6 +573,9 @@ def ner_response(user_input):
                             missing_info_response()
                             printout.insert(0, True)
                             return
+
+        # If the user has not entered a verb in their sentence we assume they are asking for a one way ticket and we process the user input to find the date, time, origin and destination
+        # we assume that the entities are related to booking train tickets because the chatbot is designed to book train tickets
                         
         for ent in doc.ents:
             if ent.label_ == "DATE":
@@ -643,7 +677,9 @@ def ner_response(user_input):
                     
     printout.insert(0, False)
     return
-    
+
+    # if the user has provided a ticket type we process the user input to find the date, time, origin and destination and respond with the information the user has provided
+    # This function is a little redundant as the missing info response function serves the same purpose but it is kept here as it was too risky to remove it this late in the project
 def ticket_response(ticket):
     global final_chatbot
     global printout
@@ -706,6 +742,7 @@ def ticket_response(ticket):
         if data['leave_date_str'] == None:
             printout.append("You have not chosen a date to leave. please choose a date.")
 
+# this function is used to check if the user has entered a ticket type in their input if so the function will respond with the information the user has provided
 def expert_response(user_input):
     global printout
     ticket = check_ticket(user_input, 1)
@@ -717,6 +754,8 @@ def expert_response(user_input):
     printout.insert(0,False)
     return
 
+# This function was used for testing purposese to respond with the information the user has provided when exiting the chatbot
+# we do not use this function in the final chatbot as it is not needed
 def goodbye_response():
     global printout
 

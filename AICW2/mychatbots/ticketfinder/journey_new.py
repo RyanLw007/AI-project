@@ -5,15 +5,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# This file is used to scrape the National Rail website for train ticket prices for a given journey
+
 # Install chromedriver
 chromedriver_autoinstaller.install()
 
+# Function to add a random sleep time between 0.3 and 0.5 seconds this is to prevent the website from blocking the bot
 def random_sleep():
     import random
     import time
     time.sleep(random.uniform(0.3,0.5))
 
 
+# Function to build the URL for the journey
 def build_url(journey_type, origin, dest, lor, date, time=None, return_date=None, return_time=None, return_lor=None, adults=1, extra_time=0):
     base_url = "https://www.nationalrail.co.uk/journey-planner/"
     url = f"{base_url}?type={journey_type}&origin={origin}&destination={dest}&leavingType={lor}&leavingDate={date}"
@@ -23,6 +27,7 @@ def build_url(journey_type, origin, dest, lor, date, time=None, return_date=None
         url += f"&returnType={return_lor}&returnDate={return_date}&returnHour={return_time[:2]}&returnMin={return_time[2:]}"
     return url + f"&adults={adults}&extraTime={extra_time}#O"
 
+# Function to scrape the prices from the website using the URL built
 def scrape_prices(url):
     chrome_options = Options()
     chrome_options.add_argument('--headless')
@@ -51,13 +56,13 @@ def scrape_prices(url):
     prices = []
     try:
         wait = WebDriverWait(driver, 7)
-        wait.until(EC.visibility_of_element_located((By.ID, "main-content")))
+        wait.until(EC.visibility_of_element_located((By.ID, "main-content"))) # Wait for the main content to load
         random_sleep()
 
-        buttons = driver.find_elements(By.XPATH, "//button[contains(@id, 'result-card-selection-outward-')]")
+        buttons = driver.find_elements(By.XPATH, "//button[contains(@id, 'result-card-selection-outward-')]") # Find all the buttons that contain the prices
         for button in buttons:
             try:
-                price_span = button.find_element(By.XPATH, ".//span[@class='styled__StyledCalculatedFare-sc-1gozmfn-2 goNENa']")
+                price_span = button.find_element(By.XPATH, ".//span[@class='styled__StyledCalculatedFare-sc-1gozmfn-2 goNENa']") # Find the span that contains the price and strip the £ sign
                 price = price_span.text.strip('£')
                 prices.append(float(price))
                 random_sleep()
@@ -71,19 +76,20 @@ def scrape_prices(url):
     finally:
         driver.quit()
 
-def find_lowest_price(prices):
+def find_lowest_price(prices): # Function to find the lowest price from the list of prices scraped
     return min(prices) if prices else None
 
-def format_date_url(date):
+def format_date_url(date): # Function to format the date for the URL
     year, month, day = date.split("-")
     return day + month + year[2:]
 
-def format_time_url(time):
+def format_time_url(time):  # Function to format the time for the URL
     return time.replace(":", "")
 
-def lor_formatting(lor):
+def lor_formatting(lor): # Function to format the leaving or returning string for the URL
     return "departing" if lor == "leave" else "arriving"
 
+# Functions for each ticket type, open ticket, open return were not used in the final version of the chatbot as the prices were not accurate
 def one_way(origin, dest, date, time, lor, adults=1, extra_time=0):
     url = build_url("single", origin, dest, lor_formatting(lor), format_date_url(date), format_time_url(time), adults=adults, extra_time=extra_time)
     prices = scrape_prices(url)
@@ -107,6 +113,10 @@ def round_trip(origin, dest, leave_date, leave_time, return_date, return_time, l
 
 # Example usage
 if __name__ == "__main__":
+
+    # Test harness for the functions to get the prices of the tickets for the different journey types
+
+
     # print("One way journey price:", one_way("NRW", "LST", "2024-06-06", "12:15", "leave", 1, 0))
     # print("Open ticket journey price:", open_ticket("NRW", "LST", "2024-06-06", "leave", 1, 0))
     # print("Open return journey price:", open_return("NRW", "LST", "2024-06-06", "2024-06-10", "leave", "leave", 1, 0))

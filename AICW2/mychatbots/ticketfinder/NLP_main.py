@@ -5,6 +5,12 @@ import csv
 import json
 
 
+# This is the main file for the NLP chatbot. It is responsible for the main logic.
+# It uses the functions from the other files to get the responses relevant to the user input.
+# It also uses the LLM to get responses for inputs that the chatbot does not understand.
+
+
+# This function is used for the LLM. It sends the user input to the LLM and returns the response.
 llama_url = "http://localhost:11434/api/chat"
 
 def llama3_response(user_input):
@@ -27,7 +33,7 @@ def llama3_response(user_input):
     return (response.json()['message']['content'])
 
 
-
+# This is the main function for the chatbot. It takes the user input and returns the chatbot response.
 def main(input):
     global final_chatbot
     global printout
@@ -40,12 +46,14 @@ def main(input):
 
     user_input = input
 
+
+    # This is used to store past user inputs.
     with open(past_inputs, 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([user_input])
 
 
-
+    # This is used to check if the user input is "reset". If it is, the chatbot will reset the selection.
     if user_input == "reset":
         with open(reset_path, 'r') as reset:
             default = json.load(reset)
@@ -61,10 +69,13 @@ def main(input):
         printout.append("I have reset the selection. start by telling me your ticket type. or type 'predict' to predict a train.")
         return printout
 
+    # This is used to check the intention of the user input. It determines what the user wants to do.
     data['chosen_intention'] = check_intention_by_keyword(user_input)
     with open(data_path, 'w') as file:
         json.dump(data, file, indent=4)
 
+
+    # This is used to branch the path of the chatbot based on the previous user input.
     if data['station_selector']:
         if data['selected'] == None:
             data['selected'] = user_input
@@ -112,13 +123,13 @@ def main(input):
                 with open(past_inputs, 'r') as past:
                     user_input = past.readlines()[-2]
 
-
+    # This is used to remove any new line characters from the user input.
     user_input = user_input.replace('\n', '').replace('\r', '')
 
 
     printout.pop(0)
 
-
+    # If the intention is "goodbye", the chatbot will say goodbye and reset the selection.
     if data['chosen_intention'] == 'goodbye':
         goodbye_response()
 
@@ -137,6 +148,9 @@ def main(input):
 
         return printout
 
+
+    # This is used to branch the path of the chatbot based on the intention of the user input.
+    # Depending on the intention, the chatbot will call the relevant functions to get the response.
     if data['chosen_intention'] == 'book':
         ner_response(user_input)
         if printout[0]:
@@ -257,6 +271,7 @@ def main(input):
                         printout.append(f"{llama3_response(user_input)}")
                         return printout
 
+    # If the intention is not "goodbye", "book", "greeting" or "predict", the chatbot will assume the user wants to book a train ticket.
     if data['chosen_intention'] != 'goodbye' and data['chosen_intention'] != 'book' and data['chosen_intention'] != None and data['chosen_intention'] != 'greeting' and data['chosen_intention'] != 'predict':
         date_time_response(user_input)
         if printout[0]:
@@ -284,6 +299,9 @@ def main(input):
                         return printout
 
 if __name__ == "__main__":
+
+    # This is used to test the chatbot. The user input is hardcoded and the chatbot response is printed.
+    # It is done in this way for reproducibility.
 
     # output = main("hello")
     # print(output)
