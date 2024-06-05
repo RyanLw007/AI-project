@@ -26,7 +26,7 @@ def pred_missing_info_response():
     if pd_data['chosen_dest_str'] is not None and pd_data['current_station'] is not None and pd_data['delay'] is not None:
         pd_data['date_str'] = date_conversion("today")
         pd_data['time_str'] = time_conversion("now")
-        printout.append("You want to predict for a train journey that you are currently on, at the moment you are at " + pd_data['current_station'] + " and you are experiencing a delay of " + str(pd_data['delay']) + ".")
+        printout.append("You want to predict for a train journey that you are currently on, at the moment you are at " + pd_data['current_station'] + " and you are experiencing a delay of " + str(pd_data['delay']) + " minutes.")
         if final_chatbot:
             curr_stat = tiploc_to_extended_name(pd_data['current_code'])
             dest_stat = tiploc_to_extended_name(pd_data['dest_code'])
